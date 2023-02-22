@@ -8,7 +8,7 @@ public class GameClient extends ClientBase {
     public static final String ID = "game";
 
     public GameClient(String namespace) {
-        super(namespace);
+        super(namespace, 50);
     }
 
     public static void main(String[] args) {
@@ -18,21 +18,23 @@ public class GameClient extends ClientBase {
 
     @Override
     public void init() {
-        Log.info("Game Client Started");
+        super.init();
+        setRenderer(new GameRenderer());
+        getRenderer().init();
     }
 
     @Override
     public void destroy() {
-        Log.info("Game Client Stopped");
     }
 
     @Override
     public void update() {
-        Log.info("Game Client Updated");
+        super.update();
+        getRenderer().update();
     }
 
     @Override
     public void tick() {
-        Log.info("Game Client Ticked");
+        Log.info("ticked");
     }
 }

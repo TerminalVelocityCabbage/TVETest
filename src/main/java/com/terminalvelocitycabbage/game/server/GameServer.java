@@ -8,7 +8,7 @@ public class GameServer extends ServerBase {
     public static final String ID = "game";
 
     public GameServer(String namespace) {
-        super(namespace);
+        super(namespace, 50);
     }
 
     public static void main(String[] args) {
