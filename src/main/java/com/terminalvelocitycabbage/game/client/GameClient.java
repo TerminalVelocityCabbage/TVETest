@@ -1,7 +1,9 @@
 package com.terminalvelocitycabbage.game.client;
 
 import com.terminalvelocitycabbage.engine.client.ClientBase;
-import com.terminalvelocitycabbage.engine.debug.Log;
+import com.terminalvelocitycabbage.game.common.StopServerPacket;
+
+import static org.lwjgl.glfw.GLFW.*;
 
 public class GameClient extends ClientBase {
 
@@ -21,10 +23,14 @@ public class GameClient extends ClientBase {
         super.init();
         setRenderer(new GameRenderer());
         getRenderer().init();
+
+        connect("127.0.0.1", 4132);
     }
 
     @Override
     public void destroy() {
+        //Close the client connection
+        disconnect();
     }
 
     @Override
@@ -35,6 +41,13 @@ public class GameClient extends ClientBase {
 
     @Override
     public void tick() {
-        Log.info("ticked");
+        //Log.info("ticked");
     }
+
+    @Override
+    public void keyCallback(long window, int key, int scancode, int action, int mods) {
+        if (key == GLFW_KEY_ESCAPE && action == GLFW_RELEASE) glfwSetWindowShouldClose(window, true);
+        if (key == GLFW_KEY_S && action == GLFW_RELEASE) sendPacket(new StopServerPacket(), StopServerPacket.class);
+    }
+
 }
