@@ -2,3 +2,7 @@ rootProject.name = 'TVETest'
 
 include("TerminalVelocityEngine2")
 
+include 'Client'
+include 'Server'
+include 'Common'
+
