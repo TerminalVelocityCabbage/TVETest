@@ -9,12 +9,12 @@ public class GameClient extends ClientBase {
 
     public static final String ID = "game";
 
-    public GameClient(String namespace) {
-        super(namespace, 50);
+    public GameClient() {
+        super(ID, 50);
     }
 
     public static void main(String[] args) {
-        GameClient client = new GameClient(ID);
+        GameClient client = new GameClient();
         client.start();
     }
 

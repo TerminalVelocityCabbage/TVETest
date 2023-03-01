@@ -37,7 +37,7 @@ repositories {
 }
 
 dependencies {
-    implementation project('TerminalVelocityEngine2')
+    implementation project(':TerminalVelocityEngine2')
 
     implementation platform("org.lwjgl:lwjgl-bom:$lwjglVersion")
 

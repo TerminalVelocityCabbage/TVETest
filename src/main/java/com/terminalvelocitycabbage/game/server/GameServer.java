@@ -10,13 +10,13 @@ public class GameServer extends ServerBase {
 
     public static final String ID = "game";
 
-    public GameServer(String namespace) {
-        super(namespace, 50);
+    public GameServer() {
+        super(ID, 50);
         ServerBase.getInstance().subscribe(this);
     }
 
     public static void main(String[] args) {
-        GameServer server = new GameServer(ID);
+        GameServer server = new GameServer();
         server.start();
     }
 
