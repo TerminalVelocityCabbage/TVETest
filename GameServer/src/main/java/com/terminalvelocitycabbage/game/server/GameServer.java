@@ -14,8 +14,6 @@ public class GameServer extends ServerBase {
     public GameServer() {
         super(ID, 50);
         ServerBase.getInstance().subscribe(this);
-        ModLoader.getModEntrypoints();
-        Log.info("got mod entrypoints");
     }
 
     public static void main(String[] args) {

@@ -1,7 +1,6 @@
 package com.terminalvelocitycabbage.game.client;
 
 import com.terminalvelocitycabbage.engine.client.ClientBase;
-import com.terminalvelocitycabbage.engine.mod.ModLoader;
 import com.terminalvelocitycabbage.game.common.StopServerPacket;
 
 import static org.lwjgl.glfw.GLFW.*;
@@ -12,7 +11,6 @@ public class GameClient extends ClientBase {
 
     public GameClient() {
         super(ID, 50);
-        ModLoader.getModEntrypoints();
     }
 
     public static void main(String[] args) {
@@ -31,6 +29,7 @@ public class GameClient extends ClientBase {
 
     @Override
     public void destroy() {
+        super.destroy();
         //Close the client connection
         disconnect();
     }
