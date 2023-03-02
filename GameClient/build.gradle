@@ -4,10 +4,16 @@ plugins {
     id 'application'
 }
 
+application {
+    mainClass.set("com.terminalvelocitycabbage.game.client.GameClient")
+    executableDir = file("run").absolutePath
+}
+
 apply from: file('../TerminalVelocityEngine2/gradleScripts/repositories.gradle')
 apply from: file('../TerminalVelocityEngine2/gradleScripts/dependenciesCommon.gradle')
+apply from: file('../TerminalVelocityEngine2/gradleScripts/dependenciesClient.gradle')
 
 dependencies {
     implementation project(':TerminalVelocityEngine2')
-    implementation project(':Common')
+    implementation project(':GameCommon')
 }

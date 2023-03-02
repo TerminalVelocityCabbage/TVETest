@@ -1,12 +1,18 @@
 plugins {
     id 'java'
+    id 'com.github.johnrengelman.shadow' version '7.1.2'
+    id 'application'
+}
+
+application {
+    mainClass.set("com.terminalvelocitycabbage.game.server.GameServer")
+    executableDir = file("run").absolutePath
 }
 
 apply from: file('../TerminalVelocityEngine2/gradleScripts/repositories.gradle')
 apply from: file('../TerminalVelocityEngine2/gradleScripts/dependenciesCommon.gradle')
-apply from: file('../TerminalVelocityEngine2/gradleScripts/dependenciesClient.gradle')
 
 dependencies {
     implementation project(':TerminalVelocityEngine2')
-    implementation project(':Common')
+    implementation project(':GameCommon')
 }
