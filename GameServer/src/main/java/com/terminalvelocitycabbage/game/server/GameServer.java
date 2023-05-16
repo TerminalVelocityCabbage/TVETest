@@ -47,6 +47,8 @@ public class GameServer extends ServerBase {
         //Register Packets
         getPacketRegistry().registerPacket(StopServerPacket.class);
 
+        modInit();
+
         //Configure connection
         setAddress("127.0.0.1");
         setPort(4132);

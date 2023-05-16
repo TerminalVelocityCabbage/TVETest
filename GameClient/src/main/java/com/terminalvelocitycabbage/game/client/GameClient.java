@@ -54,11 +54,12 @@ public class GameClient extends ClientBase {
         getRenderer().init();
 
         getFileSystem().init();
-
-        //TODO this will not always be needed
-        testFileSystemRegistryStuff();
+        modInit();
 
         connect("127.0.0.1", 4132);
+
+        //Test
+        testFileSystemRegistryStuff();
     }
 
     public void testFileSystemRegistryStuff() {
@@ -67,11 +68,11 @@ public class GameClient extends ClientBase {
         //getFileSystem().listResources();
 
         //Test reading the string that is the config file
-        Resource resource = getFileSystem().getResource(ResourceType.DEFAULT_CONFIG, new Identifier(ID, "test.toml"));
+        Resource resource = ClientBase.getInstance().getFileSystem().getResource(ResourceType.DEFAULT_CONFIG, new Identifier("game", "test.toml"));
         Log.info(resource.asString());
 
         //Test reading the string that is the mod config file
-        Resource modResource = getFileSystem().getResource(ResourceType.DEFAULT_CONFIG, new Identifier("testmod", "testmod.toml"));
+        Resource modResource = ClientBase.getInstance().getFileSystem().getResource(ResourceType.DEFAULT_CONFIG, new Identifier("testmod", "testmod.toml"));
         Log.info(modResource.asString());
     }
 
