@@ -1,6 +1,12 @@
 package com.terminalvelocitycabbage.game.client;
 
 import com.terminalvelocitycabbage.engine.client.ClientBase;
+import com.terminalvelocitycabbage.engine.debug.Log;
+import com.terminalvelocitycabbage.engine.filesystem.ResourceSource;
+import com.terminalvelocitycabbage.engine.filesystem.ResourceType;
+import com.terminalvelocitycabbage.engine.filesystem.resources.Resource;
+import com.terminalvelocitycabbage.engine.filesystem.sources.MainSource;
+import com.terminalvelocitycabbage.engine.registry.Identifier;
 import com.terminalvelocitycabbage.game.common.StopServerPacket;
 
 import static org.lwjgl.glfw.GLFW.*;
@@ -19,12 +25,54 @@ public class GameClient extends ClientBase {
     }
 
     @Override
+    public void preInit() {
+        super.preInit();
+
+        //Register and init filesystem things
+        //Create resource sources for this client
+        ResourceSource clientSource = new MainSource(ID, this);
+        Identifier sourceIdentifier = identifierOf("client_main_resource_source");
+        //Define roots for these resources
+        clientSource.registerDefaultSourceRoot(ResourceType.MODEL);
+        clientSource.registerDefaultSourceRoot(ResourceType.TEXTURE);
+        clientSource.registerDefaultSourceRoot(ResourceType.ANIMATION);
+        clientSource.registerDefaultSourceRoot(ResourceType.SHADER);
+        clientSource.registerDefaultSourceRoot(ResourceType.SOUND);
+        clientSource.registerDefaultSourceRoot(ResourceType.FONT);
+        clientSource.registerDefaultSourceRoot(ResourceType.DEFAULT_CONFIG);
+        //register this source to the filesystem
+        getFileSystem().registerResourceSource(sourceIdentifier, clientSource);
+
+        //Register resources
+        getFileSystem().registerResource(sourceIdentifier, ResourceType.DEFAULT_CONFIG, "test.toml");
+    }
+
+    @Override
     public void init() {
         super.init();
         setRenderer(new GameRenderer());
         getRenderer().init();
 
+        getFileSystem().init();
+
+        //TODO this will not always be needed
+        testFileSystemRegistryStuff();
+
         connect("127.0.0.1", 4132);
+    }
+
+    public void testFileSystemRegistryStuff() {
+
+        //List resources which are registered
+        //getFileSystem().listResources();
+
+        //Test reading the string that is the config file
+        Resource resource = getFileSystem().getResource(ResourceType.DEFAULT_CONFIG, new Identifier(ID, "test.toml"));
+        Log.info(resource.asString());
+
+        //Test reading the string that is the mod config file
+        Resource modResource = getFileSystem().getResource(ResourceType.DEFAULT_CONFIG, new Identifier("testmod", "testmod.toml"));
+        Log.info(modResource.asString());
     }
 
     @Override

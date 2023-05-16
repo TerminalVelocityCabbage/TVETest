@@ -2,7 +2,10 @@ package com.terminalvelocitycabbage.game.server;
 
 import com.terminalvelocitycabbage.engine.debug.Log;
 import com.terminalvelocitycabbage.engine.event.HandleEvent;
-import com.terminalvelocitycabbage.engine.mod.ModLoader;
+import com.terminalvelocitycabbage.engine.filesystem.sources.MainSource;
+import com.terminalvelocitycabbage.engine.filesystem.ResourceSource;
+import com.terminalvelocitycabbage.engine.filesystem.ResourceType;
+import com.terminalvelocitycabbage.engine.registry.Identifier;
 import com.terminalvelocitycabbage.engine.server.ServerBase;
 import com.terminalvelocitycabbage.game.common.StopServerPacket;
 import com.terminalvelocitycabbage.templates.events.ServerLifecycleEvent;
@@ -19,6 +22,20 @@ public class GameServer extends ServerBase {
     public static void main(String[] args) {
         GameServer server = new GameServer();
         server.start();
+    }
+
+    @Override
+    public void preInit() {
+        super.preInit();
+
+        //Register and init filesystem things
+        //Create resource sources for this client
+        ResourceSource clientSource = new MainSource(ID, this);
+        Identifier sourceIdentifier = identifierOf("server_main_resource_source");
+        //Define roots for these resources
+        clientSource.registerDefaultSourceRoot(ResourceType.DEFAULT_CONFIG);
+        //register this source to the filesystem
+        getFileSystem().registerResourceSource(sourceIdentifier, clientSource);
     }
 
     @Override
