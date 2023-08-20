@@ -6,6 +6,8 @@ import com.electronwill.nightconfig.core.file.FileConfig;
 import com.electronwill.nightconfig.core.io.ConfigWriter;
 import com.electronwill.nightconfig.toml.TomlFormat;
 import com.terminalvelocitycabbage.engine.client.ClientBase;
+import com.terminalvelocitycabbage.engine.client.Window;
+import com.terminalvelocitycabbage.engine.client.renderer.RendererBase;
 import com.terminalvelocitycabbage.engine.config.TVConfig;
 import com.terminalvelocitycabbage.engine.debug.Log;
 import com.terminalvelocitycabbage.engine.filesystem.resources.Resource;
@@ -51,13 +53,23 @@ public class GameClient extends ClientBase {
 
         //Register resources
         getFileSystem().registerResource(sourceIdentifier, ResourceType.DEFAULT_CONFIG, "test.toml");
+
+        //Register windows and renderers
+        Identifier defaultWindowIdentifier = identifierOf("default");
+        Identifier secondWindowIdentifier = identifierOf("second");
+        Identifier gameRendererIdentifier = identifierOf("game");
+        Window defaultWindow = getWindowRegistry().register(defaultWindowIdentifier, new Window());
+        Window secondWindow = getWindowRegistry().register(secondWindowIdentifier, new Window());
+        getRendererRegistry().register(gameRendererIdentifier, new GameRenderer());
+        defaultWindow.setActiveRenderer(gameRendererIdentifier);
+        secondWindow.setActiveRenderer(gameRendererIdentifier);
     }
 
     @Override
     public void init() {
         super.init();
-        setRenderer(new GameRenderer());
-        getRenderer().init();
+        activateWindow(identifierOf("default"));
+        activateWindow(identifierOf("second"));
 
         getFileSystem().init();
         modInit();
@@ -106,7 +118,6 @@ public class GameClient extends ClientBase {
     @Override
     public void update() {
         super.update();
-        getRenderer().update();
     }
 
     @Override
