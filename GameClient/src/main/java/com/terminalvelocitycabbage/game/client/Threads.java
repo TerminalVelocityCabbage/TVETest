@@ -1,6 +1,5 @@
 package com.terminalvelocitycabbage.game.client;
 
-import com.terminalvelocitycabbage.engine.client.Window;
 import org.lwjgl.glfw.*;
 import org.lwjgl.opengl.*;
 import org.lwjgl.system.*;
@@ -8,7 +7,6 @@ import org.lwjgl.system.*;
 import java.nio.*;
 import java.util.*;
 import java.util.concurrent.*;
-import java.util.concurrent.atomic.AtomicBoolean;
 
 import static org.lwjgl.glfw.Callbacks.*;
 import static org.lwjgl.glfw.GLFW.*;
@@ -16,16 +14,7 @@ import static org.lwjgl.opengl.GL11C.*;
 import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-/**
- * GLFW demo that showcases rendering to multiple windows from multiple threads. Ported from the GLFW
- * <a href="https://github.com/glfw/glfw/blob/master/tests/threads.c">threads</a> test.
- *
- * @author Brian Matzon <brian@matzon.dk>
- */
 public final class Threads {
-
-    private Threads() {
-    }
 
     private static final float[][] rgb    = {
             {1f, 0f, 0f, 0},
@@ -40,24 +29,20 @@ public final class Threads {
 
         windowManager.createNewWindow("initial window");
 
-        windowManager.start();
+        windowManager.loop();
+
+        windowManager.destroy();
     }
 
     public static class WindowManager {
-        private final List<String> titles = new ArrayList<>();
 
         int scaleX;
 
-        List<GLFWThread> threads = new ArrayList<>();
+        Map<Long, GLFWThread> threads = new HashMap<>();
 
-        CountDownLatch quit = new CountDownLatch(1);
+        Map<Long, CountDownLatch> exitList = new HashMap<>();
 
         public WindowManager() { }
-
-        private void start() {
-            loop();
-            destroy();
-        }
 
         public void init() {
             GLFWErrorCallback.createPrint().set();
@@ -85,9 +70,9 @@ public final class Threads {
             while (true) {
                 glfwWaitEvents();
 
-                for (int i = 0; i < titles.size(); i++) {
-                    if (glfwWindowShouldClose(threads.get(i).window)) {
-                        quit.countDown();
+                for (long window: threads.keySet()) {
+                    if (glfwWindowShouldClose(window)) {
+                        exitList.get(window).countDown();
                         break out;
                     }
                 }
@@ -95,17 +80,20 @@ public final class Threads {
         }
 
         private void destroy() {
-            for (int i = 0; i < threads.size(); i++) {
-                try {
-                    threads.get(i).join();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
 
-            for (int i = 0; i < threads.size(); i++) {
-                destroyWindow(threads.get(i).window);
-            }
+            threads.forEach((window, glfwThread) -> {
+                glfwThread.quit.countDown();
+            });
+
+            List<Boolean> threadStates;
+            int numAlive;
+            do {
+                numAlive = 0;
+                threadStates = threads.values().stream().map(Thread::isAlive).toList();
+                for (int i = 0; i < threadStates.size(); i++) {
+                    if (threadStates.get(i)) numAlive++;
+                }
+            } while (numAlive != 0);
 
             glfwTerminate();
             Objects.requireNonNull(glfwSetErrorCallback(null)).free();
@@ -117,6 +105,9 @@ public final class Threads {
                 throw new IllegalStateException("Failed to create GLFW window.");
             }
 
+            exitList.put(window, new CountDownLatch(1));
+            threads.put(window, new GLFWThread(window, threads.size() % 3, exitList.get(window), this));
+
             glfwSetKeyCallback(window, (windowHnd, key, scancode, action, mods) -> {
                 if (key == GLFW_KEY_ESCAPE && action == GLFW_RELEASE) {
                     glfwSetWindowShouldClose(windowHnd, true);
@@ -125,11 +116,10 @@ public final class Threads {
                     createNewWindow("Window created from " + title);
                 }
             });
-            glfwSetWindowPos(window, 200 + titles.size() * (200 * scaleX + 50), 200);
+            glfwSetWindowPos(window, (200 * scaleX + 50), 200);
             glfwShowWindow(window);
 
-            threads.add(new GLFWThread(window, threads.size() % 3, quit));
-            threads.get(threads.size() - 1).start();
+            threads.get(window).start();
         }
 
         private void destroyWindow(long window) {
@@ -146,8 +136,9 @@ public final class Threads {
         final float r, g, b;
 
         CountDownLatch quit;
+        WindowManager manager;
 
-        GLFWThread(long window, int index, CountDownLatch quit) {
+        GLFWThread(long window, int index, CountDownLatch quit, WindowManager windowManager) {
             this.window = window;
 
             this.index = index;
@@ -156,9 +147,10 @@ public final class Threads {
             this.g = rgb[index][1];
             this.b = rgb[index][2];
 
-            System.out.println("GLFWThread: window:" + window + ", rgb: (" + r + ", " + g + ", " + b + ")");
+            System.out.println("Created GLFWThread: window:" + window + ", rgb: (" + r + ", " + g + ", " + b + ")");
 
             this.quit = quit;
+            this.manager = windowManager;
         }
 
         @Override
@@ -174,6 +166,10 @@ public final class Threads {
                 glClear(GL_COLOR_BUFFER_BIT);
                 glfwSwapBuffers(window);
             }
+
+            System.out.println("Made it to the end of life of a window");
+            manager.destroyWindow(window);
+            System.out.println("destroyed window " + window);
             GL.setCapabilities(null);
         }
     }
