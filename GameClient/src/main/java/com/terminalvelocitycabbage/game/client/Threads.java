@@ -16,12 +16,6 @@ import static org.lwjgl.system.MemoryUtil.*;
 
 public final class Threads {
 
-    private static final float[][] rgb = {
-            {1f, 0f, 0f, 0},
-            {0f, 1f, 0f, 0},
-            {0f, 0f, 1f, 0}
-    };
-
     public static void main(String[] args) {
         WindowManager windowManager = new WindowManager();
 
@@ -35,6 +29,8 @@ public final class Threads {
     }
 
     public static class WindowManager {
+
+        List<Long> windowsToDestroy = Collections.synchronizedList(new ArrayList<>());
 
         int scaleX;
 
@@ -74,6 +70,14 @@ public final class Threads {
 
         private void loop() {
             while (true) {
+
+                windowsToDestroy.forEach(window -> {
+                    System.out.println("Made it to the end of life of a window");
+                    destroyWindow(window);
+                    System.out.println("destroyed window " + window);
+                });
+                windowsToDestroy.clear();
+
                 glfwWaitEvents();
 
                 if (!hasAliveWindow()) break;
@@ -144,22 +148,13 @@ public final class Threads {
 
         final long window;
 
-        final int   index;
-        final float r, g, b;
-
         CountDownLatch quit;
         WindowManager manager;
 
         GLFWThread(long window, int index, CountDownLatch quit, WindowManager windowManager) {
             this.window = window;
 
-            this.index = index;
-
-            this.r = rgb[index][0];
-            this.g = rgb[index][1];
-            this.b = rgb[index][2];
-
-            System.out.println("Created GLFWThread: window:" + window + ", rgb: (" + r + ", " + g + ", " + b + ")");
+            System.out.println("Created GLFWThread: window:" + window);
 
             this.quit = quit;
             this.manager = windowManager;
@@ -173,16 +168,17 @@ public final class Threads {
             glfwSwapInterval(1);
 
             while (quit.getCount() != 0) {
-                float v = (float)Math.abs(Math.sin(glfwGetTime() * 2f));
-                glClearColor(r * v, g * v, b * v, 0f);
+                float r = (float)Math.abs(Math.sin(glfwGetTime() * 2f + 15));
+                float g = (float)Math.abs(Math.sin(glfwGetTime() * 2f + 12345));
+                float b = (float)Math.abs(Math.sin(glfwGetTime() * 2f));
+                glClearColor(r, g, b, 0f);
                 glClear(GL_COLOR_BUFFER_BIT);
                 glfwSwapBuffers(window);
             }
 
-            //TODO call this destroy window from the main thread with a scheduler or something instead of from within itself
-            System.out.println("Made it to the end of life of a window");
-            manager.destroyWindow(window);
-            System.out.println("destroyed window " + window);
+            //queue this window for destruction
+            manager.windowsToDestroy.add(window);
+
             GL.setCapabilities(null);
         }
     }
