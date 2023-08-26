@@ -16,7 +16,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 
 public final class Threads {
 
-    private static final float[][] rgb    = {
+    private static final float[][] rgb = {
             {1f, 0f, 0f, 0},
             {0f, 1f, 0f, 0},
             {0f, 0f, 1f, 0}
@@ -44,6 +44,13 @@ public final class Threads {
 
         public WindowManager() { }
 
+        private boolean hasAliveWindow() {
+            for (CountDownLatch countDownLatch : exitList.values()) {
+                if (countDownLatch.getCount() > 0) return true;
+            }
+            return false;
+        }
+
         public void init() {
             GLFWErrorCallback.createPrint().set();
             if (!glfwInit()) {
@@ -66,14 +73,14 @@ public final class Threads {
         }
 
         private void loop() {
-            out:
             while (true) {
                 glfwWaitEvents();
+
+                if (!hasAliveWindow()) break;
 
                 for (long window: threads.keySet()) {
                     if (glfwWindowShouldClose(window)) {
                         exitList.get(window).countDown();
-                        break out;
                     }
                 }
             }
@@ -125,6 +132,11 @@ public final class Threads {
         private void destroyWindow(long window) {
             glfwFreeCallbacks(window);
             glfwDestroyWindow(window);
+            //Prevent an IllegalStateException on last destroyed window
+            if (threads.size() > 1 && exitList.size() > 1) {
+                threads.remove(window);
+                exitList.remove(window);
+            }
         }
     }
 
@@ -167,6 +179,7 @@ public final class Threads {
                 glfwSwapBuffers(window);
             }
 
+            //TODO call this destroy window from the main thread with a scheduler or something instead of from within itself
             System.out.println("Made it to the end of life of a window");
             manager.destroyWindow(window);
             System.out.println("destroyed window " + window);
