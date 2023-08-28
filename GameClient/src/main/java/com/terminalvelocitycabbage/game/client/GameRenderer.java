@@ -1,11 +1,8 @@
 package com.terminalvelocitycabbage.game.client;
 
-import com.terminalvelocitycabbage.engine.client.ClientBase;
-import com.terminalvelocitycabbage.engine.client.Window;
 import com.terminalvelocitycabbage.engine.client.renderer.RendererBase;
+import com.terminalvelocitycabbage.engine.client.window.WindowProperties;
 import org.lwjgl.opengl.GL11;
-
-import java.util.Set;
 
 public class GameRenderer extends RendererBase {
 
@@ -18,11 +15,12 @@ public class GameRenderer extends RendererBase {
 
     //Temporary sample code
     @Override
-    public void update(Window window) {
+    public void update(WindowProperties window) {
 
         int width = window.getWidth();
         int height = window.getHeight();
 
+        GL11.glClearColor(0, 0, 0.5f, 1);
         GL11.glClear(GL11.GL_COLOR_BUFFER_BIT);
         GL11.glViewport(0, 0, width, height);
 
