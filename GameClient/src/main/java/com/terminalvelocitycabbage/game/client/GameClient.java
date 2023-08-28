@@ -53,7 +53,7 @@ public class GameClient extends ClientBase {
         //Register resources
         getFileSystem().registerResource(sourceIdentifier, ResourceType.DEFAULT_CONFIG, "test.toml");
 
-        //Register windows and renderers
+        //Register renderers
         Identifier gameRendererIdentifier = identifierOf("game");
         getRendererRegistry().register(gameRendererIdentifier, new GameRenderer());
     }
@@ -62,6 +62,7 @@ public class GameClient extends ClientBase {
     public void init() {
         super.init();
 
+        //Create windows based on some initial properties
         WindowProperties defaultWindow = new WindowProperties(600, 400, "initial window", identifierOf("game"));
         WindowProperties secondWindow = new WindowProperties(600, 400, "second window", identifierOf("game"));
         getWindowManager().createNewWindow(defaultWindow);
