@@ -66,8 +66,6 @@ public class GameClient extends ClientBase {
         WindowProperties secondWindow = new WindowProperties(600, 400, "second window", identifierOf("game"));
         getWindowManager().createNewWindow(defaultWindow);
         getWindowManager().createNewWindow(secondWindow);
-        activateWindow(identifierOf("default"));
-        activateWindow(identifierOf("second"));
 
         getFileSystem().init();
         modInit();
