@@ -6,6 +6,7 @@ import com.electronwill.nightconfig.core.file.FileConfig;
 import com.electronwill.nightconfig.core.io.ConfigWriter;
 import com.electronwill.nightconfig.toml.TomlFormat;
 import com.terminalvelocitycabbage.engine.client.ClientBase;
+import com.terminalvelocitycabbage.engine.client.renderer.RendererBase;
 import com.terminalvelocitycabbage.engine.client.window.WindowProperties;
 import com.terminalvelocitycabbage.engine.config.TVConfig;
 import com.terminalvelocitycabbage.engine.debug.Log;
@@ -63,8 +64,9 @@ public class GameClient extends ClientBase {
         super.init();
 
         //Create windows based on some initial properties
-        WindowProperties defaultWindow = new WindowProperties(600, 400, "initial window", identifierOf("game"));
-        WindowProperties secondWindow = new WindowProperties(600, 400, "second window", identifierOf("game"));
+        RendererBase renderer = getRendererRegistry().get(identifierOf("game"));
+        WindowProperties defaultWindow = new WindowProperties(600, 400, "initial window", renderer);
+        WindowProperties secondWindow = new WindowProperties(600, 400, "second window", renderer);
         getWindowManager().createNewWindow(defaultWindow);
         getWindowManager().createNewWindow(secondWindow);
 
