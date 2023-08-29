@@ -6,6 +6,8 @@ import com.electronwill.nightconfig.core.file.FileConfig;
 import com.electronwill.nightconfig.core.io.ConfigWriter;
 import com.electronwill.nightconfig.toml.TomlFormat;
 import com.terminalvelocitycabbage.engine.client.ClientBase;
+import com.terminalvelocitycabbage.engine.client.renderer.RendererBase;
+import com.terminalvelocitycabbage.engine.client.window.WindowProperties;
 import com.terminalvelocitycabbage.engine.config.TVConfig;
 import com.terminalvelocitycabbage.engine.debug.Log;
 import com.terminalvelocitycabbage.engine.filesystem.resources.Resource;
@@ -51,13 +53,22 @@ public class GameClient extends ClientBase {
 
         //Register resources
         getFileSystem().registerResource(sourceIdentifier, ResourceType.DEFAULT_CONFIG, "test.toml");
+
+        //Register renderers
+        Identifier gameRendererIdentifier = identifierOf("game");
+        getRendererRegistry().register(gameRendererIdentifier, new GameRenderer());
     }
 
     @Override
     public void init() {
         super.init();
-        setRenderer(new GameRenderer());
-        getRenderer().init();
+
+        //Create windows based on some initial properties
+        RendererBase renderer = getRendererRegistry().get(identifierOf("game"));
+        WindowProperties defaultWindow = new WindowProperties(600, 400, "initial window", renderer);
+        WindowProperties secondWindow = new WindowProperties(600, 400, "second window", renderer);
+        getWindowManager().createNewWindow(defaultWindow);
+        getWindowManager().createNewWindow(secondWindow);
 
         getFileSystem().init();
         modInit();
@@ -106,7 +117,6 @@ public class GameClient extends ClientBase {
     @Override
     public void update() {
         super.update();
-        getRenderer().update();
     }
 
     @Override
@@ -118,6 +128,10 @@ public class GameClient extends ClientBase {
     public void keyCallback(long window, int key, int scancode, int action, int mods) {
         if (key == GLFW_KEY_ESCAPE && action == GLFW_RELEASE) glfwSetWindowShouldClose(window, true);
         if (key == GLFW_KEY_S && action == GLFW_RELEASE) sendPacket(new StopServerPacket(), StopServerPacket.class);
+        if (key == GLFW_KEY_1 && action == GLFW_RELEASE) {
+            var properties = getWindowManager().getPropertiesFromWindow(window);
+            ClientBase.getInstance().getWindowManager().createNewWindow(new WindowProperties(properties).setTitle("Window created from " + properties.getTitle()));
+        }
     }
 
 }
