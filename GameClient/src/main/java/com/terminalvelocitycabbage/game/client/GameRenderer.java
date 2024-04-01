@@ -9,7 +9,7 @@ public class GameRenderer extends RendererBase {
     long lastTime = System.nanoTime();
 
     @Override
-    public void init() {
+    public void init(WindowProperties properties, long windowHandle) {
 
     }
 
@@ -41,6 +41,11 @@ public class GameRenderer extends RendererBase {
         GL11.glVertex2f(+0.5f, +0.5f);
         GL11.glVertex2f(-0.5f, +0.5f);
         GL11.glEnd();
+    }
+
+    @Override
+    public void destroy() {
+
     }
 
 }

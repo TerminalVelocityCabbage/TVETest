@@ -56,7 +56,7 @@ public class GameClient extends ClientBase {
 
         //Register renderers
         Identifier gameRendererIdentifier = identifierOf("game");
-        getRendererRegistry().register(gameRendererIdentifier, new GameRenderer());
+        getRendererRegistry().register(gameRendererIdentifier, GameRenderer.class);
     }
 
     @Override
@@ -64,9 +64,8 @@ public class GameClient extends ClientBase {
         super.init();
 
         //Create windows based on some initial properties
-        RendererBase renderer = getRendererRegistry().get(identifierOf("game"));
-        WindowProperties defaultWindow = new WindowProperties(600, 400, "initial window", renderer);
-        WindowProperties secondWindow = new WindowProperties(600, 400, "second window", renderer);
+        WindowProperties defaultWindow = new WindowProperties(600, 400, "initial window", identifierOf("game"));
+        WindowProperties secondWindow = new WindowProperties(600, 400, "second window", identifierOf("game"));
         getWindowManager().createNewWindow(defaultWindow);
         getWindowManager().createNewWindow(secondWindow);
 
