@@ -75,8 +75,8 @@ public class GameClient extends ClientBase {
         connect("127.0.0.1", 4132);
 
         //Test
-        testFileSystemRegistryStuff();
-        testNightConfig();
+        //testFileSystemRegistryStuff();
+        //testNightConfig();
     }
 
     //Test that this game has access to both itself and mods on its filesystem
