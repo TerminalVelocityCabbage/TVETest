@@ -65,6 +65,7 @@ public class GameServer extends ServerBase {
 
     @Override
     public void tick() {
+        super.tick();
         //Log.info("Game Server Ticked");
     }
 

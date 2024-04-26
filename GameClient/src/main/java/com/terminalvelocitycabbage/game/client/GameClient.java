@@ -105,12 +105,11 @@ public class GameClient extends ClientBase {
     @Override
     public void update() {
         super.update();
-        //TODO create a fixed update for client logic loop here.
     }
 
     @Override
     public void tick() {
-        //Log.info("ticked");
+        super.tick();
     }
 
     @Override
