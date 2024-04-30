@@ -1,7 +1,6 @@
 package com.terminalvelocitycabbage.game.server;
 
 import com.terminalvelocitycabbage.engine.debug.Log;
-import com.terminalvelocitycabbage.engine.event.HandleEvent;
 import com.terminalvelocitycabbage.engine.filesystem.sources.MainSource;
 import com.terminalvelocitycabbage.engine.filesystem.resources.ResourceSource;
 import com.terminalvelocitycabbage.engine.filesystem.resources.ResourceType;
@@ -16,7 +15,6 @@ public class GameServer extends ServerBase {
 
     public GameServer() {
         super(ID, 50);
-        ServerBase.getInstance().subscribe(this);
     }
 
     public static void main(String[] args) {
@@ -27,6 +25,9 @@ public class GameServer extends ServerBase {
     @Override
     public void preInit() {
         super.preInit();
+
+        //Subscribe to relevant Events
+        ServerBase.getInstance().getEventDispatcher().listenToEvent(ServerLifecycleEvent.PRE_BIND, (event -> onPreBind((ServerLifecycleEvent) event)));
 
         //Register and init filesystem things
         //Create resource sources for this client
@@ -69,7 +70,6 @@ public class GameServer extends ServerBase {
         //Log.info("Game Server Ticked");
     }
 
-    @HandleEvent(eventName = ServerLifecycleEvent.PRE_BIND)
     private void onPreBind(ServerLifecycleEvent event) {
         Log.info(event.getServer() + " is about be be bound!");
     }
