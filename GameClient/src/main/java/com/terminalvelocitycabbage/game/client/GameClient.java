@@ -7,6 +7,7 @@ import com.electronwill.nightconfig.core.io.ConfigWriter;
 import com.electronwill.nightconfig.toml.TomlFormat;
 import com.terminalvelocitycabbage.engine.client.ClientBase;
 import com.terminalvelocitycabbage.engine.client.input.control.*;
+import com.terminalvelocitycabbage.engine.client.input.controller.ControlGroup;
 import com.terminalvelocitycabbage.engine.client.input.types.GamepadInput;
 import com.terminalvelocitycabbage.engine.client.input.types.KeyboardInput;
 import com.terminalvelocitycabbage.engine.client.input.types.MouseButtonInput;
@@ -21,6 +22,7 @@ import com.terminalvelocitycabbage.engine.filesystem.sources.MainSource;
 import com.terminalvelocitycabbage.engine.registry.Identifier;
 import com.terminalvelocitycabbage.engine.util.touples.Pair;
 import com.terminalvelocitycabbage.game.client.inputcontrollers.CloseWindowController;
+import com.terminalvelocitycabbage.game.client.inputcontrollers.DirectionalController;
 import com.terminalvelocitycabbage.game.client.inputcontrollers.TestAxisController;
 import com.terminalvelocitycabbage.game.client.renderer.SpinningSquareRenderer;
 import com.terminalvelocitycabbage.game.client.renderer.node.OppositeSpinningSquareRenderNode;
@@ -79,10 +81,22 @@ public class GameClient extends ClientBase {
         Control startControl = getInputHandler().registerControlListener(new GamepadButtonControl(GamepadInput.Button.START));
         Control rightMouseButtonControl = getInputHandler().registerControlListener(new MouseButtonControl(MouseButtonInput.RIGHT_CLICK));
         Control rightTriggerControl = getInputHandler().registerControlListener(new GamepadAxisControl(GamepadInput.Axis.RIGHT_TRIGGER));
+        Control leftJoystickForwardControl = getInputHandler().registerControlListener(new GamepadAxisControl(GamepadInput.Axis.LEFT_JOYSTICK_UP));
+        Control leftJoystickBackwardsControl = getInputHandler().registerControlListener(new GamepadAxisControl(GamepadInput.Axis.LEFT_JOYSTICK_DOWN));
         Control leftJoystickLeftControl = getInputHandler().registerControlListener(new GamepadAxisControl(GamepadInput.Axis.LEFT_JOYSTICK_LEFT));
+        Control leftJoystickRightControl = getInputHandler().registerControlListener(new GamepadAxisControl(GamepadInput.Axis.LEFT_JOYSTICK_RIGHT));
+        Control wControl = getInputHandler().registerControlListener(new KeyboardKeyControl(KeyboardInput.W));
+        Control sControl = getInputHandler().registerControlListener(new KeyboardKeyControl(KeyboardInput.S));
+        Control aControl = getInputHandler().registerControlListener(new KeyboardKeyControl(KeyboardInput.A));
+        Control dControl = getInputHandler().registerControlListener(new KeyboardKeyControl(KeyboardInput.D));
         //Register Controllers
         getInputHandler().registerController(identifierOf("closeWindowOnEscapeController"), new CloseWindowController(escapeControl, startControl, rightMouseButtonControl));
-        getInputHandler().registerController(identifierOf("testFloatController"), new TestAxisController(rightTriggerControl, leftJoystickLeftControl));
+        getInputHandler().registerController(identifierOf("testFloatController"), new TestAxisController(leftJoystickLeftControl, rightTriggerControl));
+        getInputHandler().registerController(identifierOf("forwardBackwardController"), new DirectionalController(
+                new ControlGroup(leftJoystickForwardControl, wControl),
+                new ControlGroup(leftJoystickBackwardsControl, sControl),
+                new ControlGroup(leftJoystickLeftControl, aControl),
+                new ControlGroup(leftJoystickRightControl, dControl)));
 
         //Setup this Client's Routine
         //routine = Routine.builder()
