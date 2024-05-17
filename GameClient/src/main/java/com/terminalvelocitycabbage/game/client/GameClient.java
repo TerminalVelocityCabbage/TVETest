@@ -85,10 +85,14 @@ public class GameClient extends ClientBase {
         Control leftJoystickBackwardsControl = getInputHandler().registerControlListener(new GamepadAxisControl(GamepadInput.Axis.LEFT_JOYSTICK_DOWN));
         Control leftJoystickLeftControl = getInputHandler().registerControlListener(new GamepadAxisControl(GamepadInput.Axis.LEFT_JOYSTICK_LEFT));
         Control leftJoystickRightControl = getInputHandler().registerControlListener(new GamepadAxisControl(GamepadInput.Axis.LEFT_JOYSTICK_RIGHT));
+        Control gamepadAControl = getInputHandler().registerControlListener(new GamepadButtonControl(GamepadInput.Button.A));
+        Control leftTriggerControl = getInputHandler().registerControlListener(new GamepadAxisControl(GamepadInput.Axis.LEFT_TRIGGER));
         Control wControl = getInputHandler().registerControlListener(new KeyboardKeyControl(KeyboardInput.W));
         Control sControl = getInputHandler().registerControlListener(new KeyboardKeyControl(KeyboardInput.S));
         Control aControl = getInputHandler().registerControlListener(new KeyboardKeyControl(KeyboardInput.A));
         Control dControl = getInputHandler().registerControlListener(new KeyboardKeyControl(KeyboardInput.D));
+        Control spaceControl = getInputHandler().registerControlListener(new KeyboardKeyControl(KeyboardInput.SPACE));
+        Control lShiftControl = getInputHandler().registerControlListener(new KeyboardKeyControl(KeyboardInput.LEFT_SHIFT));
         //Register Controllers
         getInputHandler().registerController(identifierOf("closeWindowOnEscapeController"), new CloseWindowController(escapeControl, startControl, rightMouseButtonControl));
         getInputHandler().registerController(identifierOf("testFloatController"), new TestAxisController(leftJoystickLeftControl, rightTriggerControl));
@@ -96,7 +100,9 @@ public class GameClient extends ClientBase {
                 new ControlGroup(leftJoystickForwardControl, wControl),
                 new ControlGroup(leftJoystickBackwardsControl, sControl),
                 new ControlGroup(leftJoystickLeftControl, aControl),
-                new ControlGroup(leftJoystickRightControl, dControl)));
+                new ControlGroup(leftJoystickRightControl, dControl),
+                new ControlGroup(gamepadAControl, spaceControl),
+                new ControlGroup(leftTriggerControl, lShiftControl)));
 
         //Setup this Client's Routine
         //routine = Routine.builder()
