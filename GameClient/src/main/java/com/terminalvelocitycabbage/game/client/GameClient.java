@@ -10,7 +10,7 @@ import com.terminalvelocitycabbage.engine.client.input.control.*;
 import com.terminalvelocitycabbage.engine.client.input.controller.ControlGroup;
 import com.terminalvelocitycabbage.engine.client.input.types.GamepadInput;
 import com.terminalvelocitycabbage.engine.client.input.types.KeyboardInput;
-import com.terminalvelocitycabbage.engine.client.input.types.MouseButtonInput;
+import com.terminalvelocitycabbage.engine.client.input.types.MouseInput;
 import com.terminalvelocitycabbage.engine.client.renderer.graph.RenderGraph;
 import com.terminalvelocitycabbage.engine.client.window.WindowProperties;
 import com.terminalvelocitycabbage.engine.config.TVConfig;
@@ -23,7 +23,7 @@ import com.terminalvelocitycabbage.engine.registry.Identifier;
 import com.terminalvelocitycabbage.engine.util.touples.Pair;
 import com.terminalvelocitycabbage.game.client.inputcontrollers.CloseWindowController;
 import com.terminalvelocitycabbage.game.client.inputcontrollers.DirectionalController;
-import com.terminalvelocitycabbage.game.client.inputcontrollers.TestAxisController;
+import com.terminalvelocitycabbage.game.client.inputcontrollers.ScrollController;
 import com.terminalvelocitycabbage.game.client.renderer.SpinningSquareRenderer;
 import com.terminalvelocitycabbage.game.client.renderer.node.OppositeSpinningSquareRenderNode;
 import com.terminalvelocitycabbage.game.client.renderer.node.SpinningSquareRenderNode;
@@ -78,13 +78,14 @@ public class GameClient extends ClientBase {
         //Register Input Stuff
         //Register Controls to listen to
         Control escapeControl = getInputHandler().registerControlListener(new KeyboardKeyControl(KeyboardInput.ESCAPE));
-        Control startControl = getInputHandler().registerControlListener(new GamepadButtonControl(GamepadInput.Button.START));
-        Control rightMouseButtonControl = getInputHandler().registerControlListener(new MouseButtonControl(MouseButtonInput.RIGHT_CLICK));
-        Control rightTriggerControl = getInputHandler().registerControlListener(new GamepadAxisControl(GamepadInput.Axis.RIGHT_TRIGGER));
         Control leftJoystickForwardControl = getInputHandler().registerControlListener(new GamepadAxisControl(GamepadInput.Axis.LEFT_JOYSTICK_UP));
         Control leftJoystickBackwardsControl = getInputHandler().registerControlListener(new GamepadAxisControl(GamepadInput.Axis.LEFT_JOYSTICK_DOWN));
         Control leftJoystickLeftControl = getInputHandler().registerControlListener(new GamepadAxisControl(GamepadInput.Axis.LEFT_JOYSTICK_LEFT));
         Control leftJoystickRightControl = getInputHandler().registerControlListener(new GamepadAxisControl(GamepadInput.Axis.LEFT_JOYSTICK_RIGHT));
+        Control rightJoystickForwardControl = getInputHandler().registerControlListener(new GamepadAxisControl(GamepadInput.Axis.RIGHT_JOYSTICK_UP));
+        Control rightJoystickBackwardsControl = getInputHandler().registerControlListener(new GamepadAxisControl(GamepadInput.Axis.RIGHT_JOYSTICK_DOWN));
+        Control rightJoystickLeftControl = getInputHandler().registerControlListener(new GamepadAxisControl(GamepadInput.Axis.RIGHT_JOYSTICK_LEFT));
+        Control rightJoystickRightControl = getInputHandler().registerControlListener(new GamepadAxisControl(GamepadInput.Axis.RIGHT_JOYSTICK_RIGHT));
         Control gamepadAControl = getInputHandler().registerControlListener(new GamepadButtonControl(GamepadInput.Button.A));
         Control leftTriggerControl = getInputHandler().registerControlListener(new GamepadAxisControl(GamepadInput.Axis.LEFT_TRIGGER));
         Control wControl = getInputHandler().registerControlListener(new KeyboardKeyControl(KeyboardInput.W));
@@ -93,16 +94,33 @@ public class GameClient extends ClientBase {
         Control dControl = getInputHandler().registerControlListener(new KeyboardKeyControl(KeyboardInput.D));
         Control spaceControl = getInputHandler().registerControlListener(new KeyboardKeyControl(KeyboardInput.SPACE));
         Control lShiftControl = getInputHandler().registerControlListener(new KeyboardKeyControl(KeyboardInput.LEFT_SHIFT));
+        Control mouseUpControl = getInputHandler().registerControlListener(new MouseMovementControl(MouseInput.MovementAxis.UP));
+        Control mouseDownControl = getInputHandler().registerControlListener(new MouseMovementControl(MouseInput.MovementAxis.DOWN));
+        Control mouseLeftControl = getInputHandler().registerControlListener(new MouseMovementControl(MouseInput.MovementAxis.LEFT));
+        Control mouseRightControl = getInputHandler().registerControlListener(new MouseMovementControl(MouseInput.MovementAxis.RIGHT));
+        Control mouseScrollUpControl = getInputHandler().registerControlListener(new MouseScrollControl(MouseInput.ScrollDirection.UP));
+        Control mouseScrollDownControl = getInputHandler().registerControlListener(new MouseScrollControl(MouseInput.ScrollDirection.DOWN));
         //Register Controllers
-        getInputHandler().registerController(identifierOf("closeWindowOnEscapeController"), new CloseWindowController(escapeControl, startControl, rightMouseButtonControl));
-        getInputHandler().registerController(identifierOf("testFloatController"), new TestAxisController(leftJoystickLeftControl, rightTriggerControl));
-        getInputHandler().registerController(identifierOf("forwardBackwardController"), new DirectionalController(
+        getInputHandler().registerController(identifierOf("closeWindowOnEscapeController"), new CloseWindowController(escapeControl));
+        getInputHandler().registerController(identifierOf("movementController"), new DirectionalController(
                 new ControlGroup(leftJoystickForwardControl, wControl),
                 new ControlGroup(leftJoystickBackwardsControl, sControl),
                 new ControlGroup(leftJoystickLeftControl, aControl),
                 new ControlGroup(leftJoystickRightControl, dControl),
                 new ControlGroup(gamepadAControl, spaceControl),
-                new ControlGroup(leftTriggerControl, lShiftControl)));
+                new ControlGroup(leftTriggerControl, lShiftControl)
+        ));
+        //TODO re-enable once sensitivity settings are added so mouse/controller inputs are more similar
+//        getInputHandler().registerController(identifierOf("lookAroundController"), new LookAroundController(
+//                new ControlGroup(mouseUpControl, rightJoystickForwardControl),
+//                new ControlGroup(mouseDownControl, rightJoystickBackwardsControl),
+//                new ControlGroup(mouseLeftControl, rightJoystickLeftControl),
+//                new ControlGroup(mouseRightControl, rightJoystickRightControl)
+//        ));
+        getInputHandler().registerController(identifierOf("scrollController"), new ScrollController(
+                new ControlGroup(mouseScrollUpControl),
+                new ControlGroup(mouseScrollDownControl)
+        ));
 
         //Setup this Client's Routine
         //routine = Routine.builder()

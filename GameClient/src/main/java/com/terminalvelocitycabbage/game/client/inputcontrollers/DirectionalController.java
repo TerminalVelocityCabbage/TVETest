@@ -12,6 +12,7 @@ public class DirectionalController extends GroupedController6f {
 
     @Override
     public void act() {
+        if (getForwardAmount() < 0.1 && getBackwardAmount() < 0.1 && getLeftAmount() < 0.1 && getRightAmount() < 0.1 && getUpAmount() < 0.1 && getDownAmount() < 0.1) return;
         Log.info(getForwardAmount() + " " + getBackwardAmount() + " " + getLeftAmount() + " " + getRightAmount() + " " + getUpAmount() + " " + getDownAmount());
     }
 }
