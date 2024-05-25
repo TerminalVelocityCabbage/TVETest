@@ -23,6 +23,7 @@ import com.terminalvelocitycabbage.engine.registry.Identifier;
 import com.terminalvelocitycabbage.engine.util.touples.Pair;
 import com.terminalvelocitycabbage.game.client.inputcontrollers.CloseWindowController;
 import com.terminalvelocitycabbage.game.client.inputcontrollers.DirectionalController;
+import com.terminalvelocitycabbage.game.client.inputcontrollers.LookAroundController;
 import com.terminalvelocitycabbage.game.client.inputcontrollers.ScrollController;
 import com.terminalvelocitycabbage.game.client.renderer.SpinningSquareRenderer;
 import com.terminalvelocitycabbage.game.client.renderer.node.OppositeSpinningSquareRenderNode;
@@ -78,28 +79,28 @@ public class GameClient extends ClientBase {
         //Register Input Stuff
         //Register Controls to listen to
         Control escapeControl = getInputHandler().registerControlListener(new KeyboardKeyControl(KeyboardInput.ESCAPE));
-        Control leftJoystickForwardControl = getInputHandler().registerControlListener(new GamepadAxisControl(GamepadInput.Axis.LEFT_JOYSTICK_UP));
-        Control leftJoystickBackwardsControl = getInputHandler().registerControlListener(new GamepadAxisControl(GamepadInput.Axis.LEFT_JOYSTICK_DOWN));
-        Control leftJoystickLeftControl = getInputHandler().registerControlListener(new GamepadAxisControl(GamepadInput.Axis.LEFT_JOYSTICK_LEFT));
-        Control leftJoystickRightControl = getInputHandler().registerControlListener(new GamepadAxisControl(GamepadInput.Axis.LEFT_JOYSTICK_RIGHT));
-        Control rightJoystickForwardControl = getInputHandler().registerControlListener(new GamepadAxisControl(GamepadInput.Axis.RIGHT_JOYSTICK_UP));
-        Control rightJoystickBackwardsControl = getInputHandler().registerControlListener(new GamepadAxisControl(GamepadInput.Axis.RIGHT_JOYSTICK_DOWN));
-        Control rightJoystickLeftControl = getInputHandler().registerControlListener(new GamepadAxisControl(GamepadInput.Axis.RIGHT_JOYSTICK_LEFT));
-        Control rightJoystickRightControl = getInputHandler().registerControlListener(new GamepadAxisControl(GamepadInput.Axis.RIGHT_JOYSTICK_RIGHT));
+        Control leftJoystickForwardControl = getInputHandler().registerControlListener(new GamepadAxisControl(GamepadInput.Axis.LEFT_JOYSTICK_UP, 1f));
+        Control leftJoystickBackwardsControl = getInputHandler().registerControlListener(new GamepadAxisControl(GamepadInput.Axis.LEFT_JOYSTICK_DOWN, 1f));
+        Control leftJoystickLeftControl = getInputHandler().registerControlListener(new GamepadAxisControl(GamepadInput.Axis.LEFT_JOYSTICK_LEFT, 1f));
+        Control leftJoystickRightControl = getInputHandler().registerControlListener(new GamepadAxisControl(GamepadInput.Axis.LEFT_JOYSTICK_RIGHT, 1f));
+        Control rightJoystickForwardControl = getInputHandler().registerControlListener(new GamepadAxisControl(GamepadInput.Axis.RIGHT_JOYSTICK_UP, 1f));
+        Control rightJoystickBackwardsControl = getInputHandler().registerControlListener(new GamepadAxisControl(GamepadInput.Axis.RIGHT_JOYSTICK_DOWN, 1f));
+        Control rightJoystickLeftControl = getInputHandler().registerControlListener(new GamepadAxisControl(GamepadInput.Axis.RIGHT_JOYSTICK_LEFT, 1f));
+        Control rightJoystickRightControl = getInputHandler().registerControlListener(new GamepadAxisControl(GamepadInput.Axis.RIGHT_JOYSTICK_RIGHT, 1f));
         Control gamepadAControl = getInputHandler().registerControlListener(new GamepadButtonControl(GamepadInput.Button.A));
-        Control leftTriggerControl = getInputHandler().registerControlListener(new GamepadAxisControl(GamepadInput.Axis.LEFT_TRIGGER));
+        Control leftTriggerControl = getInputHandler().registerControlListener(new GamepadAxisControl(GamepadInput.Axis.LEFT_TRIGGER, 1f));
         Control wControl = getInputHandler().registerControlListener(new KeyboardKeyControl(KeyboardInput.W));
         Control sControl = getInputHandler().registerControlListener(new KeyboardKeyControl(KeyboardInput.S));
         Control aControl = getInputHandler().registerControlListener(new KeyboardKeyControl(KeyboardInput.A));
         Control dControl = getInputHandler().registerControlListener(new KeyboardKeyControl(KeyboardInput.D));
         Control spaceControl = getInputHandler().registerControlListener(new KeyboardKeyControl(KeyboardInput.SPACE));
         Control lShiftControl = getInputHandler().registerControlListener(new KeyboardKeyControl(KeyboardInput.LEFT_SHIFT));
-        Control mouseUpControl = getInputHandler().registerControlListener(new MouseMovementControl(MouseInput.MovementAxis.UP));
-        Control mouseDownControl = getInputHandler().registerControlListener(new MouseMovementControl(MouseInput.MovementAxis.DOWN));
-        Control mouseLeftControl = getInputHandler().registerControlListener(new MouseMovementControl(MouseInput.MovementAxis.LEFT));
-        Control mouseRightControl = getInputHandler().registerControlListener(new MouseMovementControl(MouseInput.MovementAxis.RIGHT));
-        Control mouseScrollUpControl = getInputHandler().registerControlListener(new MouseScrollControl(MouseInput.ScrollDirection.UP));
-        Control mouseScrollDownControl = getInputHandler().registerControlListener(new MouseScrollControl(MouseInput.ScrollDirection.DOWN));
+        Control mouseUpControl = getInputHandler().registerControlListener(new MouseMovementControl(MouseInput.MovementAxis.UP, 100f));
+        Control mouseDownControl = getInputHandler().registerControlListener(new MouseMovementControl(MouseInput.MovementAxis.DOWN, 100f));
+        Control mouseLeftControl = getInputHandler().registerControlListener(new MouseMovementControl(MouseInput.MovementAxis.LEFT, 100f));
+        Control mouseRightControl = getInputHandler().registerControlListener(new MouseMovementControl(MouseInput.MovementAxis.RIGHT, 100f));
+        Control mouseScrollUpControl = getInputHandler().registerControlListener(new MouseScrollControl(MouseInput.ScrollDirection.UP, 1f));
+        Control mouseScrollDownControl = getInputHandler().registerControlListener(new MouseScrollControl(MouseInput.ScrollDirection.DOWN, 1f));
         //Register Controllers
         getInputHandler().registerController(identifierOf("closeWindowOnEscapeController"), new CloseWindowController(escapeControl));
         getInputHandler().registerController(identifierOf("movementController"), new DirectionalController(
@@ -111,12 +112,12 @@ public class GameClient extends ClientBase {
                 new ControlGroup(leftTriggerControl, lShiftControl)
         ));
         //TODO re-enable once sensitivity settings are added so mouse/controller inputs are more similar
-//        getInputHandler().registerController(identifierOf("lookAroundController"), new LookAroundController(
-//                new ControlGroup(mouseUpControl, rightJoystickForwardControl),
-//                new ControlGroup(mouseDownControl, rightJoystickBackwardsControl),
-//                new ControlGroup(mouseLeftControl, rightJoystickLeftControl),
-//                new ControlGroup(mouseRightControl, rightJoystickRightControl)
-//        ));
+        getInputHandler().registerController(identifierOf("lookAroundController"), new LookAroundController(
+                new ControlGroup(mouseUpControl, rightJoystickForwardControl),
+                new ControlGroup(mouseDownControl, rightJoystickBackwardsControl),
+                new ControlGroup(mouseLeftControl, rightJoystickLeftControl),
+                new ControlGroup(mouseRightControl, rightJoystickRightControl)
+        ));
         getInputHandler().registerController(identifierOf("scrollController"), new ScrollController(
                 new ControlGroup(mouseScrollUpControl),
                 new ControlGroup(mouseScrollDownControl)
@@ -134,9 +135,9 @@ public class GameClient extends ClientBase {
 
         //Create windows based on some initial properties
         WindowProperties defaultWindow = new WindowProperties(600, 400, "initial window", identifierOf("game"));
-        //WindowProperties secondWindow = new WindowProperties(600, 400, "second window", identifierOf("game2"));
+        WindowProperties secondWindow = new WindowProperties(600, 400, "second window", identifierOf("game2"));
         long primaryWindow = getWindowManager().createNewWindow(defaultWindow);
-        //getWindowManager().createNewWindow(secondWindow);
+        getWindowManager().createNewWindow(secondWindow);
         getWindowManager().focusWindow(primaryWindow);
 
         getFileSystem().init();
