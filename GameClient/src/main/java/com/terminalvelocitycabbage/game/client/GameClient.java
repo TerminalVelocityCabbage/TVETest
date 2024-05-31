@@ -6,6 +6,11 @@ import com.electronwill.nightconfig.core.file.FileConfig;
 import com.electronwill.nightconfig.core.io.ConfigWriter;
 import com.electronwill.nightconfig.toml.TomlFormat;
 import com.terminalvelocitycabbage.engine.client.ClientBase;
+import com.terminalvelocitycabbage.engine.client.input.control.*;
+import com.terminalvelocitycabbage.engine.client.input.controller.ControlGroup;
+import com.terminalvelocitycabbage.engine.client.input.types.GamepadInput;
+import com.terminalvelocitycabbage.engine.client.input.types.KeyboardInput;
+import com.terminalvelocitycabbage.engine.client.input.types.MouseInput;
 import com.terminalvelocitycabbage.engine.client.renderer.graph.RenderGraph;
 import com.terminalvelocitycabbage.engine.client.window.WindowProperties;
 import com.terminalvelocitycabbage.engine.config.TVConfig;
@@ -16,12 +21,13 @@ import com.terminalvelocitycabbage.engine.filesystem.resources.ResourceType;
 import com.terminalvelocitycabbage.engine.filesystem.sources.MainSource;
 import com.terminalvelocitycabbage.engine.registry.Identifier;
 import com.terminalvelocitycabbage.engine.util.touples.Pair;
+import com.terminalvelocitycabbage.game.client.inputcontrollers.CloseWindowController;
+import com.terminalvelocitycabbage.game.client.inputcontrollers.DirectionalController;
+import com.terminalvelocitycabbage.game.client.inputcontrollers.LookAroundController;
+import com.terminalvelocitycabbage.game.client.inputcontrollers.ScrollController;
 import com.terminalvelocitycabbage.game.client.renderer.SpinningSquareRenderer;
 import com.terminalvelocitycabbage.game.client.renderer.node.OppositeSpinningSquareRenderNode;
 import com.terminalvelocitycabbage.game.client.renderer.node.SpinningSquareRenderNode;
-import com.terminalvelocitycabbage.game.common.StopServerPacket;
-
-import static org.lwjgl.glfw.GLFW.*;
 
 public class GameClient extends ClientBase {
 
@@ -58,6 +64,7 @@ public class GameClient extends ClientBase {
         //Register resources
         getFileSystem().registerResource(sourceIdentifier, ResourceType.DEFAULT_CONFIG, "test.toml");
 
+        //Build Render Graphs
         RenderGraph spinningSquareRenderGraph = RenderGraph.builder()
                 .addNode(identifierOf("spinningSquare"), SpinningSquareRenderNode.class)
                 .build();
@@ -68,6 +75,52 @@ public class GameClient extends ClientBase {
         //Register renderers
         getRendererRegistry().register(identifierOf("game"), new Pair<>(SpinningSquareRenderer.class, spinningSquareRenderGraph));
         getRendererRegistry().register(identifierOf("game2"), new Pair<>(SpinningSquareRenderer.class, oppositeSpinningSquareRenderGraph));
+
+        //Register Input Stuff
+        //Register Controls to listen to
+        Control escapeControl = getInputHandler().registerControlListener(new KeyboardKeyControl(KeyboardInput.Key.ESCAPE));
+        Control leftJoystickForwardControl = getInputHandler().registerControlListener(new GamepadAxisControl(GamepadInput.Axis.LEFT_JOYSTICK_UP, 1f));
+        Control leftJoystickBackwardsControl = getInputHandler().registerControlListener(new GamepadAxisControl(GamepadInput.Axis.LEFT_JOYSTICK_DOWN, 1f));
+        Control leftJoystickLeftControl = getInputHandler().registerControlListener(new GamepadAxisControl(GamepadInput.Axis.LEFT_JOYSTICK_LEFT, 1f));
+        Control leftJoystickRightControl = getInputHandler().registerControlListener(new GamepadAxisControl(GamepadInput.Axis.LEFT_JOYSTICK_RIGHT, 1f));
+        Control rightJoystickForwardControl = getInputHandler().registerControlListener(new GamepadAxisControl(GamepadInput.Axis.RIGHT_JOYSTICK_UP, 1f));
+        Control rightJoystickBackwardsControl = getInputHandler().registerControlListener(new GamepadAxisControl(GamepadInput.Axis.RIGHT_JOYSTICK_DOWN, 1f));
+        Control rightJoystickLeftControl = getInputHandler().registerControlListener(new GamepadAxisControl(GamepadInput.Axis.RIGHT_JOYSTICK_LEFT, 1f));
+        Control rightJoystickRightControl = getInputHandler().registerControlListener(new GamepadAxisControl(GamepadInput.Axis.RIGHT_JOYSTICK_RIGHT, 1f));
+        Control gamepadAControl = getInputHandler().registerControlListener(new GamepadButtonControl(GamepadInput.Button.A));
+        Control leftTriggerControl = getInputHandler().registerControlListener(new GamepadAxisControl(GamepadInput.Axis.LEFT_TRIGGER, 1f));
+        Control wControl = getInputHandler().registerControlListener(new KeyboardKeyControl(KeyboardInput.Key.W));
+        Control sControl = getInputHandler().registerControlListener(new KeyboardKeyControl(KeyboardInput.Key.S));
+        Control aControl = getInputHandler().registerControlListener(new KeyboardKeyControl(KeyboardInput.Key.A));
+        Control dControl = getInputHandler().registerControlListener(new KeyboardKeyControl(KeyboardInput.Key.D));
+        Control spaceControl = getInputHandler().registerControlListener(new KeyboardKeyControl(KeyboardInput.Key.SPACE));
+        Control lShiftControl = getInputHandler().registerControlListener(new KeyboardKeyControl(KeyboardInput.Key.LEFT_SHIFT));
+        Control mouseUpControl = getInputHandler().registerControlListener(new MouseMovementControl(MouseInput.MovementAxis.UP, 100f));
+        Control mouseDownControl = getInputHandler().registerControlListener(new MouseMovementControl(MouseInput.MovementAxis.DOWN, 100f));
+        Control mouseLeftControl = getInputHandler().registerControlListener(new MouseMovementControl(MouseInput.MovementAxis.LEFT, 100f));
+        Control mouseRightControl = getInputHandler().registerControlListener(new MouseMovementControl(MouseInput.MovementAxis.RIGHT, 100f));
+        Control mouseScrollUpControl = getInputHandler().registerControlListener(new MouseScrollControl(MouseInput.ScrollDirection.UP, 1f));
+        Control mouseScrollDownControl = getInputHandler().registerControlListener(new MouseScrollControl(MouseInput.ScrollDirection.DOWN, 1f));
+        //Register Controllers
+        getInputHandler().registerController(identifierOf("closeWindowOnEscapeController"), new CloseWindowController(escapeControl));
+        getInputHandler().registerController(identifierOf("movementController"), new DirectionalController(
+                new ControlGroup(leftJoystickForwardControl, wControl),
+                new ControlGroup(leftJoystickBackwardsControl, sControl),
+                new ControlGroup(leftJoystickLeftControl, aControl),
+                new ControlGroup(leftJoystickRightControl, dControl),
+                new ControlGroup(gamepadAControl, spaceControl),
+                new ControlGroup(leftTriggerControl, lShiftControl)
+        ));
+        getInputHandler().registerController(identifierOf("lookAroundController"), new LookAroundController(
+                new ControlGroup(mouseUpControl, rightJoystickForwardControl),
+                new ControlGroup(mouseDownControl, rightJoystickBackwardsControl),
+                new ControlGroup(mouseLeftControl, rightJoystickLeftControl),
+                new ControlGroup(mouseRightControl, rightJoystickRightControl)
+        ));
+        getInputHandler().registerController(identifierOf("scrollController"), new ScrollController(
+                new ControlGroup(mouseScrollUpControl),
+                new ControlGroup(mouseScrollDownControl)
+        ));
 
         //Setup this Client's Routine
         //routine = Routine.builder()
@@ -82,8 +135,9 @@ public class GameClient extends ClientBase {
         //Create windows based on some initial properties
         WindowProperties defaultWindow = new WindowProperties(600, 400, "initial window", identifierOf("game"));
         WindowProperties secondWindow = new WindowProperties(600, 400, "second window", identifierOf("game2"));
-        getWindowManager().createNewWindow(defaultWindow);
+        long primaryWindow = getWindowManager().createNewWindow(defaultWindow);
         getWindowManager().createNewWindow(secondWindow);
+        getWindowManager().focusWindow(primaryWindow);
 
         getFileSystem().init();
         modInit();
@@ -110,16 +164,6 @@ public class GameClient extends ClientBase {
     @Override
     public void tick() {
         super.tick();
-    }
-
-    @Override
-    public void keyCallback(long window, int key, int scancode, int action, int mods) {
-        if (key == GLFW_KEY_ESCAPE && action == GLFW_RELEASE) glfwSetWindowShouldClose(window, true);
-        if (key == GLFW_KEY_S && action == GLFW_RELEASE) sendPacket(new StopServerPacket(), StopServerPacket.class);
-        if (key == GLFW_KEY_1 && action == GLFW_RELEASE) {
-            var properties = getWindowManager().getPropertiesFromWindow(window);
-            ClientBase.getInstance().getWindowManager().createNewWindow(new WindowProperties(properties).setTitle("Window created from " + properties.getTitle()));
-        }
     }
 
     //Test that this game has access to both itself and mods on its filesystem
