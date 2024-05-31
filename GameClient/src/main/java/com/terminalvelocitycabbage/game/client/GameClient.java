@@ -78,7 +78,7 @@ public class GameClient extends ClientBase {
 
         //Register Input Stuff
         //Register Controls to listen to
-        Control escapeControl = getInputHandler().registerControlListener(new KeyboardKeyControl(KeyboardInput.ESCAPE));
+        Control escapeControl = getInputHandler().registerControlListener(new KeyboardKeyControl(KeyboardInput.Key.ESCAPE));
         Control leftJoystickForwardControl = getInputHandler().registerControlListener(new GamepadAxisControl(GamepadInput.Axis.LEFT_JOYSTICK_UP, 1f));
         Control leftJoystickBackwardsControl = getInputHandler().registerControlListener(new GamepadAxisControl(GamepadInput.Axis.LEFT_JOYSTICK_DOWN, 1f));
         Control leftJoystickLeftControl = getInputHandler().registerControlListener(new GamepadAxisControl(GamepadInput.Axis.LEFT_JOYSTICK_LEFT, 1f));
@@ -89,12 +89,12 @@ public class GameClient extends ClientBase {
         Control rightJoystickRightControl = getInputHandler().registerControlListener(new GamepadAxisControl(GamepadInput.Axis.RIGHT_JOYSTICK_RIGHT, 1f));
         Control gamepadAControl = getInputHandler().registerControlListener(new GamepadButtonControl(GamepadInput.Button.A));
         Control leftTriggerControl = getInputHandler().registerControlListener(new GamepadAxisControl(GamepadInput.Axis.LEFT_TRIGGER, 1f));
-        Control wControl = getInputHandler().registerControlListener(new KeyboardKeyControl(KeyboardInput.W));
-        Control sControl = getInputHandler().registerControlListener(new KeyboardKeyControl(KeyboardInput.S));
-        Control aControl = getInputHandler().registerControlListener(new KeyboardKeyControl(KeyboardInput.A));
-        Control dControl = getInputHandler().registerControlListener(new KeyboardKeyControl(KeyboardInput.D));
-        Control spaceControl = getInputHandler().registerControlListener(new KeyboardKeyControl(KeyboardInput.SPACE));
-        Control lShiftControl = getInputHandler().registerControlListener(new KeyboardKeyControl(KeyboardInput.LEFT_SHIFT));
+        Control wControl = getInputHandler().registerControlListener(new KeyboardKeyControl(KeyboardInput.Key.W));
+        Control sControl = getInputHandler().registerControlListener(new KeyboardKeyControl(KeyboardInput.Key.S));
+        Control aControl = getInputHandler().registerControlListener(new KeyboardKeyControl(KeyboardInput.Key.A));
+        Control dControl = getInputHandler().registerControlListener(new KeyboardKeyControl(KeyboardInput.Key.D));
+        Control spaceControl = getInputHandler().registerControlListener(new KeyboardKeyControl(KeyboardInput.Key.SPACE));
+        Control lShiftControl = getInputHandler().registerControlListener(new KeyboardKeyControl(KeyboardInput.Key.LEFT_SHIFT));
         Control mouseUpControl = getInputHandler().registerControlListener(new MouseMovementControl(MouseInput.MovementAxis.UP, 100f));
         Control mouseDownControl = getInputHandler().registerControlListener(new MouseMovementControl(MouseInput.MovementAxis.DOWN, 100f));
         Control mouseLeftControl = getInputHandler().registerControlListener(new MouseMovementControl(MouseInput.MovementAxis.LEFT, 100f));
@@ -111,7 +111,6 @@ public class GameClient extends ClientBase {
                 new ControlGroup(gamepadAControl, spaceControl),
                 new ControlGroup(leftTriggerControl, lShiftControl)
         ));
-        //TODO re-enable once sensitivity settings are added so mouse/controller inputs are more similar
         getInputHandler().registerController(identifierOf("lookAroundController"), new LookAroundController(
                 new ControlGroup(mouseUpControl, rightJoystickForwardControl),
                 new ControlGroup(mouseDownControl, rightJoystickBackwardsControl),
