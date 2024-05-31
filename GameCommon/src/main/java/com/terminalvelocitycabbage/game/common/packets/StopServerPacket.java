@@ -1,4 +1,4 @@
-package com.terminalvelocitycabbage.game.common;
+package com.terminalvelocitycabbage.game.common.packets;
 
 import com.github.simplenet.Client;
 import com.github.simplenet.Server;

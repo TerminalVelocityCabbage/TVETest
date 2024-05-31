@@ -1,6 +1,6 @@
 package com.terminalvelocitycabbage.game.client.renderer.node;
 
-import com.terminalvelocitycabbage.engine.client.renderer.graph.RenderNode;
+import com.terminalvelocitycabbage.engine.graph.RenderNode;
 import com.terminalvelocitycabbage.engine.client.window.WindowProperties;
 import org.lwjgl.opengl.GL11;
 

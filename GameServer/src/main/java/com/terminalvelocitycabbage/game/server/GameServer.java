@@ -1,17 +1,23 @@
 package com.terminalvelocitycabbage.game.server;
 
 import com.terminalvelocitycabbage.engine.debug.Log;
-import com.terminalvelocitycabbage.engine.filesystem.sources.MainSource;
+import com.terminalvelocitycabbage.engine.ecs.ComponentFilter;
 import com.terminalvelocitycabbage.engine.filesystem.resources.ResourceSource;
 import com.terminalvelocitycabbage.engine.filesystem.resources.ResourceType;
+import com.terminalvelocitycabbage.engine.filesystem.sources.MainSource;
+import com.terminalvelocitycabbage.engine.graph.Routine;
 import com.terminalvelocitycabbage.engine.registry.Identifier;
 import com.terminalvelocitycabbage.engine.server.ServerBase;
-import com.terminalvelocitycabbage.game.common.StopServerPacket;
+import com.terminalvelocitycabbage.game.common.ecs.PositionComponent;
+import com.terminalvelocitycabbage.game.common.ecs.UpdatePositionsSystem;
+import com.terminalvelocitycabbage.game.common.packets.StopServerPacket;
 import com.terminalvelocitycabbage.templates.events.ServerLifecycleEvent;
 
 public class GameServer extends ServerBase {
 
     public static final String ID = "game";
+
+    Routine serversideSystemRoutine;
 
     public GameServer() {
         super(ID, 50);
@@ -30,13 +36,31 @@ public class GameServer extends ServerBase {
         ServerBase.getInstance().getEventDispatcher().listenToEvent(ServerLifecycleEvent.PRE_BIND, (event -> onPreBind((ServerLifecycleEvent) event)));
 
         //Register and init filesystem things
-        //Create resource sources for this client
-        ResourceSource clientSource = new MainSource(ID, this);
+        //Create resource sources for this server
+        ResourceSource serverSource = new MainSource(ID, this);
         Identifier sourceIdentifier = identifierOf("server_main_resource_source");
         //Define roots for these resources
-        clientSource.registerDefaultSourceRoot(ResourceType.DEFAULT_CONFIG);
+        serverSource.registerDefaultSourceRoot(ResourceType.DEFAULT_CONFIG);
         //register this source to the filesystem
-        getFileSystem().registerResourceSource(sourceIdentifier, clientSource);
+        getFileSystem().registerResourceSource(sourceIdentifier, serverSource);
+
+        //Register components
+        getManager().registerComponent(PositionComponent.class);
+
+        //Create an example entity
+        var entity = getManager().createEntity();
+        entity.addComponent(PositionComponent.class).setPosition(0, 10, 0);
+
+        //Create a system to update entity positions for gravity
+        getManager().createSystem(UpdatePositionsSystem.class);
+
+        //Create a routine to execute systems
+        serversideSystemRoutine = Routine.builder()
+                .addNode(
+                        identifierOf("updateEntityPositions"),
+                        UpdatePositionsSystem.class,
+                        ComponentFilter.builder().oneOf(PositionComponent.class).build())
+                .build();
     }
 
     @Override
@@ -67,6 +91,7 @@ public class GameServer extends ServerBase {
     @Override
     public void tick() {
         super.tick();
+        serversideSystemRoutine.update(getManager());
         //Log.info("Game Server Ticked");
     }
 
