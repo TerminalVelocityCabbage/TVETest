@@ -12,6 +12,12 @@ import com.terminalvelocitycabbage.engine.client.input.types.GamepadInput;
 import com.terminalvelocitycabbage.engine.client.input.types.KeyboardInput;
 import com.terminalvelocitycabbage.engine.client.input.types.MouseInput;
 import com.terminalvelocitycabbage.engine.client.renderer.RenderGraph;
+import com.terminalvelocitycabbage.engine.client.renderer.elements.VertexElement;
+import com.terminalvelocitycabbage.engine.client.renderer.elements.VertexFormat;
+import com.terminalvelocitycabbage.engine.client.renderer.model.Mesh;
+import com.terminalvelocitycabbage.engine.client.renderer.model.Vertex;
+import com.terminalvelocitycabbage.engine.client.renderer.shader.Shader;
+import com.terminalvelocitycabbage.engine.client.renderer.shader.ShaderProgramConfig;
 import com.terminalvelocitycabbage.engine.client.window.WindowProperties;
 import com.terminalvelocitycabbage.engine.config.TVConfig;
 import com.terminalvelocitycabbage.engine.debug.Log;
@@ -20,14 +26,13 @@ import com.terminalvelocitycabbage.engine.filesystem.resources.ResourceSource;
 import com.terminalvelocitycabbage.engine.filesystem.resources.ResourceType;
 import com.terminalvelocitycabbage.engine.filesystem.sources.MainSource;
 import com.terminalvelocitycabbage.engine.registry.Identifier;
-import com.terminalvelocitycabbage.engine.util.touples.Pair;
+import com.terminalvelocitycabbage.game.client.ecs.MeshComponent;
 import com.terminalvelocitycabbage.game.client.inputcontrollers.CloseWindowController;
 import com.terminalvelocitycabbage.game.client.inputcontrollers.DirectionalController;
-import com.terminalvelocitycabbage.game.client.inputcontrollers.LookAroundController;
 import com.terminalvelocitycabbage.game.client.inputcontrollers.ScrollController;
-import com.terminalvelocitycabbage.game.client.renderer.SpinningSquareRenderer;
-import com.terminalvelocitycabbage.game.client.renderer.node.OppositeSpinningSquareRenderNode;
-import com.terminalvelocitycabbage.game.client.renderer.node.SpinningSquareRenderNode;
+import com.terminalvelocitycabbage.game.client.rendernodes.DrawSceneRenderNode;
+import com.terminalvelocitycabbage.game.client.rendernodes.OppositeSpinningSquareRenderNode;
+import com.terminalvelocitycabbage.game.client.rendernodes.SpinningSquareRenderNode;
 
 public class GameClient extends ClientBase {
 
@@ -63,18 +68,8 @@ public class GameClient extends ClientBase {
 
         //Register resources
         getFileSystem().registerResource(sourceIdentifier, ResourceType.DEFAULT_CONFIG, "test.toml");
-
-        //Build Render Graphs
-        RenderGraph spinningSquareRenderGraph = RenderGraph.builder()
-                .addNode(identifierOf("spinningSquare"), SpinningSquareRenderNode.class)
-                .build();
-        RenderGraph oppositeSpinningSquareRenderGraph = RenderGraph.builder()
-                .addNode(identifierOf("oppositeSpinningSquare"), OppositeSpinningSquareRenderNode.class)
-                .build();
-
-        //Register renderers
-        getRendererRegistry().register(identifierOf("game"), new Pair<>(SpinningSquareRenderer.class, spinningSquareRenderGraph));
-        getRendererRegistry().register(identifierOf("game2"), new Pair<>(SpinningSquareRenderer.class, oppositeSpinningSquareRenderGraph));
+        getFileSystem().registerResource(sourceIdentifier, ResourceType.SHADER, "default.vert");
+        getFileSystem().registerResource(sourceIdentifier, ResourceType.SHADER, "default.frag");
 
         //Register Input Stuff
         //Register Controls to listen to
@@ -111,12 +106,12 @@ public class GameClient extends ClientBase {
                 new ControlGroup(gamepadAControl, spaceControl),
                 new ControlGroup(leftTriggerControl, lShiftControl)
         ));
-        getInputHandler().registerController(identifierOf("lookAroundController"), new LookAroundController(
-                new ControlGroup(mouseUpControl, rightJoystickForwardControl),
-                new ControlGroup(mouseDownControl, rightJoystickBackwardsControl),
-                new ControlGroup(mouseLeftControl, rightJoystickLeftControl),
-                new ControlGroup(mouseRightControl, rightJoystickRightControl)
-        ));
+//        getInputHandler().registerController(identifierOf("lookAroundController"), new LookAroundController(
+//                new ControlGroup(mouseUpControl, rightJoystickForwardControl),
+//                new ControlGroup(mouseDownControl, rightJoystickBackwardsControl),
+//                new ControlGroup(mouseLeftControl, rightJoystickLeftControl),
+//                new ControlGroup(mouseRightControl, rightJoystickRightControl)
+//        ));
         getInputHandler().registerController(identifierOf("scrollController"), new ScrollController(
                 new ControlGroup(mouseScrollUpControl),
                 new ControlGroup(mouseScrollDownControl)
@@ -126,20 +121,48 @@ public class GameClient extends ClientBase {
         //routine = Routine.builder()
         //        .addNode(new Identifier(ID, "updateSchedules"), UpdateScheduleSystem.class)
         //        .build();
+
+        getManager().registerComponent(MeshComponent.class);
+        VertexFormat format = VertexFormat.builder().addElement(VertexElement.XYZ_POSITION).build();
+        Vertex[] vertices = new Vertex[] {
+                Vertex.builder().addElement(VertexElement.XYZ_POSITION, new float[]{0.0f, 0.5f, 0.0f}).build(),
+                Vertex.builder().addElement(VertexElement.XYZ_POSITION, new float[]{-0.5f, -0.5f, 0.0f}).build(),
+                Vertex.builder().addElement(VertexElement.XYZ_POSITION, new float[]{0.5f, -0.5f, 0.0f}).build(),
+        };
+        getManager().createEntity().addComponent(MeshComponent.class).setMesh(new Mesh(format, vertices));
     }
 
     @Override
     public void init() {
         super.init();
 
+        //Build Render Graphs
+        RenderGraph spinningSquareRenderGraph = RenderGraph.builder()
+                .addNode(identifierOf("spinningSquare"), SpinningSquareRenderNode.class)
+                .build();
+        RenderGraph oppositeSpinningSquareRenderGraph = RenderGraph.builder()
+                .addNode(identifierOf("oppositeSpinningSquare"), OppositeSpinningSquareRenderNode.class)
+                .build();
+        RenderGraph sceneRenderGraph = RenderGraph.builder()
+                .shaderProgram(ShaderProgramConfig.builder()
+                        .addShader(Shader.Type.VERTEX, identifierOf("default.vert"))
+                        .addShader(Shader.Type.FRAGMENT, identifierOf("default.frag"))
+                )
+                .addNode(identifierOf("drawScene"), DrawSceneRenderNode.class)
+                .build();
+
+        //Register renderers
+        getRenderGraphRegistry().register(identifierOf("game"), spinningSquareRenderGraph);
+        getRenderGraphRegistry().register(identifierOf("game2"), oppositeSpinningSquareRenderGraph);
+        getRenderGraphRegistry().register(identifierOf("scene"), sceneRenderGraph);
+
         //Create windows based on some initial properties
-        WindowProperties defaultWindow = new WindowProperties(600, 400, "initial window", identifierOf("game"));
-        WindowProperties secondWindow = new WindowProperties(600, 400, "second window", identifierOf("game2"));
+        WindowProperties defaultWindow = new WindowProperties(600, 400, "initial window", identifierOf("scene"));
+        //WindowProperties secondWindow = new WindowProperties(600, 400, "second window", identifierOf("game2"));
         long primaryWindow = getWindowManager().createNewWindow(defaultWindow);
-        getWindowManager().createNewWindow(secondWindow);
+        //getWindowManager().createNewWindow(secondWindow);
         getWindowManager().focusWindow(primaryWindow);
 
-        getFileSystem().init();
         modInit();
 
         connect("127.0.0.1", 4132);
