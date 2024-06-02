@@ -12,7 +12,7 @@ import com.terminalvelocitycabbage.engine.client.input.types.GamepadInput;
 import com.terminalvelocitycabbage.engine.client.input.types.KeyboardInput;
 import com.terminalvelocitycabbage.engine.client.input.types.MouseInput;
 import com.terminalvelocitycabbage.engine.client.renderer.RenderGraph;
-import com.terminalvelocitycabbage.engine.client.renderer.elements.VertexElement;
+import com.terminalvelocitycabbage.engine.client.renderer.elements.VertexAttribute;
 import com.terminalvelocitycabbage.engine.client.renderer.elements.VertexFormat;
 import com.terminalvelocitycabbage.engine.client.renderer.model.Mesh;
 import com.terminalvelocitycabbage.engine.client.renderer.model.Vertex;
@@ -123,13 +123,30 @@ public class GameClient extends ClientBase {
         //        .build();
 
         getManager().registerComponent(MeshComponent.class);
-        VertexFormat format = VertexFormat.builder().addElement(VertexElement.XYZ_POSITION).build();
+        VertexFormat format = VertexFormat.builder()
+                .addElement(VertexAttribute.XYZ_POSITION)
+                .addElement(VertexAttribute.RGB_COLOR)
+                .build();
         Vertex[] vertices = new Vertex[] {
-                Vertex.builder().addElement(VertexElement.XYZ_POSITION, new float[]{0.0f, 0.5f, 0.0f}).build(),
-                Vertex.builder().addElement(VertexElement.XYZ_POSITION, new float[]{-0.5f, -0.5f, 0.0f}).build(),
-                Vertex.builder().addElement(VertexElement.XYZ_POSITION, new float[]{0.5f, -0.5f, 0.0f}).build(),
+                Vertex.builder()
+                        .addAttribute(VertexAttribute.XYZ_POSITION, new float[]{-0.5f, 0.5f, 0.0f})
+                        .addAttribute(VertexAttribute.RGB_COLOR, new float[]{0.5f, 0.0f, 0.0f})
+                        .build(),
+                Vertex.builder()
+                        .addAttribute(VertexAttribute.XYZ_POSITION, new float[]{-0.5f, -0.5f, 0.0f})
+                        .addAttribute(VertexAttribute.RGB_COLOR, new float[]{0.0f, 0.5f, 0.0f})
+                        .build(),
+                Vertex.builder()
+                        .addAttribute(VertexAttribute.XYZ_POSITION, new float[]{0.5f, -0.5f, 0.0f})
+                        .addAttribute(VertexAttribute.RGB_COLOR, new float[]{0.0f, 0.0f, 0.5f})
+                        .build(),
+                Vertex.builder()
+                        .addAttribute(VertexAttribute.XYZ_POSITION, new float[]{0.5f, 0.5f, 0.0f})
+                        .addAttribute(VertexAttribute.RGB_COLOR, new float[]{0.0f, 0.5f, 0.5f})
+                        .build(),
         };
-        getManager().createEntity().addComponent(MeshComponent.class).setMesh(new Mesh(format, vertices));
+        int[] indices = new int[] {0, 1, 3, 3, 1, 2};
+        getManager().createEntity().addComponent(MeshComponent.class).setMesh(new Mesh(format, vertices, indices));
     }
 
     @Override
