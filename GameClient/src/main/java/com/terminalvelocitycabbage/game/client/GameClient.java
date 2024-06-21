@@ -13,7 +13,6 @@ import com.terminalvelocitycabbage.engine.client.input.types.KeyboardInput;
 import com.terminalvelocitycabbage.engine.client.input.types.MouseInput;
 import com.terminalvelocitycabbage.engine.client.renderer.RenderGraph;
 import com.terminalvelocitycabbage.engine.client.renderer.elements.VertexAttribute;
-import com.terminalvelocitycabbage.engine.client.renderer.elements.VertexFormat;
 import com.terminalvelocitycabbage.engine.client.renderer.model.Mesh;
 import com.terminalvelocitycabbage.engine.client.renderer.model.Vertex;
 import com.terminalvelocitycabbage.engine.client.renderer.shader.Shader;
@@ -33,6 +32,8 @@ import com.terminalvelocitycabbage.game.client.inputcontrollers.ScrollController
 import com.terminalvelocitycabbage.game.client.rendernodes.DrawSceneRenderNode;
 import com.terminalvelocitycabbage.game.client.rendernodes.OppositeSpinningSquareRenderNode;
 import com.terminalvelocitycabbage.game.client.rendernodes.SpinningSquareRenderNode;
+
+import static com.terminalvelocitycabbage.game.client.data.MeshData.MESH_FORMAT;
 
 public class GameClient extends ClientBase {
 
@@ -123,10 +124,6 @@ public class GameClient extends ClientBase {
         //        .build();
 
         getManager().registerComponent(MeshComponent.class);
-        VertexFormat format = VertexFormat.builder()
-                .addElement(VertexAttribute.XYZ_POSITION)
-                .addElement(VertexAttribute.RGB_COLOR)
-                .build();
         Vertex[] vertices = new Vertex[] {
                 Vertex.builder()
                         .addAttribute(VertexAttribute.XYZ_POSITION, new float[]{-0.5f, 0.5f, 0.0f})
@@ -146,7 +143,7 @@ public class GameClient extends ClientBase {
                         .build(),
         };
         int[] indices = new int[] {0, 1, 3, 3, 1, 2};
-        getManager().createEntity().addComponent(MeshComponent.class).setMesh(new Mesh(format, vertices, indices));
+        getManager().createEntity().addComponent(MeshComponent.class).setMesh(new Mesh(MESH_FORMAT, vertices, indices));
     }
 
     @Override
@@ -162,6 +159,7 @@ public class GameClient extends ClientBase {
                 .build();
         RenderGraph sceneRenderGraph = RenderGraph.builder()
                 .shaderProgram(ShaderProgramConfig.builder()
+                        .setFormat(MESH_FORMAT)
                         .addShader(Shader.Type.VERTEX, identifierOf("default.vert"))
                         .addShader(Shader.Type.FRAGMENT, identifierOf("default.frag"))
                 )
