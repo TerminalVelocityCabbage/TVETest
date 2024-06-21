@@ -14,7 +14,6 @@ public class MeshComponent implements Component {
 
     @Override
     public void cleanup() {
-        Component.super.cleanup();
         mesh.cleanup();
     }
 

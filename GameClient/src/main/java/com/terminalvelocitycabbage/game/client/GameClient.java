@@ -159,9 +159,10 @@ public class GameClient extends ClientBase {
                 .build();
         RenderGraph sceneRenderGraph = RenderGraph.builder()
                 .shaderProgram(ShaderProgramConfig.builder()
-                        .setFormat(MESH_FORMAT)
+                        .vertexFormat(MESH_FORMAT)
                         .addShader(Shader.Type.VERTEX, identifierOf("default.vert"))
                         .addShader(Shader.Type.FRAGMENT, identifierOf("default.frag"))
+                        .build()
                 )
                 .addNode(identifierOf("drawScene"), DrawSceneRenderNode.class)
                 .build();
