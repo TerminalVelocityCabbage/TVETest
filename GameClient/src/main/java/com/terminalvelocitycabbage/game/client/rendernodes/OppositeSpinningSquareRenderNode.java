@@ -1,5 +1,6 @@
 package com.terminalvelocitycabbage.game.client.rendernodes;
 
+import com.terminalvelocitycabbage.engine.client.renderer.RenderGraph;
 import com.terminalvelocitycabbage.engine.client.renderer.shader.ShaderProgram;
 import com.terminalvelocitycabbage.engine.graph.RenderNode;
 import com.terminalvelocitycabbage.engine.client.window.WindowProperties;
@@ -8,7 +9,7 @@ import org.lwjgl.opengl.GL11;
 public class OppositeSpinningSquareRenderNode extends RenderNode {
 
     @Override
-    public void executeRenderStage(WindowProperties properties, long deltaTime, ShaderProgram shaderProgram) {
+    public void executeRenderStage(RenderGraph renderGraph, WindowProperties properties, long deltaTime, ShaderProgram shaderProgram) {
 
         int width = properties.getWidth();
         int height = properties.getHeight();

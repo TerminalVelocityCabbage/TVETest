@@ -72,22 +72,22 @@ public class GameClient extends ClientBase {
                 Vertex.builder()
                         .addAttribute(VertexAttribute.XYZ_POSITION, new float[]{-0.5f, 0.5f, 0.0f})
                         .addAttribute(VertexAttribute.RGB_COLOR, new float[]{0.5f, 0.0f, 0.0f})
-                        .addAttribute(VertexAttribute.UV, new float[]{0, 1})
+                        .addAttribute(VertexAttribute.UV, new float[]{0, 0})
                         .build(),
                 Vertex.builder()
                         .addAttribute(VertexAttribute.XYZ_POSITION, new float[]{-0.5f, -0.5f, 0.0f})
                         .addAttribute(VertexAttribute.RGB_COLOR, new float[]{0.0f, 0.5f, 0.0f})
-                        .addAttribute(VertexAttribute.UV, new float[]{0, 0})
+                        .addAttribute(VertexAttribute.UV, new float[]{0, 1})
                         .build(),
                 Vertex.builder()
                         .addAttribute(VertexAttribute.XYZ_POSITION, new float[]{0.5f, -0.5f, 0.0f})
                         .addAttribute(VertexAttribute.RGB_COLOR, new float[]{0.0f, 0.0f, 0.5f})
-                        .addAttribute(VertexAttribute.UV, new float[]{1, 0})
+                        .addAttribute(VertexAttribute.UV, new float[]{1, 1})
                         .build(),
                 Vertex.builder()
                         .addAttribute(VertexAttribute.XYZ_POSITION, new float[]{0.5f, 0.5f, 0.0f})
                         .addAttribute(VertexAttribute.RGB_COLOR, new float[]{0.0f, 0.5f, 0.5f})
-                        .addAttribute(VertexAttribute.UV, new float[]{1, 1})
+                        .addAttribute(VertexAttribute.UV, new float[]{1, 0})
                         .build(),
         };
         int[] indices = new int[] {0, 1, 3, 3, 1, 2};
@@ -100,14 +100,13 @@ public class GameClient extends ClientBase {
         //TODO Texture cache should create Texture objects
         var entity = getManager().createEntity();
         entity.addComponent(MeshComponent.class).setMesh(new Mesh(MESH_FORMAT, vertices, indices));
-        entity.addComponent(MaterialComponent.class).setTexture(identifierOf("smile.png"));
+        entity.addComponent(MaterialComponent.class).setTexture(GameTextures.SMILE);
     }
 
     @Override
     public void init() {
         super.init();
 
-        GameTextures.cacheTextures(this);
         GameRenderers.init(this, getRenderGraphRegistry());
 
         //Create windows based on some initial properties
