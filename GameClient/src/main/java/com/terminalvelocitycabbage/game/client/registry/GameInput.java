@@ -1,6 +1,5 @@
 package com.terminalvelocitycabbage.game.client.registry;
 
-import com.terminalvelocitycabbage.engine.client.input.InputHandler;
 import com.terminalvelocitycabbage.engine.client.input.control.*;
 import com.terminalvelocitycabbage.engine.client.input.controller.ControlGroup;
 import com.terminalvelocitycabbage.engine.client.input.types.GamepadInput;
@@ -9,6 +8,7 @@ import com.terminalvelocitycabbage.engine.client.input.types.MouseInput;
 import com.terminalvelocitycabbage.game.client.GameClient;
 import com.terminalvelocitycabbage.game.client.inputcontrollers.CloseWindowController;
 import com.terminalvelocitycabbage.game.client.inputcontrollers.DirectionalController;
+import com.terminalvelocitycabbage.game.client.inputcontrollers.RecompileShadersController;
 import com.terminalvelocitycabbage.game.client.inputcontrollers.ScrollController;
 
 public class GameInput {
@@ -19,6 +19,7 @@ public class GameInput {
 
         //Register Controls to listen to
         Control escapeControl = inputHandler.registerControlListener(new KeyboardKeyControl(KeyboardInput.Key.ESCAPE));
+        Control rControl = inputHandler.registerControlListener(new KeyboardKeyControl(KeyboardInput.Key.R));
         Control leftJoystickForwardControl = inputHandler.registerControlListener(new GamepadAxisControl(GamepadInput.Axis.LEFT_JOYSTICK_UP, 1f));
         Control leftJoystickBackwardsControl = inputHandler.registerControlListener(new GamepadAxisControl(GamepadInput.Axis.LEFT_JOYSTICK_DOWN, 1f));
         Control leftJoystickLeftControl = inputHandler.registerControlListener(new GamepadAxisControl(GamepadInput.Axis.LEFT_JOYSTICK_LEFT, 1f));
@@ -62,5 +63,6 @@ public class GameInput {
                 new ControlGroup(mouseScrollUpControl),
                 new ControlGroup(mouseScrollDownControl)
         ));
+        inputHandler.registerController(client.identifierOf("reloadShaderController"), new RecompileShadersController(rControl));
     }
 }
