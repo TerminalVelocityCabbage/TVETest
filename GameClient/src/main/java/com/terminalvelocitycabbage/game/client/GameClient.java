@@ -57,7 +57,7 @@ public class GameClient extends ClientBase {
     public void init() {
         super.init();
 
-        GameRenderers.init(this, getRenderGraphRegistry());
+        GameRenderers.init(this);
 
         //Create windows based on some initial properties
         WindowProperties defaultWindow = new WindowProperties(600, 400, "initial window", identifierOf("scene"));

@@ -6,9 +6,12 @@ import com.terminalvelocitycabbage.game.client.GameClient;
 
 public class GameShaders {
 
+    public static Identifier TEST_VERTEX_SHADER;
+    public static Identifier TEST_FRAGMENT_SHADER;
+
     public static void init(GameClient client, Identifier sourceIdentifier) {
-        client.getFileSystem().registerResource(sourceIdentifier, ResourceType.SHADER, "default.vert");
-        client.getFileSystem().registerResource(sourceIdentifier, ResourceType.SHADER, "default.frag");
+        TEST_VERTEX_SHADER = client.getFileSystem().registerResource(sourceIdentifier, ResourceType.SHADER, "default.vert");
+        TEST_FRAGMENT_SHADER = client.getFileSystem().registerResource(sourceIdentifier, ResourceType.SHADER, "default.frag");
     }
 
 }
