@@ -13,22 +13,22 @@ public class GameEntities {
 
     private static final Vertex[] TEST_VERTICES = new Vertex[] {
             Vertex.builder()
-                    .addAttribute(VertexAttribute.XYZ_POSITION, new float[]{-0.5f, 0.5f, 0.0f})
+                    .addAttribute(VertexAttribute.XYZ_POSITION, new float[]{-0.5f, 0.5f, -1.0f})
                     .addAttribute(VertexAttribute.RGB_COLOR, new float[]{0.5f, 0.0f, 0.0f})
                     .addAttribute(VertexAttribute.UV, new float[]{0, 0})
                     .build(),
             Vertex.builder()
-                    .addAttribute(VertexAttribute.XYZ_POSITION, new float[]{-0.5f, -0.5f, 0.0f})
+                    .addAttribute(VertexAttribute.XYZ_POSITION, new float[]{-0.5f, -0.5f, -1.0f})
                     .addAttribute(VertexAttribute.RGB_COLOR, new float[]{0.0f, 0.5f, 0.0f})
                     .addAttribute(VertexAttribute.UV, new float[]{0, 1})
                     .build(),
             Vertex.builder()
-                    .addAttribute(VertexAttribute.XYZ_POSITION, new float[]{0.5f, -0.5f, 0.0f})
+                    .addAttribute(VertexAttribute.XYZ_POSITION, new float[]{0.5f, -0.5f, -1.0f})
                     .addAttribute(VertexAttribute.RGB_COLOR, new float[]{0.0f, 0.0f, 0.5f})
                     .addAttribute(VertexAttribute.UV, new float[]{1, 1})
                     .build(),
             Vertex.builder()
-                    .addAttribute(VertexAttribute.XYZ_POSITION, new float[]{0.5f, 0.5f, 0.0f})
+                    .addAttribute(VertexAttribute.XYZ_POSITION, new float[]{0.5f, 0.5f, -1.0f})
                     .addAttribute(VertexAttribute.RGB_COLOR, new float[]{0.0f, 0.5f, 0.5f})
                     .addAttribute(VertexAttribute.UV, new float[]{1, 0})
                     .build(),

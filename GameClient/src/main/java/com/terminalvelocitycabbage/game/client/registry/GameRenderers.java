@@ -22,6 +22,7 @@ public class GameRenderers {
                         .addShader(Shader.Type.VERTEX, GameShaders.TEST_VERTEX_SHADER)
                         .addShader(Shader.Type.FRAGMENT, GameShaders.TEST_FRAGMENT_SHADER)
                         .addUniform(new Uniform("textureSampler"))
+                        .addUniform(new Uniform("projectionMatrix"))
                         .build()
                 )
                 .addNode(client.identifierOf("drawScene"), DrawSceneRenderNode.class)
