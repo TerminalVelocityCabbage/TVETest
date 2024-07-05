@@ -20,7 +20,7 @@ public class RecompileShadersController extends BooleanController {
         if (isEnabled()) {
             var client = ClientBase.getInstance();
             var windowManager = client.getWindowManager();
-            var activeRenderGraph = windowManager.getPropertiesFromWindow(windowManager.getFocusedWindow()).getRenderGraph();
+            var activeRenderGraph = windowManager.getPropertiesFromWindow(windowManager.getFocusedWindow()).getActiveScene().getRenderGraph();
             client.getRenderGraphRegistry().get(activeRenderGraph).recompileShaders();
             Log.info("reloaded shaders...");
         }

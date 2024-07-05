@@ -4,12 +4,15 @@ import com.terminalvelocitycabbage.engine.client.renderer.RenderGraph;
 import com.terminalvelocitycabbage.engine.client.renderer.shader.Shader;
 import com.terminalvelocitycabbage.engine.client.renderer.shader.ShaderProgramConfig;
 import com.terminalvelocitycabbage.engine.client.renderer.shader.Uniform;
+import com.terminalvelocitycabbage.engine.registry.Identifier;
 import com.terminalvelocitycabbage.game.client.GameClient;
 import com.terminalvelocitycabbage.game.client.rendernodes.DrawSceneRenderNode;
 
 import static com.terminalvelocitycabbage.game.client.data.MeshData.MESH_FORMAT;
 
 public class GameRenderers {
+
+    public static Identifier DEFAULT_RENDER_GRAPH;
 
     public static void init(GameClient client) {
         //Build Render Graphs
@@ -24,8 +27,9 @@ public class GameRenderers {
                 .addNode(client.identifierOf("drawScene"), DrawSceneRenderNode.class)
                 .build();
 
+        DEFAULT_RENDER_GRAPH = client.identifierOf("scene");
         //Register renderers
-        client.getRenderGraphRegistry().register(client.identifierOf("scene"), sceneRenderGraph);
+        client.getRenderGraphRegistry().register(DEFAULT_RENDER_GRAPH, sceneRenderGraph);;
     }
 
 }

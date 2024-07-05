@@ -46,21 +46,17 @@ public class GameClient extends ClientBase {
         GameTextures.init(this, sourceIdentifier);
         GameInput.init(this);
         GameEntities.init(this);
-
-        //Setup this Client's Routine
-        //routine = Routine.builder()
-        //        .addNode(new Identifier(ID, "updateSchedules"), UpdateScheduleSystem.class)
-        //        .build();
+        GameRoutines.init(this);
+        GameRenderers.init(this);
+        GameScenes.init(this);
     }
 
     @Override
     public void init() {
         super.init();
 
-        GameRenderers.init(this);
-
         //Create windows based on some initial properties
-        WindowProperties defaultWindow = new WindowProperties(600, 400, "initial window", identifierOf("scene"));
+        WindowProperties defaultWindow = new WindowProperties(600, 400, "initial window", GameScenes.DEFAULT_SCENE);
         //WindowProperties secondWindow = new WindowProperties(600, 400, "second window", identifierOf("game2"));
         long primaryWindow = getWindowManager().createNewWindow(defaultWindow);
         //getWindowManager().createNewWindow(secondWindow);
