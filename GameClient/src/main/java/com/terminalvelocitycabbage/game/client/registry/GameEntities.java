@@ -1,6 +1,5 @@
 package com.terminalvelocitycabbage.game.client.registry;
 
-import com.terminalvelocitycabbage.engine.client.renderer.elements.VertexAttribute;
 import com.terminalvelocitycabbage.engine.client.renderer.model.Mesh;
 import com.terminalvelocitycabbage.engine.client.renderer.model.Vertex;
 import com.terminalvelocitycabbage.game.client.GameClient;
@@ -14,26 +13,22 @@ import static com.terminalvelocitycabbage.game.client.data.MeshData.MESH_FORMAT;
 public class GameEntities {
 
     private static final Vertex[] TEST_VERTICES = new Vertex[] {
-            Vertex.builder()
-                    .addAttribute(VertexAttribute.XYZ_POSITION, new float[]{-1f, 1f, 0f})
-                    .addAttribute(VertexAttribute.RGB_COLOR, new float[]{0.5f, 0.0f, 0.0f})
-                    .addAttribute(VertexAttribute.UV, new float[]{0, 0})
-                    .build(),
-            Vertex.builder()
-                    .addAttribute(VertexAttribute.XYZ_POSITION, new float[]{-1f, -1f, 0f})
-                    .addAttribute(VertexAttribute.RGB_COLOR, new float[]{0.0f, 0.5f, 0.0f})
-                    .addAttribute(VertexAttribute.UV, new float[]{0, 1})
-                    .build(),
-            Vertex.builder()
-                    .addAttribute(VertexAttribute.XYZ_POSITION, new float[]{1f, -1f, 0f})
-                    .addAttribute(VertexAttribute.RGB_COLOR, new float[]{0.0f, 0.0f, 0.5f})
-                    .addAttribute(VertexAttribute.UV, new float[]{1, 1})
-                    .build(),
-            Vertex.builder()
-                    .addAttribute(VertexAttribute.XYZ_POSITION, new float[]{1f, 1f, 0f})
-                    .addAttribute(VertexAttribute.RGB_COLOR, new float[]{0.0f, 0.5f, 0.5f})
-                    .addAttribute(VertexAttribute.UV, new float[]{1, 0})
-                    .build(),
+            new Vertex(MESH_FORMAT)
+                    .setXYZPosition(-1f, 1f, 0f)
+                    .setRGBColor(0.5f, 0.0f, 0.0f)
+                    .setUV(0, 0),
+            new Vertex(MESH_FORMAT)
+                    .setXYZPosition(-1f, -1f, 0f)
+                    .setRGBColor(0.0f, 0.5f, 0.0f)
+                    .setUV(0, 1),
+            new Vertex(MESH_FORMAT)
+                    .setXYZPosition(1f, -1f, 0f)
+                    .setRGBColor(0.0f, 0.0f, 0.5f)
+                    .setUV(1, 1),
+            new Vertex(MESH_FORMAT)
+                    .setXYZPosition(1f, 1f, 0f)
+                    .setRGBColor(0.0f, 0.5f, 0.5f)
+                    .setUV(1, 0)
     };
     private static final int[] TEST_INDEXES = new int[] {0, 1, 3, 3, 1, 2};
 
