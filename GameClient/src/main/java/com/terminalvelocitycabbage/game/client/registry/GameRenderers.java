@@ -30,9 +30,8 @@ public class GameRenderers {
                 .addRenderNode(client.identifierOf("drawScene"), DrawSceneRenderNode.class)
                 .build();
 
-        DEFAULT_RENDER_GRAPH = client.identifierOf("scene");
         //Register renderers
-        client.getRenderGraphRegistry().register(DEFAULT_RENDER_GRAPH, sceneRenderGraph);;
+        DEFAULT_RENDER_GRAPH = client.getRenderGraphRegistry().register(client.identifierOf("scene"), sceneRenderGraph).getIdentifier();
     }
 
 }
