@@ -23,9 +23,11 @@ public class GameRenderers {
                         .addShader(Shader.Type.FRAGMENT, GameShaders.TEST_FRAGMENT_SHADER)
                         .addUniform(new Uniform("textureSampler"))
                         .addUniform(new Uniform("projectionMatrix"))
+                        .addUniform(new Uniform("modelMatrix"))
                         .build()
                 )
-                .addNode(client.identifierOf("drawScene"), DrawSceneRenderNode.class)
+                .addRoutineNode(client.identifierOf("updateRotations"), GameRoutines.DEFAULT_ROUTINE)
+                .addRenderNode(client.identifierOf("drawScene"), DrawSceneRenderNode.class)
                 .build();
 
         DEFAULT_RENDER_GRAPH = client.identifierOf("scene");
