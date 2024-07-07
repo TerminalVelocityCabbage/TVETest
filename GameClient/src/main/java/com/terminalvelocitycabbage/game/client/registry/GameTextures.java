@@ -8,9 +8,9 @@ public class GameTextures {
 
     public static Identifier SMILE;
 
-    public static void init(GameClient client, Identifier sourceIdentifier) {
+    public static void init(GameClient client) {
         //Register Textures to the VFS
-        SMILE = client.getFileSystem().registerResource(sourceIdentifier, ResourceType.TEXTURE, "smile.png");
+        SMILE = client.getFileSystem().registerResource(GameClient.CLIENT_RESOURCE_SOURCE, ResourceType.TEXTURE, "smile.png").getIdentifier();
     }
 
 }

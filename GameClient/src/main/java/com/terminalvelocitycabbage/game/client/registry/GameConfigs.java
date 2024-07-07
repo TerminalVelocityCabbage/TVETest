@@ -8,7 +8,7 @@ public class GameConfigs {
 
     public static Identifier TEST_TOML_CONFIG;
 
-    public static void init(GameClient client, Identifier sourceIdentifier) {
-        TEST_TOML_CONFIG = client.getFileSystem().registerResource(sourceIdentifier, ResourceType.DEFAULT_CONFIG, "test.toml");
+    public static void init(GameClient client) {
+        TEST_TOML_CONFIG = client.getFileSystem().registerResource(GameClient.CLIENT_RESOURCE_SOURCE, ResourceType.DEFAULT_CONFIG, "test.toml");
     }
 }

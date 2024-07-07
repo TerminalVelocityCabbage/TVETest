@@ -9,9 +9,9 @@ public class GameShaders {
     public static Identifier TEST_VERTEX_SHADER;
     public static Identifier TEST_FRAGMENT_SHADER;
 
-    public static void init(GameClient client, Identifier sourceIdentifier) {
-        TEST_VERTEX_SHADER = client.getFileSystem().registerResource(sourceIdentifier, ResourceType.SHADER, "default.vert");
-        TEST_FRAGMENT_SHADER = client.getFileSystem().registerResource(sourceIdentifier, ResourceType.SHADER, "default.frag");
+    public static void init(GameClient client) {
+        TEST_VERTEX_SHADER = client.getFileSystem().registerResource(GameClient.CLIENT_RESOURCE_SOURCE, ResourceType.SHADER, "default.vert");
+        TEST_FRAGMENT_SHADER = client.getFileSystem().registerResource(GameClient.CLIENT_RESOURCE_SOURCE, ResourceType.SHADER, "default.frag");
     }
 
 }

@@ -11,6 +11,7 @@ import com.terminalvelocitycabbage.game.client.registry.*;
 public class GameClient extends ClientBase {
 
     public static final String ID = "game";
+    public static Identifier CLIENT_RESOURCE_SOURCE;
 
     public GameClient() {
         super(ID, 50);
@@ -38,12 +39,12 @@ public class GameClient extends ClientBase {
         clientSource.registerDefaultSourceRoot(ResourceType.FONT);
         clientSource.registerDefaultSourceRoot(ResourceType.DEFAULT_CONFIG);
         //register this source to the filesystem
-        getFileSystem().registerResourceSource(sourceIdentifier, clientSource);
+        CLIENT_RESOURCE_SOURCE = getFileSystem().registerResourceSource(sourceIdentifier, clientSource).getIdentifier();
 
         //Register things
-        GameConfigs.init(this, sourceIdentifier);
-        GameShaders.init(this, sourceIdentifier);
-        GameTextures.init(this, sourceIdentifier);
+        GameConfigs.init(this);
+        GameShaders.init(this);
+        GameTextures.init(this);
         GameInput.init(this);
         GameEntities.init(this);
         GameRoutines.init(this);

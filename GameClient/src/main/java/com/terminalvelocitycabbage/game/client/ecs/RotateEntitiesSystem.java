@@ -3,6 +3,7 @@ package com.terminalvelocitycabbage.game.client.ecs;
 import com.terminalvelocitycabbage.engine.ecs.ComponentFilter;
 import com.terminalvelocitycabbage.engine.ecs.Entity;
 import com.terminalvelocitycabbage.engine.ecs.System;
+import com.terminalvelocitycabbage.templates.ecs.components.TransformationComponent;
 
 import java.util.List;
 

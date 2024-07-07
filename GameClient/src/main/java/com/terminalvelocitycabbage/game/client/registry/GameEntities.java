@@ -3,10 +3,10 @@ package com.terminalvelocitycabbage.game.client.registry;
 import com.terminalvelocitycabbage.engine.client.renderer.model.Mesh;
 import com.terminalvelocitycabbage.engine.client.renderer.model.Vertex;
 import com.terminalvelocitycabbage.game.client.GameClient;
-import com.terminalvelocitycabbage.game.client.ecs.MaterialComponent;
-import com.terminalvelocitycabbage.game.client.ecs.MeshComponent;
+import com.terminalvelocitycabbage.templates.ecs.components.MaterialComponent;
+import com.terminalvelocitycabbage.templates.ecs.components.MeshComponent;
 import com.terminalvelocitycabbage.game.client.ecs.RotateEntitiesSystem;
-import com.terminalvelocitycabbage.game.client.ecs.TransformationComponent;
+import com.terminalvelocitycabbage.templates.ecs.components.TransformationComponent;
 
 import static com.terminalvelocitycabbage.game.client.data.MeshData.MESH_FORMAT;
 

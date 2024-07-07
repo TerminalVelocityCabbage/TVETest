@@ -6,9 +6,9 @@ import com.terminalvelocitycabbage.engine.client.window.WindowProperties;
 import com.terminalvelocitycabbage.engine.ecs.ComponentFilter;
 import com.terminalvelocitycabbage.engine.graph.RenderNode;
 import com.terminalvelocitycabbage.game.client.GameClient;
-import com.terminalvelocitycabbage.game.client.ecs.MaterialComponent;
-import com.terminalvelocitycabbage.game.client.ecs.MeshComponent;
-import com.terminalvelocitycabbage.game.client.ecs.TransformationComponent;
+import com.terminalvelocitycabbage.templates.ecs.components.MaterialComponent;
+import com.terminalvelocitycabbage.templates.ecs.components.MeshComponent;
+import com.terminalvelocitycabbage.templates.ecs.components.TransformationComponent;
 
 public class DrawSceneRenderNode extends RenderNode {
 
