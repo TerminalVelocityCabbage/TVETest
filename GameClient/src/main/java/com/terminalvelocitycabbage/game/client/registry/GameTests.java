@@ -5,6 +5,7 @@ import com.electronwill.nightconfig.core.ConfigFormat;
 import com.electronwill.nightconfig.core.file.FileConfig;
 import com.electronwill.nightconfig.core.io.ConfigWriter;
 import com.electronwill.nightconfig.toml.TomlFormat;
+import com.terminalvelocitycabbage.engine.client.renderer.model.bedrock.BedrockModel;
 import com.terminalvelocitycabbage.engine.config.TVConfig;
 import com.terminalvelocitycabbage.engine.debug.Log;
 import com.terminalvelocitycabbage.engine.filesystem.resources.Resource;
@@ -17,6 +18,12 @@ public class GameTests {
     public static void run(GameClient client) {
         //testFileSystemRegistryStuff(client);
         //testNightConfig(client);
+        testBedrockModelLoader(client);
+    }
+
+    public static void testBedrockModelLoader(GameClient client) {
+        BedrockModel model = BedrockModel.Loader.loadModel(client.getFileSystem().getResource(ResourceType.MODEL, GameModels.TEST_PIG));
+        model.print();
     }
 
     //Test that this game has access to both itself and mods on its filesystem

@@ -45,6 +45,8 @@ public class GameClient extends ClientBase {
         GameConfigs.init(this);
         GameShaders.init(this);
         GameTextures.init(this);
+        GameAnimations.init(this);
+        GameModels.init(this);
         GameInput.init(this);
         GameEntities.init(this);
         GameRoutines.init(this);
