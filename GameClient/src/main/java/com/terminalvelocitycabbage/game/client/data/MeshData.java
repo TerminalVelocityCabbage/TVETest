@@ -1,14 +1,10 @@
 package com.terminalvelocitycabbage.game.client.data;
 
-import com.terminalvelocitycabbage.engine.client.renderer.elements.VertexAttribute;
 import com.terminalvelocitycabbage.engine.client.renderer.elements.VertexFormat;
+import com.terminalvelocitycabbage.engine.client.renderer.model.bedrock.BedrockModelData;
 
 public class MeshData {
 
-    public static final VertexFormat MESH_FORMAT = VertexFormat.builder()
-            .addElement(VertexAttribute.XYZ_POSITION)
-            .addElement(VertexAttribute.RGB_COLOR)
-            .addElement(VertexAttribute.UV)
-            .build();
+    public static final VertexFormat MESH_FORMAT = BedrockModelData.BEDROCK_VERTEX_FORMAT;
 
 }
