@@ -11,6 +11,8 @@ import com.terminalvelocitycabbage.templates.ecs.components.MaterialComponent;
 import com.terminalvelocitycabbage.templates.ecs.components.ModelComponent;
 import com.terminalvelocitycabbage.templates.ecs.components.TransformationComponent;
 
+import static org.lwjgl.opengl.GL11.*;
+
 public class DrawSceneRenderNode extends RenderNode {
 
     private static final ComponentFilter RENDERABLE_ENTITIES = ComponentFilter.builder().allOf(ModelComponent.class, TransformationComponent.class, MaterialComponent.class).build();
@@ -30,6 +32,9 @@ public class DrawSceneRenderNode extends RenderNode {
         shaderProgram.bind();
         shaderProgram.getUniform("textureSampler").setUniform(0);
         shaderProgram.getUniform("projectionMatrix").setUniform(PERSPECTIVE.getProjectionMatrix());
+        glClearColor(0.2f, 0.2f, 0.2f, 1.0f);
+        //glDisable(GL_DEPTH_TEST);
+        //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
         client.getManager().getMatchingEntities(RENDERABLE_ENTITIES).forEach(entity -> {
             var model = entity.getComponent(ModelComponent.class).getModel();
             var textureId = entity.getComponent(MaterialComponent.class).getTexture();

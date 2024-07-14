@@ -37,7 +37,7 @@ public class DefaultScene extends Scene {
         playerEntity.addComponent(TransformationComponent.class);
 
         pigEntity = manager.createEntity();
-        pigEntity.addComponent(TransformationComponent.class).setPosition(0, 0, -20);
+        pigEntity.addComponent(TransformationComponent.class).setPosition(0, -5, -20);
         pigEntity.addComponent(ModelComponent.class).setModel(BedrockModelData.Loader.loadModel(client.getFileSystem().getResource(ResourceType.MODEL, GameModels.TEST_PIG)).toModel());
         pigEntity.addComponent(MaterialComponent.class).setTexture(GameTextures.TEST_PIG);
     }
