@@ -5,6 +5,7 @@ import com.electronwill.nightconfig.core.ConfigFormat;
 import com.electronwill.nightconfig.core.file.FileConfig;
 import com.electronwill.nightconfig.core.io.ConfigWriter;
 import com.electronwill.nightconfig.toml.TomlFormat;
+import com.terminalvelocitycabbage.engine.client.renderer.animation.bedrock.BedrockAnimationData;
 import com.terminalvelocitycabbage.engine.client.renderer.model.Model;
 import com.terminalvelocitycabbage.engine.client.renderer.model.bedrock.BedrockModelData;
 import com.terminalvelocitycabbage.engine.config.TVConfig;
@@ -20,11 +21,17 @@ public class GameTests {
         //testFileSystemRegistryStuff(client);
         //testNightConfig(client);
         //testBedrockModelLoader(client);
+        //testBedrockAnimationLoader(client);
+    }
+
+    private static void testBedrockAnimationLoader(GameClient client) {
+        BedrockAnimationData animationData = BedrockAnimationData.Loader.loadAnimations(client.getFileSystem().getResource(ResourceType.ANIMATION, GameAnimations.TEST_PIG));
+        animationData.print();
     }
 
     public static void testBedrockModelLoader(GameClient client) {
         BedrockModelData modelData = BedrockModelData.Loader.loadModel(client.getFileSystem().getResource(ResourceType.MODEL, GameModels.TEST_PIG));
-        Model testPigModel = modelData.toModel();
+        Model testPigModel = modelData.toModel(true);
         modelData.print();
     }
 

@@ -8,6 +8,7 @@ import com.terminalvelocitycabbage.engine.ecs.ComponentFilter;
 import com.terminalvelocitycabbage.engine.graph.RenderNode;
 import com.terminalvelocitycabbage.game.client.GameClient;
 import com.terminalvelocitycabbage.templates.ecs.components.MaterialComponent;
+import com.terminalvelocitycabbage.templates.ecs.components.ModelAnimationControllerComponent;
 import com.terminalvelocitycabbage.templates.ecs.components.ModelComponent;
 import com.terminalvelocitycabbage.templates.ecs.components.TransformationComponent;
 
@@ -22,7 +23,6 @@ public class DrawSceneRenderNode extends RenderNode {
         super(shaderProgramConfig);
     }
 
-    //TODO add components for each of the registered vertex formats so that we can render
     //TODO add a way to sort entities in the renderer by model type so we can avoid extra binding of meshes
     @Override
     public void execute(Scene scene, WindowProperties properties, long deltaTime) {
@@ -39,7 +39,10 @@ public class DrawSceneRenderNode extends RenderNode {
             var model = entity.getComponent(ModelComponent.class).getModel();
             var textureId = entity.getComponent(MaterialComponent.class).getTexture();
             var transformationComponent = entity.getComponent(TransformationComponent.class);
+            var animationController = entity.getComponent(ModelAnimationControllerComponent.class).getAnimationController();
             if (transformationComponent.isDirty()) transformationComponent.updateTransformationMatrix();
+            animationController.update(deltaTime);
+            shaderProgram.getUniform("boneTransformations").setUniforms(animationController.getBoneTransformations());
             shaderProgram.getUniform("modelMatrix").setUniform(transformationComponent.getTransformationMatrix());
             scene.getTextureCache().getTexture(textureId).bind();
             if (model.getFormat().equals(shaderProgram.getConfig().getVertexFormat())) model.render();

@@ -7,9 +7,11 @@ import com.terminalvelocitycabbage.game.client.GameClient;
 public class GameModels {
 
     public static Identifier TEST_PIG;
+    public static Identifier QUAXLY;
 
     public static void init(GameClient client) {
         TEST_PIG = client.getFileSystem().registerResource(GameClient.CLIENT_RESOURCE_SOURCE, ResourceType.MODEL, "test_blockbench.geo.json").getIdentifier();
+        QUAXLY = client.getFileSystem().registerResource(GameClient.CLIENT_RESOURCE_SOURCE, ResourceType.MODEL, "quaxly.geo.json").getIdentifier();
     }
 
 }
