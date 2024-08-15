@@ -44,7 +44,7 @@ public class DefaultScene extends Scene {
         playerEntity.addComponent(TransformationComponent.class);
 
         pigEntity = createDefaultModelEntity(manager, fileSystem, GameModels.TEST_PIG, GameTextures.TEST_PIG, GameAnimations.TEST_PIG, new Vector3f(0, -5, -20));
-        //pigEntity.getComponent(ModelAnimationControllerComponent.class).getAnimationController().getAnimation("Walk").loop();
+        pigEntity.getComponent(ModelAnimationControllerComponent.class).getAnimationController().getAnimation("Walk").loop();
         //quaxlyEntity = createDefaultModelEntity(manager, fileSystem, GameModels.QUAXLY, GameTextures.QUAXLY, null, new Vector3f(10, -5, -20));
     }
 
