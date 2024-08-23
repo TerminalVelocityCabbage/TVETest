@@ -53,7 +53,7 @@ public class DefaultScene extends Scene {
     private Entity createDefaultModelEntity(Manager manager, GameFileSystem fileSystem, Identifier model, Identifier texture, Identifier animations, Vector3f initialPosition) {
         var tempEntity = manager.createEntity();
         tempEntity.addComponent(TransformationComponent.class).setPosition(initialPosition);
-        var loadedModel = BedrockModelData.Loader.loadModel(fileSystem.getResource(ResourceType.MODEL, model)).toModel(true);
+        var loadedModel = BedrockModelData.Loader.loadModel(fileSystem.getResource(ResourceType.MODEL, model)).toModel();
         var animationController = animations == null ? null : BedrockAnimationData.Loader.loadAnimations(fileSystem.getResource(ResourceType.ANIMATION, animations)).toAnimationController(loadedModel);
         tempEntity.addComponent(ModelComponent.class).setModel(loadedModel);
         tempEntity.addComponent(ModelAnimationControllerComponent.class).setAnimationController(animationController);

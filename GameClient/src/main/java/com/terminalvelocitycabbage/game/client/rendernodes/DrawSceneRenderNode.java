@@ -41,7 +41,7 @@ public class DrawSceneRenderNode extends RenderNode {
             var transformationComponent = entity.getComponent(TransformationComponent.class);
             var animationController = entity.getComponent(ModelAnimationControllerComponent.class).getAnimationController();
             if (transformationComponent.isDirty()) transformationComponent.updateTransformationMatrix();
-            animationController.update(deltaTime);
+            animationController.update(deltaTime, model);
             shaderProgram.getUniform("boneTransformations").setUniforms(animationController.getBoneTransformations());
             shaderProgram.getUniform("modelMatrix").setUniform(transformationComponent.getTransformationMatrix());
             scene.getTextureCache().getTexture(textureId).bind();

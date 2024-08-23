@@ -31,7 +31,7 @@ public class GameTests {
 
     public static void testBedrockModelLoader(GameClient client) {
         BedrockModelData modelData = BedrockModelData.Loader.loadModel(client.getFileSystem().getResource(ResourceType.MODEL, GameModels.TEST_PIG));
-        Model testPigModel = modelData.toModel(true);
+        Model testPigModel = modelData.toModel();
         modelData.print();
     }
 

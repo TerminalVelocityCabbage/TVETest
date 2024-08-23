@@ -13,6 +13,6 @@ public class RotateEntitiesSystem extends System {
 
     @Override
     public void update(List<Entity> entities, float deltaTime) {
-        entities.forEach(entity -> entity.getComponent(TransformationComponent.class).rotate((float) Math.sin(deltaTime * 5f) / 2.5f, 0.5f, 0));
+        entities.forEach(entity -> entity.getComponent(TransformationComponent.class).rotate(0, 0.5f, 0));
     }
 }
