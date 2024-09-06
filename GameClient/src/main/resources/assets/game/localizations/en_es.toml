@@ -1,0 +1,10 @@
+[meta]
+fallbacks = []
+
+[greetings]
+hello = "Hello"
+goodbye = "Goodbye"
+
+[misc]
+another_translation = "Another One"
+test = "test"
