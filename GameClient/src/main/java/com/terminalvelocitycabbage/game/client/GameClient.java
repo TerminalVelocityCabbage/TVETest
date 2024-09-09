@@ -77,12 +77,12 @@ public class GameClient extends ClientBase {
         Log.info(localizer.localize(GameLocalizedTexts.HELLO));
         Log.info(localizer.localize(GameLocalizedTexts.GOODBYE));
         Log.info(localizer.localize(GameLocalizedTexts.ANOTHER_TRANSLATION));
-        Log.info(localizer.localize(GameLocalizedTexts.TEST));
+        Log.info(localizer.localize(GameLocalizedTexts.TEST, "one", "two"));
         localizer.changeLanguage(Language.SPANISH_SPAIN);
         Log.info(localizer.localize(GameLocalizedTexts.HELLO));
         Log.info(localizer.localize(GameLocalizedTexts.GOODBYE));
         Log.info(localizer.localize(GameLocalizedTexts.ANOTHER_TRANSLATION));
-        Log.info(localizer.localize(GameLocalizedTexts.TEST));
+        Log.info(localizer.localize(GameLocalizedTexts.TEST, "uno", "dos"));
 
         connect("127.0.0.1", 4132);
 

@@ -7,4 +7,4 @@ goodbye = "Goodbye"
 
 [misc]
 another_translation = "Another One"
-test = "test"
+test = "test {1} {0}"
