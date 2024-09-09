@@ -7,6 +7,7 @@ import com.terminalvelocitycabbage.engine.filesystem.resources.ResourceSource;
 import com.terminalvelocitycabbage.engine.filesystem.resources.ResourceType;
 import com.terminalvelocitycabbage.engine.filesystem.sources.MainSource;
 import com.terminalvelocitycabbage.engine.registry.Identifier;
+import com.terminalvelocitycabbage.engine.translation.Language;
 import com.terminalvelocitycabbage.engine.translation.Localizer;
 import com.terminalvelocitycabbage.game.client.registry.*;
 import com.terminalvelocitycabbage.game.common.GameCommon;
@@ -74,6 +75,14 @@ public class GameClient extends ClientBase {
         modInit();
 
         Log.info(localizer.localize(GameLocalizedTexts.HELLO));
+        Log.info(localizer.localize(GameLocalizedTexts.GOODBYE));
+        Log.info(localizer.localize(GameLocalizedTexts.ANOTHER_TRANSLATION));
+        Log.info(localizer.localize(GameLocalizedTexts.TEST));
+        localizer.changeLanguage(Language.SPANISH_SPAIN);
+        Log.info(localizer.localize(GameLocalizedTexts.HELLO));
+        Log.info(localizer.localize(GameLocalizedTexts.GOODBYE));
+        Log.info(localizer.localize(GameLocalizedTexts.ANOTHER_TRANSLATION));
+        Log.info(localizer.localize(GameLocalizedTexts.TEST));
 
         connect("127.0.0.1", 4132);
 

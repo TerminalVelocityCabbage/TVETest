@@ -1,5 +1,5 @@
 [meta]
-fallbacks = ["en_es"]
+fallbacks = ["en-us"]
 
 [greetings]
 hello = "Hola"
