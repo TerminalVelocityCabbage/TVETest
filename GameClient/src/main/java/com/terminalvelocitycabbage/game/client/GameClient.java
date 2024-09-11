@@ -2,15 +2,14 @@ package com.terminalvelocitycabbage.game.client;
 
 import com.terminalvelocitycabbage.engine.client.ClientBase;
 import com.terminalvelocitycabbage.engine.client.window.WindowProperties;
-import com.terminalvelocitycabbage.engine.debug.Log;
 import com.terminalvelocitycabbage.engine.filesystem.resources.ResourceSource;
 import com.terminalvelocitycabbage.engine.filesystem.resources.ResourceType;
 import com.terminalvelocitycabbage.engine.filesystem.sources.MainSource;
 import com.terminalvelocitycabbage.engine.registry.Identifier;
-import com.terminalvelocitycabbage.engine.translation.Language;
 import com.terminalvelocitycabbage.engine.translation.Localizer;
 import com.terminalvelocitycabbage.game.client.registry.*;
 import com.terminalvelocitycabbage.game.common.GameCommon;
+import com.terminalvelocitycabbage.game.common.events.ModLocalizedTextRegistryEvent;
 
 public class GameClient extends ClientBase {
 
@@ -63,6 +62,7 @@ public class GameClient extends ClientBase {
     public void init() {
         super.init();
 
+        getEventDispatcher().dispatchEvent(new ModLocalizedTextRegistryEvent(ModLocalizedTextRegistryEvent.EVENT, localizer));
         localizer.init();
 
         //Create windows based on some initial properties
@@ -73,16 +73,6 @@ public class GameClient extends ClientBase {
         getWindowManager().focusWindow(primaryWindow);
 
         modInit();
-
-        Log.info(localizer.localize(GameLocalizedTexts.HELLO));
-        Log.info(localizer.localize(GameLocalizedTexts.GOODBYE));
-        Log.info(localizer.localize(GameLocalizedTexts.ANOTHER_TRANSLATION));
-        Log.info(localizer.localize(GameLocalizedTexts.TEST, "one", "two"));
-        localizer.changeLanguage(Language.SPANISH_SPAIN);
-        Log.info(localizer.localize(GameLocalizedTexts.HELLO));
-        Log.info(localizer.localize(GameLocalizedTexts.GOODBYE));
-        Log.info(localizer.localize(GameLocalizedTexts.ANOTHER_TRANSLATION));
-        Log.info(localizer.localize(GameLocalizedTexts.TEST, "uno", "dos"));
 
         connect("127.0.0.1", 4132);
 
@@ -107,4 +97,7 @@ public class GameClient extends ClientBase {
         super.tick();
     }
 
+    public Localizer getLocalizer() {
+        return localizer;
+    }
 }

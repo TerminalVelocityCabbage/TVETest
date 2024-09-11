@@ -10,7 +10,7 @@ import com.terminalvelocitycabbage.game.common.GameCommon;
 public class GameLocalizedTexts {
 
     //Language Files
-    public static Identifier EN_ES;
+    public static Identifier EN_US;
     public static Identifier ES;
 
     //Greetings
@@ -25,11 +25,11 @@ public class GameLocalizedTexts {
     }
 
     public static void init() {
-        EN_ES = registerLangResource(Language.ENGLISH_UNITED_STATES);
+        EN_US = registerLangResource(Language.ENGLISH_UNITED_STATES);
         ES = registerLangResource(Language.SPANISH_SPAIN);
     }
 
-    //TODO make this common instead of client only
+    //TODO make this common instead of client only (likely with a registry event)
     private static Identifier registerLangResource(Language language) {
         return ClientBase.getInstance().getFileSystem().registerResource(GameClient.CLIENT_RESOURCE_SOURCE, ResourceType.LOCALIZATION, language.getAbbreviation() + ".toml").getIdentifier();
     }
