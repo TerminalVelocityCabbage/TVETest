@@ -6,12 +6,16 @@ import com.terminalvelocitycabbage.engine.filesystem.resources.ResourceSource;
 import com.terminalvelocitycabbage.engine.filesystem.resources.ResourceType;
 import com.terminalvelocitycabbage.engine.filesystem.sources.MainSource;
 import com.terminalvelocitycabbage.engine.registry.Identifier;
+import com.terminalvelocitycabbage.engine.translation.Localizer;
 import com.terminalvelocitycabbage.game.client.registry.*;
+import com.terminalvelocitycabbage.game.common.GameCommon;
+import com.terminalvelocitycabbage.game.common.events.ModLocalizedTextRegistryEvent;
 
 public class GameClient extends ClientBase {
 
-    public static final String ID = "game";
+    public static final String ID = GameCommon.ID;
     public static Identifier CLIENT_RESOURCE_SOURCE;
+    public final Localizer localizer = new Localizer();
 
     public GameClient() {
         super(ID, 50);
@@ -38,6 +42,7 @@ public class GameClient extends ClientBase {
         clientSource.registerDefaultSourceRoot(ResourceType.SOUND);
         clientSource.registerDefaultSourceRoot(ResourceType.FONT);
         clientSource.registerDefaultSourceRoot(ResourceType.DEFAULT_CONFIG);
+        clientSource.registerDefaultSourceRoot(ResourceType.LOCALIZATION);
         //register this source to the filesystem
         CLIENT_RESOURCE_SOURCE = getFileSystem().registerResourceSource(sourceIdentifier, clientSource).getIdentifier();
 
@@ -52,11 +57,15 @@ public class GameClient extends ClientBase {
         GameRoutines.init(this);
         GameRenderers.init(this);
         GameScenes.init(this);
+        GameLocalizedTexts.init();
     }
 
     @Override
     public void init() {
         super.init();
+
+        getEventDispatcher().dispatchEvent(new ModLocalizedTextRegistryEvent(ModLocalizedTextRegistryEvent.EVENT, localizer));
+        localizer.init();
 
         //Create windows based on some initial properties
         WindowProperties defaultWindow = new WindowProperties(600, 400, "initial window", GameScenes.DEFAULT_SCENE);
@@ -90,4 +99,7 @@ public class GameClient extends ClientBase {
         super.tick();
     }
 
+    public Localizer getLocalizer() {
+        return localizer;
+    }
 }

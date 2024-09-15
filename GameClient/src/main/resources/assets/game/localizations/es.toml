@@ -1,0 +1,9 @@
+[meta]
+fallbacks = ["en-us"]
+
+[greetings]
+hello = "Hola"
+goodbye = "Adios"
+
+[misc]
+another_translation = "Otro"
