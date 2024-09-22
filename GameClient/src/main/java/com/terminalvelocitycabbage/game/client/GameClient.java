@@ -2,14 +2,15 @@ package com.terminalvelocitycabbage.game.client;
 
 import com.terminalvelocitycabbage.engine.client.ClientBase;
 import com.terminalvelocitycabbage.engine.client.window.WindowProperties;
+import com.terminalvelocitycabbage.engine.filesystem.resources.ResourceCategory;
 import com.terminalvelocitycabbage.engine.filesystem.resources.ResourceSource;
-import com.terminalvelocitycabbage.engine.filesystem.resources.ResourceType;
 import com.terminalvelocitycabbage.engine.filesystem.sources.MainSource;
 import com.terminalvelocitycabbage.engine.registry.Identifier;
 import com.terminalvelocitycabbage.engine.translation.Localizer;
 import com.terminalvelocitycabbage.game.client.registry.*;
 import com.terminalvelocitycabbage.game.common.GameCommon;
 import com.terminalvelocitycabbage.game.common.events.ModLocalizedTextRegistryEvent;
+import com.terminalvelocitycabbage.templates.events.*;
 
 public class GameClient extends ClientBase {
 
@@ -19,6 +20,20 @@ public class GameClient extends ClientBase {
 
     public GameClient() {
         super(ID, 50);
+        //Register things
+        getEventDispatcher().listenToEvent(ResourceCategoryRegistrationEvent.EVENT, event -> GameResourceCategories.registerResourceCategories((ResourceCategoryRegistrationEvent) event));
+        getEventDispatcher().listenToEvent(ResourceSourceRegistrationEvent.EVENT, event -> registerResourceSources((ResourceSourceRegistrationEvent) event));
+        getEventDispatcher().listenToEvent(ResourceRegistrationEvent.getEventNameFromCategory(ResourceCategory.DEFAULT_CONFIG), event -> GameConfigs.init((ResourceRegistrationEvent) event));
+        getEventDispatcher().listenToEvent(ResourceRegistrationEvent.getEventNameFromCategory(ResourceCategory.SHADER), event -> GameShaders.init((ResourceRegistrationEvent) event));
+        getEventDispatcher().listenToEvent(ResourceRegistrationEvent.getEventNameFromCategory(ResourceCategory.TEXTURE), event -> GameTextures.init((ResourceRegistrationEvent) event));
+        getEventDispatcher().listenToEvent(ResourceRegistrationEvent.getEventNameFromCategory(ResourceCategory.LOCALIZATION), event -> GameLocalizedTexts.init((ResourceRegistrationEvent) event));
+        getEventDispatcher().listenToEvent(InputHandlerRegistrationEvent.EVENT, event -> GameInput.init((InputHandlerRegistrationEvent) event));
+        getEventDispatcher().listenToEvent(EntityComponentRegistrationEvent.EVENT, event -> GameEntities.registerComponents((EntityComponentRegistrationEvent) event));
+        getEventDispatcher().listenToEvent(EntitySystemRegistrationEvent.EVENT, event -> GameEntities.createSystems((EntitySystemRegistrationEvent) event));
+        getEventDispatcher().listenToEvent(EntityTemplateRegistrationEvent.EVENT, event -> GameEntities.createEntityTemplates((EntityTemplateRegistrationEvent) event));
+        getEventDispatcher().listenToEvent(RoutineRegistrationEvent.EVENT, event -> GameRoutines.init((RoutineRegistrationEvent) event));
+        getEventDispatcher().listenToEvent(RendererRegistrationEvent.EVENT, event -> GameRenderers.init((RendererRegistrationEvent) event));
+        getEventDispatcher().listenToEvent(SceneRegistrationEvent.EVENT, event -> GameScenes.init((SceneRegistrationEvent) event));
     }
 
     public static void main(String[] args) {
@@ -26,36 +41,14 @@ public class GameClient extends ClientBase {
         client.start();
     }
 
-    @Override
-    public void preInit() {
-        super.preInit();
-
+    private void registerResourceSources(ResourceSourceRegistrationEvent event) {
         //Register and init filesystem things
         //Create resource sources for this client
         ResourceSource clientSource = new MainSource(ID, this);
-        Identifier sourceIdentifier = identifierOf("client_main_resource_source");
         //Define roots for these resources
-        clientSource.registerDefaultSourceRoot(ResourceType.MODEL);
-        clientSource.registerDefaultSourceRoot(ResourceType.TEXTURE);
-        clientSource.registerDefaultSourceRoot(ResourceType.ANIMATION);
-        clientSource.registerDefaultSourceRoot(ResourceType.SHADER);
-        clientSource.registerDefaultSourceRoot(ResourceType.SOUND);
-        clientSource.registerDefaultSourceRoot(ResourceType.FONT);
-        clientSource.registerDefaultSourceRoot(ResourceType.DEFAULT_CONFIG);
-        clientSource.registerDefaultSourceRoot(ResourceType.LOCALIZATION);
-        //register this source to the filesystem
-        CLIENT_RESOURCE_SOURCE = getFileSystem().registerResourceSource(sourceIdentifier, clientSource).getIdentifier();
-
-        //Register things
-        GameConfigs.init(this);
-        GameShaders.init(this);
-        GameTextures.init(this);
-        GameInput.init(this);
-        GameEntities.init(this);
-        GameRoutines.init(this);
-        GameRenderers.init(this);
-        GameScenes.init(this);
-        GameLocalizedTexts.init();
+        clientSource.registerDefaultSources();
+        //register this source
+        CLIENT_RESOURCE_SOURCE = event.register(identifierOf("client_main_resource_source"), clientSource).getIdentifier();
     }
 
     @Override

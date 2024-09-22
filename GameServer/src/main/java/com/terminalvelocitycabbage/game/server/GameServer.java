@@ -1,12 +1,15 @@
 package com.terminalvelocitycabbage.game.server;
 
+import com.terminalvelocitycabbage.engine.client.ClientBase;
 import com.terminalvelocitycabbage.engine.debug.Log;
 import com.terminalvelocitycabbage.engine.filesystem.resources.ResourceSource;
-import com.terminalvelocitycabbage.engine.filesystem.resources.ResourceType;
+import com.terminalvelocitycabbage.engine.filesystem.resources.ResourceCategory;
 import com.terminalvelocitycabbage.engine.filesystem.sources.MainSource;
+import com.terminalvelocitycabbage.engine.filesystem.sources.ModSource;
 import com.terminalvelocitycabbage.engine.registry.Identifier;
 import com.terminalvelocitycabbage.engine.server.ServerBase;
 import com.terminalvelocitycabbage.game.common.packets.StopServerPacket;
+import com.terminalvelocitycabbage.templates.events.ResourceSourceRegistrationEvent;
 import com.terminalvelocitycabbage.templates.events.ServerLifecycleEvent;
 
 public class GameServer extends ServerBase {
@@ -15,6 +18,9 @@ public class GameServer extends ServerBase {
 
     public GameServer() {
         super(ID, 50);
+        //Subscribe to relevant Events
+        getEventDispatcher().listenToEvent(ServerLifecycleEvent.PRE_BIND, (event -> onPreBind((ServerLifecycleEvent) event)));
+        getEventDispatcher().listenToEvent(ResourceSourceRegistrationEvent.EVENT, (event -> registerResourceSources((ResourceSourceRegistrationEvent) event)));
     }
 
     public static void main(String[] args) {
@@ -22,21 +28,15 @@ public class GameServer extends ServerBase {
         server.start();
     }
 
-    @Override
-    public void preInit() {
-        super.preInit();
-
-        //Subscribe to relevant Events
-        ServerBase.getInstance().getEventDispatcher().listenToEvent(ServerLifecycleEvent.PRE_BIND, (event -> onPreBind((ServerLifecycleEvent) event)));
-
+    private void registerResourceSources(ResourceSourceRegistrationEvent event) {
         //Register and init filesystem things
         //Create resource sources for this server
         ResourceSource serverSource = new MainSource(ID, this);
         Identifier sourceIdentifier = identifierOf("server_main_resource_source");
         //Define roots for these resources
-        serverSource.registerDefaultSourceRoot(ResourceType.DEFAULT_CONFIG);
+        serverSource.registerDefaultSourceRoot(ResourceCategory.DEFAULT_CONFIG);
         //register this source to the filesystem
-        getFileSystem().registerResourceSource(sourceIdentifier, serverSource);
+        event.getRegistry().register(sourceIdentifier, serverSource);
     }
 
     @Override
