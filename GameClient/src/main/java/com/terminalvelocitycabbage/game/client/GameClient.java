@@ -60,8 +60,6 @@ public class GameClient extends ClientBase {
         //getWindowManager().createNewWindow(secondWindow);
         getWindowManager().focusWindow(primaryWindow);
 
-        modInit();
-
         connect("127.0.0.1", 4132);
 
         //Test stuff
