@@ -4,7 +4,7 @@ import com.terminalvelocitycabbage.engine.client.ClientBase;
 import com.terminalvelocitycabbage.engine.client.scene.Scene;
 import com.terminalvelocitycabbage.engine.ecs.Entity;
 import com.terminalvelocitycabbage.engine.ecs.Manager;
-import com.terminalvelocitycabbage.engine.filesystem.resources.ResourceType;
+import com.terminalvelocitycabbage.engine.filesystem.resources.ResourceCategory;
 import com.terminalvelocitycabbage.engine.graph.Routine;
 import com.terminalvelocitycabbage.engine.registry.Identifier;
 import com.terminalvelocitycabbage.game.client.GameClient;
@@ -16,8 +16,8 @@ public class DefaultScene extends Scene {
 
     private Entity playerEntity;
 
-    public DefaultScene(Identifier renderGraph, List<Routine> routines) {
-        super(renderGraph, routines);
+    public DefaultScene(Identifier renderGraph, Routine... routines) {
+        super(renderGraph, List.of(routines));
     }
 
     @Override
@@ -25,7 +25,7 @@ public class DefaultScene extends Scene {
         GameClient client = (GameClient) ClientBase.getInstance();
         Manager manager = client.getManager();
 
-        client.getFileSystem().getResourceIdentifiersOfType(ResourceType.TEXTURE).forEach(identifier -> getTextureCache().createTexture(identifier));
+        client.getFileSystem().getResourcesOfType(ResourceCategory.TEXTURE).forEach((key, value) -> getTextureCache().createTexture(key, value));
 
         playerEntity = manager.createEntity();
         playerEntity.addComponent(TransformationComponent.class);

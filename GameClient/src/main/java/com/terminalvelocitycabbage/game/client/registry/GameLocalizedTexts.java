@@ -1,11 +1,12 @@
 package com.terminalvelocitycabbage.game.client.registry;
 
-import com.terminalvelocitycabbage.engine.client.ClientBase;
-import com.terminalvelocitycabbage.engine.filesystem.resources.ResourceType;
+import com.terminalvelocitycabbage.engine.filesystem.resources.ResourceCategory;
 import com.terminalvelocitycabbage.engine.registry.Identifier;
 import com.terminalvelocitycabbage.engine.translation.Language;
 import com.terminalvelocitycabbage.game.client.GameClient;
 import com.terminalvelocitycabbage.game.common.GameCommon;
+import com.terminalvelocitycabbage.templates.events.LocalizedTextKeyRegistrationEvent;
+import com.terminalvelocitycabbage.templates.events.ResourceRegistrationEvent;
 
 public class GameLocalizedTexts {
 
@@ -14,24 +15,26 @@ public class GameLocalizedTexts {
     public static Identifier ES;
 
     //Greetings
-    public static final Identifier HELLO = register(GameCommon.ID, "greetings.hello");
-    public static final Identifier GOODBYE = register(GameCommon.ID, "greetings.goodbye");
+    public static Identifier HELLO;
+    public static Identifier GOODBYE;
     //Miscellaneous
-    public static final Identifier ANOTHER_TRANSLATION = register(GameCommon.ID, "misc.another_translation");
-    public static final Identifier TEST = register(GameCommon.ID, "misc.test");
+    public static Identifier ANOTHER_TRANSLATION;
+    public static Identifier TEST;
 
-    private static Identifier register(String namespace, String path) {
-        return ((GameClient) ClientBase.getInstance()).localizer.registerTranslatableText(namespace, path);
+    public static void registerLocalizedTextKeys(LocalizedTextKeyRegistrationEvent event) {
+        HELLO = event.registerKey(GameCommon.ID, "greetings.hello").getIdentifier();
+        GOODBYE = event.registerKey(GameCommon.ID, "greetings.goodbye").getIdentifier();
+        ANOTHER_TRANSLATION = event.registerKey(GameCommon.ID, "misc.another_translation").getIdentifier();
+        TEST = event.registerKey(GameCommon.ID, "misc.test").getIdentifier();
     }
 
-    public static void init() {
-        EN_US = registerLangResource(Language.ENGLISH_UNITED_STATES);
-        ES = registerLangResource(Language.SPANISH_SPAIN);
+    public static void registerTranslationResources(ResourceRegistrationEvent event) {
+        EN_US = registerLangResource(event, Language.ENGLISH_UNITED_STATES);
+        ES = registerLangResource(event, Language.SPANISH_SPAIN);
     }
 
-    //TODO make this common instead of client only (likely with a registry event)
-    private static Identifier registerLangResource(Language language) {
-        return ClientBase.getInstance().getFileSystem().registerResource(GameClient.CLIENT_RESOURCE_SOURCE, ResourceType.LOCALIZATION, language.getAbbreviation() + ".toml").getIdentifier();
+    private static Identifier registerLangResource(ResourceRegistrationEvent event, Language language) {
+        return event.registerResource(GameClient.CLIENT_RESOURCE_SOURCE, ResourceCategory.LOCALIZATION, language.getAbbreviation() + ".toml").getIdentifier();
     }
 
 }
