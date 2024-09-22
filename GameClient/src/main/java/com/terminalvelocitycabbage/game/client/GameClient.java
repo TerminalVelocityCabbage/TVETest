@@ -6,17 +6,14 @@ import com.terminalvelocitycabbage.engine.filesystem.resources.ResourceCategory;
 import com.terminalvelocitycabbage.engine.filesystem.resources.ResourceSource;
 import com.terminalvelocitycabbage.engine.filesystem.sources.MainSource;
 import com.terminalvelocitycabbage.engine.registry.Identifier;
-import com.terminalvelocitycabbage.engine.translation.Localizer;
 import com.terminalvelocitycabbage.game.client.registry.*;
 import com.terminalvelocitycabbage.game.common.GameCommon;
-import com.terminalvelocitycabbage.game.common.events.ModLocalizedTextRegistryEvent;
 import com.terminalvelocitycabbage.templates.events.*;
 
 public class GameClient extends ClientBase {
 
     public static final String ID = GameCommon.ID;
     public static Identifier CLIENT_RESOURCE_SOURCE;
-    public final Localizer localizer = new Localizer();
 
     public GameClient() {
         super(ID, 50);
@@ -26,7 +23,7 @@ public class GameClient extends ClientBase {
         getEventDispatcher().listenToEvent(ResourceRegistrationEvent.getEventNameFromCategory(ResourceCategory.DEFAULT_CONFIG), event -> GameConfigs.init((ResourceRegistrationEvent) event));
         getEventDispatcher().listenToEvent(ResourceRegistrationEvent.getEventNameFromCategory(ResourceCategory.SHADER), event -> GameShaders.init((ResourceRegistrationEvent) event));
         getEventDispatcher().listenToEvent(ResourceRegistrationEvent.getEventNameFromCategory(ResourceCategory.TEXTURE), event -> GameTextures.init((ResourceRegistrationEvent) event));
-        getEventDispatcher().listenToEvent(ResourceRegistrationEvent.getEventNameFromCategory(ResourceCategory.LOCALIZATION), event -> GameLocalizedTexts.init((ResourceRegistrationEvent) event));
+        getEventDispatcher().listenToEvent(ResourceRegistrationEvent.getEventNameFromCategory(ResourceCategory.LOCALIZATION), event -> GameLocalizedTexts.registerTranslationResources((ResourceRegistrationEvent) event));
         getEventDispatcher().listenToEvent(InputHandlerRegistrationEvent.EVENT, event -> GameInput.init((InputHandlerRegistrationEvent) event));
         getEventDispatcher().listenToEvent(EntityComponentRegistrationEvent.EVENT, event -> GameEntities.registerComponents((EntityComponentRegistrationEvent) event));
         getEventDispatcher().listenToEvent(EntitySystemRegistrationEvent.EVENT, event -> GameEntities.createSystems((EntitySystemRegistrationEvent) event));
@@ -34,6 +31,7 @@ public class GameClient extends ClientBase {
         getEventDispatcher().listenToEvent(RoutineRegistrationEvent.EVENT, event -> GameRoutines.init((RoutineRegistrationEvent) event));
         getEventDispatcher().listenToEvent(RendererRegistrationEvent.EVENT, event -> GameRenderers.init((RendererRegistrationEvent) event));
         getEventDispatcher().listenToEvent(SceneRegistrationEvent.EVENT, event -> GameScenes.init((SceneRegistrationEvent) event));
+        getEventDispatcher().listenToEvent(LocalizedTextKeyRegistrationEvent.EVENT, event -> GameLocalizedTexts.registerLocalizedTextKeys((LocalizedTextKeyRegistrationEvent) event));
     }
 
     public static void main(String[] args) {
@@ -54,9 +52,6 @@ public class GameClient extends ClientBase {
     @Override
     public void init() {
         super.init();
-
-        getEventDispatcher().dispatchEvent(new ModLocalizedTextRegistryEvent(ModLocalizedTextRegistryEvent.EVENT, localizer));
-        localizer.init();
 
         //Create windows based on some initial properties
         WindowProperties defaultWindow = new WindowProperties(600, 400, "initial window", GameScenes.DEFAULT_SCENE);
@@ -88,9 +83,5 @@ public class GameClient extends ClientBase {
     @Override
     public void tick() {
         super.tick();
-    }
-
-    public Localizer getLocalizer() {
-        return localizer;
     }
 }
