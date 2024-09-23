@@ -6,8 +6,7 @@ import com.terminalvelocitycabbage.engine.client.renderer.model.bedrock.BedrockM
 import com.terminalvelocitycabbage.engine.client.scene.Scene;
 import com.terminalvelocitycabbage.engine.ecs.Entity;
 import com.terminalvelocitycabbage.engine.ecs.Manager;
-import com.terminalvelocitycabbage.engine.filesystem.GameFileSystem;
-import com.terminalvelocitycabbage.engine.filesystem.resources.ResourceType;
+import com.terminalvelocitycabbage.engine.filesystem.resources.ResourceCategory;
 import com.terminalvelocitycabbage.engine.graph.Routine;
 import com.terminalvelocitycabbage.engine.registry.Identifier;
 import com.terminalvelocitycabbage.game.client.GameClient;
@@ -28,8 +27,8 @@ public class DefaultScene extends Scene {
     private Entity pigEntity;
     private Entity quaxlyEntity;
 
-    public DefaultScene(Identifier renderGraph, List<Routine> routines) {
-        super(renderGraph, routines);
+    public DefaultScene(Identifier renderGraph, Routine... routines) {
+        super(renderGraph, List.of(routines));
     }
 
     @Override
@@ -38,7 +37,7 @@ public class DefaultScene extends Scene {
         Manager manager = client.getManager();
         GameFileSystem fileSystem = client.getFileSystem();
 
-        fileSystem.getResourceIdentifiersOfType(ResourceType.TEXTURE).forEach(identifier -> getTextureCache().createTexture(identifier));
+        client.getFileSystem().getResourcesOfType(ResourceCategory.TEXTURE).forEach((key, value) -> getTextureCache().createTexture(key, value));
 
         playerEntity = manager.createEntity();
         playerEntity.addComponent(TransformationComponent.class);

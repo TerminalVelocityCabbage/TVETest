@@ -5,17 +5,19 @@ import com.terminalvelocitycabbage.engine.client.input.controller.ControlGroup;
 import com.terminalvelocitycabbage.engine.client.input.types.GamepadInput;
 import com.terminalvelocitycabbage.engine.client.input.types.KeyboardInput;
 import com.terminalvelocitycabbage.engine.client.input.types.MouseInput;
+import com.terminalvelocitycabbage.engine.registry.Identifier;
 import com.terminalvelocitycabbage.game.client.GameClient;
 import com.terminalvelocitycabbage.game.client.inputcontrollers.CloseWindowController;
 import com.terminalvelocitycabbage.game.client.inputcontrollers.DirectionalController;
 import com.terminalvelocitycabbage.game.client.inputcontrollers.RecompileShadersController;
 import com.terminalvelocitycabbage.game.client.inputcontrollers.ScrollController;
+import com.terminalvelocitycabbage.templates.events.InputHandlerRegistrationEvent;
 
 public class GameInput {
 
-    public static void init(GameClient client) {
+    public static void init(InputHandlerRegistrationEvent event) {
 
-        var inputHandler = client.getInputHandler();
+        var inputHandler = event.getInputHandler();
 
         //Register Controls to listen to
         Control escapeControl = inputHandler.registerControlListener(new KeyboardKeyControl(KeyboardInput.Key.ESCAPE));
@@ -44,8 +46,8 @@ public class GameInput {
         Control mouseScrollDownControl = inputHandler.registerControlListener(new MouseScrollControl(MouseInput.ScrollDirection.DOWN, 1f));
 
         //Register Controllers
-        inputHandler.registerController(client.identifierOf("closeWindowOnEscapeController"), new CloseWindowController(escapeControl));
-        inputHandler.registerController(client.identifierOf("movementController"), new DirectionalController(
+        inputHandler.registerController(new Identifier(GameClient.ID, "closeWindowOnEscapeController"), new CloseWindowController(escapeControl));
+        inputHandler.registerController(new Identifier(GameClient.ID, "movementController"), new DirectionalController(
                 new ControlGroup(leftJoystickForwardControl, wControl),
                 new ControlGroup(leftJoystickBackwardsControl, sControl),
                 new ControlGroup(leftJoystickLeftControl, aControl),
@@ -59,10 +61,10 @@ public class GameInput {
 //                new ControlGroup(mouseLeftControl, rightJoystickLeftControl),
 //                new ControlGroup(mouseRightControl, rightJoystickRightControl)
 //        ));
-        inputHandler.registerController(client.identifierOf("scrollController"), new ScrollController(
+        inputHandler.registerController(new Identifier(GameClient.ID, "scrollController"), new ScrollController(
                 new ControlGroup(mouseScrollUpControl),
                 new ControlGroup(mouseScrollDownControl)
         ));
-        inputHandler.registerController(client.identifierOf("reloadShaderController"), new RecompileShadersController(rControl));
+        inputHandler.registerController(new Identifier(GameClient.ID, "reloadShaderController"), new RecompileShadersController(rControl));
     }
 }

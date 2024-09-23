@@ -11,7 +11,7 @@ import com.terminalvelocitycabbage.engine.client.renderer.model.bedrock.BedrockM
 import com.terminalvelocitycabbage.engine.config.TVConfig;
 import com.terminalvelocitycabbage.engine.debug.Log;
 import com.terminalvelocitycabbage.engine.filesystem.resources.Resource;
-import com.terminalvelocitycabbage.engine.filesystem.resources.ResourceType;
+import com.terminalvelocitycabbage.engine.filesystem.resources.ResourceCategory;
 import com.terminalvelocitycabbage.engine.registry.Identifier;
 import com.terminalvelocitycabbage.game.client.GameClient;
 
@@ -43,11 +43,11 @@ public class GameTests {
         //getFileSystem().listResources();
 
         //Test reading the string that is the config file from this game
-        Resource resource = client.getFileSystem().getResource(ResourceType.DEFAULT_CONFIG, new Identifier("game", "test.toml"));
+        Resource resource = client.getFileSystem().getResource(ResourceCategory.DEFAULT_CONFIG, new Identifier("game", "test.toml"));
         Log.info(resource.asString());
 
         //Test reading the string that is the mod config file (this is the part that will never work like this)
-        Resource modResource = client.getFileSystem().getResource(ResourceType.DEFAULT_CONFIG, new Identifier("testmod", "testmod.toml"));
+        Resource modResource = client.getFileSystem().getResource(ResourceCategory.DEFAULT_CONFIG, new Identifier("testmod", "testmod.toml"));
         Log.info(modResource.asString());
     }
 
