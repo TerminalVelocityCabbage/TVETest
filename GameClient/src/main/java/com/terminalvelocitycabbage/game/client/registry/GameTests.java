@@ -25,12 +25,12 @@ public class GameTests {
     }
 
     private static void testBedrockAnimationLoader(GameClient client) {
-        BedrockAnimationData animationData = BedrockAnimationData.Loader.loadAnimations(client.getFileSystem().getResource(ResourceType.ANIMATION, GameAnimations.TEST_PIG));
+        BedrockAnimationData animationData = BedrockAnimationData.Loader.loadAnimations(client.getFileSystem().getResource(ResourceCategory.ANIMATION, GameAnimations.TEST_PIG));
         animationData.print();
     }
 
     public static void testBedrockModelLoader(GameClient client) {
-        BedrockModelData modelData = BedrockModelData.Loader.loadModel(client.getFileSystem().getResource(ResourceType.MODEL, GameModels.TEST_PIG));
+        BedrockModelData modelData = BedrockModelData.Loader.loadModel(client.getFileSystem().getResource(ResourceCategory.MODEL, GameModels.TEST_PIG));
         Model testPigModel = modelData.toModel();
         modelData.print();
     }

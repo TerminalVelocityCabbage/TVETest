@@ -6,6 +6,7 @@ import com.terminalvelocitycabbage.engine.client.renderer.model.bedrock.BedrockM
 import com.terminalvelocitycabbage.engine.client.scene.Scene;
 import com.terminalvelocitycabbage.engine.ecs.Entity;
 import com.terminalvelocitycabbage.engine.ecs.Manager;
+import com.terminalvelocitycabbage.engine.filesystem.GameFileSystem;
 import com.terminalvelocitycabbage.engine.filesystem.resources.ResourceCategory;
 import com.terminalvelocitycabbage.engine.graph.Routine;
 import com.terminalvelocitycabbage.engine.registry.Identifier;
@@ -52,8 +53,8 @@ public class DefaultScene extends Scene {
     private Entity createDefaultModelEntity(Manager manager, GameFileSystem fileSystem, Identifier model, Identifier texture, Identifier animations, Vector3f initialPosition) {
         var tempEntity = manager.createEntity();
         tempEntity.addComponent(TransformationComponent.class).setPosition(initialPosition);
-        var loadedModel = BedrockModelData.Loader.loadModel(fileSystem.getResource(ResourceType.MODEL, model)).toModel();
-        var animationController = animations == null ? null : BedrockAnimationData.Loader.loadAnimations(fileSystem.getResource(ResourceType.ANIMATION, animations)).toAnimationController(loadedModel);
+        var loadedModel = BedrockModelData.Loader.loadModel(fileSystem.getResource(ResourceCategory.MODEL, model)).toModel();
+        var animationController = animations == null ? null : BedrockAnimationData.Loader.loadAnimations(fileSystem.getResource(ResourceCategory.ANIMATION, animations)).toAnimationController(loadedModel);
         tempEntity.addComponent(ModelComponent.class).setModel(loadedModel);
         tempEntity.addComponent(ModelAnimationControllerComponent.class).setAnimationController(animationController);
         tempEntity.addComponent(MaterialComponent.class).setTexture(texture);

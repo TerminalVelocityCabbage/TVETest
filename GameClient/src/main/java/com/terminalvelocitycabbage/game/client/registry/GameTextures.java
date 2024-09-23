@@ -13,9 +13,9 @@ public class GameTextures {
 
     public static void init(ResourceRegistrationEvent event) {
         //Register Textures to the VFS
-        SMILE = client.getFileSystem().registerResource(GameClient.CLIENT_RESOURCE_SOURCE, ResourceType.TEXTURE, "smile.png").getIdentifier();
-        TEST_PIG = client.getFileSystem().registerResource(GameClient.CLIENT_RESOURCE_SOURCE, ResourceType.TEXTURE, "test_blockbench.png").getIdentifier();
-        QUAXLY = client.getFileSystem().registerResource(GameClient.CLIENT_RESOURCE_SOURCE, ResourceType.TEXTURE, "quaxly.png").getIdentifier();
+        SMILE = event.registerResource(GameClient.CLIENT_RESOURCE_SOURCE, ResourceCategory.TEXTURE, "smile.png").getIdentifier();
+        TEST_PIG = event.registerResource(GameClient.CLIENT_RESOURCE_SOURCE, ResourceCategory.TEXTURE, "test_blockbench.png").getIdentifier();
+        QUAXLY = event.registerResource(GameClient.CLIENT_RESOURCE_SOURCE, ResourceCategory.TEXTURE, "quaxly.png").getIdentifier();
     }
 
 }
