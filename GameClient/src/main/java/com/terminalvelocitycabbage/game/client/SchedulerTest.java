@@ -89,7 +89,7 @@ public class SchedulerTest {
         while (true) {
             tickManager.update();
             if (tickManager.hasTick()) {
-                scheduler.tick();
+                scheduler.update();
             }
         }
     }
