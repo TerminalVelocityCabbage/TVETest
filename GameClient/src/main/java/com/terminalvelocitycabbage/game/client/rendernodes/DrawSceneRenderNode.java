@@ -5,8 +5,12 @@ import com.terminalvelocitycabbage.engine.client.renderer.shader.ShaderProgramCo
 import com.terminalvelocitycabbage.engine.client.scene.Scene;
 import com.terminalvelocitycabbage.engine.client.window.WindowProperties;
 import com.terminalvelocitycabbage.engine.ecs.ComponentFilter;
+import com.terminalvelocitycabbage.engine.ecs.Entity;
 import com.terminalvelocitycabbage.engine.graph.RenderNode;
 import com.terminalvelocitycabbage.game.client.GameClient;
+import com.terminalvelocitycabbage.game.common.ecs.components.PitchYawRotationComponent;
+import com.terminalvelocitycabbage.game.common.ecs.components.PlayerCameraComponent;
+import com.terminalvelocitycabbage.game.common.ecs.components.PositionComponent;
 import com.terminalvelocitycabbage.templates.ecs.components.MaterialComponent;
 import com.terminalvelocitycabbage.templates.ecs.components.MeshComponent;
 import com.terminalvelocitycabbage.templates.ecs.components.TransformationComponent;
@@ -25,20 +29,28 @@ public class DrawSceneRenderNode extends RenderNode {
     @Override
     public void execute(Scene scene, WindowProperties properties, long deltaTime) {
         var client = GameClient.getInstance();
+        var player = getPlayer();
+        var camera = player.getComponent(PlayerCameraComponent.class);
         var shaderProgram = getShaderProgram();
-        if (properties.isResized()) PERSPECTIVE.updateProjectionMatrix(properties.getWidth(), properties.getHeight());
+        if (properties.isResized()) camera.updateProjectionMatrix(properties.getWidth(), properties.getHeight());
         shaderProgram.bind();
         shaderProgram.getUniform("textureSampler").setUniform(0);
-        shaderProgram.getUniform("projectionMatrix").setUniform(PERSPECTIVE.getProjectionMatrix());
+        shaderProgram.getUniform("projectionMatrix").setUniform(camera.getProjectionMatrix());
+        shaderProgram.getUniform("viewMatrix").setUniform(camera.getViewMatrix(player));
         client.getManager().getMatchingEntities(RENDERABLE_ENTITIES).forEach(entity -> {
             var mesh = entity.getComponent(MeshComponent.class).getMesh();
             var textureId = entity.getComponent(MaterialComponent.class).getTexture();
             var transformationComponent = entity.getComponent(TransformationComponent.class);
-            if (transformationComponent.isDirty()) transformationComponent.updateTransformationMatrix();
             shaderProgram.getUniform("modelMatrix").setUniform(transformationComponent.getTransformationMatrix());
             scene.getTextureCache().getTexture(textureId).bind();
             if (mesh.getFormat().equals(shaderProgram.getConfig().getVertexFormat())) mesh.render();
         });
         shaderProgram.unbind();
+    }
+
+    private Entity getPlayer() {
+        return GameClient.getInstance().getManager().getFirstMatchingEntity(ComponentFilter.builder()
+                .allOf(PlayerCameraComponent.class, PositionComponent.class, PitchYawRotationComponent.class)
+                .build());
     }
 }

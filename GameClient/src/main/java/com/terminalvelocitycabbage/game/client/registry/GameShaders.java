@@ -25,6 +25,7 @@ public class GameShaders {
                         .addShader(Shader.Type.FRAGMENT, GameShaders.TEST_FRAGMENT_SHADER)
                         .addUniform(new Uniform("textureSampler"))
                         .addUniform(new Uniform("projectionMatrix"))
+                        .addUniform(new Uniform("viewMatrix"))
                         .addUniform(new Uniform("modelMatrix"))
                         .build();
     }
