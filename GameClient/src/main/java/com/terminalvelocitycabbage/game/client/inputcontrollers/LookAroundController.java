@@ -9,6 +9,8 @@ import com.terminalvelocitycabbage.game.common.ecs.components.PitchYawRotationCo
 import com.terminalvelocitycabbage.game.common.ecs.components.PlayerCameraComponent;
 import com.terminalvelocitycabbage.game.common.ecs.components.PositionComponent;
 
+import java.util.Set;
+
 public class LookAroundController extends GroupedController4f {
 
     public LookAroundController(ControlGroup forward, ControlGroup backward, ControlGroup left, ControlGroup right) {
@@ -21,8 +23,7 @@ public class LookAroundController extends GroupedController4f {
     }
 
     private Entity getPlayer() {
-        return GameClient.getInstance().getManager().getFirstMatchingEntity(ComponentFilter.builder()
-                .allOf(PlayerCameraComponent.class, PositionComponent.class, PitchYawRotationComponent.class)
-                .build());
+        return GameClient.getInstance().getManager().getFirstEntityWith(PlayerCameraComponent.class, PositionComponent.class, PitchYawRotationComponent.class);
+
     }
 }

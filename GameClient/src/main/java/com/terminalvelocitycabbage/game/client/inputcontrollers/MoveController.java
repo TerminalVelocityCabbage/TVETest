@@ -30,8 +30,6 @@ public class MoveController extends GroupedController6f {
     }
 
     private Entity getPlayer() {
-        return GameClient.getInstance().getManager().getFirstMatchingEntity(ComponentFilter.builder()
-                .allOf(PlayerCameraComponent.class, PositionComponent.class, PitchYawRotationComponent.class)
-                .build());
+        return GameClient.getInstance().getManager().getFirstEntityWith(PlayerCameraComponent.class, PositionComponent.class, PitchYawRotationComponent.class);
     }
 }

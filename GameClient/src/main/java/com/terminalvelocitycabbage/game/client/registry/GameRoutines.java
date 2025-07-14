@@ -17,7 +17,7 @@ public class GameRoutines {
                 Routine.builder()
                         .addNode(
                                 new Identifier(GameClient.ID, "updateRotations"),
-                                RotateEntitiesSystem.class, RotateEntitiesSystem.TRANSFORMABLE_ENTITIES)
+                                RotateEntitiesSystem.class)
                         .build()).getValue();
     }
 

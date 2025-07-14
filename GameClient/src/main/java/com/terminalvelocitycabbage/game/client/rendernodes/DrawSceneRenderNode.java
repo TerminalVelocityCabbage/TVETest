@@ -4,7 +4,6 @@ import com.terminalvelocitycabbage.engine.client.renderer.Projection;
 import com.terminalvelocitycabbage.engine.client.renderer.shader.ShaderProgramConfig;
 import com.terminalvelocitycabbage.engine.client.scene.Scene;
 import com.terminalvelocitycabbage.engine.client.window.WindowProperties;
-import com.terminalvelocitycabbage.engine.ecs.ComponentFilter;
 import com.terminalvelocitycabbage.engine.ecs.Entity;
 import com.terminalvelocitycabbage.engine.graph.RenderNode;
 import com.terminalvelocitycabbage.game.client.GameClient;
@@ -17,7 +16,6 @@ import com.terminalvelocitycabbage.templates.ecs.components.TransformationCompon
 
 public class DrawSceneRenderNode extends RenderNode {
 
-    private static final ComponentFilter RENDERABLE_ENTITIES = ComponentFilter.builder().allOf(MeshComponent.class, TransformationComponent.class).build();
     private static final Projection PERSPECTIVE = new Projection(Projection.Type.PERSPECTIVE, 60, 0.1f, 1000f);
 
     public DrawSceneRenderNode(ShaderProgramConfig shaderProgramConfig) {
@@ -37,7 +35,7 @@ public class DrawSceneRenderNode extends RenderNode {
         shaderProgram.getUniform("textureSampler").setUniform(0);
         shaderProgram.getUniform("projectionMatrix").setUniform(camera.getProjectionMatrix());
         shaderProgram.getUniform("viewMatrix").setUniform(camera.getViewMatrix(player));
-        client.getManager().getMatchingEntities(RENDERABLE_ENTITIES).forEach(entity -> {
+        client.getManager().getEntitiesWith(MeshComponent.class, TransformationComponent.class).forEach(entity -> {
             var mesh = entity.getComponent(MeshComponent.class).getMesh();
             var textureId = entity.getComponent(MaterialComponent.class).getTexture();
             var transformationComponent = entity.getComponent(TransformationComponent.class);
@@ -49,8 +47,6 @@ public class DrawSceneRenderNode extends RenderNode {
     }
 
     private Entity getPlayer() {
-        return GameClient.getInstance().getManager().getFirstMatchingEntity(ComponentFilter.builder()
-                .allOf(PlayerCameraComponent.class, PositionComponent.class, PitchYawRotationComponent.class)
-                .build());
+        return GameClient.getInstance().getManager().getFirstEntityWith(PlayerCameraComponent.class, PositionComponent.class, PitchYawRotationComponent.class);
     }
 }
