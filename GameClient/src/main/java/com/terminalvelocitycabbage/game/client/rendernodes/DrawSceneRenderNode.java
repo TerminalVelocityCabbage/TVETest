@@ -4,9 +4,12 @@ import com.terminalvelocitycabbage.engine.client.renderer.Projection;
 import com.terminalvelocitycabbage.engine.client.renderer.shader.ShaderProgramConfig;
 import com.terminalvelocitycabbage.engine.client.scene.Scene;
 import com.terminalvelocitycabbage.engine.client.window.WindowProperties;
+import com.terminalvelocitycabbage.engine.debug.Log;
 import com.terminalvelocitycabbage.engine.ecs.Entity;
 import com.terminalvelocitycabbage.engine.graph.RenderNode;
+import com.terminalvelocitycabbage.engine.util.HeterogeneousMap;
 import com.terminalvelocitycabbage.game.client.GameClient;
+import com.terminalvelocitycabbage.game.client.registry.GameRenderers;
 import com.terminalvelocitycabbage.game.common.ecs.components.PitchYawRotationComponent;
 import com.terminalvelocitycabbage.game.common.ecs.components.PlayerCameraComponent;
 import com.terminalvelocitycabbage.game.common.ecs.components.PositionComponent;
@@ -25,7 +28,7 @@ public class DrawSceneRenderNode extends RenderNode {
     //TODO add components for each of the registered vertex formats so that we can render
     //TODO add a way to sort entities in the renderer by model type so we can avoid extra binding of meshes
     @Override
-    public void execute(Scene scene, WindowProperties properties, long deltaTime) {
+    public void execute(Scene scene, WindowProperties properties, HeterogeneousMap renderConfig, long deltaTime) {
         var client = GameClient.getInstance();
         var player = getPlayer();
         var camera = player.getComponent(PlayerCameraComponent.class);
@@ -44,6 +47,9 @@ public class DrawSceneRenderNode extends RenderNode {
             if (mesh.getFormat().equals(shaderProgram.getConfig().getVertexFormat())) mesh.render();
         });
         shaderProgram.unbind();
+        if (renderConfig.get(GameRenderers.PRINT_ON_EXECUTE)) {
+            Log.info("Rendered Frame");
+        }
     }
 
     private Entity getPlayer() {
