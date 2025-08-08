@@ -7,7 +7,9 @@ import com.terminalvelocitycabbage.engine.client.window.WindowProperties;
 import com.terminalvelocitycabbage.engine.debug.Log;
 import com.terminalvelocitycabbage.engine.ecs.Entity;
 import com.terminalvelocitycabbage.engine.graph.RenderNode;
+import com.terminalvelocitycabbage.engine.registry.Identifier;
 import com.terminalvelocitycabbage.engine.util.HeterogeneousMap;
+import com.terminalvelocitycabbage.engine.util.touples.Pair;
 import com.terminalvelocitycabbage.game.client.GameClient;
 import com.terminalvelocitycabbage.game.client.registry.GameRenderers;
 import com.terminalvelocitycabbage.game.common.ecs.components.PitchYawRotationComponent;
@@ -15,6 +17,8 @@ import com.terminalvelocitycabbage.game.common.ecs.components.PlayerCameraCompon
 import com.terminalvelocitycabbage.game.common.ecs.components.PositionComponent;
 import com.terminalvelocitycabbage.templates.ecs.components.ModelComponent;
 import com.terminalvelocitycabbage.templates.ecs.components.TransformationComponent;
+
+import java.util.*;
 
 public class DrawSceneRenderNode extends RenderNode {
 
@@ -37,14 +41,31 @@ public class DrawSceneRenderNode extends RenderNode {
         shaderProgram.getUniform("textureSampler").setUniform(0);
         shaderProgram.getUniform("projectionMatrix").setUniform(camera.getProjectionMatrix());
         shaderProgram.getUniform("viewMatrix").setUniform(camera.getViewMatrix(player));
-        client.getManager().getEntitiesWith(ModelComponent.class, TransformationComponent.class).forEach(entity -> {
-            var model = entity.getComponent(ModelComponent.class).getModel();
-            var mesh = scene.getMesh(model);
-            var texture = scene.getTexture(model);
-            var transformationComponent = entity.getComponent(TransformationComponent.class);
-            shaderProgram.getUniform("modelMatrix").setUniform(transformationComponent.getTransformationMatrix());
-            texture.bind();
-            if (mesh.getFormat().equals(shaderProgram.getConfig().getVertexFormat())) mesh.render();
+
+        //Collect entities for rendering
+        var entities = client.getManager().getEntitiesWith(ModelComponent.class, TransformationComponent.class);
+        Map<Identifier, List<Pair<ModelComponent, TransformationComponent>>> renderableEntities = new HashMap<>();
+
+        //Sort entities by texture to reduce texture binds
+        entities.forEach(entity -> {
+            var modelComponent = entity.getComponent(ModelComponent.class);
+            var model = client.getModelRegistry().get(modelComponent.getModel());
+            var textureIdentifier = model.getTextureIdentifier();
+            if (!renderableEntities.containsKey(textureIdentifier)) renderableEntities.put(textureIdentifier, new ArrayList<>());
+            renderableEntities.get(textureIdentifier).add(new Pair<>(modelComponent, entity.getComponent(TransformationComponent.class)));
+        });
+
+        //Render each set of entities in order of texture then in order of mesh identifier
+        renderableEntities.forEach((identifier, entitiesWithThisTexture) -> {
+            scene.getTextureCache().getTexture(identifier).bind();
+            //Sort this section of entities by mesh identifier
+            entitiesWithThisTexture.stream().sorted(Comparator.comparingInt(value -> client.getModelRegistry().get(value.getValue0().getModel()).getMeshIdentifier().hashCode())).forEach(pair -> {
+                //Render
+                var mesh = scene.getMeshCache().getMesh(pair.getValue0().getModel());
+                var transformationComponent = pair.getValue1();
+                shaderProgram.getUniform("modelMatrix").setUniform(transformationComponent.getTransformationMatrix());
+                if (mesh.getFormat().equals(shaderProgram.getConfig().getVertexFormat())) mesh.render();
+            });
         });
         shaderProgram.unbind();
         if (renderConfig.get(GameRenderers.PRINT_ON_EXECUTE)) {
