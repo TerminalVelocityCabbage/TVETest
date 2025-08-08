@@ -1,13 +1,9 @@
 package com.terminalvelocitycabbage.game.client.scenes;
 
 import com.terminalvelocitycabbage.engine.client.ClientBase;
-import com.terminalvelocitycabbage.engine.client.renderer.materials.Texture;
 import com.terminalvelocitycabbage.engine.client.renderer.materials.TextureCache;
-import com.terminalvelocitycabbage.engine.client.renderer.model.Mesh;
 import com.terminalvelocitycabbage.engine.client.renderer.model.MeshCache;
-import com.terminalvelocitycabbage.engine.client.renderer.model.Model;
 import com.terminalvelocitycabbage.engine.client.scene.Scene;
-import com.terminalvelocitycabbage.engine.debug.Log;
 import com.terminalvelocitycabbage.engine.ecs.Entity;
 import com.terminalvelocitycabbage.engine.ecs.Manager;
 import com.terminalvelocitycabbage.engine.filesystem.resources.ResourceCategory;
@@ -76,5 +72,6 @@ public class DefaultScene extends Scene {
     @Override
     public void cleanup() {
         getTextureCache().cleanup();
+        getMeshCache().cleanup();
     }
 }
