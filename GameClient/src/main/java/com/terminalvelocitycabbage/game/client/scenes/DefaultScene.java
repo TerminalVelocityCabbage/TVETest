@@ -10,12 +10,7 @@ import com.terminalvelocitycabbage.engine.filesystem.resources.ResourceCategory;
 import com.terminalvelocitycabbage.engine.graph.Routine;
 import com.terminalvelocitycabbage.engine.registry.Identifier;
 import com.terminalvelocitycabbage.game.client.GameClient;
-import com.terminalvelocitycabbage.game.client.registry.GameModels;
-import com.terminalvelocitycabbage.game.common.ecs.components.PitchYawRotationComponent;
-import com.terminalvelocitycabbage.game.common.ecs.components.PlayerCameraComponent;
-import com.terminalvelocitycabbage.game.common.ecs.components.PositionComponent;
-import com.terminalvelocitycabbage.templates.ecs.components.ModelComponent;
-import com.terminalvelocitycabbage.templates.ecs.components.TransformationComponent;
+import com.terminalvelocitycabbage.game.client.registry.GameEntities;
 
 import java.util.List;
 
@@ -32,19 +27,9 @@ public class DefaultScene extends Scene {
         GameClient client = (GameClient) ClientBase.getInstance();
         Manager manager = client.getManager();
 
-        var entity = manager.createEntity();
-        entity.addComponent(ModelComponent.class).setModel(GameModels.SMILE_SQUARE_MODEL);
-        entity.addComponent(TransformationComponent.class).setPosition(-1.25f, 0, -2);
-
-        var entity2 = manager.createEntity();
-        entity2.addComponent(ModelComponent.class).setModel(GameModels.SAD_SQUARE_MODEL);
-        entity2.addComponent(TransformationComponent.class).setPosition(1.25f, 0, -2);
-
-        playerEntity = manager.createEntity();
-        playerEntity.addComponent(TransformationComponent.class);
-        playerEntity.addComponent(PositionComponent.class);
-        playerEntity.addComponent(PitchYawRotationComponent.class);
-        playerEntity.addComponent(PlayerCameraComponent.class);
+        manager.createEntityFromTemplate(GameEntities.SMILE_SQUARE_ENTITY);
+        manager.createEntityFromTemplate(GameEntities.SAD_SQUARE_ENTITY);
+        playerEntity = manager.createEntityFromTemplate(GameEntities.PLAYER_ENTITY);
     }
 
     @Override
