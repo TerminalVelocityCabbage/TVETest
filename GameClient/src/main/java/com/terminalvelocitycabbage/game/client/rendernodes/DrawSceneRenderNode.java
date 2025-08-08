@@ -1,6 +1,7 @@
 package com.terminalvelocitycabbage.game.client.rendernodes;
 
-import com.terminalvelocitycabbage.engine.client.renderer.Projection;
+import com.terminalvelocitycabbage.engine.client.renderer.materials.Texture;
+import com.terminalvelocitycabbage.engine.client.renderer.model.Mesh;
 import com.terminalvelocitycabbage.engine.client.renderer.shader.ShaderProgramConfig;
 import com.terminalvelocitycabbage.engine.client.scene.Scene;
 import com.terminalvelocitycabbage.engine.client.window.WindowProperties;
@@ -13,22 +14,24 @@ import com.terminalvelocitycabbage.game.client.registry.GameRenderers;
 import com.terminalvelocitycabbage.game.common.ecs.components.PitchYawRotationComponent;
 import com.terminalvelocitycabbage.game.common.ecs.components.PlayerCameraComponent;
 import com.terminalvelocitycabbage.game.common.ecs.components.PositionComponent;
-import com.terminalvelocitycabbage.templates.ecs.components.MaterialComponent;
-import com.terminalvelocitycabbage.templates.ecs.components.MeshComponent;
+import com.terminalvelocitycabbage.templates.ecs.components.ModelComponent;
 import com.terminalvelocitycabbage.templates.ecs.components.TransformationComponent;
 
-public class DrawSceneRenderNode extends RenderNode {
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
 
-    private static final Projection PERSPECTIVE = new Projection(Projection.Type.PERSPECTIVE, 60, 0.1f, 1000f);
+public class DrawSceneRenderNode extends RenderNode {
 
     public DrawSceneRenderNode(ShaderProgramConfig shaderProgramConfig) {
         super(shaderProgramConfig);
     }
 
     //TODO add components for each of the registered vertex formats so that we can render
-    //TODO add a way to sort entities in the renderer by model type so we can avoid extra binding of meshes
     @Override
     public void execute(Scene scene, WindowProperties properties, HeterogeneousMap renderConfig, long deltaTime) {
+
+        //Set the shader up for rendering
         var client = GameClient.getInstance();
         var player = getPlayer();
         var camera = player.getComponent(PlayerCameraComponent.class);
@@ -38,14 +41,33 @@ public class DrawSceneRenderNode extends RenderNode {
         shaderProgram.getUniform("textureSampler").setUniform(0);
         shaderProgram.getUniform("projectionMatrix").setUniform(camera.getProjectionMatrix());
         shaderProgram.getUniform("viewMatrix").setUniform(camera.getViewMatrix(player));
-        client.getManager().getEntitiesWith(MeshComponent.class, TransformationComponent.class).forEach(entity -> {
-            var mesh = entity.getComponent(MeshComponent.class).getMesh();
-            var textureId = entity.getComponent(MaterialComponent.class).getTexture();
+
+        //Sort entities for efficient rendering (by texture then by mesh)
+        List<Entity> entities = new ArrayList<>(client.getManager().getEntitiesWith(ModelComponent.class, TransformationComponent.class));
+        entities.sort(Comparator
+                        .comparingInt((Entity entity) -> scene.getTextureCache().getTexture(client.getModelRegistry().get(entity.getComponent(ModelComponent.class).getModel()).getTextureIdentifier()).getTextureID())
+                        .thenComparing(entity -> client.getModelRegistry().get(entity.getComponent(ModelComponent.class).getModel()).getMeshIdentifier().hashCode())
+        );
+
+        //Render entities
+        Texture lastTexture = null;
+        Mesh lastMesh = null;
+        for (Entity entity : entities) {
+            var modelIdentifier = entity.getComponent(ModelComponent.class).getModel();
+            var model = client.getModelRegistry().get(modelIdentifier);
+            var mesh = scene.getMeshCache().getMesh(modelIdentifier);
+            var texture = scene.getTextureCache().getTexture(model.getTextureIdentifier());
             var transformationComponent = entity.getComponent(TransformationComponent.class);
+
+            if (lastTexture != texture) lastTexture = texture;
+            if (lastMesh != mesh) lastMesh = mesh;
+
+            lastTexture.bind();
             shaderProgram.getUniform("modelMatrix").setUniform(transformationComponent.getTransformationMatrix());
-            scene.getTextureCache().getTexture(textureId).bind();
             if (mesh.getFormat().equals(shaderProgram.getConfig().getVertexFormat())) mesh.render();
-        });
+        }
+
+        //Reset
         shaderProgram.unbind();
         if (renderConfig.get(GameRenderers.PRINT_ON_EXECUTE)) {
             Log.info("Rendered Frame");
