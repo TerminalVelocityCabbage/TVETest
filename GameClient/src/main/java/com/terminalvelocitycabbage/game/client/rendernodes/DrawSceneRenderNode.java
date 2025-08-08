@@ -13,8 +13,7 @@ import com.terminalvelocitycabbage.game.client.registry.GameRenderers;
 import com.terminalvelocitycabbage.game.common.ecs.components.PitchYawRotationComponent;
 import com.terminalvelocitycabbage.game.common.ecs.components.PlayerCameraComponent;
 import com.terminalvelocitycabbage.game.common.ecs.components.PositionComponent;
-import com.terminalvelocitycabbage.templates.ecs.components.MaterialComponent;
-import com.terminalvelocitycabbage.templates.ecs.components.MeshComponent;
+import com.terminalvelocitycabbage.templates.ecs.components.ModelComponent;
 import com.terminalvelocitycabbage.templates.ecs.components.TransformationComponent;
 
 public class DrawSceneRenderNode extends RenderNode {
@@ -38,12 +37,13 @@ public class DrawSceneRenderNode extends RenderNode {
         shaderProgram.getUniform("textureSampler").setUniform(0);
         shaderProgram.getUniform("projectionMatrix").setUniform(camera.getProjectionMatrix());
         shaderProgram.getUniform("viewMatrix").setUniform(camera.getViewMatrix(player));
-        client.getManager().getEntitiesWith(MeshComponent.class, TransformationComponent.class).forEach(entity -> {
-            var mesh = entity.getComponent(MeshComponent.class).getMesh();
-            var textureId = entity.getComponent(MaterialComponent.class).getTexture();
+        client.getManager().getEntitiesWith(ModelComponent.class, TransformationComponent.class).forEach(entity -> {
+            var model = entity.getComponent(ModelComponent.class).getModel();
+            var mesh = scene.getMesh(model);
+            var texture = scene.getTexture(model);
             var transformationComponent = entity.getComponent(TransformationComponent.class);
             shaderProgram.getUniform("modelMatrix").setUniform(transformationComponent.getTransformationMatrix());
-            scene.getTextureCache().getTexture(textureId).bind();
+            texture.bind();
             if (mesh.getFormat().equals(shaderProgram.getConfig().getVertexFormat())) mesh.render();
         });
         shaderProgram.unbind();
