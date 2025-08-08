@@ -8,9 +8,11 @@ import com.terminalvelocitycabbage.templates.events.ModelConfigRegistrationEvent
 public class GameModels {
 
     public static Identifier SMILE_SQUARE_MODEL;
+    public static Identifier SAD_SQUARE_MODEL;
 
     public static void init(ModelConfigRegistrationEvent event) {
         SMILE_SQUARE_MODEL = registerModel(event, "smile_square", GameMeshes.SQUARE_MESH, GameTextures.SMILE);
+        SAD_SQUARE_MODEL = registerModel(event, "sad_square", GameMeshes.SQUARE_MESH, GameTextures.SAD);
     }
 
     private static Identifier registerModel(ModelConfigRegistrationEvent event, String modelName, Identifier mesh, Identifier texture) {

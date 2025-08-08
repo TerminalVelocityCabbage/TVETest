@@ -54,7 +54,11 @@ public class DefaultScene extends Scene {
         //TODO replace component Mesh field with an identifier for that mesh
         var entity = manager.createEntity();
         entity.addComponent(ModelComponent.class).setModel(GameModels.SMILE_SQUARE_MODEL);
-        entity.addComponent(TransformationComponent.class).setPosition(0, 0, -2);
+        entity.addComponent(TransformationComponent.class).setPosition(-1.25f, 0, -2);
+
+        var entity2 = manager.createEntity();
+        entity2.addComponent(ModelComponent.class).setModel(GameModels.SAD_SQUARE_MODEL);
+        entity2.addComponent(TransformationComponent.class).setPosition(1.25f, 0, -2);
 
         playerEntity = manager.createEntity();
         playerEntity.addComponent(TransformationComponent.class);
