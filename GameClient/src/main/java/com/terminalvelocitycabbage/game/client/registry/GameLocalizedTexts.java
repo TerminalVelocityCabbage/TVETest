@@ -3,7 +3,6 @@ package com.terminalvelocitycabbage.game.client.registry;
 import com.terminalvelocitycabbage.engine.filesystem.resources.ResourceCategory;
 import com.terminalvelocitycabbage.engine.registry.Identifier;
 import com.terminalvelocitycabbage.engine.translation.Language;
-import com.terminalvelocitycabbage.game.client.GameClient;
 import com.terminalvelocitycabbage.game.common.GameCommon;
 import com.terminalvelocitycabbage.templates.events.LocalizedTextKeyRegistrationEvent;
 import com.terminalvelocitycabbage.templates.events.ResourceRegistrationEvent;
@@ -34,7 +33,7 @@ public class GameLocalizedTexts {
     }
 
     private static Identifier registerLangResource(ResourceRegistrationEvent event, Language language) {
-        return event.registerResource(GameClient.CLIENT_RESOURCE_SOURCE, ResourceCategory.LOCALIZATION, language.getAbbreviation() + ".toml").getIdentifier();
+        return event.registerResource(GameResources.CLIENT_RESOURCE_SOURCE, ResourceCategory.LOCALIZATION, language.getAbbreviation() + ".toml").getIdentifier();
     }
 
 }
