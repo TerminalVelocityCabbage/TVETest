@@ -8,6 +8,7 @@ import com.terminalvelocitycabbage.templates.meshes.SquareDataMesh;
 
 import static com.terminalvelocitycabbage.game.client.data.MeshData.MESH_FORMAT;
 
+//TODO add registration of loaded meshes also instead of only these data meshes
 public class GameMeshes {
 
     public static Identifier SQUARE_MESH;
