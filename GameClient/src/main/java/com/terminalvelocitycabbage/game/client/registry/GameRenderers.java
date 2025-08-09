@@ -19,13 +19,12 @@ public class GameRenderers {
     public static void init(RendererRegistrationEvent event) {
 
         var rotateSystemRoute = RenderGraph.RenderPath.builder().addRoutineNode(new Identifier(GameClient.ID, "updateRotations"), GameRoutines.DEFAULT_ROUTINE);
-        var emptyRoute = RenderGraph.RenderPath.builder();
 
         DEFAULT_RENDER_GRAPH = event.register(new Identifier(GameClient.ID, "drawScene"),
                 new RenderGraph(RenderGraph.RenderPath.builder()
-                        .route(new Identifier(GameClient.ID, "booleanRoute"), (capabilities) -> true,
-                                rotateSystemRoute,
-                                emptyRoute)
+                        .route(new Identifier(GameClient.ID, "booleanRoute"),
+                                (capabilities, stateHandler) -> stateHandler.getState(GameStates.ROTATE_ENTITIES).isEnabled(),
+                                rotateSystemRoute)
                         .addRenderNode(DRAW_SCENE_RENDER_NODE, DrawSceneRenderNode.class, GameShaders.MESH_SHADER_PROGRAM_CONFIG)
                         .configure(PRINT_ON_EXECUTE, false)
                 )

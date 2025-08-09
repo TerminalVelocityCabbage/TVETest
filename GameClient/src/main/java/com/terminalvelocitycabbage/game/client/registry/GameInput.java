@@ -19,6 +19,7 @@ public class GameInput {
         //Register Controls to listen to
         Control escapeControl = inputHandler.registerControlListener(new KeyboardKeyControl(KeyboardInput.Key.ESCAPE));
         Control rControl = inputHandler.registerControlListener(new KeyboardKeyControl(KeyboardInput.Key.R));
+        Control pControl = inputHandler.registerControlListener(new KeyboardKeyControl(KeyboardInput.Key.P));
         Control leftJoystickForwardControl = inputHandler.registerControlListener(new GamepadAxisControl(GamepadInput.Axis.LEFT_JOYSTICK_UP, 1f));
         Control leftJoystickBackwardsControl = inputHandler.registerControlListener(new GamepadAxisControl(GamepadInput.Axis.LEFT_JOYSTICK_DOWN, 1f));
         Control leftJoystickLeftControl = inputHandler.registerControlListener(new GamepadAxisControl(GamepadInput.Axis.LEFT_JOYSTICK_LEFT, 1f));
@@ -63,5 +64,6 @@ public class GameInput {
                 new ControlGroup(mouseScrollDownControl)
         ));
         inputHandler.registerController(new Identifier(GameClient.ID, "reloadShaderController"), new RecompileShadersController(rControl));
+        inputHandler.registerController(new Identifier(GameClient.ID, "pauseSpinningController"), new PauseSpinningController(pControl));
     }
 }
