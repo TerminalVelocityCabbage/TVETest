@@ -5,12 +5,15 @@ import com.terminalvelocitycabbage.engine.registry.Identifier;
 import com.terminalvelocitycabbage.engine.util.HeterogeneousMap;
 import com.terminalvelocitycabbage.game.client.GameClient;
 import com.terminalvelocitycabbage.game.client.rendernodes.DrawSceneRenderNode;
+import com.terminalvelocitycabbage.game.client.rendernodes.DrawUIRenderNode;
 import com.terminalvelocitycabbage.templates.events.RendererRegistrationEvent;
 
 public class GameRenderers {
 
     //Render Node Identifiers
+    //TODO registry for render nodes on clientbase then only pass identifier to addRenderNode builder parameter
     public static Identifier DRAW_SCENE_RENDER_NODE = new Identifier(GameClient.ID, "drawScene");
+    public static Identifier DRAW_UI_RENDER_NODE = new Identifier(GameClient.ID, "drawUI");
     //Render Graph Identifiers
     public static Identifier DEFAULT_RENDER_GRAPH;
     //Graph configs
@@ -26,6 +29,7 @@ public class GameRenderers {
                                 (capabilities, stateHandler) -> stateHandler.getState(GameStates.ROTATE_ENTITIES).isEnabled(),
                                 rotateSystemRoute)
                         .addRenderNode(DRAW_SCENE_RENDER_NODE, DrawSceneRenderNode.class, GameShaders.MESH_SHADER_PROGRAM_CONFIG)
+                        .addRenderNode(DRAW_UI_RENDER_NODE, DrawUIRenderNode.class, GameShaders.UI_SHADER_PROGRAM_CONFIG)
                         .configure(PRINT_ON_EXECUTE, false)
                 )
         ).getIdentifier();
