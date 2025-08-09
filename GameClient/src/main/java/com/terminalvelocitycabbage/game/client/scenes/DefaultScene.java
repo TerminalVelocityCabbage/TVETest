@@ -27,6 +27,7 @@ public class DefaultScene extends Scene {
         Manager manager = client.getManager();
 
         client.getTextureCache().generateAtlas(GameTextures.DEFAULT_SCENE_ATLAS);
+        client.getTextureCache().generateAtlas(GameTextures.UI_ATLAS);
         setMeshCache(new MeshCache(client.getModelRegistry(), client.getMeshRegistry(), client.getTextureCache()));
 
         manager.createEntityFromTemplate(GameEntities.SMILE_SQUARE_ENTITY);
