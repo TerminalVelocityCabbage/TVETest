@@ -45,7 +45,7 @@ public class DrawSceneRenderNode extends RenderNode {
         //Sort entities for efficient rendering (by texture then by mesh)
         List<Entity> entities = new ArrayList<>(client.getManager().getEntitiesWith(ModelComponent.class, TransformationComponent.class));
         entities.sort(Comparator
-                        .comparingInt((Entity entity) -> scene.getTextureCache().getTexture(client.getModelRegistry().get(entity.getComponent(ModelComponent.class).getModel()).getTextureIdentifier()).getTextureID())
+                        .comparingInt((Entity entity) -> client.getTextureCache().getTexture(client.getModelRegistry().get(entity.getComponent(ModelComponent.class).getModel()).getTextureIdentifier()).getTextureID())
                         .thenComparing(entity -> client.getModelRegistry().get(entity.getComponent(ModelComponent.class).getModel()).getMeshIdentifier().hashCode())
         );
 
@@ -56,7 +56,7 @@ public class DrawSceneRenderNode extends RenderNode {
             var modelIdentifier = entity.getComponent(ModelComponent.class).getModel();
             var model = client.getModelRegistry().get(modelIdentifier);
             var mesh = scene.getMeshCache().getMesh(modelIdentifier);
-            var texture = scene.getTextureCache().getTexture(model.getTextureIdentifier());
+            var texture = client.getTextureCache().getTexture(model.getTextureIdentifier());
             var transformationComponent = entity.getComponent(TransformationComponent.class);
 
             if (lastTexture != texture) lastTexture = texture;
