@@ -11,6 +11,7 @@ import com.terminalvelocitycabbage.engine.graph.RenderNode;
 import com.terminalvelocitycabbage.engine.util.HeterogeneousMap;
 import com.terminalvelocitycabbage.game.client.GameClient;
 import com.terminalvelocitycabbage.game.client.registry.GameRenderers;
+import com.terminalvelocitycabbage.game.client.registry.GameStates;
 import com.terminalvelocitycabbage.game.common.ecs.components.PitchYawRotationComponent;
 import com.terminalvelocitycabbage.game.common.ecs.components.PlayerCameraComponent;
 import com.terminalvelocitycabbage.game.common.ecs.components.PositionComponent;
@@ -20,6 +21,8 @@ import com.terminalvelocitycabbage.templates.ecs.components.TransformationCompon
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+
+import static org.lwjgl.opengl.GL11.*;
 
 public class DrawSceneRenderNode extends RenderNode {
 
@@ -41,6 +44,12 @@ public class DrawSceneRenderNode extends RenderNode {
         shaderProgram.getUniform("textureSampler").setUniform(0);
         shaderProgram.getUniform("projectionMatrix").setUniform(camera.getProjectionMatrix());
         shaderProgram.getUniform("viewMatrix").setUniform(camera.getViewMatrix(player));
+
+        if (client.getStateHandler().getState(GameStates.WIREFRAME_MODE).isEnabled()) {
+            glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+        } else {
+            glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+        }
 
         //Sort entities for efficient rendering (by texture then by mesh)
         List<Entity> entities = new ArrayList<>(client.getManager().getEntitiesWith(ModelComponent.class, TransformationComponent.class));

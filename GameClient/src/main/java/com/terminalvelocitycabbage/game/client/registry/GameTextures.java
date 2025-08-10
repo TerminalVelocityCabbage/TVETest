@@ -35,7 +35,7 @@ public class GameTextures {
         DEFAULT_SCENE_ATLAS = event.registerAtlas(GameClient.getInstance().identifierOf("default_scene_atlas"));
         UI_ATLAS = event.registerAtlas(GameClient.getInstance().identifierOf("ui_atlas"));
 
-        event.addTexture(SMILE, DEFAULT_SCENE_ATLAS);
+        event.addTexture(SMILE, DEFAULT_SCENE_ATLAS, UI_ATLAS);
         event.addTexture(SAD, DEFAULT_SCENE_ATLAS);
         event.addTexture(SMILE_SMALL, DEFAULT_SCENE_ATLAS);
         event.addTexture(SAD_SMALL, DEFAULT_SCENE_ATLAS);
