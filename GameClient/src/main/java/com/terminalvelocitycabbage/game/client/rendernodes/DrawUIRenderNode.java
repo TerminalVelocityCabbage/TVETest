@@ -48,7 +48,8 @@ public class DrawUIRenderNode extends UIRenderNode {
 
         if (startContainer(LEFT_CONTAINER)) {
             if (startContainer(TOP_CONTAINER)) {
-                //drawBox(HAPPY_BOX_ELEMENT);
+                drawBox(HAPPY_BOX_ELEMENT);
+                drawBox(HAPPY_BOX_ELEMENT);
             }
             endContainer();
         }
