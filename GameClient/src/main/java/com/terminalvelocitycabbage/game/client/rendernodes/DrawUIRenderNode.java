@@ -11,6 +11,9 @@ import com.terminalvelocitycabbage.engine.registry.Identifier;
 import com.terminalvelocitycabbage.game.client.registry.GameTextures;
 
 import static com.terminalvelocitycabbage.engine.client.ui.ContainerLayout.Anchor.*;
+import static com.terminalvelocitycabbage.engine.client.ui.ContainerLayout.JustifyChildren.BOTTOM_RIGHT;
+import static com.terminalvelocitycabbage.engine.client.ui.ContainerLayout.JustifyChildren.TOP_LEFT;
+import static com.terminalvelocitycabbage.engine.client.ui.ContainerLayout.JustifyChildren.TOP_RIGHT;
 import static com.terminalvelocitycabbage.engine.client.ui.ContainerLayout.PlacementDirection.*;
 import static com.terminalvelocitycabbage.engine.client.ui.Layout.Unit.*;
 
@@ -22,6 +25,7 @@ public class DrawUIRenderNode extends UIRenderNode {
 
     private static Identifier LEFT_CONTAINER;
     private static Identifier TOP_CONTAINER;
+    private static Identifier BOTTOM_CONTAINER;
     private static Identifier HAPPY_BOX_ELEMENT;
 
     @Override
@@ -35,11 +39,15 @@ public class DrawUIRenderNode extends UIRenderNode {
                 Style.builder().setTexture(GameTextures.HAPPY).build());
         LEFT_CONTAINER = elementRegistry.registerElement(
                 client.identifierOf("left_container"),
-                new ContainerLayout(new Layout.Dimension(200, PIXELS), new Layout.Dimension(100, PERCENT), CENTER_RIGHT, LEFT),
+                new ContainerLayout(new Layout.Dimension(200, PIXELS), new Layout.Dimension(100, PERCENT), CENTER_RIGHT, LEFT, TOP_LEFT),
                 Style.builder().setTexture(GameTextures.SMILE).build());
         TOP_CONTAINER = elementRegistry.registerElement(
                 client.identifierOf("top_container"),
-                new ContainerLayout(new Layout.Dimension(100, PERCENT), new Layout.Dimension(50, PERCENT), TOP_CENTER, DOWN),
+                new ContainerLayout(new Layout.Dimension(100, PERCENT), new Layout.Dimension(50, PERCENT), TOP_CENTER, DOWN, TOP_RIGHT),
+                Style.builder().setTexture(GameTextures.SMILE).build());
+        BOTTOM_CONTAINER = elementRegistry.registerElement(
+                client.identifierOf("bottom_container"),
+                new ContainerLayout(new Layout.Dimension(100, PERCENT), new Layout.Dimension(50, PERCENT), BOTTOM_CENTER, UP, BOTTOM_RIGHT),
                 Style.builder().setTexture(GameTextures.SMILE).build());
     }
 
@@ -48,6 +56,13 @@ public class DrawUIRenderNode extends UIRenderNode {
 
         if (startContainer(LEFT_CONTAINER)) {
             if (startContainer(TOP_CONTAINER)) {
+                drawBox(HAPPY_BOX_ELEMENT);
+                drawBox(HAPPY_BOX_ELEMENT);
+                drawBox(HAPPY_BOX_ELEMENT);
+            }
+            endContainer();
+            if (startContainer(BOTTOM_CONTAINER)) {
+                drawBox(HAPPY_BOX_ELEMENT);
                 drawBox(HAPPY_BOX_ELEMENT);
                 drawBox(HAPPY_BOX_ELEMENT);
             }
