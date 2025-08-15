@@ -12,10 +12,9 @@ import com.terminalvelocitycabbage.game.client.registry.GameTextures;
 
 import static com.terminalvelocitycabbage.engine.client.ui.ContainerLayout.Anchor.*;
 import static com.terminalvelocitycabbage.engine.client.ui.ContainerLayout.JustifyChildren.BOTTOM_RIGHT;
-import static com.terminalvelocitycabbage.engine.client.ui.ContainerLayout.JustifyChildren.TOP_LEFT;
-import static com.terminalvelocitycabbage.engine.client.ui.ContainerLayout.JustifyChildren.TOP_RIGHT;
 import static com.terminalvelocitycabbage.engine.client.ui.ContainerLayout.PlacementDirection.*;
-import static com.terminalvelocitycabbage.engine.client.ui.Layout.Unit.*;
+import static com.terminalvelocitycabbage.engine.client.ui.Layout.Unit.PERCENT;
+import static com.terminalvelocitycabbage.engine.client.ui.Layout.Unit.PIXELS;
 
 public class DrawUIRenderNode extends UIRenderNode {
 
@@ -39,11 +38,11 @@ public class DrawUIRenderNode extends UIRenderNode {
                 Style.builder().setTexture(GameTextures.HAPPY).build());
         LEFT_CONTAINER = elementRegistry.registerElement(
                 client.identifierOf("left_container"),
-                new ContainerLayout(new Layout.Dimension(200, PIXELS), new Layout.Dimension(100, PERCENT), CENTER_RIGHT, LEFT, TOP_LEFT),
+                new ContainerLayout(new Layout.Dimension(400, PIXELS), new Layout.Dimension(100, PERCENT), CENTER_RIGHT, LEFT, ContainerLayout.JustifyChildren.LEFT),
                 Style.builder().setTexture(GameTextures.SMILE).build());
         TOP_CONTAINER = elementRegistry.registerElement(
                 client.identifierOf("top_container"),
-                new ContainerLayout(new Layout.Dimension(100, PERCENT), new Layout.Dimension(50, PERCENT), TOP_CENTER, DOWN, TOP_RIGHT),
+                new ContainerLayout(new Layout.Dimension(100, PERCENT), new Layout.Dimension(50, PERCENT), TOP_CENTER, DOWN, ContainerLayout.JustifyChildren.LEFT),
                 Style.builder().setTexture(GameTextures.SMILE).build());
         BOTTOM_CONTAINER = elementRegistry.registerElement(
                 client.identifierOf("bottom_container"),
