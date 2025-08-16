@@ -8,6 +8,7 @@ import com.terminalvelocitycabbage.engine.client.ui.Layout;
 import com.terminalvelocitycabbage.engine.client.ui.Style;
 import com.terminalvelocitycabbage.engine.graph.UIRenderNode;
 import com.terminalvelocitycabbage.engine.registry.Identifier;
+import com.terminalvelocitycabbage.game.client.registry.GameFonts;
 import com.terminalvelocitycabbage.game.client.registry.GameTextures;
 
 import static com.terminalvelocitycabbage.engine.client.ui.ContainerLayout.Anchor.*;
@@ -26,6 +27,7 @@ public class DrawUIRenderNode extends UIRenderNode {
     private static Identifier TOP_CONTAINER;
     private static Identifier BOTTOM_CONTAINER;
     private static Identifier HAPPY_BOX_ELEMENT;
+    private static Identifier BASIC_TEXT;
 
     @Override
     public void registerUIElements(ElementRegistry elementRegistry) {
@@ -48,10 +50,16 @@ public class DrawUIRenderNode extends UIRenderNode {
                 client.identifierOf("bottom_container"),
                 new ContainerLayout(new Layout.Dimension(100, PERCENT), new Layout.Dimension(50, PERCENT), BOTTOM_CENTER, UP, BOTTOM_RIGHT),
                 Style.builder().setTexture(GameTextures.SMILE).build());
+        BASIC_TEXT = elementRegistry.registerElement(
+                client.identifierOf("basic_text"),
+                new Layout(100, 100),
+                Style.builder().setFont(GameFonts.GETHO_FONT_32).build());
     }
 
     @Override
     public void drawUIElements(Scene scene) {
+
+        drawText(BASIC_TEXT, "Hello World!");
 
         if (startContainer(LEFT_CONTAINER)) {
             if (startContainer(TOP_CONTAINER)) {
