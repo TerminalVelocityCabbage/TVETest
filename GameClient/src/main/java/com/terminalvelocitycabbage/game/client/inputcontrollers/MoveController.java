@@ -2,7 +2,6 @@ package com.terminalvelocitycabbage.game.client.inputcontrollers;
 
 import com.terminalvelocitycabbage.engine.client.input.controller.ControlGroup;
 import com.terminalvelocitycabbage.engine.client.input.controller.GroupedController6f;
-import com.terminalvelocitycabbage.engine.ecs.ComponentFilter;
 import com.terminalvelocitycabbage.engine.ecs.Entity;
 import com.terminalvelocitycabbage.game.client.GameClient;
 import com.terminalvelocitycabbage.game.common.ecs.components.PitchYawRotationComponent;
