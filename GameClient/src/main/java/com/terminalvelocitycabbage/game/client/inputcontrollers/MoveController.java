@@ -2,7 +2,6 @@ package com.terminalvelocitycabbage.game.client.inputcontrollers;
 
 import com.terminalvelocitycabbage.engine.client.input.controller.ControlGroup;
 import com.terminalvelocitycabbage.engine.client.input.controller.GroupedController6f;
-import com.terminalvelocitycabbage.engine.ecs.ComponentFilter;
 import com.terminalvelocitycabbage.engine.ecs.Entity;
 import com.terminalvelocitycabbage.game.client.GameClient;
 import com.terminalvelocitycabbage.game.common.ecs.components.PitchYawRotationComponent;
@@ -19,6 +18,7 @@ public class MoveController extends GroupedController6f {
     @Override
     public void act() {
         var player = getPlayer();
+        if (player == null) return;
         var rotation = player.getComponent(PitchYawRotationComponent.class).getRotation();
         Vector3f movement = new Vector3f((
                 getLeftAmount() - getRightAmount()) * .25f,

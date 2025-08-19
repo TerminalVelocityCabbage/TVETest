@@ -3,12 +3,14 @@ package com.terminalvelocitycabbage.game.client.scenes;
 import com.terminalvelocitycabbage.engine.client.ClientBase;
 import com.terminalvelocitycabbage.engine.client.renderer.model.MeshCache;
 import com.terminalvelocitycabbage.engine.client.scene.Scene;
+import com.terminalvelocitycabbage.engine.client.ui.Font;
 import com.terminalvelocitycabbage.engine.ecs.Entity;
 import com.terminalvelocitycabbage.engine.ecs.Manager;
 import com.terminalvelocitycabbage.engine.graph.Routine;
 import com.terminalvelocitycabbage.engine.registry.Identifier;
 import com.terminalvelocitycabbage.game.client.GameClient;
 import com.terminalvelocitycabbage.game.client.registry.GameEntities;
+import com.terminalvelocitycabbage.game.client.registry.GameFonts;
 import com.terminalvelocitycabbage.game.client.registry.GameTextures;
 
 import java.util.List;
@@ -28,6 +30,7 @@ public class DefaultScene extends Scene {
 
         client.getTextureCache().generateAtlas(GameTextures.DEFAULT_SCENE_ATLAS);
         client.getTextureCache().generateAtlas(GameTextures.UI_ATLAS);
+        client.getTextureCache().generateFontAtlas(GameFonts.GETHO_FONT_32, Font.ISO_8859_1_GLYPH_IDS);
         setMeshCache(new MeshCache(client.getModelRegistry(), client.getMeshRegistry(), client.getTextureCache()));
 
         manager.createEntityFromTemplate(GameEntities.SMILE_SQUARE_ENTITY);

@@ -1,5 +1,6 @@
 package com.terminalvelocitycabbage.game.client.registry;
 
+import com.terminalvelocitycabbage.engine.client.ui.Font;
 import com.terminalvelocitycabbage.engine.filesystem.resources.ResourceCategory;
 import com.terminalvelocitycabbage.engine.registry.Identifier;
 import com.terminalvelocitycabbage.templates.events.GenerateFontsEvent;
