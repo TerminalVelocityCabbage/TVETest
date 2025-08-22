@@ -15,7 +15,7 @@ public class GameRoutines {
         DEFAULT_ROUTINE = event.register(
                 new Identifier(GameClient.ID, "default"),
                 Routine.builder()
-                        .addNode(
+                        .addStep(
                                 new Identifier(GameClient.ID, "updateRotations"),
                                 RotateEntitiesSystem.class)
                         .build()).getValue();
