@@ -18,7 +18,7 @@ public class GameRoutines {
                         .addStep(
                                 new Identifier(GameClient.ID, "updateRotations"),
                                 RotateEntitiesSystem.class)
-                        .build()).getValue();
+                        .build()).getElement();
     }
 
 }
