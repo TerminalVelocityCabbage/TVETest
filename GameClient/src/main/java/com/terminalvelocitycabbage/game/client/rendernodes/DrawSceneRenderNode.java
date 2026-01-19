@@ -8,6 +8,7 @@ import com.terminalvelocitycabbage.engine.client.window.WindowProperties;
 import com.terminalvelocitycabbage.engine.debug.Log;
 import com.terminalvelocitycabbage.engine.ecs.Entity;
 import com.terminalvelocitycabbage.engine.graph.RenderNode;
+import com.terminalvelocitycabbage.engine.registry.Identifier;
 import com.terminalvelocitycabbage.engine.util.HeterogeneousMap;
 import com.terminalvelocitycabbage.game.client.GameClient;
 import com.terminalvelocitycabbage.game.client.registry.GameRenderers;
@@ -51,20 +52,27 @@ public class DrawSceneRenderNode extends RenderNode {
 
         //Render entities
         Texture lastTexture = null;
+        Identifier lastTextureIdentifier = null;
         Mesh lastMesh = null;
         for (Entity entity : entities) {
             var modelIdentifier = entity.getComponent(ModelComponent.class).getModel();
             var model = client.getModelRegistry().get(modelIdentifier);
             var mesh = scene.getMeshCache().getMesh(modelIdentifier);
-            var texture = client.getTextureCache().getTexture(model.getTextureIdentifier());
+            var textureIdentifier = model.getTextureIdentifier();
+            var texture = client.getTextureCache().getTexture(textureIdentifier);
             var transformationComponent = entity.getComponent(TransformationComponent.class);
 
-            if (lastTexture != texture) lastTexture = texture;
+            if (lastTextureIdentifier != textureIdentifier) {
+                lastTexture = texture;
+                lastTextureIdentifier = textureIdentifier;
+            }
             if (lastMesh != mesh) lastMesh = mesh;
 
             lastTexture.bind();
             shaderProgram.getUniform("modelMatrix").setUniform(transformationComponent.getTransformationMatrix());
-            if (mesh.getFormat().equals(shaderProgram.getConfig().getVertexFormat())) mesh.render();
+            if (mesh.getFormat().equals(shaderProgram.getConfig().getVertexFormat())) {
+                mesh.render();
+            }
         }
 
         //Reset

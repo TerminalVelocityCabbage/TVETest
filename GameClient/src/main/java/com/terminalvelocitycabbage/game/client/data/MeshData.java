@@ -7,8 +7,9 @@ public class MeshData {
 
     public static final VertexFormat MESH_FORMAT = VertexFormat.builder()
             .addElement(VertexAttribute.XYZ_POSITION)
-            .addElement(VertexAttribute.RGB_COLOR)
             .addElement(VertexAttribute.UV)
+            .addElement(VertexAttribute.XYZ_NORMAL)
+            .addElement(VertexAttribute.BONE_INDICES)
             .build();
 
 }

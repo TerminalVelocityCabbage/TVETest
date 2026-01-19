@@ -58,7 +58,7 @@ public class GameEntities {
 
         MAIN_CHAR_ENTITY = event.createEntityTemplate(client.identifierOf("main_char"), entity -> {
             entity.addComponent(ModelComponent.class).setModel(GameModels.MAIN_CHAR_MODEL);
-            entity.addComponent(TransformationComponent.class).setPosition(0, 0, -5);
+            entity.addComponent(TransformationComponent.class).setPosition(0, 0, -45);
             entity.addComponent(AnimationComponent.class);
         });
     }
