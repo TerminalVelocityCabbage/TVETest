@@ -9,7 +9,6 @@ public class MeshData {
             .addElement(VertexAttribute.XYZ_POSITION)
             .addElement(VertexAttribute.UV)
             .addElement(VertexAttribute.XYZ_NORMAL)
-            .addElement(VertexAttribute.BONE_INDICES)
             .build();
 
 }

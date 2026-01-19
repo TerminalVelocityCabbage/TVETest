@@ -2,7 +2,6 @@ package com.terminalvelocitycabbage.game.client.rendernodes;
 
 import com.terminalvelocitycabbage.engine.client.renderer.materials.Texture;
 import com.terminalvelocitycabbage.engine.client.renderer.model.Mesh;
-import com.terminalvelocitycabbage.engine.client.renderer.model.bedrock.AnimationComponent;
 import com.terminalvelocitycabbage.engine.client.renderer.shader.ShaderProgramConfig;
 import com.terminalvelocitycabbage.engine.client.scene.Scene;
 import com.terminalvelocitycabbage.engine.client.window.WindowProperties;
@@ -71,21 +70,6 @@ public class DrawSceneRenderNode extends RenderNode {
 
             lastTexture.bind();
             shaderProgram.getUniform("modelMatrix").setUniform(transformationComponent.getTransformationMatrix());
-            if (entity.containsComponent(AnimationComponent.class)) {
-                var animComp = entity.getComponent(AnimationComponent.class);
-                if (animComp.boneTransforms != null) {
-                    var useAnimUniform = shaderProgram.getUniform("useAnimation");
-                    if (useAnimUniform != null) useAnimUniform.setUniform(1);
-                    var boneTransformsUniform = shaderProgram.getUniform("boneTransforms");
-                    if (boneTransformsUniform != null) boneTransformsUniform.setUniform(animComp.boneTransforms);
-                } else {
-                    var useAnimUniform = shaderProgram.getUniform("useAnimation");
-                    if (useAnimUniform != null) useAnimUniform.setUniform(0);
-                }
-            } else {
-                var useAnimUniform = shaderProgram.getUniform("useAnimation");
-                if (useAnimUniform != null) useAnimUniform.setUniform(0);
-            }
             if (mesh.getFormat().equals(shaderProgram.getConfig().getVertexFormat())) {
                 mesh.render();
             }

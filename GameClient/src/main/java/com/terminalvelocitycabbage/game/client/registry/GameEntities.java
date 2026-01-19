@@ -1,8 +1,6 @@
 package com.terminalvelocitycabbage.game.client.registry;
 
 import com.terminalvelocitycabbage.engine.client.ClientBase;
-import com.terminalvelocitycabbage.engine.client.renderer.model.bedrock.AnimationComponent;
-import com.terminalvelocitycabbage.engine.client.renderer.model.bedrock.AnimationSystem;
 import com.terminalvelocitycabbage.engine.registry.Identifier;
 import com.terminalvelocitycabbage.game.client.ecs.RotateEntitiesSystem;
 import com.terminalvelocitycabbage.game.common.ecs.components.PitchYawRotationComponent;
@@ -27,12 +25,10 @@ public class GameEntities {
         event.registerComponent(PositionComponent.class);
         event.registerComponent(PitchYawRotationComponent.class);
         event.registerComponent(PlayerCameraComponent.class);
-        event.registerComponent(AnimationComponent.class);
     }
 
     public static void createSystems(EntitySystemRegistrationEvent event) {
         event.createSystem(RotateEntitiesSystem.class);
-        event.createSystem(AnimationSystem.class);
     }
 
     public static void createEntityTemplates(EntityTemplateRegistrationEvent event) {
@@ -59,7 +55,6 @@ public class GameEntities {
         MAIN_CHAR_ENTITY = event.createEntityTemplate(client.identifierOf("main_char"), entity -> {
             entity.addComponent(ModelComponent.class).setModel(GameModels.MAIN_CHAR_MODEL);
             entity.addComponent(TransformationComponent.class).setPosition(0, 0, -45);
-            entity.addComponent(AnimationComponent.class);
         });
     }
 }
