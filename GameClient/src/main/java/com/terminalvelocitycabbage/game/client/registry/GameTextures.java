@@ -15,6 +15,7 @@ public class GameTextures {
     public static Identifier SMILE_TINY;
     public static Identifier SAD_SMALL;
     public static Identifier HAPPY;
+    public static Identifier MAIN_CHAR;
 
     //Atlases
     public static Identifier DEFAULT_SCENE_ATLAS;
@@ -27,6 +28,7 @@ public class GameTextures {
         SAD_SMALL = event.registerResource(GameResources.CLIENT_RESOURCE_SOURCE, ResourceCategory.TEXTURE, "sad_small.png").getIdentifier();
         SMILE_TINY = event.registerResource(GameResources.CLIENT_RESOURCE_SOURCE, ResourceCategory.TEXTURE, "smile_tiny.png").getIdentifier();
         HAPPY = event.registerResource(GameResources.CLIENT_RESOURCE_SOURCE, ResourceCategory.TEXTURE, "happy.png").getIdentifier();
+        MAIN_CHAR = event.registerResource(GameResources.CLIENT_RESOURCE_SOURCE, ResourceCategory.TEXTURE, "main_char.png").getIdentifier();
     }
 
     public static void cacheTextures(ConfigureTexturesEvent event) {
@@ -39,6 +41,7 @@ public class GameTextures {
         event.addTexture(SAD_SMALL, DEFAULT_SCENE_ATLAS);
         event.addTexture(SMILE_TINY, DEFAULT_SCENE_ATLAS);
         event.addTexture(HAPPY, DEFAULT_SCENE_ATLAS);
+        event.addTexture(MAIN_CHAR, DEFAULT_SCENE_ATLAS);
     }
 
 }

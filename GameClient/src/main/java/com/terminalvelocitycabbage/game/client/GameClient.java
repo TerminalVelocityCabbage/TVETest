@@ -19,6 +19,8 @@ public class GameClient extends ClientBase {
         getEventDispatcher().listenToEvent(ResourceRegistrationEvent.getEventNameFromCategory(ResourceCategory.DEFAULT_CONFIG), event -> GameConfigs.init((ResourceRegistrationEvent) event));
         getEventDispatcher().listenToEvent(ResourceRegistrationEvent.getEventNameFromCategory(ResourceCategory.SHADER), event -> GameShaders.init((ResourceRegistrationEvent) event));
         getEventDispatcher().listenToEvent(ResourceRegistrationEvent.getEventNameFromCategory(ResourceCategory.TEXTURE), event -> GameTextures.registerResources((ResourceRegistrationEvent) event));
+        getEventDispatcher().listenToEvent(ResourceRegistrationEvent.getEventNameFromCategory(ResourceCategory.MODEL), event -> GameMeshes.registerResources((ResourceRegistrationEvent) event));
+        getEventDispatcher().listenToEvent(ResourceRegistrationEvent.getEventNameFromCategory(ResourceCategory.ANIMATION), event -> GameAnimations.registerResources((ResourceRegistrationEvent) event));
         getEventDispatcher().listenToEvent(ResourceRegistrationEvent.getEventNameFromCategory(ResourceCategory.LOCALIZATION), event -> GameLocalizedTexts.registerTranslationResources((ResourceRegistrationEvent) event));
         getEventDispatcher().listenToEvent(InputHandlerRegistrationEvent.EVENT, event -> GameInput.init((InputHandlerRegistrationEvent) event));
         getEventDispatcher().listenToEvent(EntityComponentRegistrationEvent.EVENT, event -> GameEntities.registerComponents((EntityComponentRegistrationEvent) event));
@@ -29,6 +31,8 @@ public class GameClient extends ClientBase {
         getEventDispatcher().listenToEvent(SceneRegistrationEvent.EVENT, event -> GameScenes.init((SceneRegistrationEvent) event));
         getEventDispatcher().listenToEvent(LocalizedTextKeyRegistrationEvent.EVENT, event -> GameLocalizedTexts.registerLocalizedTextKeys((LocalizedTextKeyRegistrationEvent) event));
         getEventDispatcher().listenToEvent(MeshRegistrationEvent.EVENT, event -> GameMeshes.init((MeshRegistrationEvent) event));
+        getEventDispatcher().listenToEvent(LoadBedrockModelsEvent.EVENT, event -> GameMeshes.cacheMeshes((LoadBedrockModelsEvent) event));
+        getEventDispatcher().listenToEvent(LoadBedrockAnimationsEvent.EVENT, event -> GameAnimations.cacheAnimations((LoadBedrockAnimationsEvent) event));
         getEventDispatcher().listenToEvent(ModelConfigRegistrationEvent.EVENT, event -> GameModels.init((ModelConfigRegistrationEvent) event));
         getEventDispatcher().listenToEvent(GameStateRegistrationEvent.EVENT, event -> GameStates.registerStates((GameStateRegistrationEvent) event));
         getEventDispatcher().listenToEvent(ConfigureTexturesEvent.EVENT, event -> GameTextures.cacheTextures((ConfigureTexturesEvent) event));
