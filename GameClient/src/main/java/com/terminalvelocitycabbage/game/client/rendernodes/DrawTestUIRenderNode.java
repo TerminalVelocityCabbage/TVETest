@@ -4,9 +4,9 @@ import com.terminalvelocitycabbage.engine.client.renderer.shader.ShaderProgramCo
 import com.terminalvelocitycabbage.engine.client.ui.UIRenderNode;
 import com.terminalvelocitycabbage.engine.client.ui.data.ElementDeclaration;
 import com.terminalvelocitycabbage.engine.client.ui.data.TextElementConfig;
+import com.terminalvelocitycabbage.engine.util.Color;
 
 public class DrawTestUIRenderNode extends UIRenderNode {
-
 
     public DrawTestUIRenderNode(ShaderProgramConfig shaderProgramConfig) {
         super(shaderProgramConfig);
@@ -14,7 +14,8 @@ public class DrawTestUIRenderNode extends UIRenderNode {
 
     @Override
     protected void declareUI() {
-        container(ElementDeclaration.builder().build(), () -> {
+        container(ElementDeclaration.builder()
+                .backgroundColor(new Color(255, 255, 255, 255)).build(), () -> {
             text("Hello World", TextElementConfig.builder().fontSize(32).build());
         });
     }

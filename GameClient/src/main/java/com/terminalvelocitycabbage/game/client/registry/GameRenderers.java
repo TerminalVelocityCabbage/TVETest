@@ -1,6 +1,7 @@
 package com.terminalvelocitycabbage.game.client.registry;
 
 import com.terminalvelocitycabbage.engine.client.renderer.RenderGraph;
+import com.terminalvelocitycabbage.engine.client.renderer.shader.ShaderProgramConfig;
 import com.terminalvelocitycabbage.engine.registry.Identifier;
 import com.terminalvelocitycabbage.engine.util.HeterogeneousMap;
 import com.terminalvelocitycabbage.game.client.GameClient;
@@ -28,7 +29,7 @@ public class GameRenderers {
                                 (capabilities, stateHandler) -> stateHandler.getState(GameStates.ROTATE_ENTITIES).isEnabled(),
                                 rotateSystemRoute)
                         .addRenderNode(DRAW_SCENE_RENDER_NODE, DrawSceneRenderNode.class, GameShaders.MESH_SHADER_PROGRAM_CONFIG)
-                        .addRenderNode(DRAW_UI_RENDER_NODE, DrawTestUIRenderNode.class, null)
+                        .addRenderNode(DRAW_UI_RENDER_NODE, DrawTestUIRenderNode.class, ShaderProgramConfig.EMPTY)
                         .configure(PRINT_ON_EXECUTE, false)
                 )
         ).getIdentifier();
