@@ -3,6 +3,8 @@ package com.terminalvelocitycabbage.game.client.rendernodes;
 import com.terminalvelocitycabbage.engine.client.renderer.shader.ShaderProgramConfig;
 import com.terminalvelocitycabbage.engine.client.ui.UIRenderNode;
 import com.terminalvelocitycabbage.engine.client.ui.data.*;
+import com.terminalvelocitycabbage.engine.client.ui.data.configs.LayoutConfig;
+import com.terminalvelocitycabbage.engine.client.ui.data.configs.TextElementConfig;
 import com.terminalvelocitycabbage.engine.util.Color;
 
 import com.terminalvelocitycabbage.game.client.registry.GameFonts;
@@ -20,7 +22,7 @@ public class DrawTestUIRenderNode extends UIRenderNode {
                 .layout(
                         LayoutConfig.builder()
                                 .sizing(Sizing.grow())
-                                .padding(Padding.builder().top(50).left(50).build())
+                                .padding(new Padding().top(50).left(50))
                                 .build())
                 .build(), () -> {
             text("Hello World", TextElementConfig.builder()
