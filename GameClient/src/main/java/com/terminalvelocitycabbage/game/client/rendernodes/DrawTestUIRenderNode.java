@@ -35,6 +35,34 @@ public class DrawTestUIRenderNode extends UIRenderNode {
                     );
                     floatingElementTest();
                     aspectRatioTest();
+                    wrapTest();
+        });
+    }
+
+    private void wrapTest() {
+        container(ElementDeclaration.builder()
+                .backgroundColor(new Color(0, 255, 0, 50))
+                .layout(LayoutConfig.builder()
+                        .sizing(new Sizing(SizingAxis.percent(25), SizingAxis.fit()))
+                        .childGap(10)
+                        .padding(new Padding(10))
+                        .wrap(true)
+                        .build())
+                .build(), () -> {
+            for (int i = 0; i < 10; i++) {
+                final int index = i;
+                container(ElementDeclaration.builder()
+                        .backgroundColor(new Color(255, 0, 0, 150))
+                        .layout(LayoutConfig.builder()
+                                .sizing(new Sizing(SizingAxis.fixed(80f), SizingAxis.fixed(40f)))
+                                .build())
+                        .build(), () -> {
+                    text("Item " + index, TextElementConfig.builder()
+                            .fontSize(16)
+                            .textColor(new Color(255, 255, 255, 255))
+                            .fontIdentifier(GameFonts.UCHRONY_FONT).build());
+                });
+            }
         });
     }
 
