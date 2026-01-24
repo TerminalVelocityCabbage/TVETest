@@ -2,6 +2,7 @@ package com.terminalvelocitycabbage.game.client.rendernodes;
 
 import com.terminalvelocitycabbage.engine.client.renderer.shader.ShaderProgramConfig;
 import com.terminalvelocitycabbage.engine.client.ui.UI;
+import com.terminalvelocitycabbage.engine.client.ui.UIElement;
 import com.terminalvelocitycabbage.engine.client.ui.UIRenderNode;
 import com.terminalvelocitycabbage.engine.client.ui.data.*;
 import com.terminalvelocitycabbage.engine.client.ui.data.configs.AspectRatioElementConfig;
@@ -9,9 +10,7 @@ import com.terminalvelocitycabbage.engine.client.ui.data.configs.FloatingElement
 import com.terminalvelocitycabbage.engine.client.ui.data.configs.LayoutConfig;
 import com.terminalvelocitycabbage.engine.client.ui.data.configs.TextElementConfig;
 import com.terminalvelocitycabbage.engine.util.Color;
-
 import com.terminalvelocitycabbage.game.client.registry.GameFonts;
-import org.joml.Vector2f;
 
 public class DrawTestUIRenderNode extends UIRenderNode {
 
@@ -34,34 +33,42 @@ public class DrawTestUIRenderNode extends UIRenderNode {
                             .textColor(new Color(0, 0, 0, 255))
                             .fontIdentifier(GameFonts.UCHRONY_FONT).build()
                     );
-                    container(
-                            ElementDeclaration.builder()
-                                    .backgroundColor(new Color(255, 0, 0, 100))
-                                    .aspectRatio(new AspectRatioElementConfig(2.0f))
-                                    .layout(LayoutConfig.builder()
-                                            .sizing(new Sizing(SizingAxis.fixed(90), SizingAxis.fit()))
-                                            .build())
-                                    .build(),
-                            () -> {
-                                text("Aspect Ratio 2:1", TextElementConfig.builder()
-                                        .fontSize(24)
-                                        .textColor(new Color(255, 255, 255, 255))
-                                        .fontIdentifier(GameFonts.UCHRONY_FONT).build());
-                            }
-                    );
-                    container(
-                            ElementDeclaration.builder()
-                                    .backgroundColor(new Color(0, 0, 255, 100))
-                                    .floating(FloatingElementConfig.builder()
-                                            .attachPoints(new FloatingAttachPoints(UI.FloatingAttachPointType.CENTER_CENTER, UI.FloatingAttachPointType.CENTER_CENTER))
-                                            .offset(new Vector2f(100f, 100f))
-                                            .build())
-                                    .layout(LayoutConfig.builder()
-                                            .sizing(new Sizing(SizingAxis.fixed(100f), SizingAxis.fixed(100f)))
-                                            .build())
-                                    .build(),
-                            () -> {}
-                    );
+                    floatingElementTest();
+                    aspectRatioTest();
         });
+    }
+
+    private UIElement floatingElementTest() {
+        return container(
+                ElementDeclaration.builder()
+                        .backgroundColor(new Color(0, 0, 255, 100))
+                        .floating(FloatingElementConfig.builder()
+                                .attachPoints(new FloatingAttachPoints(UI.FloatingAttachPointType.LEFT, UI.FloatingAttachPointType.LEFT))
+                                .attachTo(UI.FloatingAttachToElement.ELEMENT_WITH_ID, id("aspect"))
+                                .build())
+                        .layout(LayoutConfig.builder()
+                                .sizing(new Sizing(SizingAxis.fixed(100f), SizingAxis.fixed(100f)))
+                                .build())
+                        .build(),
+                () -> {}
+        );
+    }
+
+    private UIElement aspectRatioTest() {
+        return container(id("aspect"),
+                ElementDeclaration.builder()
+                        .backgroundColor(new Color(255, 0, 0, 100))
+                        .aspectRatio(new AspectRatioElementConfig(2.0f))
+                        .layout(LayoutConfig.builder()
+                                .sizing(new Sizing(SizingAxis.fit(), SizingAxis.fit()))
+                                .build())
+                        .build(),
+                () -> {
+                    text("Aspect Ratio 2:1", TextElementConfig.builder()
+                            .fontSize(24)
+                            .textColor(new Color(255, 255, 255, 255))
+                            .fontIdentifier(GameFonts.UCHRONY_FONT).build());
+                }
+        );
     }
 }
