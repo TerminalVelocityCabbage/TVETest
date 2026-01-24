@@ -17,19 +17,19 @@ public class DrawTestUIRenderNode extends UIRenderNode {
 
     @Override
     protected void declareUI() {
-        container(ElementDeclaration.builder()
-                .backgroundColor(new Color(255, 255, 255, 100))
-                .layout(
-                        LayoutConfig.builder()
+        container(
+                ElementDeclaration.builder()
+                        .backgroundColor(new Color(255, 255, 255, 100))
+                        .layout(LayoutConfig.builder()
                                 .sizing(Sizing.grow())
                                 .padding(new Padding().top(50).left(50))
                                 .build())
-                .build(), () -> {
-            text("Hello World", TextElementConfig.builder()
-                    .fontSize(32)
-                    .textColor(new Color(0, 0, 0, 255))
-                    .fontIdentifier(GameFonts.UCHRONY_FONT)
-                    .build());
+                        .build(), () -> {
+                    text("Hello World", TextElementConfig.builder()
+                            .fontSize(32)
+                            .textColor(new Color(0, 0, 0, 255))
+                            .fontIdentifier(GameFonts.UCHRONY_FONT).build()
+                    );
         });
     }
 }
