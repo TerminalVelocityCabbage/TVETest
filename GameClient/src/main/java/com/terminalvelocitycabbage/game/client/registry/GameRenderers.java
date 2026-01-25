@@ -26,7 +26,7 @@ public class GameRenderers {
         DEFAULT_RENDER_GRAPH = event.register(new Identifier(GameClient.ID, "drawScene"),
                 new RenderGraph(RenderGraph.RenderPath.builder()
                         .route(new Identifier(GameClient.ID, "booleanRoute"),
-                                (capabilities, stateHandler) -> stateHandler.getState(GameStates.ROTATE_ENTITIES).isEnabled(),
+                                (capabilities, stateHandler) -> (boolean) stateHandler.getState(GameStates.ROTATE_ENTITIES).getValue(),
                                 rotateSystemRoute)
                         .addRenderNode(DRAW_SCENE_RENDER_NODE, DrawSceneRenderNode.class, GameShaders.MESH_SHADER_PROGRAM_CONFIG)
                         .addRenderNode(DRAW_UI_RENDER_NODE, DrawTestUIRenderNode.class, ShaderProgramConfig.EMPTY)
