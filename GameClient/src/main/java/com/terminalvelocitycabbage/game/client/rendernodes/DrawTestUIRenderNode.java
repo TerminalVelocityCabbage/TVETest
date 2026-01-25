@@ -7,7 +7,6 @@ import com.terminalvelocitycabbage.engine.client.ui.UIElement;
 import com.terminalvelocitycabbage.engine.client.ui.UIRenderNode;
 import com.terminalvelocitycabbage.engine.client.ui.data.*;
 import com.terminalvelocitycabbage.engine.client.ui.data.configs.*;
-import com.terminalvelocitycabbage.engine.debug.Log;
 import com.terminalvelocitycabbage.engine.registry.Identifier;
 import com.terminalvelocitycabbage.engine.util.Color;
 import com.terminalvelocitycabbage.game.client.registry.GameFonts;
@@ -31,13 +30,12 @@ public class DrawTestUIRenderNode extends UIRenderNode {
                 ElementDeclaration.builder()
                         .backgroundColor(new Color(255, 255, 255, 100))
                         .layout(LayoutConfig.builder()
-                                .sizing(new Sizing(SizingAxis.grow(), SizingAxis.percent(50)))
+                                .sizing(new Sizing(SizingAxis.grow(), SizingAxis.grow()))
                                 .padding(new Padding().top(10).left(15))
-                                .wrap(true)
                                 .build())
                         .build(), () -> {
-                    buttonTest();
                     stateTest();
+                    scrollTest();
                     floatingElementTest();
                     aspectRatioTest();
                     textWrapTest();
@@ -46,28 +44,41 @@ public class DrawTestUIRenderNode extends UIRenderNode {
         });
     }
 
-    private void buttonTest() {
-        int buttonId = id("testButton");
-        boolean hovered = isHovered(buttonId);
-
-        if (heardEvent(buttonId, UIClickEvent.EVENT) instanceof UIClickEvent event) {
-            Log.info("Button CLICKED at " + event.getPosition() + "!");
-        }
-
-        container(buttonId, ElementDeclaration.builder()
-                .backgroundColor(hovered ? new Color(150, 150, 150, 255) : new Color(100, 100, 100, 255))
-                .cornerRadius(new CornerRadius(10))
-                .layout(LayoutConfig.builder()
-                        .sizing(new Sizing(SizingAxis.fixed(150f), SizingAxis.fixed(50f)))
-                        .childAlignment(new ChildAlignment(UI.HorizontalAlignment.CENTER, UI.VerticalAlignment.CENTER))
-                        .build())
-                .build(), () -> {
-            text("Click Me", TextElementConfig.builder()
-                    .fontSize(20)
-                    .textColor(new Color(255, 255, 255, 255))
-                    .fontIdentifier(GameFonts.UCHRONY_FONT)
-                    .build());
-        });
+    private void scrollTest() {
+        scrollableContainer("myScrollable",
+                ElementDeclaration.builder()
+                        .backgroundColor(new Color(50, 50, 50, 255))
+                        .layout(LayoutConfig.builder()
+                                .layoutDirection(UI.LayoutDirection.TOP_TO_BOTTOM)
+                                .sizing(new Sizing(SizingAxis.fixed(200f), SizingAxis.grow()))
+                                .padding(new Padding(10))
+                                .childGap(5)
+                                .build())
+                        .build(),
+                ElementDeclaration.builder()
+                        .backgroundColor(new Color(255, 0, 0, 255))
+                        .layout(LayoutConfig.builder()
+                                .sizing(new Sizing(SizingAxis.fixed(10f), SizingAxis.fit()))
+                                .build())
+                        .build(),
+                () -> {
+                    for (int i = 0; i < 20; i++) {
+                        int index = i;
+                        container(ElementDeclaration.builder()
+                                .backgroundColor(new Color(100, 100, 255, 255))
+                                .layout(LayoutConfig.builder()
+                                        .sizing(new Sizing(SizingAxis.fixed(50), SizingAxis.fixed(30f)))
+                                        .childAlignment(new ChildAlignment(UI.HorizontalAlignment.CENTER, UI.VerticalAlignment.CENTER))
+                                        .build())
+                                .build(), () -> {
+                            text("Item " + index, TextElementConfig.builder()
+                                    .fontIdentifier(GameFonts.LEXEND_FONT)
+                                    .textColor(new Color(255, 255, 255, 255))
+                                    .build());
+                        });
+                    }
+                }
+        );
     }
 
     private void stateTest() {
@@ -89,7 +100,7 @@ public class DrawTestUIRenderNode extends UIRenderNode {
             text("Clicked " + clickCount.getValue() + " times", TextElementConfig.builder()
                     .fontSize(20)
                     .textColor(new Color(255, 255, 255, 255))
-                    .fontIdentifier(GameFonts.UCHRONY_FONT)
+                    .fontIdentifier(GameFonts.LEXEND_FONT)
                     .build());
         });
     }
@@ -110,7 +121,7 @@ public class DrawTestUIRenderNode extends UIRenderNode {
             text("Border & Corners", TextElementConfig.builder()
                     .fontSize(20)
                     .textColor(new Color(255, 255, 255, 255))
-                    .fontIdentifier(GameFonts.UCHRONY_FONT)
+                    .fontIdentifier(GameFonts.LEXEND_FONT)
                     .build());
         });
     }
@@ -127,7 +138,7 @@ public class DrawTestUIRenderNode extends UIRenderNode {
                     TextElementConfig.builder()
                             .fontSize(16)
                             .textColor(new Color(0, 0, 0, 255))
-                            .fontIdentifier(GameFonts.UCHRONY_FONT)
+                            .fontIdentifier(GameFonts.LEXEND_FONT)
                             .wrapMode(UI.TextWrapMode.WORDS)
                             .textAlignment(UI.TextAlignment.LEFT)
                             .lineHeight(10)
@@ -156,7 +167,7 @@ public class DrawTestUIRenderNode extends UIRenderNode {
                     text("Item " + index, TextElementConfig.builder()
                             .fontSize(16)
                             .textColor(new Color(255, 255, 255, 255))
-                            .fontIdentifier(GameFonts.UCHRONY_FONT).build());
+                            .fontIdentifier(GameFonts.LEXEND_FONT).build());
                 });
             }
         });
@@ -191,7 +202,7 @@ public class DrawTestUIRenderNode extends UIRenderNode {
                     text("Aspect Ratio 2:1", TextElementConfig.builder()
                             .fontSize(24)
                             .textColor(new Color(255, 255, 255, 255))
-                            .fontIdentifier(GameFonts.UCHRONY_FONT).build());
+                            .fontIdentifier(GameFonts.LEXEND_FONT).build());
                 }
         );
     }
