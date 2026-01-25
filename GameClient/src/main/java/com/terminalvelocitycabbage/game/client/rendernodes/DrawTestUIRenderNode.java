@@ -10,8 +10,8 @@ import com.terminalvelocitycabbage.engine.client.ui.data.configs.*;
 import com.terminalvelocitycabbage.engine.debug.Log;
 import com.terminalvelocitycabbage.engine.registry.Identifier;
 import com.terminalvelocitycabbage.engine.util.Color;
-import com.terminalvelocitycabbage.templates.events.UIClickEvent;
 import com.terminalvelocitycabbage.game.client.registry.GameFonts;
+import com.terminalvelocitycabbage.templates.events.UIClickEvent;
 import com.terminalvelocitycabbage.templates.events.UIScrollEvent;
 
 public class DrawTestUIRenderNode extends UIRenderNode {
@@ -37,6 +37,7 @@ public class DrawTestUIRenderNode extends UIRenderNode {
                                 .build())
                         .build(), () -> {
                     buttonTest();
+                    stateTest();
                     floatingElementTest();
                     aspectRatioTest();
                     textWrapTest();
@@ -62,6 +63,30 @@ public class DrawTestUIRenderNode extends UIRenderNode {
                         .build())
                 .build(), () -> {
             text("Click Me", TextElementConfig.builder()
+                    .fontSize(20)
+                    .textColor(new Color(255, 255, 255, 255))
+                    .fontIdentifier(GameFonts.UCHRONY_FONT)
+                    .build());
+        });
+    }
+
+    private void stateTest() {
+        int buttonId = id("stateButton");
+        var clickCount = useState(0);
+
+        if (heardEvent(buttonId, UIClickEvent.EVENT) instanceof UIClickEvent) {
+            clickCount.setValue(clickCount.getValue() + 1);
+        }
+
+        container(buttonId, ElementDeclaration.builder()
+                .backgroundColor(isHovered(buttonId) ? new Color(150, 150, 150, 255) : new Color(100, 100, 100, 255))
+                .cornerRadius(new CornerRadius(10))
+                .layout(LayoutConfig.builder()
+                        .sizing(new Sizing(SizingAxis.fixed(200f), SizingAxis.fixed(50f)))
+                        .childAlignment(new ChildAlignment(UI.HorizontalAlignment.CENTER, UI.VerticalAlignment.CENTER))
+                        .build())
+                .build(), () -> {
+            text("Clicked " + clickCount.getValue() + " times", TextElementConfig.builder()
                     .fontSize(20)
                     .textColor(new Color(255, 255, 255, 255))
                     .fontIdentifier(GameFonts.UCHRONY_FONT)
