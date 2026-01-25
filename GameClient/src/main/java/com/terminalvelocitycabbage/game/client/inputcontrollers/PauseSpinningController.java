@@ -19,7 +19,8 @@ public class PauseSpinningController extends BooleanController {
     public void act() {
         if (isEnabled()) {
             var client = ClientBase.getInstance();
-            client.getStateHandler().getState(GameStates.ROTATE_ENTITIES).toggle();
+            var state = client.getStateHandler().<Boolean>getState(GameStates.ROTATE_ENTITIES);
+            client.getStateHandler().updateState(GameStates.ROTATE_ENTITIES, !state.getValue());
         }
     }
 }
