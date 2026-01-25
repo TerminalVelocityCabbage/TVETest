@@ -42,8 +42,10 @@ public class GameInput {
         Control mouseRightControl = inputHandler.registerControlListener(new MouseMovementControl(MouseInput.MovementAxis.RIGHT, 4f));
         Control mouseScrollUpControl = inputHandler.registerControlListener(new MouseScrollControl(MouseInput.ScrollDirection.UP, 1f));
         Control mouseScrollDownControl = inputHandler.registerControlListener(new MouseScrollControl(MouseInput.ScrollDirection.DOWN, 1f));
+        Control leftClickControl = inputHandler.registerControlListener(new MouseButtonControl(MouseInput.Button.LEFT_CLICK));
 
         //Register Controllers
+        inputHandler.registerController(new Identifier(GameClient.ID, "uiClickController"), new UIClickController(MouseInput.Button.LEFT_CLICK, leftClickControl));
         inputHandler.registerController(new Identifier(GameClient.ID, "closeWindowOnEscapeController"), new CloseWindowController(escapeControl));
         inputHandler.registerController(new Identifier(GameClient.ID, "moveAroundController"), new MoveController(
                 new ControlGroup(wControl),

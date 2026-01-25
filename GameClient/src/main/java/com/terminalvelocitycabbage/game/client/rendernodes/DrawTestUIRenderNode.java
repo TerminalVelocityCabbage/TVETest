@@ -7,13 +7,22 @@ import com.terminalvelocitycabbage.engine.client.ui.UIElement;
 import com.terminalvelocitycabbage.engine.client.ui.UIRenderNode;
 import com.terminalvelocitycabbage.engine.client.ui.data.*;
 import com.terminalvelocitycabbage.engine.client.ui.data.configs.*;
+import com.terminalvelocitycabbage.engine.debug.Log;
+import com.terminalvelocitycabbage.engine.registry.Identifier;
 import com.terminalvelocitycabbage.engine.util.Color;
+import com.terminalvelocitycabbage.templates.events.UIClickEvent;
 import com.terminalvelocitycabbage.game.client.registry.GameFonts;
+import com.terminalvelocitycabbage.templates.events.UIScrollEvent;
 
 public class DrawTestUIRenderNode extends UIRenderNode {
 
     public DrawTestUIRenderNode(ShaderProgramConfig shaderProgramConfig) {
         super(shaderProgramConfig);
+    }
+
+    @Override
+    protected Identifier[] getInterestedEvents() {
+        return new Identifier[] { UIClickEvent.EVENT, UIScrollEvent.EVENT };
     }
 
     @Override
@@ -27,11 +36,36 @@ public class DrawTestUIRenderNode extends UIRenderNode {
                                 .wrap(true)
                                 .build())
                         .build(), () -> {
+                    buttonTest();
                     floatingElementTest();
                     aspectRatioTest();
                     textWrapTest();
                     wrapTest();
                     borderAndCornersTest();
+        });
+    }
+
+    private void buttonTest() {
+        int buttonId = id("testButton");
+        boolean hovered = isHovered(buttonId);
+
+        if (heardEvent(buttonId, UIClickEvent.EVENT) instanceof UIClickEvent event) {
+            Log.info("Button CLICKED at " + event.getPosition() + "!");
+        }
+
+        container(buttonId, ElementDeclaration.builder()
+                .backgroundColor(hovered ? new Color(150, 150, 150, 255) : new Color(100, 100, 100, 255))
+                .cornerRadius(new CornerRadius(10))
+                .layout(LayoutConfig.builder()
+                        .sizing(new Sizing(SizingAxis.fixed(150f), SizingAxis.fixed(50f)))
+                        .childAlignment(new ChildAlignment(UI.HorizontalAlignment.CENTER, UI.VerticalAlignment.CENTER))
+                        .build())
+                .build(), () -> {
+            text("Click Me", TextElementConfig.builder()
+                    .fontSize(20)
+                    .textColor(new Color(255, 255, 255, 255))
+                    .fontIdentifier(GameFonts.UCHRONY_FONT)
+                    .build());
         });
     }
 
