@@ -1,14 +1,12 @@
 package com.terminalvelocitycabbage.game.client.rendernodes;
 
+import com.terminalvelocitycabbage.engine.client.ClientBase;
 import com.terminalvelocitycabbage.engine.client.renderer.shader.ShaderProgramConfig;
 import com.terminalvelocitycabbage.engine.client.ui.UI;
 import com.terminalvelocitycabbage.engine.client.ui.UIElement;
 import com.terminalvelocitycabbage.engine.client.ui.UIRenderNode;
 import com.terminalvelocitycabbage.engine.client.ui.data.*;
-import com.terminalvelocitycabbage.engine.client.ui.data.configs.AspectRatioElementConfig;
-import com.terminalvelocitycabbage.engine.client.ui.data.configs.FloatingElementConfig;
-import com.terminalvelocitycabbage.engine.client.ui.data.configs.LayoutConfig;
-import com.terminalvelocitycabbage.engine.client.ui.data.configs.TextElementConfig;
+import com.terminalvelocitycabbage.engine.client.ui.data.configs.*;
 import com.terminalvelocitycabbage.engine.util.Color;
 import com.terminalvelocitycabbage.game.client.registry.GameFonts;
 
@@ -25,17 +23,56 @@ public class DrawTestUIRenderNode extends UIRenderNode {
                         .backgroundColor(new Color(255, 255, 255, 100))
                         .layout(LayoutConfig.builder()
                                 .sizing(new Sizing(SizingAxis.grow(), SizingAxis.percent(50)))
-                                .padding(new Padding().top(50).left(50))
+                                .padding(new Padding().top(10).left(15))
+                                .wrap(true)
                                 .build())
                         .build(), () -> {
-                    text("Hello World", TextElementConfig.builder()
-                            .fontSize(32)
-                            .textColor(new Color(0, 0, 0, 255))
-                            .fontIdentifier(GameFonts.UCHRONY_FONT).build()
-                    );
                     floatingElementTest();
                     aspectRatioTest();
+                    textWrapTest();
                     wrapTest();
+                    borderAndCornersTest();
+        });
+    }
+
+    private void borderAndCornersTest() {
+        container(ElementDeclaration.builder()
+                .backgroundColor(new Color(0, 0, 0, 50))
+                .cornerRadius(new CornerRadius((float) (20f * Math.sin(ClientBase.getInstance().getRuntime() / 1000f) + 20f), 0, 20, 0))
+                .border(BorderElementConfig.builder()
+                        .color(new Color(255, 255, 255, 255))
+                        .width(new BorderWidth((int) (5 * Math.sin(ClientBase.getInstance().getRuntime() / 1500f) + 5)))
+                        .build())
+                .layout(LayoutConfig.builder()
+                        .sizing(new Sizing(SizingAxis.fixed(200f), SizingAxis.fixed(100f)))
+                        .padding(new Padding(10))
+                        .build())
+                .build(), () -> {
+            text("Border & Corners", TextElementConfig.builder()
+                    .fontSize(20)
+                    .textColor(new Color(255, 255, 255, 255))
+                    .fontIdentifier(GameFonts.UCHRONY_FONT)
+                    .build());
+        });
+    }
+
+    private void textWrapTest() {
+        container(ElementDeclaration.builder()
+                .backgroundColor(new Color(255, 255, 0, 50))
+                .layout(LayoutConfig.builder()
+                        .sizing(new Sizing(SizingAxis.percent(30), SizingAxis.fit()))
+                        .padding(new Padding(10))
+                        .build())
+                .build(), () -> {
+            text("This is a long piece of text that should wrap because it is inside a container with a fixed width of 200 pixels. We are testing if the layout engine correctly calculates the height of the text after wrapping.",
+                    TextElementConfig.builder()
+                            .fontSize(16)
+                            .textColor(new Color(0, 0, 0, 255))
+                            .fontIdentifier(GameFonts.UCHRONY_FONT)
+                            .wrapMode(UI.TextWrapMode.WORDS)
+                            .textAlignment(UI.TextAlignment.LEFT)
+                            .lineHeight(10)
+                            .build());
         });
     }
 
