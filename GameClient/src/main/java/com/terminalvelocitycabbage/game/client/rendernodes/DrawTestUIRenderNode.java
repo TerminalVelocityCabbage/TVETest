@@ -41,6 +41,71 @@ public class DrawTestUIRenderNode extends UIRenderNode {
                     textWrapTest();
                     wrapTest();
                     borderAndCornersTest();
+                    zIndexAndCaptureTest();
+        });
+    }
+
+    private void zIndexAndCaptureTest() {
+        int backId = id("zIndexBack");
+        int frontId = id("zIndexFront");
+        int passId = id("zIndexPass");
+
+        var backClicks = useState("backClicks", 0);
+        var frontClicks = useState("frontClicks", 0);
+        var passClicks = useState("passClicks", 0);
+
+        if (heardEvent(backId, UIClickEvent.EVENT) != null) backClicks.setValue(backClicks.getValue() + 1);
+        if (heardEvent(frontId, UIClickEvent.EVENT) != null) frontClicks.setValue(frontClicks.getValue() + 1);
+        if (heardEvent(passId, UIClickEvent.EVENT) != null) passClicks.setValue(passClicks.getValue() + 1);
+
+        // Background floating element (lower zIndex)
+        container(backId, ElementDeclaration.builder()
+                .backgroundColor(isHovered(backId) ? new Color(255, 100, 100, 255) : new Color(200, 0, 0, 255))
+                .floating(FloatingElementConfig.builder()
+                        .zIndex(10)
+                        .offset(new org.joml.Vector2f(50, 450))
+                        .attachTo(UI.FloatingAttachToElement.ROOT)
+                        .build())
+                .layout(LayoutConfig.builder()
+                        .sizing(new Sizing(SizingAxis.fixed(200f), SizingAxis.fixed(200f)))
+                        .childAlignment(new ChildAlignment(UI.HorizontalAlignment.CENTER, UI.VerticalAlignment.CENTER))
+                        .build())
+                .build(), () -> {
+            text("z-index: 10\nClicks: " + backClicks.getValue(), TextElementConfig.builder().fontSize(20).textColor(new Color(255, 255, 255, 255)).fontIdentifier(GameFonts.LEXEND_FONT).build());
+        });
+
+        // Foreground floating element (higher zIndex, partially overlapping)
+        container(frontId, ElementDeclaration.builder()
+                .backgroundColor(isHovered(frontId) ? new Color(100, 255, 100, 255) : new Color(0, 200, 0, 255))
+                .floating(FloatingElementConfig.builder()
+                        .zIndex(20)
+                        .offset(new org.joml.Vector2f(150, 550))
+                        .attachTo(UI.FloatingAttachToElement.ROOT)
+                        .pointerCaptureMode(UI.PointerCaptureMode.CAPTURE)
+                        .build())
+                .layout(LayoutConfig.builder()
+                        .sizing(new Sizing(SizingAxis.fixed(200f), SizingAxis.fixed(200f)))
+                        .childAlignment(new ChildAlignment(UI.HorizontalAlignment.CENTER, UI.VerticalAlignment.CENTER))
+                        .build())
+                .build(), () -> {
+            text("z-index: 20\nCapture\nClicks: " + frontClicks.getValue(), TextElementConfig.builder().fontSize(20).textColor(new Color(255, 255, 255, 255)).fontIdentifier(GameFonts.LEXEND_FONT).build());
+        });
+
+        // Passthrough floating element (even higher zIndex, but passthrough)
+        container(passId, ElementDeclaration.builder()
+                .backgroundColor(isHovered(passId) ? new Color(100, 100, 255, 150) : new Color(0, 0, 200, 100))
+                .floating(FloatingElementConfig.builder()
+                        .zIndex(30)
+                        .offset(new org.joml.Vector2f(250, 450))
+                        .attachTo(UI.FloatingAttachToElement.ROOT)
+                        .pointerCaptureMode(UI.PointerCaptureMode.PASSTHROUGH)
+                        .build())
+                .layout(LayoutConfig.builder()
+                        .sizing(new Sizing(SizingAxis.fixed(150f), SizingAxis.fixed(150f)))
+                        .childAlignment(new ChildAlignment(UI.HorizontalAlignment.CENTER, UI.VerticalAlignment.CENTER))
+                        .build())
+                .build(), () -> {
+            text("z-index: 30\nPassthrough\nClicks: " + passClicks.getValue(), TextElementConfig.builder().fontSize(20).textColor(new Color(255, 255, 255, 255)).fontIdentifier(GameFonts.LEXEND_FONT).build());
         });
     }
 
