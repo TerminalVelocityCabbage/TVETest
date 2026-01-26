@@ -43,6 +43,34 @@ public class DrawTestUIRenderNode extends UIRenderNode {
                     wrapTest();
                     borderAndCornersTest();
                     zIndexAndCaptureTest();
+                    marginTest();
+        });
+    }
+
+    private void marginTest() {
+        container(id("marginContainer"), ElementDeclaration.builder()
+                .backgroundColor(new Color(100, 100, 255, 255))
+                .layout(LayoutConfig.builder()
+                        .sizing(new Sizing(SizingAxis.fit(), SizingAxis.fit()))
+                        .layoutDirection(UI.LayoutDirection.LEFT_TO_RIGHT)
+                        .build())
+                .build(), () -> {
+            // Child with margin
+            container(id("marginChild1"), ElementDeclaration.builder()
+                    .backgroundColor(new Color(255, 100, 100, 255))
+                    .layout(LayoutConfig.builder()
+                            .sizing(new Sizing(SizingAxis.fixed(50), SizingAxis.fixed(50)))
+                            .margin(new Margin().left(20).top(10).bottom(5).right(10))
+                            .build())
+                    .build(), () -> {});
+
+            // Child without margin
+            container(id("marginChild2"), ElementDeclaration.builder()
+                    .backgroundColor(new Color(100, 255, 100, 255))
+                    .layout(LayoutConfig.builder()
+                            .sizing(new Sizing(SizingAxis.fixed(50), SizingAxis.fixed(50)))
+                            .build())
+                    .build(), () -> {});
         });
     }
 
