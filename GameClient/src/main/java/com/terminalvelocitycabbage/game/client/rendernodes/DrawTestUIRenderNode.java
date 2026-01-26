@@ -38,6 +38,7 @@ public class DrawTestUIRenderNode extends UIRenderNode {
                     scrollTest();
                     floatingElementTest();
                     aspectRatioTest();
+                    reverseLayoutTest();
                     textWrapTest();
                     wrapTest();
                     borderAndCornersTest();
@@ -270,5 +271,37 @@ public class DrawTestUIRenderNode extends UIRenderNode {
                             .fontIdentifier(GameFonts.LEXEND_FONT).build());
                 }
         );
+    }
+
+    private void reverseLayoutTest() {
+        // RTL Test
+        container(ElementDeclaration.builder()
+                .backgroundColor(new Color(200, 200, 255, 255))
+                .layout(LayoutConfig.builder()
+                        .sizing(new Sizing(SizingAxis.fixed(300), SizingAxis.fit()))
+                        .layoutDirection(UI.LayoutDirection.RIGHT_TO_LEFT)
+                        .childAlignment(new ChildAlignment(UI.HorizontalAlignment.RIGHT, UI.VerticalAlignment.TOP))
+                        .childGap(10)
+                        .padding(new Padding(10))
+                        .build())
+                .build(), () -> {
+            text("First (Right)", TextElementConfig.builder().fontSize(16).textColor(new Color(0,0,0,255)).fontIdentifier(GameFonts.LEXEND_FONT).build());
+            text("Second (Left)", TextElementConfig.builder().fontSize(16).textColor(new Color(0,0,0,255)).fontIdentifier(GameFonts.LEXEND_FONT).build());
+        });
+
+        // BTT Test
+        container(ElementDeclaration.builder()
+                .backgroundColor(new Color(255, 200, 200, 255))
+                .layout(LayoutConfig.builder()
+                        .sizing(new Sizing(SizingAxis.fit(), SizingAxis.fixed(200)))
+                        .layoutDirection(UI.LayoutDirection.BOTTOM_TO_TOP)
+                        .childAlignment(new ChildAlignment(UI.HorizontalAlignment.CENTER, UI.VerticalAlignment.BOTTOM))
+                        .childGap(10)
+                        .padding(new Padding(10))
+                        .build())
+                .build(), () -> {
+            text("First (Bottom)", TextElementConfig.builder().fontSize(16).textColor(new Color(0,0,0,255)).fontIdentifier(GameFonts.LEXEND_FONT).build());
+            text("Second (Top)", TextElementConfig.builder().fontSize(16).textColor(new Color(0,0,0,255)).fontIdentifier(GameFonts.LEXEND_FONT).build());
+        });
     }
 }
