@@ -10,8 +10,10 @@ import com.terminalvelocitycabbage.engine.client.ui.data.configs.*;
 import com.terminalvelocitycabbage.engine.registry.Identifier;
 import com.terminalvelocitycabbage.engine.util.Color;
 import com.terminalvelocitycabbage.game.client.registry.GameFonts;
+import com.terminalvelocitycabbage.game.client.registry.GameTextures;
 import com.terminalvelocitycabbage.templates.events.UIClickEvent;
 import com.terminalvelocitycabbage.templates.events.UIScrollEvent;
+import org.joml.Vector2f;
 
 public class DrawTestUIRenderNode extends UIRenderNode {
 
@@ -44,6 +46,66 @@ public class DrawTestUIRenderNode extends UIRenderNode {
                     borderAndCornersTest();
                     zIndexAndCaptureTest();
                     marginTest();
+                    imageTest();
+        });
+    }
+
+    private void imageTest() {
+        container(id("imageContainer"), ElementDeclaration.builder()
+                .backgroundColor(new Color(255, 255, 255, 50))
+                .layout(LayoutConfig.builder()
+                        .sizing(new Sizing(SizingAxis.fit(), SizingAxis.fit()))
+                        .layoutDirection(UI.LayoutDirection.LEFT_TO_RIGHT)
+                        .childGap(10)
+                        .padding(new Padding(10))
+                        .build())
+                .build(), () -> {
+            // Natural size image
+            image(id("naturalSize"), ElementDeclaration.builder()
+                    .border(BorderElementConfig.builder().width(new BorderWidth(2)).color(new Color(255, 255, 255, 255)).build())
+                    .image(ImageElementConfig.builder()
+                            .imageIdentifier(GameTextures.HAPPY)
+                            .atlasIdentifier(GameTextures.UI_TEXTURE_ATLAS)
+                            .build())
+                    .build());
+
+            // Fit height, fixed width
+            image(id("fixedWidthFitHeight"), ElementDeclaration.builder()
+                    .border(BorderElementConfig.builder().width(new BorderWidth(2)).color(new Color(255, 0, 0, 255)).build())
+                    .aspectRatio(new AspectRatioElementConfig(1))
+                    .layout(LayoutConfig.builder()
+                            .sizing(new Sizing(SizingAxis.fixed(100), SizingAxis.fit()))
+                            .build())
+                    .image(ImageElementConfig.builder()
+                            .imageIdentifier(GameTextures.HAPPY)
+                            .atlasIdentifier(GameTextures.UI_TEXTURE_ATLAS)
+                            .build())
+                    .build());
+
+            // Fit width, fixed height
+            image(id("fitWidthFixedHeight"), ElementDeclaration.builder()
+                    .border(BorderElementConfig.builder().width(new BorderWidth(2)).color(new Color(0, 255, 0, 255)).build())
+                    .layout(LayoutConfig.builder()
+                            .sizing(new Sizing(SizingAxis.fit(), SizingAxis.fixed(100)))
+                            .build())
+                    .image(ImageElementConfig.builder()
+                            .imageIdentifier(GameTextures.HAPPY)
+                            .atlasIdentifier(GameTextures.UI_TEXTURE_ATLAS)
+                            .build())
+                    .aspectRatio(new AspectRatioElementConfig(1))
+                    .build());
+
+            // Fixed both (squished)
+            image(id("fixedBoth"), ElementDeclaration.builder()
+                    .border(BorderElementConfig.builder().width(new BorderWidth(2)).color(new Color(0, 0, 255, 255)).build())
+                    .layout(LayoutConfig.builder()
+                            .sizing(new Sizing(SizingAxis.fixed(150), SizingAxis.fixed(50)))
+                            .build())
+                    .image(ImageElementConfig.builder()
+                            .imageIdentifier(GameTextures.HAPPY)
+                            .atlasIdentifier(GameTextures.UI_TEXTURE_ATLAS)
+                            .build())
+                    .build());
         });
     }
 
@@ -92,7 +154,7 @@ public class DrawTestUIRenderNode extends UIRenderNode {
                 .backgroundColor(isHovered(backId) ? new Color(255, 100, 100, 255) : new Color(200, 0, 0, 255))
                 .floating(FloatingElementConfig.builder()
                         .zIndex(10)
-                        .offset(new org.joml.Vector2f(50, 450))
+                        .offset(new Vector2f(50, 450))
                         .attachTo(UI.FloatingAttachToElement.ROOT)
                         .build())
                 .layout(LayoutConfig.builder()
@@ -108,7 +170,7 @@ public class DrawTestUIRenderNode extends UIRenderNode {
                 .backgroundColor(isHovered(frontId) ? new Color(100, 255, 100, 255) : new Color(0, 200, 0, 255))
                 .floating(FloatingElementConfig.builder()
                         .zIndex(20)
-                        .offset(new org.joml.Vector2f(150, 550))
+                        .offset(new Vector2f(150, 550))
                         .attachTo(UI.FloatingAttachToElement.ROOT)
                         .pointerCaptureMode(UI.PointerCaptureMode.CAPTURE)
                         .build())
@@ -125,7 +187,7 @@ public class DrawTestUIRenderNode extends UIRenderNode {
                 .backgroundColor(isHovered(passId) ? new Color(100, 100, 255, 150) : new Color(0, 0, 200, 100))
                 .floating(FloatingElementConfig.builder()
                         .zIndex(30)
-                        .offset(new org.joml.Vector2f(250, 450))
+                        .offset(new Vector2f(250, 450))
                         .attachTo(UI.FloatingAttachToElement.ROOT)
                         .pointerCaptureMode(UI.PointerCaptureMode.PASSTHROUGH)
                         .build())

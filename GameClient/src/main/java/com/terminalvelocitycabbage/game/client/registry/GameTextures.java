@@ -18,6 +18,7 @@ public class GameTextures {
 
     //Atlases
     public static Identifier DEFAULT_SCENE_ATLAS;
+    public static Identifier UI_TEXTURE_ATLAS;
 
     public static void registerResources(ResourceRegistrationEvent event) {
         //Register Textures to the VFS
@@ -32,13 +33,14 @@ public class GameTextures {
     public static void cacheTextures(ConfigureTexturesEvent event) {
 
         DEFAULT_SCENE_ATLAS = event.registerAtlas(GameClient.getInstance().identifierOf("default_scene_atlas"));
+        UI_TEXTURE_ATLAS = event.registerAtlas(GameClient.getInstance().identifierOf("ui_texture_atlas"));
 
         event.addTexture(SMILE, DEFAULT_SCENE_ATLAS);
         event.addTexture(SAD, DEFAULT_SCENE_ATLAS);
         event.addTexture(SMILE_SMALL, DEFAULT_SCENE_ATLAS);
         event.addTexture(SAD_SMALL, DEFAULT_SCENE_ATLAS);
         event.addTexture(SMILE_TINY, DEFAULT_SCENE_ATLAS);
-        event.addTexture(HAPPY, DEFAULT_SCENE_ATLAS);
+        event.addTexture(HAPPY, DEFAULT_SCENE_ATLAS, UI_TEXTURE_ATLAS);
     }
 
 }
