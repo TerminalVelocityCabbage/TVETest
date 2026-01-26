@@ -33,8 +33,7 @@ public class DrawTestUIRenderNode extends UIRenderNode {
                         .backgroundColor(new Color(255, 255, 255, 100))
                         .layout(LayoutConfig.builder()
                                 .sizing(new Sizing(SizingAxis.grow(), SizingAxis.grow()))
-                                .padding(new Padding().top(10).left(15))
-                                .build())
+                                .padding(new Padding().top(10).left(15)))
                         .build(), () -> {
                     stateTest();
                     scrollTest();
@@ -57,54 +56,46 @@ public class DrawTestUIRenderNode extends UIRenderNode {
                         .sizing(new Sizing(SizingAxis.fit(), SizingAxis.fit()))
                         .layoutDirection(UI.LayoutDirection.LEFT_TO_RIGHT)
                         .childGap(10)
-                        .padding(new Padding(10))
-                        .build())
+                        .padding(new Padding(10)))
                 .build(), () -> {
             // Natural size image
             image(id("naturalSize"), ElementDeclaration.builder()
-                    .border(BorderElementConfig.builder().width(new BorderWidth(2)).color(new Color(255, 255, 255, 255)).build())
+                    .border(new BorderElementConfig(new Color(255, 255, 255, 255), new BorderWidth(2)))
                     .image(ImageElementConfig.builder()
                             .imageIdentifier(GameTextures.HAPPY)
-                            .atlasIdentifier(GameTextures.UI_TEXTURE_ATLAS)
-                            .build())
+                            .atlasIdentifier(GameTextures.UI_TEXTURE_ATLAS))
                     .build());
 
             // Fit height, fixed width
             image(id("fixedWidthFitHeight"), ElementDeclaration.builder()
-                    .border(BorderElementConfig.builder().width(new BorderWidth(2)).color(new Color(255, 0, 0, 255)).build())
-                    .aspectRatio(new AspectRatioElementConfig(1))
+                    .border(new BorderElementConfig(new Color(255, 0, 0, 255), new BorderWidth(2)))
                     .layout(LayoutConfig.builder()
-                            .sizing(new Sizing(SizingAxis.fixed(100), SizingAxis.fit()))
-                            .build())
+                            .aspectRatio(1)
+                            .sizing(new Sizing(SizingAxis.fixed(100), SizingAxis.fit())))
                     .image(ImageElementConfig.builder()
                             .imageIdentifier(GameTextures.HAPPY)
-                            .atlasIdentifier(GameTextures.UI_TEXTURE_ATLAS)
-                            .build())
+                            .atlasIdentifier(GameTextures.UI_TEXTURE_ATLAS))
                     .build());
 
             // Fit width, fixed height
             image(id("fitWidthFixedHeight"), ElementDeclaration.builder()
-                    .border(BorderElementConfig.builder().width(new BorderWidth(2)).color(new Color(0, 255, 0, 255)).build())
+                    .border(new BorderElementConfig(new Color(0, 255, 0, 255), new BorderWidth(2)))
                     .layout(LayoutConfig.builder()
                             .sizing(new Sizing(SizingAxis.fit(), SizingAxis.fixed(100)))
-                            .build())
+                            .aspectRatio(1))
                     .image(ImageElementConfig.builder()
                             .imageIdentifier(GameTextures.HAPPY)
-                            .atlasIdentifier(GameTextures.UI_TEXTURE_ATLAS)
-                            .build())
-                    .aspectRatio(new AspectRatioElementConfig(1))
+                            .atlasIdentifier(GameTextures.UI_TEXTURE_ATLAS))
                     .build());
 
             // Fixed both (squished)
             image(id("fixedBoth"), ElementDeclaration.builder()
-                    .border(BorderElementConfig.builder().width(new BorderWidth(2)).color(new Color(0, 0, 255, 255)).build())
+                    .border(new BorderElementConfig(new Color(0, 0, 255, 255), new BorderWidth(2)))
                     .layout(LayoutConfig.builder()
-                            .sizing(new Sizing(SizingAxis.fixed(150), SizingAxis.fixed(50)))
-                            .build())
+                            .sizing(new Sizing(SizingAxis.fixed(150), SizingAxis.fixed(50))))
                     .image(ImageElementConfig.builder()
                             .imageIdentifier(GameTextures.HAPPY)
-                            .atlasIdentifier(GameTextures.UI_TEXTURE_ATLAS)
-                            .build())
+                            .atlasIdentifier(GameTextures.UI_TEXTURE_ATLAS))
                     .build());
         });
     }
@@ -114,24 +105,21 @@ public class DrawTestUIRenderNode extends UIRenderNode {
                 .backgroundColor(new Color(100, 100, 255, 255))
                 .layout(LayoutConfig.builder()
                         .sizing(new Sizing(SizingAxis.fit(), SizingAxis.fit()))
-                        .layoutDirection(UI.LayoutDirection.LEFT_TO_RIGHT)
-                        .build())
+                        .layoutDirection(UI.LayoutDirection.LEFT_TO_RIGHT))
                 .build(), () -> {
             // Child with margin
             container(id("marginChild1"), ElementDeclaration.builder()
                     .backgroundColor(new Color(255, 100, 100, 255))
                     .layout(LayoutConfig.builder()
                             .sizing(new Sizing(SizingAxis.fixed(50), SizingAxis.fixed(50)))
-                            .margin(new Margin().left(20).top(10).bottom(5).right(10))
-                            .build())
+                            .margin(new Margin().left(20).top(10).bottom(5).right(10)))
                     .build(), () -> {});
 
             // Child without margin
             container(id("marginChild2"), ElementDeclaration.builder()
                     .backgroundColor(new Color(100, 255, 100, 255))
                     .layout(LayoutConfig.builder()
-                            .sizing(new Sizing(SizingAxis.fixed(50), SizingAxis.fixed(50)))
-                            .build())
+                            .sizing(new Sizing(SizingAxis.fixed(50), SizingAxis.fixed(50))))
                     .build(), () -> {});
         });
     }
@@ -155,12 +143,10 @@ public class DrawTestUIRenderNode extends UIRenderNode {
                 .floating(FloatingElementConfig.builder()
                         .zIndex(10)
                         .offset(new Vector2f(50, 450))
-                        .attachTo(UI.FloatingAttachToElement.ROOT)
-                        .build())
+                        .attachTo(UI.FloatingAttachToElement.ROOT))
                 .layout(LayoutConfig.builder()
                         .sizing(new Sizing(SizingAxis.fixed(200f), SizingAxis.fixed(200f)))
-                        .childAlignment(new ChildAlignment(UI.HorizontalAlignment.CENTER, UI.VerticalAlignment.CENTER))
-                        .build())
+                        .childAlignment(new ChildAlignment(UI.HorizontalAlignment.CENTER, UI.VerticalAlignment.CENTER)))
                 .build(), () -> {
             text("z-index: 10\nClicks: " + backClicks.getValue(), TextElementConfig.builder().fontSize(20).textColor(new Color(255, 255, 255, 255)).fontIdentifier(GameFonts.LEXEND_FONT).build());
         });
@@ -172,12 +158,10 @@ public class DrawTestUIRenderNode extends UIRenderNode {
                         .zIndex(20)
                         .offset(new Vector2f(150, 550))
                         .attachTo(UI.FloatingAttachToElement.ROOT)
-                        .pointerCaptureMode(UI.PointerCaptureMode.CAPTURE)
-                        .build())
+                        .pointerCaptureMode(UI.PointerCaptureMode.CAPTURE))
                 .layout(LayoutConfig.builder()
                         .sizing(new Sizing(SizingAxis.fixed(200f), SizingAxis.fixed(200f)))
-                        .childAlignment(new ChildAlignment(UI.HorizontalAlignment.CENTER, UI.VerticalAlignment.CENTER))
-                        .build())
+                        .childAlignment(new ChildAlignment(UI.HorizontalAlignment.CENTER, UI.VerticalAlignment.CENTER)))
                 .build(), () -> {
             text("z-index: 20\nCapture\nClicks: " + frontClicks.getValue(), TextElementConfig.builder().fontSize(20).textColor(new Color(255, 255, 255, 255)).fontIdentifier(GameFonts.LEXEND_FONT).build());
         });
@@ -189,12 +173,10 @@ public class DrawTestUIRenderNode extends UIRenderNode {
                         .zIndex(30)
                         .offset(new Vector2f(250, 450))
                         .attachTo(UI.FloatingAttachToElement.ROOT)
-                        .pointerCaptureMode(UI.PointerCaptureMode.PASSTHROUGH)
-                        .build())
+                        .pointerCaptureMode(UI.PointerCaptureMode.PASSTHROUGH))
                 .layout(LayoutConfig.builder()
                         .sizing(new Sizing(SizingAxis.fixed(150f), SizingAxis.fixed(150f)))
-                        .childAlignment(new ChildAlignment(UI.HorizontalAlignment.CENTER, UI.VerticalAlignment.CENTER))
-                        .build())
+                        .childAlignment(new ChildAlignment(UI.HorizontalAlignment.CENTER, UI.VerticalAlignment.CENTER)))
                 .build(), () -> {
             text("z-index: 30\nPassthrough\nClicks: " + passClicks.getValue(), TextElementConfig.builder().fontSize(20).textColor(new Color(255, 255, 255, 255)).fontIdentifier(GameFonts.LEXEND_FONT).build());
         });
@@ -208,14 +190,12 @@ public class DrawTestUIRenderNode extends UIRenderNode {
                                 .layoutDirection(UI.LayoutDirection.TOP_TO_BOTTOM)
                                 .sizing(new Sizing(SizingAxis.fixed(200f), SizingAxis.grow()))
                                 .padding(new Padding(10))
-                                .childGap(5)
-                                .build())
+                                .childGap(5))
                         .build(),
                 ElementDeclaration.builder()
                         .backgroundColor(new Color(255, 0, 0, 255))
                         .layout(LayoutConfig.builder()
-                                .sizing(new Sizing(SizingAxis.fixed(10f), SizingAxis.fit()))
-                                .build())
+                                .sizing(new Sizing(SizingAxis.fixed(10f), SizingAxis.fit())))
                         .build(),
                 () -> {
                     for (int i = 0; i < 20; i++) {
@@ -224,8 +204,7 @@ public class DrawTestUIRenderNode extends UIRenderNode {
                                 .backgroundColor(new Color(100, 100, 255, 255))
                                 .layout(LayoutConfig.builder()
                                         .sizing(new Sizing(SizingAxis.fixed(50), SizingAxis.fixed(30f)))
-                                        .childAlignment(new ChildAlignment(UI.HorizontalAlignment.CENTER, UI.VerticalAlignment.CENTER))
-                                        .build())
+                                        .childAlignment(new ChildAlignment(UI.HorizontalAlignment.CENTER, UI.VerticalAlignment.CENTER)))
                                 .build(), () -> {
                             text("Item " + index, TextElementConfig.builder()
                                     .fontIdentifier(GameFonts.LEXEND_FONT)
@@ -250,8 +229,7 @@ public class DrawTestUIRenderNode extends UIRenderNode {
                 .cornerRadius(new CornerRadius(10))
                 .layout(LayoutConfig.builder()
                         .sizing(new Sizing(SizingAxis.fixed(200f), SizingAxis.fixed(50f)))
-                        .childAlignment(new ChildAlignment(UI.HorizontalAlignment.CENTER, UI.VerticalAlignment.CENTER))
-                        .build())
+                        .childAlignment(new ChildAlignment(UI.HorizontalAlignment.CENTER, UI.VerticalAlignment.CENTER)))
                 .build(), () -> {
             text("Clicked " + clickCount.getValue() + " times", TextElementConfig.builder()
                     .fontSize(20)
@@ -265,14 +243,13 @@ public class DrawTestUIRenderNode extends UIRenderNode {
         container(ElementDeclaration.builder()
                 .backgroundColor(new Color(0, 0, 0, 50))
                 .cornerRadius(new CornerRadius((float) (20f * Math.sin(ClientBase.getInstance().getRuntime() / 1000f) + 20f), 0, 20, 0))
-                .border(BorderElementConfig.builder()
-                        .color(new Color(255, 255, 255, 255))
-                        .width(new BorderWidth((int) (5 * Math.sin(ClientBase.getInstance().getRuntime() / 1500f) + 5)))
-                        .build())
+                .border(new BorderElementConfig(
+                        new Color(255, 255, 255, 255),
+                        new BorderWidth((int) (5 * Math.sin(ClientBase.getInstance().getRuntime() / 1500f) + 5))
+                ))
                 .layout(LayoutConfig.builder()
                         .sizing(new Sizing(SizingAxis.fixed(200f), SizingAxis.fixed(100f)))
-                        .padding(new Padding(10))
-                        .build())
+                        .padding(new Padding(10)))
                 .build(), () -> {
             text("Border & Corners", TextElementConfig.builder()
                     .fontSize(20)
@@ -287,8 +264,7 @@ public class DrawTestUIRenderNode extends UIRenderNode {
                 .backgroundColor(new Color(255, 255, 0, 50))
                 .layout(LayoutConfig.builder()
                         .sizing(new Sizing(SizingAxis.percent(30), SizingAxis.fit()))
-                        .padding(new Padding(10))
-                        .build())
+                        .padding(new Padding(10)))
                 .build(), () -> {
             text("This is a long piece of text that should wrap because it is inside a container with a fixed width of 200 pixels. We are testing if the layout engine correctly calculates the height of the text after wrapping.",
                     TextElementConfig.builder()
@@ -303,27 +279,11 @@ public class DrawTestUIRenderNode extends UIRenderNode {
     }
 
     private void wrapTest() {
-        container(ElementDeclaration.builder()
-                .backgroundColor(new Color(0, 255, 0, 50))
-                .layout(LayoutConfig.builder()
-                        .sizing(new Sizing(SizingAxis.percent(25), SizingAxis.fit()))
-                        .childGap(10)
-                        .padding(new Padding(10))
-                        .wrap(true)
-                        .build())
-                .build(), () -> {
+        container("bg-[0,1,0,0.2] w-[25%] h-fit gap-[10] p-[10] wrap", () -> {
             for (int i = 0; i < 10; i++) {
                 final int index = i;
-                container(ElementDeclaration.builder()
-                        .backgroundColor(new Color(255, 0, 0, 150))
-                        .layout(LayoutConfig.builder()
-                                .sizing(new Sizing(SizingAxis.fixed(80f), SizingAxis.fixed(40f)))
-                                .build())
-                        .build(), () -> {
-                    text("Item " + index, TextElementConfig.builder()
-                            .fontSize(16)
-                            .textColor(new Color(255, 255, 255, 255))
-                            .fontIdentifier(GameFonts.LEXEND_FONT).build());
+                container("bg-[1,0,0,0.6] w-[80px] h-[40px]", () -> {
+                    text("Item " + index, "text-size-[16] text-color-[1,1,1] font-[" + GameFonts.LEXEND_FONT + "]");
                 });
             }
         });
@@ -335,11 +295,9 @@ public class DrawTestUIRenderNode extends UIRenderNode {
                         .backgroundColor(new Color(0, 0, 255, 100))
                         .floating(FloatingElementConfig.builder()
                                 .attachPoints(new FloatingAttachPoints(UI.FloatingAttachPointType.LEFT, UI.FloatingAttachPointType.LEFT))
-                                .attachTo(UI.FloatingAttachToElement.ELEMENT_WITH_ID, id("aspect"))
-                                .build())
+                                .attachTo(UI.FloatingAttachToElement.ELEMENT_WITH_ID, id("aspect")))
                         .layout(LayoutConfig.builder()
-                                .sizing(new Sizing(SizingAxis.fixed(100f), SizingAxis.fixed(100f)))
-                                .build())
+                                .sizing(new Sizing(SizingAxis.fixed(100f), SizingAxis.fixed(100f))))
                         .build(),
                 () -> {}
         );
@@ -349,10 +307,9 @@ public class DrawTestUIRenderNode extends UIRenderNode {
         return container(id("aspect"),
                 ElementDeclaration.builder()
                         .backgroundColor(new Color(255, 0, 0, 100))
-                        .aspectRatio(new AspectRatioElementConfig(2.0f))
                         .layout(LayoutConfig.builder()
-                                .sizing(new Sizing(SizingAxis.fit(), SizingAxis.fit()))
-                                .build())
+                                .aspectRatio(2.0f)
+                                .sizing(new Sizing(SizingAxis.fit(), SizingAxis.fit())))
                         .build(),
                 () -> {
                     text("Aspect Ratio 2:1", TextElementConfig.builder()
@@ -372,8 +329,7 @@ public class DrawTestUIRenderNode extends UIRenderNode {
                         .layoutDirection(UI.LayoutDirection.RIGHT_TO_LEFT)
                         .childAlignment(new ChildAlignment(UI.HorizontalAlignment.RIGHT, UI.VerticalAlignment.TOP))
                         .childGap(10)
-                        .padding(new Padding(10))
-                        .build())
+                        .padding(new Padding(10)))
                 .build(), () -> {
             text("First (Right)", TextElementConfig.builder().fontSize(16).textColor(new Color(0,0,0,255)).fontIdentifier(GameFonts.LEXEND_FONT).build());
             text("Second (Left)", TextElementConfig.builder().fontSize(16).textColor(new Color(0,0,0,255)).fontIdentifier(GameFonts.LEXEND_FONT).build());
@@ -387,8 +343,7 @@ public class DrawTestUIRenderNode extends UIRenderNode {
                         .layoutDirection(UI.LayoutDirection.BOTTOM_TO_TOP)
                         .childAlignment(new ChildAlignment(UI.HorizontalAlignment.CENTER, UI.VerticalAlignment.BOTTOM))
                         .childGap(10)
-                        .padding(new Padding(10))
-                        .build())
+                        .padding(new Padding(10)))
                 .build(), () -> {
             text("First (Bottom)", TextElementConfig.builder().fontSize(16).textColor(new Color(0,0,0,255)).fontIdentifier(GameFonts.LEXEND_FONT).build());
             text("Second (Top)", TextElementConfig.builder().fontSize(16).textColor(new Color(0,0,0,255)).fontIdentifier(GameFonts.LEXEND_FONT).build());
