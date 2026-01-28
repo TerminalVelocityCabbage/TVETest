@@ -1,8 +1,10 @@
 package com.terminalvelocitycabbage.game.client.inputcontrollers;
 
+import com.terminalvelocitycabbage.engine.client.ClientBase;
 import com.terminalvelocitycabbage.engine.client.input.controller.ControlGroup;
 import com.terminalvelocitycabbage.engine.client.input.controller.GroupedController2f;
-import com.terminalvelocitycabbage.engine.debug.Log;
+import com.terminalvelocitycabbage.templates.events.UIScrollEvent;
+import org.joml.Vector2f;
 
 public class ScrollController extends GroupedController2f {
 
@@ -13,6 +15,6 @@ public class ScrollController extends GroupedController2f {
     @Override
     public void act() {
         if (getSummedAmount() == 0) return;
-        Log.info(getSummedAmount());
+        ClientBase.getInstance().getEventDispatcher().dispatchEvent(new UIScrollEvent(new Vector2f(0, getSummedAmount())));
     }
 }
