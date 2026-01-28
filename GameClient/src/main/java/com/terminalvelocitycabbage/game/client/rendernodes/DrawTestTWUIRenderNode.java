@@ -117,7 +117,7 @@ public class DrawTestTWUIRenderNode extends UIRenderNode {
             clickCount.setValue(clickCount.getValue() + 1);
         }
 
-        container(buttonId, "bg-[" + (isHovered(buttonId) ? "0.588,0.588,0.588,1" : "0.392,0.392,0.392,1") + "] rounded-[10] w-[200px] h-[50px] align-x-[center] align-y-[center]", () -> {
+        container(buttonId, "bg-[" + (isHovered(buttonId) ? "0.588,0.588,0.588,1" : "0.8,0.8,0.8,1") + "] rounded-[10] w-[200px] h-[50px] align-x-[center] align-y-[center]", () -> {
             text("Clicked " + clickCount.getValue() + " times", "text-size-[20] text-color-[1,1,1,1] font-[" + GameFonts.LEXEND_FONT + "]");
         });
     }
