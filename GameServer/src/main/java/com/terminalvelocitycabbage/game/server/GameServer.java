@@ -30,11 +30,11 @@ public class GameServer extends ServerBase {
     private void registerResourceSources(ResourceSourceRegistrationEvent event) {
         //Register and init filesystem things
         //Create resource sources for this server
-        ResourceSource serverSource = new MainSource(ID, this);
+        ResourceSource serverSource = new MainSource(this);
         //Define roots for these resources
-        serverSource.registerDefaultSourceRoot(ResourceCategory.DEFAULT_CONFIG);
+        serverSource.registerDefaultSourceRoot(GameServer.ID, ResourceCategory.DEFAULT_CONFIG);
         //register this source to the filesystem
-        event.getRegistry().register(identifierOf("server_main_resource_source"), serverSource);
+        event.registerResourceSource(getNamespace(), "server_main", serverSource);
     }
 
     private void registerPackets(PacketRegistryEvent event) {

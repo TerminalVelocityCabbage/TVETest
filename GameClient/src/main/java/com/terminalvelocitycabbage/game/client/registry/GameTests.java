@@ -27,18 +27,18 @@ public class GameTests {
         //getFileSystem().listResources();
 
         //Test reading the string that is the config file from this game
-        Resource resource = client.getFileSystem().getResource(ResourceCategory.DEFAULT_CONFIG, new Identifier("game", "test.toml"));
+        Resource resource = client.getFileSystem().getResource(ResourceCategory.DEFAULT_CONFIG, GameConfigs.TEST_TOML_CONFIG);
         Log.info(resource.asString());
 
         //Test reading the string that is the mod config file (this is the part that will never work like this)
-        Resource modResource = client.getFileSystem().getResource(ResourceCategory.DEFAULT_CONFIG, new Identifier("testmod", "testmod.toml"));
+        Resource modResource = client.getFileSystem().getResource(ResourceCategory.DEFAULT_CONFIG, new Identifier("testmod", "default_config", "testmod.toml"));
         Log.info(modResource.asString());
     }
 
     //TVE implements a few utilities on top of Night Config, we test those here
     public static void testNightConfig(GameClient client) {
         //Test night config stuff
-        FileConfig config = TVConfig.getOrCreateFileConfig(client.getFileSystem(), new Identifier("game", "test.toml"));
+        FileConfig config = TVConfig.getOrCreateFileConfig(client.getFileSystem(), GameConfigs.TEST_TOML_CONFIG);
         config.load();
         ConfigFormat<CommentedConfig> tomlFormat = TomlFormat.instance();
         ConfigWriter tomlWriter = tomlFormat.createWriter();

@@ -5,6 +5,7 @@ import com.terminalvelocitycabbage.engine.filesystem.resources.ResourceSource;
 import com.terminalvelocitycabbage.engine.filesystem.sources.MainSource;
 import com.terminalvelocitycabbage.engine.registry.Identifier;
 import com.terminalvelocitycabbage.game.client.GameClient;
+import com.terminalvelocitycabbage.game.common.GameCommon;
 import com.terminalvelocitycabbage.templates.events.ResourceCategoryRegistrationEvent;
 import com.terminalvelocitycabbage.templates.events.ResourceSourceRegistrationEvent;
 
@@ -18,14 +19,13 @@ public class GameResources {
 
     public static void registerResourceSources(ResourceSourceRegistrationEvent event) {
 
-        var client = GameClient.getInstance();
         //Register and init filesystem things
         //Create resource sources for this client
-        ResourceSource clientSource = new MainSource(GameClient.ID, client);
+        ResourceSource clientSource = new MainSource(GameClient.getInstance());
         //Define roots for these resources
-        clientSource.registerDefaultSources();
+        clientSource.registerDefaultSources(GameCommon.ID);
         //register this source
-        CLIENT_RESOURCE_SOURCE = event.register(client.identifierOf("client_main_resource_source"), clientSource).getIdentifier();
+        CLIENT_RESOURCE_SOURCE = event.registerResourceSource(GameClient.ID, "client_main", clientSource);
     }
     
 }

@@ -1,8 +1,8 @@
 package com.terminalvelocitycabbage.game.client.registry;
 
-import com.terminalvelocitycabbage.engine.client.ClientBase;
 import com.terminalvelocitycabbage.engine.registry.Identifier;
 import com.terminalvelocitycabbage.game.client.ecs.RotateEntitiesSystem;
+import com.terminalvelocitycabbage.game.common.GameCommon;
 import com.terminalvelocitycabbage.game.common.ecs.components.PitchYawRotationComponent;
 import com.terminalvelocitycabbage.game.common.ecs.components.PlayerCameraComponent;
 import com.terminalvelocitycabbage.game.common.ecs.components.PositionComponent;
@@ -32,21 +32,19 @@ public class GameEntities {
 
     public static void createEntityTemplates(EntityTemplateRegistrationEvent event) {
 
-        var client = ClientBase.getInstance();
-
-        PLAYER_ENTITY = event.createEntityTemplate(client.identifierOf("player"), entity -> {
+        PLAYER_ENTITY = event.createEntityTemplate(GameCommon.ID, "player", entity -> {
             entity.addComponent(TransformationComponent.class);
             entity.addComponent(PositionComponent.class);
             entity.addComponent(PitchYawRotationComponent.class);
             entity.addComponent(PlayerCameraComponent.class);
         });
 
-        SMILE_SQUARE_ENTITY = event.createEntityTemplate(client.identifierOf("smile_square"), entity -> {
+        SMILE_SQUARE_ENTITY = event.createEntityTemplate(GameCommon.ID, "smile_square", entity -> {
             entity.addComponent(ModelComponent.class).setModel(GameModels.SMILE_SQUARE_MODEL);
             entity.addComponent(TransformationComponent.class).setPosition(-1.25f, 0, -2);
         });
 
-        SAD_SQUARE_ENTITY = event.createEntityTemplate(client.identifierOf("sad_square"), entity -> {
+        SAD_SQUARE_ENTITY = event.createEntityTemplate(GameCommon.ID, "sad_square", entity -> {
             entity.addComponent(ModelComponent.class).setModel(GameModels.SAD_SQUARE_MODEL);
             entity.addComponent(TransformationComponent.class).setPosition(1.25f, 0, -2);
         });

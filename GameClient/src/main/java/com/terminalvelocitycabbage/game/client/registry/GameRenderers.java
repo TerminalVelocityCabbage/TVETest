@@ -12,8 +12,15 @@ import com.terminalvelocitycabbage.templates.events.RendererRegistrationEvent;
 public class GameRenderers {
 
     //Render Node Identifiers
-    public static Identifier DRAW_SCENE_RENDER_NODE = new Identifier(GameClient.ID, "drawScene");
-    public static Identifier DRAW_UI_RENDER_NODE = new Identifier(GameClient.ID, "drawUI");
+    public static Identifier DRAW_SCENE_RENDER_NODE;
+    public static Identifier DRAW_UI_RENDER_NODE;
+
+    //Routine Node Identifiers
+    public static Identifier UPDATE_ROTATIONS_ROUTINE_NODE;
+
+    //Route Identifiers
+    public static Identifier BOOLEAN_ROUTE;
+
     //Render Graph Identifiers
     public static Identifier DEFAULT_RENDER_GRAPH;
     //Graph configs
@@ -21,18 +28,27 @@ public class GameRenderers {
 
     public static void init(RendererRegistrationEvent event) {
 
-        var rotateSystemRoute = RenderGraph.RenderPath.builder().addRoutineNode(new Identifier(GameClient.ID, "updateRotations"), GameRoutines.DEFAULT_ROUTINE);
+        //Render Nodes
+        DRAW_SCENE_RENDER_NODE = event.registerNode(GameClient.ID, "drawScene");
+        DRAW_UI_RENDER_NODE = event.registerNode(GameClient.ID, "drawUI");
+        //Routines
+        UPDATE_ROTATIONS_ROUTINE_NODE = event.registerNode(GameClient.ID, "updateRotations");
+        //Routes
+        BOOLEAN_ROUTE = event.registerRoute(GameClient.ID, "booleanRoute");
 
-        DEFAULT_RENDER_GRAPH = event.register(new Identifier(GameClient.ID, "drawScene"),
+        var rotateSystemRoute = RenderGraph.RenderPath.builder().addRoutineNode(UPDATE_ROTATIONS_ROUTINE_NODE, GameRoutines.DEFAULT_ROUTINE);
+
+        DEFAULT_RENDER_GRAPH = event.registerGraph(GameClient.ID, "draw_scene",
                 new RenderGraph(RenderGraph.RenderPath.builder()
-                        .route(new Identifier(GameClient.ID, "booleanRoute"),
-                                (capabilities, stateHandler) -> (boolean) stateHandler.getState(GameStates.ROTATE_ENTITIES).getValue(),
+                        .route(
+                                BOOLEAN_ROUTE,
+                                (__, sh) -> (boolean) sh.getState(GameStates.ROTATE_ENTITIES).getValue(),
                                 rotateSystemRoute)
                         .addRenderNode(DRAW_SCENE_RENDER_NODE, DrawSceneRenderNode.class, GameShaders.MESH_SHADER_PROGRAM_CONFIG)
                         .addRenderNode(DRAW_UI_RENDER_NODE, DrawTestTWUIRenderNode.class, ShaderProgramConfig.EMPTY)
                         .configure(PRINT_ON_EXECUTE, false)
                 )
-        ).getIdentifier();
+        );
     }
 
 }

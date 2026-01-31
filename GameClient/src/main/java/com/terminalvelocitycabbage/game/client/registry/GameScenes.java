@@ -10,10 +10,7 @@ public class GameScenes {
     public static Identifier DEFAULT_SCENE;
 
     public static void init(SceneRegistrationEvent event) {
-        DEFAULT_SCENE = event.register(
-                new Identifier(GameClient.ID, "default"),
-                new DefaultScene(GameRenderers.DEFAULT_RENDER_GRAPH, GameRoutines.DEFAULT_ROUTINE)
-        ).getIdentifier();
+        DEFAULT_SCENE = event.registerScene(GameClient.ID, "default", new DefaultScene(GameRenderers.DEFAULT_RENDER_GRAPH, GameRoutines.DEFAULT_ROUTINE));
     }
 
 }
