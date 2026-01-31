@@ -9,6 +9,7 @@ import com.terminalvelocitycabbage.engine.registry.Identifier;
 import com.terminalvelocitycabbage.game.client.registry.GameFonts;
 import com.terminalvelocitycabbage.game.client.registry.GameTextures;
 import com.terminalvelocitycabbage.templates.events.UIClickEvent;
+import com.terminalvelocitycabbage.templates.events.UICharInputEvent;
 import com.terminalvelocitycabbage.templates.events.UIScrollEvent;
 
 public class DrawTestTWUIRenderNode extends UIRenderNode {
@@ -19,13 +20,14 @@ public class DrawTestTWUIRenderNode extends UIRenderNode {
 
     @Override
     protected Identifier[] getInterestedEvents() {
-        return new Identifier[] { UIClickEvent.EVENT, UIScrollEvent.EVENT };
+        return new Identifier[] { UIClickEvent.EVENT, UIScrollEvent.EVENT, UICharInputEvent.EVENT };
     }
 
     @Override
     protected void declareUI() {
         container("bg-[1,1,1,0.392] grow pt-[10] pl-[15]", () -> {
             stateTest();
+            inputTest();
             scrollTest();
             floatingElementTest();
             aspectRatioTest();
@@ -120,6 +122,18 @@ public class DrawTestTWUIRenderNode extends UIRenderNode {
         container(buttonId, "bg-[" + (isHovered(buttonId) ? "0.588,0.588,0.588,1" : "0.8,0.8,0.8,1") + "] rounded-[10] w-[200px] h-[50px] align-x-[center] align-y-[center]", () -> {
             text("Clicked " + clickCount.getValue() + " times", "text-size-[20] text-color-[1,1,1,1] font-[" + GameFonts.LEXEND_FONT + "]");
         });
+    }
+
+    private void inputTest() {
+        int inputId = id("testInput");
+        input(inputId,
+                "bg-[0.2,0.2,0.2,1] w-[300px] h-[40px] p-[5] layout-x-[rtr] align-y-[center] gap-[2] rounded-[5] border-color-[1,1,1,1] border-width-[1] clip",
+                "bg-[1,1,1,1] w-[2px] h-[24px]",
+                "text-size-[20] text-color-[1,1,1,1] font-[" + GameFonts.LEXEND_FONT + "]"
+        );
+
+        var textState = useState(inputId + "_text", "");
+        text("Input value: " + textState.getValue(), "text-size-[16] text-color-[1,1,1,1] font-[" + GameFonts.LEXEND_FONT + "]");
     }
 
     private void borderAndCornersTest() {
