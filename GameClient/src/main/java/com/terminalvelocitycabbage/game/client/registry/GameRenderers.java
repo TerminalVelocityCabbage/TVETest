@@ -36,7 +36,7 @@ public class GameRenderers {
         //Routes
         BOOLEAN_ROUTE = event.registerRoute(GameClient.ID, "booleanRoute");
 
-        var rotateSystemRoute = RenderGraph.RenderPath.builder().addRoutineNode(UPDATE_ROTATIONS_ROUTINE_NODE, GameRoutines.DEFAULT_ROUTINE);
+        var rotateSystemRoute = RenderGraph.RenderPath.builder().addRoutineNode(GameRoutines.DEFAULT_ROUTINE);
 
         DEFAULT_RENDER_GRAPH = event.registerGraph(GameClient.ID, "draw_scene",
                 new RenderGraph(RenderGraph.RenderPath.builder()

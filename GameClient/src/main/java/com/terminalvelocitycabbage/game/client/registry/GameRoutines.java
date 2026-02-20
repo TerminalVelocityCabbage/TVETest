@@ -11,12 +11,11 @@ public class GameRoutines {
     public static Routine DEFAULT_ROUTINE;
 
     public static void init(RoutineRegistrationEvent event) {
-        DEFAULT_ROUTINE = event.registerRoutine(GameClient.ID, "default",
-                Routine.builder()
-                        .addStep(
-                                event.registerStep(GameClient.ID, "updateRotations"),
-                                RotateEntitiesSystem.class)
-                        .build());
+        DEFAULT_ROUTINE = event.registerRoutine(
+                Routine.builder(GameClient.ID, "default")
+                        .addStep(event.registerStep(GameClient.ID, "updateRotations"), RotateEntitiesSystem.class)
+                        .build()
+        );
     }
 
 }
