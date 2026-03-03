@@ -17,11 +17,10 @@ public class GameResources {
         ResourceCategory.registerEngineDefaults(event.getRegistry(), GameClient.ID);
     }
 
-    public static void registerResourceSources(ResourceSourceRegistrationEvent event) {
-
+    public static void registerResourceSources(ResourceSourceRegistrationEvent event, GameClient gameClient) {
         //Register and init filesystem things
         //Create resource sources for this client
-        ResourceSource clientSource = new MainSource(GameClient.getInstance());
+        ResourceSource clientSource = new MainSource(gameClient);
         //Define roots for these resources
         clientSource.registerDefaultSources(GameCommon.ID);
         //register this source
