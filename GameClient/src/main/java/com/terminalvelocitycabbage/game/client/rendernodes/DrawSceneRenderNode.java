@@ -11,10 +11,10 @@ import com.terminalvelocitycabbage.engine.graph.RenderNode;
 import com.terminalvelocitycabbage.engine.util.HeterogeneousMap;
 import com.terminalvelocitycabbage.game.client.GameClient;
 import com.terminalvelocitycabbage.game.client.registry.GameRenderers;
-import com.terminalvelocitycabbage.game.common.ecs.components.PitchYawRotationComponent;
+import com.terminalvelocitycabbage.templates.ecs.components.PitchYawRotationComponent;
 import com.terminalvelocitycabbage.game.common.ecs.components.PlayerCameraComponent;
-import com.terminalvelocitycabbage.game.common.ecs.components.PositionComponent;
 import com.terminalvelocitycabbage.templates.ecs.components.ModelComponent;
+import com.terminalvelocitycabbage.templates.ecs.components.PositionComponent;
 import com.terminalvelocitycabbage.templates.ecs.components.TransformationComponent;
 
 import java.util.ArrayList;

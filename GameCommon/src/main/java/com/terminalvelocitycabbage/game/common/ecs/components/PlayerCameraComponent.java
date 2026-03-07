@@ -1,10 +1,13 @@
 package com.terminalvelocitycabbage.game.common.ecs.components;
 
+import com.terminalvelocitycabbage.editor.hints.EditorHint;
 import com.terminalvelocitycabbage.engine.client.renderer.Projection;
 import com.terminalvelocitycabbage.engine.ecs.Component;
 import com.terminalvelocitycabbage.engine.ecs.Entity;
+import com.terminalvelocitycabbage.templates.ecs.components.PositionComponent;
 import org.joml.Matrix4f;
 
+@EditorHint.ComponentName(name = "Player Camera")
 public class PlayerCameraComponent implements Component {
 
     private static final Projection PERSPECTIVE = new Projection(Projection.Type.PERSPECTIVE, 60, 0.1f, 1000f);
@@ -27,7 +30,7 @@ public class PlayerCameraComponent implements Component {
     public Matrix4f getViewMatrix(Entity entity) {
 
         var currentPosition = entity.getComponent(PositionComponent.class).getPosition();
-        var currentRotation = entity.getComponent(PitchYawRotationComponent.class).getRotation();
+        var currentRotation = entity.getComponent(com.terminalvelocitycabbage.templates.ecs.components.PitchYawRotationComponent.class).getRotation();
 
         return viewMatrix.identity().rotateX(-currentRotation.y).rotateY(-currentRotation.x).translate(currentPosition);
     }

@@ -4,9 +4,9 @@ import com.terminalvelocitycabbage.engine.client.input.controller.ControlGroup;
 import com.terminalvelocitycabbage.engine.client.input.controller.GroupedController6f;
 import com.terminalvelocitycabbage.engine.ecs.Entity;
 import com.terminalvelocitycabbage.game.client.GameClient;
-import com.terminalvelocitycabbage.game.common.ecs.components.PitchYawRotationComponent;
+import com.terminalvelocitycabbage.templates.ecs.components.PitchYawRotationComponent;
 import com.terminalvelocitycabbage.game.common.ecs.components.PlayerCameraComponent;
-import com.terminalvelocitycabbage.game.common.ecs.components.PositionComponent;
+import com.terminalvelocitycabbage.templates.ecs.components.PositionComponent;
 import org.joml.Vector3f;
 
 public class MoveController extends GroupedController6f {
