@@ -1,0 +1,7 @@
+name = "smile_square"
+
+[component.model]
+model = "game:smile_square"
+
+[component.transformation]
+position = [-1.25, 0, -2]

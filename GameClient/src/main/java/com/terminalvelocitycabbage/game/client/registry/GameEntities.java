@@ -1,5 +1,6 @@
 package com.terminalvelocitycabbage.game.client.registry;
 
+import com.terminalvelocitycabbage.engine.filesystem.resources.ResourceCategory;
 import com.terminalvelocitycabbage.engine.registry.Identifier;
 import com.terminalvelocitycabbage.game.client.ecs.RotateEntitiesSystem;
 import com.terminalvelocitycabbage.game.common.GameCommon;
@@ -11,6 +12,7 @@ import com.terminalvelocitycabbage.templates.ecs.components.TransformationCompon
 import com.terminalvelocitycabbage.templates.events.EntityComponentRegistrationEvent;
 import com.terminalvelocitycabbage.templates.events.EntitySystemRegistrationEvent;
 import com.terminalvelocitycabbage.templates.events.EntityTemplateRegistrationEvent;
+import com.terminalvelocitycabbage.templates.events.ResourceRegistrationEvent;
 
 public class GameEntities {
 
@@ -26,27 +28,19 @@ public class GameEntities {
         event.registerComponent(PlayerCameraComponent.class);
     }
 
+    public static void registerResources(ResourceRegistrationEvent event) {
+        event.registerResource(GameResources.CLIENT_RESOURCE_SOURCE, ResourceCategory.ENTITY, "player.entity.toml");
+        event.registerResource(GameResources.CLIENT_RESOURCE_SOURCE, ResourceCategory.ENTITY, "smile_square.entity.toml");
+        event.registerResource(GameResources.CLIENT_RESOURCE_SOURCE, ResourceCategory.ENTITY, "sad_square.entity.toml");
+    }
+
     public static void createSystems(EntitySystemRegistrationEvent event) {
         event.createSystem(RotateEntitiesSystem.class);
     }
 
     public static void createEntityTemplates(EntityTemplateRegistrationEvent event) {
-
-        PLAYER_ENTITY = event.createEntityTemplate(GameCommon.ID, "player", entity -> {
-            entity.addComponent(TransformationComponent.class);
-            entity.addComponent(PositionComponent.class);
-            entity.addComponent(PitchYawRotationComponent.class);
-            entity.addComponent(PlayerCameraComponent.class);
-        });
-
-        SMILE_SQUARE_ENTITY = event.createEntityTemplate(GameCommon.ID, "smile_square", entity -> {
-            entity.addComponent(ModelComponent.class).setModel(GameModels.SMILE_SQUARE_MODEL);
-            entity.addComponent(TransformationComponent.class).setPosition(-1.25f, 0, -2);
-        });
-
-        SAD_SQUARE_ENTITY = event.createEntityTemplate(GameCommon.ID, "sad_square", entity -> {
-            entity.addComponent(ModelComponent.class).setModel(GameModels.SAD_SQUARE_MODEL);
-            entity.addComponent(TransformationComponent.class).setPosition(1.25f, 0, -2);
-        });
+        PLAYER_ENTITY = event.createEntityTemplateFromFile(GameCommon.ID, "player");
+        SMILE_SQUARE_ENTITY = event.createEntityTemplateFromFile(GameCommon.ID, "smile_square");
+        SAD_SQUARE_ENTITY = event.createEntityTemplateFromFile(GameCommon.ID, "sad_square");
     }
 }

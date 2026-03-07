@@ -9,6 +9,20 @@ public class PitchYawRotationComponent implements Component {
     Vector2f rotation;
 
     @Override
+    public void parseComponentField(String field, String value) {
+        String cleanedValue = value.replace("[", "").replace("]", "");
+        String[] split = cleanedValue.split(",");
+        for (int i = 0; i < split.length; i++) split[i] = split[i].trim();
+        switch (field) {
+            case "rotation" -> {
+                if (split.length == 2) {
+                    setRotation(Float.parseFloat(split[0]), Float.parseFloat(split[1]));
+                }
+            }
+        }
+    }
+
+    @Override
     public void setDefaults() {
         rotation = new Vector2f();
     }
