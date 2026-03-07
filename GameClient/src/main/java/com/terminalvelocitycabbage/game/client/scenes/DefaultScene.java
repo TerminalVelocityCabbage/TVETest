@@ -9,6 +9,7 @@ import com.terminalvelocitycabbage.engine.graph.Routine;
 import com.terminalvelocitycabbage.engine.registry.Identifier;
 import com.terminalvelocitycabbage.game.client.GameClient;
 import com.terminalvelocitycabbage.game.client.registry.GameEntities;
+import com.terminalvelocitycabbage.game.client.registry.GameInput;
 import com.terminalvelocitycabbage.game.client.registry.GameTextures;
 
 import java.util.List;
@@ -19,6 +20,7 @@ public class DefaultScene extends Scene {
 
     public DefaultScene(Identifier renderGraph, Routine... routines) {
         super(renderGraph, List.of(routines));
+        addInputControllers(GameInput.UI_CLICK, GameInput.RELOAD_SHADERS, GameInput.PAUSE_SPINNING, GameInput.MOVE_AROUND, GameInput.LOOK_AROUND, GameInput.SCROLL);
     }
 
     @Override

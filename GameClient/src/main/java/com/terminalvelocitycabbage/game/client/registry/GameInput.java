@@ -5,11 +5,20 @@ import com.terminalvelocitycabbage.engine.client.input.controller.ControlGroup;
 import com.terminalvelocitycabbage.engine.client.input.types.GamepadInput;
 import com.terminalvelocitycabbage.engine.client.input.types.KeyboardInput;
 import com.terminalvelocitycabbage.engine.client.input.types.MouseInput;
+import com.terminalvelocitycabbage.engine.registry.Identifier;
 import com.terminalvelocitycabbage.game.client.GameClient;
 import com.terminalvelocitycabbage.game.client.inputcontrollers.*;
 import com.terminalvelocitycabbage.templates.events.InputHandlerRegistrationEvent;
 
 public class GameInput {
+
+    public static Identifier UI_CLICK;
+    public static Identifier CLOSE_WINDOW_ON_ESCAPE;
+    public static Identifier MOVE_AROUND;
+    public static Identifier LOOK_AROUND;
+    public static Identifier SCROLL;
+    public static Identifier RELOAD_SHADERS;
+    public static Identifier PAUSE_SPINNING;
 
     public static void init(InputHandlerRegistrationEvent event) {
 
@@ -44,9 +53,9 @@ public class GameInput {
         Control leftClickControl = inputHandler.registerControlListener(new MouseButtonControl(MouseInput.Button.LEFT_CLICK));
 
         //Register Controllers
-        inputHandler.registerController(GameClient.ID, "ui_click", new UIClickController(MouseInput.Button.LEFT_CLICK, leftClickControl));
-        inputHandler.registerController(GameClient.ID, "close_window_on_escape", new CloseWindowController(escapeControl));
-        inputHandler.registerController(GameClient.ID, "move_around", new MoveController(
+        UI_CLICK = inputHandler.registerController(GameClient.ID, "ui_click", new UIClickController(MouseInput.Button.LEFT_CLICK, leftClickControl));
+        CLOSE_WINDOW_ON_ESCAPE = inputHandler.registerController(GameClient.ID, "close_window_on_escape", new CloseWindowController(escapeControl));
+        MOVE_AROUND = inputHandler.registerController(GameClient.ID, "move_around", new MoveController(
                 new ControlGroup(wControl),
                 new ControlGroup(sControl),
                 new ControlGroup(aControl),
@@ -54,17 +63,17 @@ public class GameInput {
                 new ControlGroup(spaceControl),
                 new ControlGroup(lShiftControl)
         ));
-        inputHandler.registerController(GameClient.ID, "look_around", new LookAroundController(
+        LOOK_AROUND = inputHandler.registerController(GameClient.ID, "look_around", new LookAroundController(
                 new ControlGroup(mouseUpControl),
                 new ControlGroup(mouseDownControl),
                 new ControlGroup(mouseLeftControl),
                 new ControlGroup(mouseRightControl)
         ));
-        inputHandler.registerController(GameClient.ID, "scroll", new ScrollController(
+        SCROLL = inputHandler.registerController(GameClient.ID, "scroll", new ScrollController(
                 new ControlGroup(mouseScrollUpControl),
                 new ControlGroup(mouseScrollDownControl)
         ));
-        inputHandler.registerController(GameClient.ID, "reload_shaders", new RecompileShadersController(rControl));
-        inputHandler.registerController(GameClient.ID, "pause_spinning", new PauseSpinningController(pControl));
+        RELOAD_SHADERS = inputHandler.registerController(GameClient.ID, "reload_shaders", new RecompileShadersController(rControl));
+        PAUSE_SPINNING = inputHandler.registerController(GameClient.ID, "pause_spinning", new PauseSpinningController(pControl));
     }
 }

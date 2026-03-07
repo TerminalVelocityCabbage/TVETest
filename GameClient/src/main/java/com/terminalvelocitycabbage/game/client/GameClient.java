@@ -2,6 +2,7 @@ package com.terminalvelocitycabbage.game.client;
 
 import com.terminalvelocitycabbage.engine.client.ClientBase;
 import com.terminalvelocitycabbage.engine.client.window.WindowProperties;
+import com.terminalvelocitycabbage.engine.event.EventDispatcher;
 import com.terminalvelocitycabbage.engine.filesystem.resources.ResourceCategory;
 import com.terminalvelocitycabbage.game.client.registry.*;
 import com.terminalvelocitycabbage.game.common.GameCommon;
@@ -13,9 +14,17 @@ public class GameClient extends ClientBase {
 
     public GameClient() {
         super(ID, 50);
-        //Register things
+    }
+
+    public static void main(String[] args) {
+        GameClient client = new GameClient();
+        client.start();
+    }
+
+    @Override
+    public void registerEventListeners(EventDispatcher dispatcher) {
         getEventDispatcher().listenToEvent(ResourceCategoryRegistrationEvent.EVENT, event -> GameResources.registerResourceCategories((ResourceCategoryRegistrationEvent) event));
-        getEventDispatcher().listenToEvent(ResourceSourceRegistrationEvent.EVENT, event -> GameResources.registerResourceSources((ResourceSourceRegistrationEvent) event));
+        getEventDispatcher().listenToEvent(ResourceSourceRegistrationEvent.EVENT, event -> GameResources.registerResourceSources((ResourceSourceRegistrationEvent) event, this));
         getEventDispatcher().listenToEvent(ResourceRegistrationEvent.getEventNameFromCategory(ResourceCategory.DEFAULT_CONFIG), event -> GameConfigs.init((ResourceRegistrationEvent) event));
         getEventDispatcher().listenToEvent(ResourceRegistrationEvent.getEventNameFromCategory(ResourceCategory.SHADER), event -> GameShaders.init((ResourceRegistrationEvent) event));
         getEventDispatcher().listenToEvent(ResourceRegistrationEvent.getEventNameFromCategory(ResourceCategory.TEXTURE), event -> GameTextures.registerResources((ResourceRegistrationEvent) event));
@@ -34,11 +43,6 @@ public class GameClient extends ClientBase {
         getEventDispatcher().listenToEvent(ModelConfigRegistrationEvent.EVENT, event -> GameModels.init((ModelConfigRegistrationEvent) event));
         getEventDispatcher().listenToEvent(GameStateRegistrationEvent.EVENT, event -> GameStates.registerStates((GameStateRegistrationEvent) event));
         getEventDispatcher().listenToEvent(ConfigureTexturesEvent.EVENT, event -> GameTextures.cacheTextures((ConfigureTexturesEvent) event));
-    }
-
-    public static void main(String[] args) {
-        GameClient client = new GameClient();
-        client.start();
     }
 
     @Override
