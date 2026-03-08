@@ -1,0 +1,7 @@
+[routine]
+name = "default"
+
+[[steps]]
+id = "game:update_rotations"
+system = "rotate_entities"
+

@@ -1,5 +1,5 @@
 name = "player"
 [component.transformation]
 [component.position]
-[component.pitchyawrotation]
-[component.playercamera]
+[component.pitch_yaw_rotation]
+[component.player_camera]

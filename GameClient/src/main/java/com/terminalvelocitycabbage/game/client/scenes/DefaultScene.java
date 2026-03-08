@@ -3,7 +3,6 @@ package com.terminalvelocitycabbage.game.client.scenes;
 import com.terminalvelocitycabbage.engine.client.ClientBase;
 import com.terminalvelocitycabbage.engine.client.renderer.model.MeshCache;
 import com.terminalvelocitycabbage.engine.client.scene.Scene;
-import com.terminalvelocitycabbage.engine.ecs.Entity;
 import com.terminalvelocitycabbage.engine.ecs.Manager;
 import com.terminalvelocitycabbage.engine.graph.Routine;
 import com.terminalvelocitycabbage.engine.registry.Identifier;
@@ -15,8 +14,6 @@ import com.terminalvelocitycabbage.game.client.registry.GameTextures;
 import java.util.List;
 
 public class DefaultScene extends Scene {
-
-    private Entity playerEntity;
 
     public DefaultScene(Identifier renderGraph, Routine... routines) {
         super(renderGraph, List.of(routines));
@@ -33,7 +30,7 @@ public class DefaultScene extends Scene {
 
         manager.createEntityFromTemplate(GameEntities.SMILE_SQUARE_ENTITY);
         manager.createEntityFromTemplate(GameEntities.SAD_SQUARE_ENTITY);
-        playerEntity = manager.createEntityFromTemplate(GameEntities.PLAYER_ENTITY);
+        manager.createEntityFromTemplate(GameEntities.PLAYER_ENTITY);
     }
 
     @Override
