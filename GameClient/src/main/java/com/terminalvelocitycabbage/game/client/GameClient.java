@@ -16,11 +16,6 @@ public class GameClient extends ClientBase {
         super(ID, 50);
     }
 
-    public static void main(String[] args) {
-        GameClient client = new GameClient();
-        client.start();
-    }
-
     @Override
     public void registerEventListeners(EventDispatcher dispatcher) {
         dispatcher.listenToEvent(ResourceCategoryRegistrationEvent.EVENT, event -> GameResources.registerResourceCategories((ResourceCategoryRegistrationEvent) event));

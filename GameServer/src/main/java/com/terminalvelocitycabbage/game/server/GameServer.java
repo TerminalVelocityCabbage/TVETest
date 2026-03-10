@@ -40,7 +40,6 @@ public class GameServer extends ServerBase {
 
     @Override
     public void registerEventListeners(EventDispatcher dispatcher) {
-        //Subscribe to relevant Events
         getEventDispatcher().listenToEvent(ServerLifecycleEvent.PRE_BIND, (event -> onPreBind((ServerLifecycleEvent) event)));
         getEventDispatcher().listenToEvent(ResourceSourceRegistrationEvent.EVENT, (event -> registerResourceSources((ResourceSourceRegistrationEvent) event)));
         getEventDispatcher().listenToEvent(PacketRegistryEvent.EVENT, event -> registerPackets((PacketRegistryEvent) event));

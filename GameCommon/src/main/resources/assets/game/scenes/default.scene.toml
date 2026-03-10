@@ -1,0 +1,32 @@
+[scene]
+name = "default"
+texture_atlases = [
+    "game:default_scene",
+    "game:ui_texture_atlas"
+]
+input_controllers = [
+    "game:ui_click",
+    "game:reload_shaders",
+    "game:pause_spinning",
+    "game:move_around",
+    "game:look_around",
+    "game:scroll",
+    "game:close_window_on_escape"
+]
+routines = [ "game:default" ]
+render_graph = "game:draw_scene"
+
+[[entities]]
+template = "game:entity_template:player"
+
+[[entities]]
+template = "game:entity_template:smile_square"
+
+[[entities]]
+template = "game:entity_template:sad_square"
+
+[[entities]]
+[entities.component.transformation]
+position = [0.0, 2.0, -5.0]
+[entities.component.model]
+model = "game:smile_square"

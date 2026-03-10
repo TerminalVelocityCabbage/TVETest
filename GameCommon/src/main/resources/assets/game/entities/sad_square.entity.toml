@@ -1,0 +1,7 @@
+name = "sad_square"
+
+[component.model]
+model = "game:sad_square"
+
+[component.transformation]
+position = [1.25, 0, -2]
