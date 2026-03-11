@@ -3,7 +3,6 @@ package com.terminalvelocitycabbage.game.client.registry;
 import com.terminalvelocitycabbage.engine.filesystem.resources.ResourceCategory;
 import com.terminalvelocitycabbage.engine.graph.Routine;
 import com.terminalvelocitycabbage.game.client.GameClient;
-import com.terminalvelocitycabbage.templates.events.ResourceRegistrationEvent;
 import com.terminalvelocitycabbage.templates.events.RoutineRegistrationEvent;
 
 public class GameRoutines {
@@ -13,10 +12,6 @@ public class GameRoutines {
 
     public static void init(RoutineRegistrationEvent event) {
         DEFAULT_ROUTINE = event.registerRoutineFromFile(GameClient.ID, "default");
-    }
-
-    public static void registerResources(ResourceRegistrationEvent event) {
-        event.registerResource(GameResources.CLIENT_RESOURCE_SOURCE, ResourceCategory.ROUTINE, "default.routine.toml");
     }
 
 }

@@ -1,17 +1,17 @@
 package com.terminalvelocitycabbage.game.client.registry;
 
-import com.terminalvelocitycabbage.engine.filesystem.resources.ResourceCategory;
 import com.terminalvelocitycabbage.engine.registry.Identifier;
 import com.terminalvelocitycabbage.engine.translation.Language;
 import com.terminalvelocitycabbage.game.common.GameCommon;
 import com.terminalvelocitycabbage.templates.events.LocalizedTextKeyRegistrationEvent;
-import com.terminalvelocitycabbage.templates.events.ResourceRegistrationEvent;
+
+import static com.terminalvelocitycabbage.engine.filesystem.resources.ResourceCategory.LOCALIZATION;
 
 public class GameLocalizedTexts {
 
     //Language Files
-    public static Identifier EN_US;
-    public static Identifier ES;
+    public static final Identifier EN_US = LOCALIZATION.identifierOf(GameCommon.ID, Language.ENGLISH_UNITED_STATES.getAbbreviation());
+    public static final Identifier ES = LOCALIZATION.identifierOf(GameCommon.ID, Language.SPANISH_SPAIN.getAbbreviation());
 
     //Greetings
     public static Identifier HELLO;
@@ -25,15 +25,6 @@ public class GameLocalizedTexts {
         GOODBYE = event.registerKey(GameCommon.ID, "greetings.goodbye").getIdentifier();
         ANOTHER_TRANSLATION = event.registerKey(GameCommon.ID, "misc.another_translation").getIdentifier();
         TEST = event.registerKey(GameCommon.ID, "misc.test").getIdentifier();
-    }
-
-    public static void registerTranslationResources(ResourceRegistrationEvent event) {
-        EN_US = registerLangResource(event, Language.ENGLISH_UNITED_STATES);
-        ES = registerLangResource(event, Language.SPANISH_SPAIN);
-    }
-
-    private static Identifier registerLangResource(ResourceRegistrationEvent event, Language language) {
-        return event.registerResource(GameResources.CLIENT_RESOURCE_SOURCE, ResourceCategory.LOCALIZATION, language.getAbbreviation() + ".toml").getIdentifier();
     }
 
 }
