@@ -15,6 +15,7 @@ public class GameTextures {
     public static final Identifier SMILE_TINY = TEXTURE.identifierOf(GameClient.ID, "smile_tiny");
     public static final Identifier SAD_SMALL = TEXTURE.identifierOf(GameClient.ID, "sad_small");
     public static final Identifier HAPPY = TEXTURE.identifierOf(GameClient.ID, "happy");
+    public static final Identifier SCENE_FBO_TEXTURE = TEXTURE.identifierOf(GameClient.ID, "scene_fbo_texture");
 
     //Atlases
     public static Identifier DEFAULT_SCENE_ATLAS;
@@ -31,6 +32,7 @@ public class GameTextures {
         event.addTexture(SAD_SMALL, DEFAULT_SCENE_ATLAS);
         event.addTexture(SMILE_TINY, DEFAULT_SCENE_ATLAS);
         event.addTexture(HAPPY, DEFAULT_SCENE_ATLAS, UI_TEXTURE_ATLAS);
+        event.addRenderTexture(SCENE_FBO_TEXTURE, 200, 200);
     }
 
 }

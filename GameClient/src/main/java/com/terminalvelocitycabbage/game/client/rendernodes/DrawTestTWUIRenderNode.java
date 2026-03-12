@@ -7,6 +7,7 @@ import com.terminalvelocitycabbage.engine.client.ui.UIRenderNode;
 import com.terminalvelocitycabbage.engine.client.ui.data.ElementDeclaration;
 import com.terminalvelocitycabbage.engine.registry.Identifier;
 import com.terminalvelocitycabbage.game.client.registry.GameFonts;
+import com.terminalvelocitycabbage.game.client.registry.GameRenderers;
 import com.terminalvelocitycabbage.game.client.registry.GameTextures;
 import com.terminalvelocitycabbage.templates.events.UIClickEvent;
 import com.terminalvelocitycabbage.templates.events.UICharInputEvent;
@@ -38,6 +39,14 @@ public class DrawTestTWUIRenderNode extends UIRenderNode {
             zIndexAndCaptureTest();
             marginTest();
             imageTest();
+            fboTest();
+        });
+    }
+
+    private void fboTest() {
+        container(id("fboContainer"), "bg-[1,1,1,0.196] fit p-[10] layout-x-[ltr] gap-[10]", () -> {
+            fbo(GameRenderers.SCENE_FBO_ID, "w-[200px] h-[200px] border-color-[1,1,1,1] border-width-[2]");
+            text("Scene in UI", "text-size-[20] text-color-[1,1,1,1] font-[" + GameFonts.LEXEND_FONT + "]");
         });
     }
 

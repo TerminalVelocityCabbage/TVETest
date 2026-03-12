@@ -1,10 +1,10 @@
 package com.terminalvelocitycabbage.game.client.rendernodes;
 
+import com.terminalvelocitycabbage.engine.client.renderer.TargetProperties;
 import com.terminalvelocitycabbage.engine.client.renderer.materials.Texture;
 import com.terminalvelocitycabbage.engine.client.renderer.model.Mesh;
 import com.terminalvelocitycabbage.engine.client.renderer.shader.ShaderProgramConfig;
 import com.terminalvelocitycabbage.engine.client.scene.Scene;
-import com.terminalvelocitycabbage.engine.client.window.WindowProperties;
 import com.terminalvelocitycabbage.engine.debug.Log;
 import com.terminalvelocitycabbage.engine.ecs.Entity;
 import com.terminalvelocitycabbage.engine.graph.RenderNode;
@@ -29,7 +29,7 @@ public class DrawSceneRenderNode extends RenderNode {
 
     //TODO add components for each of the registered vertex formats so that we can render
     @Override
-    public void execute(Scene scene, WindowProperties properties, HeterogeneousMap renderConfig, long deltaTime) {
+    public void render(Scene scene, TargetProperties properties, HeterogeneousMap renderConfig, long deltaTime) {
 
         //Set the shader up for rendering
         var client = GameClient.getInstance();

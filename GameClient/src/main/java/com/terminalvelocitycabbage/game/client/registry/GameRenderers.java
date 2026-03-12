@@ -1,5 +1,7 @@
 package com.terminalvelocitycabbage.game.client.registry;
 
+import com.terminalvelocitycabbage.engine.client.ClientBase;
+import com.terminalvelocitycabbage.engine.client.renderer.Framebuffer;
 import com.terminalvelocitycabbage.engine.client.renderer.RenderGraph;
 import com.terminalvelocitycabbage.engine.client.renderer.shader.ShaderProgramConfig;
 import com.terminalvelocitycabbage.engine.registry.Identifier;
@@ -7,13 +9,16 @@ import com.terminalvelocitycabbage.engine.util.HeterogeneousMap;
 import com.terminalvelocitycabbage.game.client.GameClient;
 import com.terminalvelocitycabbage.game.client.rendernodes.DrawSceneRenderNode;
 import com.terminalvelocitycabbage.game.client.rendernodes.DrawTestTWUIRenderNode;
+import com.terminalvelocitycabbage.templates.events.FramebufferRegistrationEvent;
 import com.terminalvelocitycabbage.templates.events.RendererRegistrationEvent;
 
 public class GameRenderers {
 
     //Render Node Identifiers
     public static Identifier DRAW_SCENE_RENDER_NODE;
+    public static Identifier DRAW_FBO_SCENE_RENDER_NODE;
     public static Identifier DRAW_UI_RENDER_NODE;
+    public static Identifier SCENE_FBO_ID;
 
     //Routine Node Identifiers
     public static Identifier UPDATE_ROTATIONS_ROUTINE_NODE;
@@ -26,11 +31,17 @@ public class GameRenderers {
     //Graph configs
     public static HeterogeneousMap.Key<Boolean> PRINT_ON_EXECUTE = new HeterogeneousMap.Key<>("printOnExecute", Boolean.class);
 
+    public static void registerFramebuffers(FramebufferRegistrationEvent event) {
+        SCENE_FBO_ID = event.registerFramebuffer(GameClient.ID, "scene_fbo", GameTextures.SCENE_FBO_TEXTURE, 200, 200);
+    }
+
     public static void init(RendererRegistrationEvent event) {
 
         //Render Nodes
         DRAW_SCENE_RENDER_NODE = event.registerNode(GameClient.ID, "drawScene");
+        DRAW_FBO_SCENE_RENDER_NODE = event.registerNode(GameClient.ID, "drawFboScene");
         DRAW_UI_RENDER_NODE = event.registerNode(GameClient.ID, "drawUI");
+
         //Routines
         UPDATE_ROTATIONS_ROUTINE_NODE = event.registerNode(GameClient.ID, "updateRotations");
         //Routes
@@ -45,6 +56,9 @@ public class GameRenderers {
                                 (__, sh) -> (boolean) sh.getState(GameStates.ROTATE_ENTITIES).getValue(),
                                 rotateSystemRoute)
                         .addRenderNode(DRAW_SCENE_RENDER_NODE, DrawSceneRenderNode.class, GameShaders.MESH_SHADER_PROGRAM_CONFIG)
+                        .setTarget(SCENE_FBO_ID)
+                        .addRenderNode(DRAW_FBO_SCENE_RENDER_NODE, DrawSceneRenderNode.class, GameShaders.MESH_SHADER_PROGRAM_CONFIG)
+                        .setTarget(null)
                         .addRenderNode(DRAW_UI_RENDER_NODE, DrawTestTWUIRenderNode.class, ShaderProgramConfig.EMPTY)
                         .configure(PRINT_ON_EXECUTE, false)
                 )

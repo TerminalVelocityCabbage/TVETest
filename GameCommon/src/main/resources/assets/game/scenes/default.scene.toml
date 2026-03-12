@@ -30,3 +30,9 @@ template = "game:entity_template:sad_square"
 position = [0.0, 2.0, -5.0]
 [entities.component.model]
 model = "game:smile_square"
+
+[[entities]]
+[entities.component.transformation]
+position = [0.0, 4.0, -5.0]
+[entities.component.model]
+model = "game:fbo_square"
