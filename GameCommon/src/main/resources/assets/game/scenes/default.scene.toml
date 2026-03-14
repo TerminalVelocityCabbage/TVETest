@@ -11,6 +11,7 @@ input_controllers = [
     "game:move_around",
     "game:look_around",
     "game:scroll",
+    "game:toggle_debug_renderer",
     "game:close_window_on_escape"
 ]
 routines = [ "game:default" ]

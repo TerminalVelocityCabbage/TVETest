@@ -40,10 +40,9 @@ public class GameRenderers {
     public static HeterogeneousMap.Key<Boolean> PRINT_ON_EXECUTE = new HeterogeneousMap.Key<>("printOnExecute", Boolean.class);
 
     public static void registerFramebuffers(FramebufferRegistrationEvent event) {
-        SCENE_FBO_ID = event.registerFramebuffer(GameClient.ID, "scene_fbo", GameTextures.SCENE_FBO_TEXTURE, 200, 200);
-        GBUFFER_FBO_ID = event.registerFramebuffer(GameClient.ID, "gbuffer_fbo",
-                List.of(GameTextures.POSITION_TEXTURE, GameTextures.NORMALS_TEXTURE, GameTextures.ALBEDO_TEXTURE),
-                GameTextures.DEPTH_TEXTURE, 800, 600);
+        SCENE_FBO_ID = event.registerFramebuffer(GameClient.ID, "scene_fbo", 200, 200, GameTextures.SCENE_FBO_TEXTURE);
+        GBUFFER_FBO_ID = event.registerDepthFramebuffer(GameClient.ID, "gbuffer_fbo", 800, 600, GameTextures.DEPTH_TEXTURE,
+                GameTextures.POSITION_TEXTURE, GameTextures.NORMALS_TEXTURE, GameTextures.ALBEDO_TEXTURE);
     }
 
     public static void init(RendererRegistrationEvent event) {

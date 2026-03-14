@@ -2,6 +2,7 @@ package com.terminalvelocitycabbage.game.client.rendernodes;
 
 import com.terminalvelocitycabbage.engine.client.renderer.TargetProperties;
 import com.terminalvelocitycabbage.engine.client.renderer.model.Mesh;
+import com.terminalvelocitycabbage.engine.client.renderer.model.Meshes;
 import com.terminalvelocitycabbage.engine.client.renderer.shader.ShaderProgram;
 import com.terminalvelocitycabbage.engine.client.renderer.shader.ShaderProgramConfig;
 import com.terminalvelocitycabbage.engine.client.scene.Scene;
@@ -26,7 +27,7 @@ public class DebugGBufferRenderNode extends RenderNode {
     @Override
     public void render(Scene scene, TargetProperties properties, HeterogeneousMap renderConfig, long deltaTime) {
 
-        if (quad == null) quad = Mesh.createQuad(getShaderProgram().getConfig().getVertexFormat());
+        if (quad == null) quad = Meshes.createQuad(getShaderProgram().getConfig().getVertexFormat());
 
         // Clear depth so quads don't fight with each other or previous depth
         glClear(GL_DEPTH_BUFFER_BIT);
