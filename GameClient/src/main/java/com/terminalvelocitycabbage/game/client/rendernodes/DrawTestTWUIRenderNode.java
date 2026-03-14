@@ -45,7 +45,7 @@ public class DrawTestTWUIRenderNode extends UIRenderNode {
 
     private void fboTest() {
         container(id("fboContainer"), "bg-[1,1,1,0.196] fit p-[10] layout-x-[ltr] gap-[10]", () -> {
-            fbo(GameRenderers.SCENE_FBO_ID, "w-[200px] h-[200px] border-color-[1,1,1,1] border-width-[2]");
+            texture(GameTextures.SCENE_FBO_TEXTURE, GameRenderers.SCENE_FBO_ID, "w-[200px] h-[200px] border-color-[1,1,1,1] border-width-[2]");
             text("Scene in UI", "text-size-[20] text-color-[1,1,1,1] font-[" + GameFonts.LEXEND_FONT + "]");
         });
     }
