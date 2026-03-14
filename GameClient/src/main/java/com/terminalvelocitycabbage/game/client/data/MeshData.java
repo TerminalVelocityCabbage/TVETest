@@ -11,4 +11,15 @@ public class MeshData {
             .addElement(VertexAttribute.UV)
             .build();
 
+    public static final VertexFormat GBUFFER_FORMAT = VertexFormat.builder()
+            .addElement(VertexAttribute.XYZ_POSITION)
+            .addElement(VertexAttribute.UV)
+            .addElement(VertexAttribute.XYZ_NORMAL)
+            .build();
+
+    public static final VertexFormat DEBUG_QUAD_FORMAT = VertexFormat.builder()
+            .addElement(VertexAttribute.XYZ_POSITION)
+            .addElement(VertexAttribute.UV)
+            .build();
+
 }

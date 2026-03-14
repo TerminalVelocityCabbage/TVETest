@@ -31,6 +31,7 @@ public class GameClient extends ClientBase {
         getEventDispatcher().listenToEvent(EntityTemplateRegistrationEvent.EVENT, event -> GameEntities.createEntityTemplates((EntityTemplateRegistrationEvent) event));
         getEventDispatcher().listenToEvent(RoutineRegistrationEvent.EVENT, event -> GameRoutines.init((RoutineRegistrationEvent) event));
         getEventDispatcher().listenToEvent(RendererRegistrationEvent.EVENT, event -> GameRenderers.init((RendererRegistrationEvent) event));
+        getEventDispatcher().listenToEvent(FramebufferRegistrationEvent.EVENT, event -> GameRenderers.registerFramebuffers((FramebufferRegistrationEvent) event));
         getEventDispatcher().listenToEvent(FontRegistrationEvent.EVENT, event -> GameFonts.registerFonts((FontRegistrationEvent) event));
         getEventDispatcher().listenToEvent(SceneRegistrationEvent.EVENT, event -> GameScenes.init((SceneRegistrationEvent) event));
         getEventDispatcher().listenToEvent(LocalizedTextKeyRegistrationEvent.EVENT, event -> GameLocalizedTexts.registerLocalizedTextKeys((LocalizedTextKeyRegistrationEvent) event));
