@@ -77,14 +77,14 @@ public class GameRenderers {
                                 BOOLEAN_ROUTE,
                                 (__, sh) -> (boolean) sh.getState(GameStates.ROTATE_ENTITIES).getValue(),
                                 rotateSystemRoute)
+                        .setTarget(SCENE_FBO_ID)
+                        .addRenderNode(DRAW_FBO_SCENE_RENDER_NODE, DrawSceneRenderNode.class, GameShaders.MESH_SHADER_PROGRAM_CONFIG)
+                        .setTarget(null)
                         .route(
                                 DEBUG_ROUTE,
                                 (__, sh) -> (boolean) sh.getState(GameStates.DEBUG_RENDERER).getValue(),
                                 debugGBufferRoute,
                                 mainSceneRoute)
-                        .setTarget(SCENE_FBO_ID)
-                        .addRenderNode(DRAW_FBO_SCENE_RENDER_NODE, DrawSceneRenderNode.class, GameShaders.MESH_SHADER_PROGRAM_CONFIG)
-                        .setTarget(null)
                         .addRenderNode(DRAW_UI_RENDER_NODE, DrawTestTWUIRenderNode.class, ShaderProgramConfig.EMPTY)
                         .configure(PRINT_ON_EXECUTE, false)
                 )

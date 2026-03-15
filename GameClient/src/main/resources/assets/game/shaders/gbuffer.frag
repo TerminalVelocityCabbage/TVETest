@@ -7,6 +7,7 @@ layout (location = 2) out vec4 gAlbedo;
 in vec3 FragPos;
 in vec2 TexCoords;
 in vec3 Normal;
+in vec3 Color;
 
 uniform sampler2D textureSampler;
 
@@ -17,6 +18,6 @@ void main()
     // also store the per-fragment normals into the gbuffer
     gNormal = vec4(normalize(Normal), 1.0);
     // and the diffuse per-fragment color
-    gAlbedo.rgb = texture(textureSampler, TexCoords).rgb;
+    gAlbedo.rgb = texture(textureSampler, TexCoords).rgb * Color;
     gAlbedo.a = 1.0;
 }
