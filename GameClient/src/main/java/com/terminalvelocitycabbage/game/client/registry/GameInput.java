@@ -20,6 +20,8 @@ public class GameInput {
     public static Identifier RELOAD_SHADERS;
     public static Identifier PAUSE_SPINNING;
 
+    public static Control LOOK_AROUND_CONTROL;
+
     public static void init(InputHandlerRegistrationEvent event) {
 
         var inputHandler = event.getInputHandler();
@@ -44,6 +46,8 @@ public class GameInput {
         Control dControl = inputHandler.registerControlListener(new KeyboardKeyControl(KeyboardInput.Key.D));
         Control spaceControl = inputHandler.registerControlListener(new KeyboardKeyControl(KeyboardInput.Key.SPACE));
         Control lShiftControl = inputHandler.registerControlListener(new KeyboardKeyControl(KeyboardInput.Key.LEFT_SHIFT));
+        Control lCtrlControl = inputHandler.registerControlListener(new KeyboardKeyControl(KeyboardInput.Key.LEFT_CTRL));
+        LOOK_AROUND_CONTROL = lCtrlControl;
         Control mouseUpControl = inputHandler.registerControlListener(new MouseMovementControl(MouseInput.MovementAxis.UP, 4f));
         Control mouseDownControl = inputHandler.registerControlListener(new MouseMovementControl(MouseInput.MovementAxis.DOWN, 4f));
         Control mouseLeftControl = inputHandler.registerControlListener(new MouseMovementControl(MouseInput.MovementAxis.LEFT, 4f));
@@ -51,6 +55,7 @@ public class GameInput {
         Control mouseScrollUpControl = inputHandler.registerControlListener(new MouseScrollControl(MouseInput.ScrollDirection.UP, 1f));
         Control mouseScrollDownControl = inputHandler.registerControlListener(new MouseScrollControl(MouseInput.ScrollDirection.DOWN, 1f));
         Control leftClickControl = inputHandler.registerControlListener(new MouseButtonControl(MouseInput.Button.LEFT_CLICK));
+        Control gControl = inputHandler.registerControlListener(new KeyboardKeyControl(KeyboardInput.Key.G));
 
         //Register Controllers
         UI_CLICK = inputHandler.registerController(GameClient.ID, "ui_click", new UIClickController(MouseInput.Button.LEFT_CLICK, leftClickControl));
