@@ -19,7 +19,8 @@ public class GameInput {
     public static Identifier SCROLL;
     public static Identifier RELOAD_SHADERS;
     public static Identifier PAUSE_SPINNING;
-    public static Identifier TOGGLE_DEBUG_RENDERER;
+
+    public static Control LOOK_AROUND_CONTROL;
 
     public static void init(InputHandlerRegistrationEvent event) {
 
@@ -45,6 +46,8 @@ public class GameInput {
         Control dControl = inputHandler.registerControlListener(new KeyboardKeyControl(KeyboardInput.Key.D));
         Control spaceControl = inputHandler.registerControlListener(new KeyboardKeyControl(KeyboardInput.Key.SPACE));
         Control lShiftControl = inputHandler.registerControlListener(new KeyboardKeyControl(KeyboardInput.Key.LEFT_SHIFT));
+        Control lCtrlControl = inputHandler.registerControlListener(new KeyboardKeyControl(KeyboardInput.Key.LEFT_CTRL));
+        LOOK_AROUND_CONTROL = lCtrlControl;
         Control mouseUpControl = inputHandler.registerControlListener(new MouseMovementControl(MouseInput.MovementAxis.UP, 4f));
         Control mouseDownControl = inputHandler.registerControlListener(new MouseMovementControl(MouseInput.MovementAxis.DOWN, 4f));
         Control mouseLeftControl = inputHandler.registerControlListener(new MouseMovementControl(MouseInput.MovementAxis.LEFT, 4f));
@@ -77,6 +80,5 @@ public class GameInput {
         ));
         RELOAD_SHADERS = inputHandler.registerController(GameClient.ID, "reload_shaders", new RecompileShadersController(rControl));
         PAUSE_SPINNING = inputHandler.registerController(GameClient.ID, "pause_spinning", new PauseSpinningController(pControl));
-        TOGGLE_DEBUG_RENDERER = inputHandler.registerController(GameClient.ID, "toggle_debug_renderer", new ToggleDebugRendererController(gControl));
     }
 }

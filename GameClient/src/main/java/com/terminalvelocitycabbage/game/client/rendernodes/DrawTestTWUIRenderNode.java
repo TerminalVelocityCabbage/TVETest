@@ -8,6 +8,7 @@ import com.terminalvelocitycabbage.engine.client.ui.data.ElementDeclaration;
 import com.terminalvelocitycabbage.engine.registry.Identifier;
 import com.terminalvelocitycabbage.game.client.registry.GameFonts;
 import com.terminalvelocitycabbage.game.client.registry.GameRenderers;
+import com.terminalvelocitycabbage.game.client.registry.GameStates;
 import com.terminalvelocitycabbage.game.client.registry.GameTextures;
 import com.terminalvelocitycabbage.templates.events.UIClickEvent;
 import com.terminalvelocitycabbage.templates.events.UICharInputEvent;
@@ -27,19 +28,47 @@ public class DrawTestTWUIRenderNode extends UIRenderNode {
     @Override
     protected void declareUI() {
         container("bg-[1,1,1,0.392] grow pt-[10] pl-[15]", () -> {
+            debugRendererMenu();
             stateTest();
-            inputTest();
-            scrollTest();
-            floatingElementTest();
-            aspectRatioTest();
-            reverseLayoutTest();
-            textWrapTest();
-            wrapTest();
-            borderAndCornersTest();
-            zIndexAndCaptureTest();
-            marginTest();
-            imageTest();
+//            inputTest();
+//            scrollTest();
+//            floatingElementTest();
+//            aspectRatioTest();
+//            reverseLayoutTest();
+//            textWrapTest();
+//            wrapTest();
+//            borderAndCornersTest();
+//            zIndexAndCaptureTest();
+//            marginTest();
+//            imageTest();
             fboTest();
+        });
+    }
+
+    private void debugRendererMenu() {
+        container(id("debugMenu"), "bg-[1,1,1,0.196] fit p-[10] layout-y-[ttb] gap-[5]", () -> {
+            text("Render Mode", "text-size-[20] text-color-[1,1,1,1] font-[" + GameFonts.LEXEND_FONT + "]");
+
+            int sceneBtn = id("sceneBtn");
+            int gbufferBtn = id("gbufferBtn");
+            int fboSceneBtn = id("fboSceneBtn");
+
+            var stateHandler = ClientBase.getInstance().getStateHandler();
+            var currentMode = stateHandler.<GameStates.CurrentRenderer>getState(GameStates.DEBUG_RENDERER).getValue();
+
+            if (heardEvent(sceneBtn, UIClickEvent.EVENT) != null) stateHandler.updateState(GameStates.DEBUG_RENDERER, GameStates.CurrentRenderer.SCENE);
+            if (heardEvent(gbufferBtn, UIClickEvent.EVENT) != null) stateHandler.updateState(GameStates.DEBUG_RENDERER, GameStates.CurrentRenderer.GBUFFER);
+            if (heardEvent(fboSceneBtn, UIClickEvent.EVENT) != null) stateHandler.updateState(GameStates.DEBUG_RENDERER, GameStates.CurrentRenderer.FBO_SCENE);
+
+            modeButton(sceneBtn, "Scene", currentMode == GameStates.CurrentRenderer.SCENE);
+            modeButton(gbufferBtn, "GBuffer Debug", currentMode == GameStates.CurrentRenderer.GBUFFER);
+            modeButton(fboSceneBtn, "Scene FBO", currentMode == GameStates.CurrentRenderer.FBO_SCENE);
+        });
+    }
+
+    private void modeButton(int id, String label, boolean active) {
+        container(id, "bg-[" + (active ? "0.392,0.784,0.392,1" : (isHovered(id) ? "0.588,0.588,0.588,1" : "0.784,0.784,0.784,1")) + "] rounded-[5] w-[150px] h-[30px] align-x-[center] align-y-[center]", () -> {
+            text(label, "text-size-[16] text-color-[1,1,1,1] font-[" + GameFonts.LEXEND_FONT + "]");
         });
     }
 

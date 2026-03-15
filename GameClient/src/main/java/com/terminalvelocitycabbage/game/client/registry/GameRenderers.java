@@ -1,7 +1,5 @@
 package com.terminalvelocitycabbage.game.client.registry;
 
-import com.terminalvelocitycabbage.engine.client.ClientBase;
-import com.terminalvelocitycabbage.engine.client.renderer.Framebuffer;
 import com.terminalvelocitycabbage.engine.client.renderer.RenderGraph;
 import com.terminalvelocitycabbage.engine.client.renderer.shader.ShaderProgramConfig;
 import com.terminalvelocitycabbage.engine.registry.Identifier;
@@ -13,8 +11,6 @@ import com.terminalvelocitycabbage.game.client.rendernodes.DrawTestTWUIRenderNod
 import com.terminalvelocitycabbage.game.client.rendernodes.GBufferRenderNode;
 import com.terminalvelocitycabbage.templates.events.FramebufferRegistrationEvent;
 import com.terminalvelocitycabbage.templates.events.RendererRegistrationEvent;
-
-import java.util.List;
 
 public class GameRenderers {
 
@@ -33,6 +29,8 @@ public class GameRenderers {
     //Route Identifiers
     public static Identifier BOOLEAN_ROUTE;
     public static Identifier DEBUG_ROUTE;
+    public static Identifier GBUFFER_DEBUG_ROUTE;
+    public static Identifier SCENE_FBO_DEBUG_ROUTE;
 
     //Render Graph Identifiers
     public static Identifier DEFAULT_RENDER_GRAPH;
@@ -59,6 +57,8 @@ public class GameRenderers {
         //Routes
         BOOLEAN_ROUTE = event.registerRoute(GameClient.ID, "booleanRoute");
         DEBUG_ROUTE = event.registerRoute(GameClient.ID, "debugRoute");
+        GBUFFER_DEBUG_ROUTE = event.registerRoute(GameClient.ID, "gbufferDebugRoute");
+        SCENE_FBO_DEBUG_ROUTE = event.registerRoute(GameClient.ID, "sceneFboDebugRoute");
 
         var rotateSystemRoute = RenderGraph.RenderPath.builder().addRoutineNode(GameRoutines.DEFAULT_ROUTINE);
 
@@ -71,20 +71,29 @@ public class GameRenderers {
                 .setTarget(null)
                 .addRenderNode(DRAW_DEBUG_GBUFFER_NODE, DebugGBufferRenderNode.class, GameShaders.DEBUG_QUAD_SHADER_PROGRAM_CONFIG);
 
+        var fboSceneRoute = RenderGraph.RenderPath.builder()
+                .setTarget(SCENE_FBO_ID)
+                .addRenderNode(DRAW_FBO_SCENE_RENDER_NODE, DrawSceneRenderNode.class, GameShaders.MESH_SHADER_PROGRAM_CONFIG)
+                .setTarget(null);
+
         DEFAULT_RENDER_GRAPH = event.registerGraph(GameClient.ID, "draw_scene",
                 new RenderGraph(RenderGraph.RenderPath.builder()
                         .route(
                                 BOOLEAN_ROUTE,
                                 (__, sh) -> (boolean) sh.getState(GameStates.ROTATE_ENTITIES).getValue(),
                                 rotateSystemRoute)
-                        .setTarget(SCENE_FBO_ID)
-                        .addRenderNode(DRAW_FBO_SCENE_RENDER_NODE, DrawSceneRenderNode.class, GameShaders.MESH_SHADER_PROGRAM_CONFIG)
-                        .setTarget(null)
                         .route(
                                 DEBUG_ROUTE,
-                                (__, sh) -> (boolean) sh.getState(GameStates.DEBUG_RENDERER).getValue(),
-                                debugGBufferRoute,
-                                mainSceneRoute)
+                                (__, sh) -> sh.getState(GameStates.DEBUG_RENDERER).getValue() == GameStates.CurrentRenderer.SCENE,
+                                mainSceneRoute,
+                                RenderGraph.RenderPath.builder()
+                                        .route(
+                                                GBUFFER_DEBUG_ROUTE,
+                                                (__, sh) -> sh.getState(GameStates.DEBUG_RENDERER).getValue() == GameStates.CurrentRenderer.GBUFFER,
+                                                debugGBufferRoute,
+                                                fboSceneRoute
+                                        )
+                        )
                         .addRenderNode(DRAW_UI_RENDER_NODE, DrawTestTWUIRenderNode.class, ShaderProgramConfig.EMPTY)
                         .configure(PRINT_ON_EXECUTE, false)
                 )
