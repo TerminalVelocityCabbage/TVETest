@@ -1,34 +1,24 @@
 package com.terminalvelocitycabbage.game.client.registry;
 
-import com.terminalvelocitycabbage.engine.filesystem.resources.ResourceCategory;
 import com.terminalvelocitycabbage.engine.registry.Identifier;
 import com.terminalvelocitycabbage.game.client.GameClient;
 import com.terminalvelocitycabbage.templates.events.ConfigureTexturesEvent;
-import com.terminalvelocitycabbage.templates.events.ResourceRegistrationEvent;
+
+import static com.terminalvelocitycabbage.engine.filesystem.resources.ResourceCategory.TEXTURE;
 
 public class GameTextures {
 
     //Texture Resources
-    public static Identifier SMILE;
-    public static Identifier SAD;
-    public static Identifier SMILE_SMALL;
-    public static Identifier SMILE_TINY;
-    public static Identifier SAD_SMALL;
-    public static Identifier HAPPY;
+    public static final Identifier SMILE = TEXTURE.identifierOf(GameClient.ID, "smile");
+    public static final Identifier SAD = TEXTURE.identifierOf(GameClient.ID, "sad");
+    public static final Identifier SMILE_SMALL = TEXTURE.identifierOf(GameClient.ID, "smile_small");
+    public static final Identifier SMILE_TINY = TEXTURE.identifierOf(GameClient.ID, "smile_tiny");
+    public static final Identifier SAD_SMALL = TEXTURE.identifierOf(GameClient.ID, "sad_small");
+    public static final Identifier HAPPY = TEXTURE.identifierOf(GameClient.ID, "happy");
 
     //Atlases
     public static Identifier DEFAULT_SCENE_ATLAS;
     public static Identifier UI_TEXTURE_ATLAS;
-
-    public static void registerResources(ResourceRegistrationEvent event) {
-        //Register Textures to the VFS
-        SMILE = event.registerResource(GameResources.CLIENT_RESOURCE_SOURCE, ResourceCategory.TEXTURE, "smile.png").getIdentifier();
-        SAD = event.registerResource(GameResources.CLIENT_RESOURCE_SOURCE, ResourceCategory.TEXTURE, "sad.png").getIdentifier();
-        SMILE_SMALL = event.registerResource(GameResources.CLIENT_RESOURCE_SOURCE, ResourceCategory.TEXTURE, "smile_small.png").getIdentifier();
-        SAD_SMALL = event.registerResource(GameResources.CLIENT_RESOURCE_SOURCE, ResourceCategory.TEXTURE, "sad_small.png").getIdentifier();
-        SMILE_TINY = event.registerResource(GameResources.CLIENT_RESOURCE_SOURCE, ResourceCategory.TEXTURE, "smile_tiny.png").getIdentifier();
-        HAPPY = event.registerResource(GameResources.CLIENT_RESOURCE_SOURCE, ResourceCategory.TEXTURE, "happy.png").getIdentifier();
-    }
 
     public static void cacheTextures(ConfigureTexturesEvent event) {
 

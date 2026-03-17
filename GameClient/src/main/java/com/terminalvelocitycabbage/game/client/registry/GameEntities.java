@@ -12,7 +12,6 @@ import com.terminalvelocitycabbage.templates.ecs.components.TransformationCompon
 import com.terminalvelocitycabbage.templates.events.EntityComponentRegistrationEvent;
 import com.terminalvelocitycabbage.templates.events.EntitySystemRegistrationEvent;
 import com.terminalvelocitycabbage.templates.events.EntityTemplateRegistrationEvent;
-import com.terminalvelocitycabbage.templates.events.ResourceRegistrationEvent;
 
 public class GameEntities {
 
@@ -26,12 +25,6 @@ public class GameEntities {
         event.registerComponent(PositionComponent.class);
         event.registerComponent(PitchYawRotationComponent.class);
         event.registerComponent(PlayerCameraComponent.class);
-    }
-
-    public static void registerResources(ResourceRegistrationEvent event) {
-        event.registerResource(GameResources.CLIENT_RESOURCE_SOURCE, ResourceCategory.ENTITY, "player.entity.toml");
-        event.registerResource(GameResources.CLIENT_RESOURCE_SOURCE, ResourceCategory.ENTITY, "smile_square.entity.toml");
-        event.registerResource(GameResources.CLIENT_RESOURCE_SOURCE, ResourceCategory.ENTITY, "sad_square.entity.toml");
     }
 
     public static void createSystems(EntitySystemRegistrationEvent event) {
