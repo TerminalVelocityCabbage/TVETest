@@ -3,7 +3,6 @@ package com.terminalvelocitycabbage.game.client;
 import com.terminalvelocitycabbage.engine.client.ClientBase;
 import com.terminalvelocitycabbage.engine.client.window.WindowProperties;
 import com.terminalvelocitycabbage.engine.event.EventDispatcher;
-import com.terminalvelocitycabbage.engine.filesystem.resources.ResourceCategory;
 import com.terminalvelocitycabbage.game.client.registry.*;
 import com.terminalvelocitycabbage.game.common.GameCommon;
 import com.terminalvelocitycabbage.templates.events.*;
@@ -14,6 +13,11 @@ public class GameClient extends ClientBase {
 
     public GameClient() {
         super(ID, 50);
+    }
+
+    public static void main(String[] args) {
+        GameClient client = new GameClient();
+        client.start();
     }
 
     @Override
