@@ -14,7 +14,7 @@ public class GameResources {
     public static Identifier CLIENT_RESOURCE_SOURCE;
 
     public static void registerResourceCategories(ResourceCategoryRegistrationEvent event) {
-        ResourceCategory.registerEngineDefaults(event.getRegistry(), GameClient.ID);
+        ResourceCategory.registerEngineDefaults(event.getRegistry());
     }
 
     public static void registerResourceSources(ResourceSourceRegistrationEvent event, GameClient gameClient) {
