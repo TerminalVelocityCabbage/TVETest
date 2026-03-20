@@ -1,7 +1,5 @@
 package com.terminalvelocitycabbage.game.client.rendernodes;
 
-import com.terminalvelocitycabbage.engine.client.renderer.materials.Texture;
-import com.terminalvelocitycabbage.engine.client.renderer.model.Mesh;
 import com.terminalvelocitycabbage.engine.client.renderer.shader.ShaderProgramConfig;
 import com.terminalvelocitycabbage.engine.client.scene.Scene;
 import com.terminalvelocitycabbage.engine.client.window.WindowProperties;
@@ -42,29 +40,24 @@ public class DrawSceneRenderNode extends RenderNode {
         shaderProgram.getUniform("projectionMatrix").setUniform(camera.getProjectionMatrix());
         shaderProgram.getUniform("viewMatrix").setUniform(camera.getViewMatrix(player));
 
-        //Sort entities for efficient rendering (by texture then by mesh)
+        //Sort entities for efficient rendering (by texture then by model)
         List<Entity> entities = new ArrayList<>(client.getManager().getEntitiesWith(ModelComponent.class, TransformationComponent.class));
         entities.sort(Comparator
-                        .comparingInt((Entity entity) -> client.getTextureCache().getTexture(client.getModelRegistry().get(entity.getComponent(ModelComponent.class).getModel()).getTextureIdentifier()).getTextureID())
-                        .thenComparing(entity -> client.getModelRegistry().get(entity.getComponent(ModelComponent.class).getModel()).getMeshIdentifier().hashCode())
+                        .comparingInt((Entity entity) -> client.getTextureCache().getTexture(client.getModelRegistry().get(entity.getComponent(ModelComponent.class).getModel()).atlasIdentifier()).getTextureID())
+                        .thenComparing(entity -> entity.getComponent(ModelComponent.class).getModel().hashCode())
         );
 
         //Render entities
-        Texture lastTexture = null;
-        Mesh lastMesh = null;
         for (Entity entity : entities) {
             var modelIdentifier = entity.getComponent(ModelComponent.class).getModel();
             var model = client.getModelRegistry().get(modelIdentifier);
-            var mesh = scene.getMeshCache().getMesh(modelIdentifier);
-            var texture = client.getTextureCache().getTexture(model.getTextureIdentifier());
             var transformationComponent = entity.getComponent(TransformationComponent.class);
 
-            if (lastTexture != texture) lastTexture = texture;
-            if (lastMesh != mesh) lastMesh = mesh;
-
-            lastTexture.bind();
             shaderProgram.getUniform("modelMatrix").setUniform(transformationComponent.getTransformationMatrix());
-            if (mesh.getFormat().equals(shaderProgram.getConfig().getVertexFormat())) mesh.render();
+            if (model.compiledMesh().getFormat().equals(shaderProgram.getConfig().getVertexFormat())) {
+                //TODO figure out a way to not need to bind the model and texture every frame if they're the same as last frame
+                model.render(client.getTextureCache());
+            }
         }
 
         //Reset

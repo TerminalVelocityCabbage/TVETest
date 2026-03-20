@@ -1,8 +1,11 @@
 package com.terminalvelocitycabbage.game.client.registry;
 
+import com.terminalvelocitycabbage.engine.client.renderer.model.MeshTexturePair;
 import com.terminalvelocitycabbage.engine.registry.Identifier;
 import com.terminalvelocitycabbage.game.client.GameClient;
 import com.terminalvelocitycabbage.templates.events.ModelConfigRegistrationEvent;
+
+import java.util.List;
 
 public class GameModels {
 
@@ -10,7 +13,7 @@ public class GameModels {
     public static Identifier SAD_SQUARE_MODEL;
 
     public static void init(ModelConfigRegistrationEvent event) {
-        SMILE_SQUARE_MODEL = event.registerModel(GameClient.ID, "smile_square", GameMeshes.SQUARE_MESH, GameTextures.SMILE);
-        SAD_SQUARE_MODEL = event.registerModel(GameClient.ID, "sad_square", GameMeshes.SQUARE_MESH, GameTextures.SAD);
+        SMILE_SQUARE_MODEL = event.registerModel(GameClient.ID, "smile_square", List.of(new MeshTexturePair(GameMeshes.SQUARE_MESH, GameTextures.SMILE)));
+        SAD_SQUARE_MODEL = event.registerModel(GameClient.ID, "sad_square", List.of(new MeshTexturePair(GameMeshes.SQUARE_MESH, GameTextures.SAD)));
     }
 }
