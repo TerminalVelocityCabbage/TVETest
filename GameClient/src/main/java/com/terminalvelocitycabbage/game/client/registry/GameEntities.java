@@ -18,6 +18,8 @@ public class GameEntities {
     public static Identifier PLAYER_ENTITY;
     public static Identifier SMILE_SQUARE_ENTITY;
     public static Identifier SAD_SQUARE_ENTITY;
+    public static Identifier PIG_ENTITY;
+    public static Identifier TYRANNOSAURUS_ENTITY;
 
     public static void registerComponents(EntityComponentRegistrationEvent event) {
         event.registerComponent(ModelComponent.class);
@@ -35,5 +37,7 @@ public class GameEntities {
         PLAYER_ENTITY = event.createEntityTemplateFromFile(GameCommon.ID, "player");
         SMILE_SQUARE_ENTITY = event.createEntityTemplateFromFile(GameCommon.ID, "smile_square");
         SAD_SQUARE_ENTITY = event.createEntityTemplateFromFile(GameCommon.ID, "sad_square");
+        PIG_ENTITY = event.createEntityTemplateFromFile(GameCommon.ID, "pig_test");
+        TYRANNOSAURUS_ENTITY = event.createEntityTemplateFromFile(GameCommon.ID, "tyrannosaurus_adult_v2");
     }
 }

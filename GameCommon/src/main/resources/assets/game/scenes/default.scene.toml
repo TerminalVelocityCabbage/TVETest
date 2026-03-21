@@ -26,6 +26,16 @@ template = "game:entity_template:smile_square"
 template = "game:entity_template:sad_square"
 
 [[entities]]
+template = "game:entity_template:pig_test"
+[entities.component.transformation]
+position = [-5.0, 2.0, -10.0]
+
+[[entities]]
+template = "game:entity_template:tyrannosaurus_adult_v2"
+[entities.component.transformation]
+position = [5.0, 2.0, -15.0]
+
+[[entities]]
 [entities.component.transformation]
 position = [0.0, 2.0, -5.0]
 [entities.component.model]

@@ -1,0 +1,98 @@
+[metadata]
+	model_version = "1.0.0"
+	name = "pig_test"
+	default_variant = "default"
+	[[metadata.texture_layers]]
+		default = [48, 48]
+
+[[variant]]
+	name = "default"
+	bones = ["main", "head", "fl_leg", "bl_leg", "fr_leg", "br_leg", "tail"]
+	textures = {default = "game:pig_test"}
+
+[[bone]]
+	name = "main"
+	offset = [0.0, 6.0, 0.0]
+	position = [0.0, 6.0, 0.0]
+[[bone]]
+	name = "head"
+	parent = "main"
+	offset = [0.0, 2.0, -3.0]
+	position = [0.0, 2.0, -3.0]
+	rotation = [5, 0, 0]
+[[bone]]
+	name = "fl_leg"
+	parent = "main"
+	offset = [3.0, -3.0, -3.0]
+	position = [3.0, -3.0, -3.0]
+[[bone]]
+	name = "bl_leg"
+	parent = "main"
+	offset = [3.0, -3.0, 5.0]
+	position = [3.0, -3.0, 5.0]
+[[bone]]
+	name = "fr_leg"
+	parent = "main"
+	offset = [-3.0, -3.0, -3.0]
+	position = [-3.0, -3.0, -3.0]
+[[bone]]
+	name = "br_leg"
+	parent = "main"
+	offset = [-3.0, -3.0, 5.0]
+	position = [-3.0, -3.0, 5.0]
+[[bone]]
+	name = "tail"
+	parent = "main"
+	offset = [0.0, 2.0, 6.0]
+	position = [0.0, 2.0, 6.0]
+
+[[cube]]
+	name = "main_cube_0"
+	parent = "main"
+	size = [8, 6, 10]
+	offset = [-4.0, -3.0, -4.0]
+	textures = {layer = "default", px_uv = [18, 10, 28, 16], nx_uv = [0, 10, 10, 16], py_uv = [10, 0, 18, 10], ny_uv = [18, 0, 26, 10], pz_uv = [28, 10, 36, 16], nz_uv = [10, 10, 18, 16]}
+[[cube]]
+	name = "head_cube_0"
+	parent = "head"
+	size = [6, 6, 6]
+	offset = [-3.0, -2.0, -4.0]
+	textures = {layer = "default", px_uv = [33, 24, 39, 30], nx_uv = [21, 24, 27, 30], py_uv = [27, 18, 33, 24], ny_uv = [33, 18, 39, 24], pz_uv = [39, 24, 45, 30], nz_uv = [27, 24, 33, 30]}
+[[cube]]
+	name = "head_cube_1"
+	parent = "head"
+	size = [2, 2, 1]
+	position = [-1.0, -1.0, -4.0]
+	offset = [0.0, 0.0, -1.0]
+	rotation = [-10, 0, 0]
+	textures = {layer = "default", px_uv = [44, 20, 45, 22], nx_uv = [41, 20, 42, 22], py_uv = [42, 19, 44, 20], ny_uv = [44, 19, 46, 20], pz_uv = [45, 20, 47, 22], nz_uv = [42, 20, 44, 22]}
+[[cube]]
+	name = "fl_leg_cube_0"
+	parent = "fl_leg"
+	size = [2, 3, 2]
+	offset = [-1.0, -3.0, -1.0]
+	textures = {layer = "default", px_uv = [4, 19, 6, 22], nx_uv = [0, 19, 2, 22], py_uv = [2, 17, 4, 19], ny_uv = [4, 17, 6, 19], pz_uv = [6, 19, 8, 22], nz_uv = [2, 19, 4, 22]}
+[[cube]]
+	name = "bl_leg_cube_0"
+	parent = "bl_leg"
+	size = [2, 3, 2]
+	offset = [-1.0, -3.0, -1.0]
+	textures = {layer = "default", px_uv = [4, 27, 6, 30], nx_uv = [0, 27, 2, 30], py_uv = [2, 25, 4, 27], ny_uv = [4, 25, 6, 27], pz_uv = [6, 27, 8, 30], nz_uv = [2, 27, 4, 30]}
+[[cube]]
+	name = "fr_leg_cube_0"
+	parent = "fr_leg"
+	size = [2, 3, 2]
+	offset = [-1.0, -3.0, -1.0]
+	textures = {layer = "default", px_uv = [15, 19, 17, 22], nx_uv = [11, 19, 13, 22], py_uv = [13, 17, 15, 19], ny_uv = [15, 17, 17, 19], pz_uv = [17, 19, 19, 22], nz_uv = [13, 19, 15, 22]}
+[[cube]]
+	name = "br_leg_cube_0"
+	parent = "br_leg"
+	size = [2, 3, 2]
+	offset = [-1.0, -3.0, -1.0]
+	textures = {layer = "default", px_uv = [15, 27, 17, 30], nx_uv = [11, 27, 13, 30], py_uv = [13, 25, 15, 27], ny_uv = [15, 25, 17, 27], pz_uv = [17, 27, 19, 30], nz_uv = [13, 27, 15, 30]}
+[[cube]]
+	name = "tail_cube_0"
+	parent = "tail"
+	size = [0, 2, 1]
+	offset = [0.0, -2.0, 0.0]
+	textures = {layer = "default", px_uv = [31, 4, 32, 6], nx_uv = [30, 4, 31, 6], py_uv = [31, 3, 31, 4], ny_uv = [31, 3, 31, 4], pz_uv = [32, 4, 32, 6], nz_uv = [31, 4, 31, 6]}
