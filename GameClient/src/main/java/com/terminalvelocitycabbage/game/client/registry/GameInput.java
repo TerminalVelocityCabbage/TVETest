@@ -51,6 +51,7 @@ public class GameInput {
         Control mouseScrollUpControl = inputHandler.registerControlListener(new MouseScrollControl(MouseInput.ScrollDirection.UP, 1f));
         Control mouseScrollDownControl = inputHandler.registerControlListener(new MouseScrollControl(MouseInput.ScrollDirection.DOWN, 1f));
         Control leftClickControl = inputHandler.registerControlListener(new MouseButtonControl(MouseInput.Button.LEFT_CLICK));
+        Control rightClickControl = inputHandler.registerControlListener(new MouseButtonControl(MouseInput.Button.RIGHT_CLICK));
 
         //Register Controllers
         UI_CLICK = inputHandler.registerController(GameClient.ID, "ui_click", new UIClickController(MouseInput.Button.LEFT_CLICK, leftClickControl));
@@ -64,6 +65,7 @@ public class GameInput {
                 new ControlGroup(lShiftControl)
         ));
         LOOK_AROUND = inputHandler.registerController(GameClient.ID, "look_around", new LookAroundController(
+                new ControlGroup(rightClickControl),
                 new ControlGroup(mouseUpControl),
                 new ControlGroup(mouseDownControl),
                 new ControlGroup(mouseLeftControl),

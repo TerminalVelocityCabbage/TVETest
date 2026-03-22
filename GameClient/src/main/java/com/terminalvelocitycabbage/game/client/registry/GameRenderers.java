@@ -1,12 +1,10 @@
 package com.terminalvelocitycabbage.game.client.registry;
 
 import com.terminalvelocitycabbage.engine.client.renderer.RenderGraph;
-import com.terminalvelocitycabbage.engine.client.renderer.shader.ShaderProgramConfig;
 import com.terminalvelocitycabbage.engine.registry.Identifier;
 import com.terminalvelocitycabbage.engine.util.HeterogeneousMap;
 import com.terminalvelocitycabbage.game.client.GameClient;
 import com.terminalvelocitycabbage.game.client.rendernodes.DrawSceneRenderNode;
-import com.terminalvelocitycabbage.game.client.rendernodes.DrawTestTWUIRenderNode;
 import com.terminalvelocitycabbage.templates.events.RendererRegistrationEvent;
 
 public class GameRenderers {
@@ -40,12 +38,12 @@ public class GameRenderers {
 
         DEFAULT_RENDER_GRAPH = event.registerGraph(GameClient.ID, "draw_scene",
                 new RenderGraph(RenderGraph.RenderPath.builder()
-                        .route(
-                                BOOLEAN_ROUTE,
-                                (__, sh) -> (boolean) sh.getState(GameStates.ROTATE_ENTITIES).getValue(),
-                                rotateSystemRoute)
+//                        .route(
+//                                BOOLEAN_ROUTE,
+//                                (__, sh) -> (boolean) sh.getState(GameStates.ROTATE_ENTITIES).getValue(),
+//                                rotateSystemRoute)
                         .addRenderNode(DRAW_SCENE_RENDER_NODE, DrawSceneRenderNode.class, GameShaders.MESH_SHADER_PROGRAM_CONFIG)
-                        .addRenderNode(DRAW_UI_RENDER_NODE, DrawTestTWUIRenderNode.class, ShaderProgramConfig.EMPTY)
+//                        .addRenderNode(DRAW_UI_RENDER_NODE, DrawTestTWUIRenderNode.class, ShaderProgramConfig.EMPTY)
                         .configure(PRINT_ON_EXECUTE, false)
                 )
         );

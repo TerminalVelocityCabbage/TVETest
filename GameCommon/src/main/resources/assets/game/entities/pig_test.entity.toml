@@ -4,5 +4,5 @@ name = "pig_test"
 model = "game:model_variant:pig_test_default"
 
 [component.transformation]
-position = [0, 0, -2]
+position = [0, 0, 15]
 scale = [1, 1, 1]

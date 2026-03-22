@@ -1,8 +1,8 @@
 name = "tyrannosaurus_adult_v2"
 
 [component.model]
-model = "game:model_variant:tyrannosaurus_adult_v2_male"
+model = "game:model_variant:tyrannosaurus_adult_v2_default"
 
 [component.transformation]
-position = [1.25, 0, -3]
+position = [1.25, 0, -30]
 scale = [1, 1, 1]
