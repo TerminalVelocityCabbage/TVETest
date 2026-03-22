@@ -19,7 +19,7 @@
 	parent = "main"
 	offset = [0.0, 2.0, -3.0]
 	position = [0.0, 2.0, -3.0]
-	rotation = [-5.0, 0.0, 0.0]
+	rotation = [-5.0, -0.0, -0.0]
 [[bone]]
 	name = "fl_leg"
 	parent = "main"
@@ -64,7 +64,7 @@
 	size = [2, 2, 1]
 	position = [-1.0, -1.0, -4.0]
 	offset = [0.0, 0.0, -1.0]
-	rotation = [10.0, 0.0, 0.0]
+	rotation = [10.0, -0.0, -0.0]
 	textures = {layer = "default", px_uv = [41, 20, 42, 22], nx_uv = [44, 20, 45, 22], py_uv = [44, 20, 42, 19], ny_uv = [44, 19, 46, 20], pz_uv = [45, 20, 47, 22], nz_uv = [42, 20, 44, 22]}
 [[cube]]
 	name = "fl_leg_cube_0"

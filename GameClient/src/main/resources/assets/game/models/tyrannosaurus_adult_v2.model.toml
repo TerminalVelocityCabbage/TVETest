@@ -12,522 +12,434 @@
 
 [[bone]]
 	name = "hips"
-	offset = [0.0, 46.69881, 7.53759]
 	position = [0.0, 46.69881, 7.53759]
-	rotation = [8.17, 0.0, 0.0]
+	rotation = [8.17, 0.0, -0.0]
 [[bone]]
 	name = "shoulders"
 	parent = "hips"
-	offset = [0.0, 6.4026413, -21.70959]
 	position = [0.0, 6.4026413, -21.70959]
-	rotation = [-17.4, 0.0, 0.0]
+	rotation = [-17.4, 0.0, -0.0]
 [[bone]]
 	name = "shoulderUnder"
 	parent = "shoulders"
-	offset = [0.0, -19.672974, -14.000001]
 	position = [0.0, -19.672974, -14.000001]
-	rotation = [8.34, 0.0, 0.0]
+	rotation = [8.34, 0.0, -0.0]
 [[bone]]
 	name = "chest"
 	parent = "shoulders"
-	offset = [0.0, -18.049011, -17.13924]
 	position = [0.0, -18.049011, -17.13924]
-	rotation = [30.96, 0.0, 0.0]
+	rotation = [30.96, 0.0, -0.0]
 [[bone]]
 	name = "belly1"
 	parent = "chest"
-	offset = [0.0, -0.026180267, 4.0000496]
 	position = [0.0, -0.026180267, 4.0000496]
-	rotation = [-0.25, 0.0, 0.0]
+	rotation = [-0.25, 0.0, -0.0]
 [[bone]]
 	name = "neck1"
 	parent = "shoulders"
-	offset = [0.0, -2.2492905, -12.006021]
 	position = [0.0, -2.2492905, -12.006021]
-	rotation = [40.13, 0.0, 0.0]
+	rotation = [40.13, 0.0, -0.0]
 [[bone]]
 	name = "neck2"
 	parent = "neck1"
-	offset = [0.0, -9.129852, -7.1762695]
 	position = [0.0, -9.129852, -7.1762695]
-	rotation = [17.85, 0.0, 0.0]
+	rotation = [17.85, 0.0, -0.0]
 [[bone]]
 	name = "neck3"
 	parent = "neck2"
-	offset = [0.0, 11.220001, -9.200001]
 	position = [0.0, 11.220001, -9.200001]
-	rotation = [-15.59, 0.0, 0.0]
+	rotation = [-15.59, 0.0, -0.0]
 [[bone]]
 	name = "neck4"
 	parent = "neck3"
-	offset = [0.0, 0.02999878, -4.200001]
 	position = [0.0, 0.02999878, -4.200001]
-	rotation = [-44.62, 0.0, 0.0]
+	rotation = [-44.62, 0.0, -0.0]
 [[bone]]
 	name = "head"
 	parent = "neck4"
-	offset = [0.0, -0.8683586, -4.173729]
 	position = [0.0, -0.8683586, -4.173729]
-	rotation = [12.38, 0.0, 0.0]
+	rotation = [12.38, 0.0, -0.0]
 [[bone]]
 	name = "snout1"
 	parent = "head"
-	offset = [0.0, -0.49000168, -8.991798]
 	position = [0.0, -0.49000168, -8.991798]
-	rotation = [-25.98, 0.0, 0.0]
+	rotation = [-25.98, 0.0, -0.0]
 [[bone]]
 	name = "snout2"
 	parent = "snout1"
-	offset = [0.0, -1.6704788, -0.694191]
 	position = [0.0, -1.6704788, -0.694191]
-	rotation = [25.39, 0.0, 0.0]
+	rotation = [25.39, 0.0, -0.0]
 [[bone]]
 	name = "snout3"
 	parent = "snout2"
-	offset = [0.0, -0.046051025, -7.3382072]
 	position = [0.0, -0.046051025, -7.3382072]
-	rotation = [-35.09, 0.0, 0.0]
+	rotation = [-35.09, 0.0, -0.0]
 [[bone]]
 	name = "snout2B"
 	parent = "snout1"
-	offset = [0.0, -2.25, -3.7140198]
 	position = [0.0, -2.25, -3.7140198]
-	rotation = [26.39, 0.0, 0.0]
+	rotation = [26.39, 0.0, -0.0]
 [[bone]]
 	name = "snout3B"
 	parent = "snout2B"
-	offset = [0.0, 1.0, -5.000004]
 	position = [0.0, 1.0, -5.000004]
-	rotation = [-35.09, 0.0, 0.0]
+	rotation = [-35.09, 0.0, -0.0]
 [[bone]]
 	name = "head2"
 	parent = "head"
-	offset = [0.0, -8.100002, -1.0400009]
 	position = [0.0, -8.100002, -1.0400009]
 [[bone]]
 	name = "jawLower1"
 	parent = "head2"
-	offset = [0.0, 0.0, -1.2184296]
 	position = [0.0, 0.0, -1.2184296]
-	rotation = [-2.0, 0.0, 0.0]
+	rotation = [-2.0, 0.0, -0.0]
 [[bone]]
 	name = "jawLower2"
 	parent = "jawLower1"
-	offset = [0.0, -0.0099983215, -6.7363586]
 	position = [0.0, -0.0099983215, -6.7363586]
-	rotation = [-20.71, 0.0, 0.0]
+	rotation = [-20.71, 0.0, -0.0]
 [[bone]]
 	name = "jawLower3"
 	parent = "jawLower2"
-	offset = [0.01167, -0.4498787, -7.765484]
 	position = [0.01167, -0.4498787, -7.765484]
-	rotation = [24.76, 0.0, 0.0]
+	rotation = [24.76, 0.0, -0.0]
 [[bone]]
 	name = "jawLower4"
 	parent = "jawLower3"
-	offset = [0.0, -2.540001, -5.439995]
 	position = [0.0, -2.540001, -5.439995]
-	rotation = [14.2, 0.0, 0.0]
+	rotation = [14.2, 0.0, -0.0]
 [[bone]]
 	name = "jawLower5"
 	parent = "jawLower4"
-	offset = [0.0, -0.049999237, 5.0163574]
 	position = [0.0, -0.049999237, 5.0163574]
-	rotation = [-15.09, 0.0, 0.0]
+	rotation = [-15.09, 0.0, -0.0]
 [[bone]]
 	name = "lowerJaw6B"
 	parent = "jawLower5"
-	offset = [0.0, 3.7999992, 6.0]
 	position = [0.0, 3.7999992, 6.0]
 [[bone]]
 	name = "teethLowerLeft3"
 	parent = "jawLower3"
-	offset = [3.39833, -0.3204918, -5.284477]
 	position = [3.39833, -0.3204918, -5.284477]
-	rotation = [4.47917, 0.0, 0.0]
+	rotation = [4.47917, 0.0, -0.0]
 [[bone]]
 	name = "teethLowerRight3"
 	parent = "jawLower3"
-	offset = [-3.4216702, -0.3204918, -5.284477]
 	position = [-3.4216702, -0.3204918, -5.284477]
-	rotation = [4.47917, 0.0, 0.0]
+	rotation = [4.47917, 0.0, -0.0]
 [[bone]]
 	name = "teethLowerFront"
 	parent = "jawLower3"
-	offset = [-0.01167, -0.20331955, -5.471443]
 	position = [-0.01167, -0.20331955, -5.471443]
-	rotation = [11.9708, 0.0, 0.0]
+	rotation = [11.9708, 0.0, -0.0]
 [[bone]]
 	name = "teethLowerLeft2"
 	parent = "jawLower2"
-	offset = [3.79, -0.06388855, -8.402424]
 	position = [3.79, -0.06388855, -8.402424]
-	rotation = [6.86, 0.0, 0.0]
+	rotation = [6.86, 0.0, -0.0]
 [[bone]]
 	name = "teethLowerRight2"
 	parent = "jawLower2"
-	offset = [-3.79, -0.06388855, -8.402424]
 	position = [-3.79, -0.06388855, -8.402424]
-	rotation = [6.86, 0.0, 0.0]
+	rotation = [6.86, 0.0, -0.0]
 [[bone]]
 	name = "cheekLeft"
 	parent = "jawLower1"
-	offset = [4.17, -0.019996643, -6.7363586]
 	position = [4.17, -0.019996643, -6.7363586]
-	rotation = [29.07, 6.61, -0.16]
+	rotation = [29.07, 6.61, 0.16]
 [[bone]]
 	name = "throat5"
 	parent = "jawLower1"
-	offset = [0.0, -7.218628, -3.184658]
 	position = [0.0, -7.218628, -3.184658]
-	rotation = [12.8959, 0.0, 0.0]
+	rotation = [12.8959, 0.0, -0.0]
 [[bone]]
 	name = "cheekRight"
 	parent = "jawLower1"
-	offset = [-4.17, -0.019996643, -6.7363586]
 	position = [-4.17, -0.019996643, -6.7363586]
-	rotation = [29.07, -6.61, 0.16]
+	rotation = [29.07, -6.61, -0.16]
 [[bone]]
 	name = "newcube3"
 	parent = "jawLower1"
-	offset = [5.1, -3.7399979, -4.959999]
 	position = [5.1, -3.7399979, -4.959999]
-	rotation = [-0.0, 25.0, 0.0]
+	rotation = [-0.0, 25.0, -0.0]
 [[bone]]
 	name = "newcube30"
 	parent = "jawLower1"
-	offset = [-5.10009, -3.7399979, -4.960037]
 	position = [-5.10009, -3.7399979, -4.960037]
-	rotation = [-0.0, -25.0, 0.0]
+	rotation = [-0.0, -25.0, -0.0]
 [[bone]]
 	name = "newcube4"
 	parent = "jawLower1"
-	offset = [0.0, -0.0099983215, -4.7363586]
 	position = [0.0, -0.0099983215, -4.7363586]
 [[bone]]
 	name = "crest1L"
 	parent = "head"
-	offset = [5.25, 0.3899994, -9.029999]
 	position = [5.25, 0.3899994, -9.029999]
-	rotation = [44.08, -0.39, 23.23]
+	rotation = [44.08, -0.39, -23.23]
 [[bone]]
 	name = "crest2L"
 	parent = "crest1L"
-	offset = [-0.01999998, -0.07999802, -0.010002136]
 	position = [-0.01999998, -0.07999802, -0.010002136]
-	rotation = [-7.7, -3.95, 14.6]
+	rotation = [-7.7, -3.95, -14.6]
 [[bone]]
 	name = "crest1BL"
 	parent = "crest1L"
-	offset = [0.96000004, 0.0, 0.0]
 	position = [0.96000004, 0.0, 0.0]
-	rotation = [-0.0, 0.0, -1.0]
+	rotation = [-0.0, 0.0, 1.0]
 [[bone]]
 	name = "crest3L"
 	parent = "crest1L"
-	offset = [0.94000006, -1.1011505, 1.3968277]
 	position = [0.94000006, -1.1011505, 1.3968277]
-	rotation = [-71.46, -0.32, -2.63]
+	rotation = [-71.46, -0.32, 2.63]
 [[bone]]
 	name = "crest4L"
 	parent = "crest3L"
-	offset = [-0.46000004, -0.049999237, -3.7799988]
 	position = [-0.46000004, -0.049999237, -3.7799988]
-	rotation = [9.72, 4.08, -4.4]
+	rotation = [9.72, 4.08, 4.4]
 [[bone]]
 	name = "crest5L"
 	parent = "crest4L"
-	offset = [0.0, 0.0, -3.9999962]
 	position = [0.0, 0.0, -3.9999962]
-	rotation = [-10.3, 0.6, 0.0]
+	rotation = [-10.3, 0.6, -0.0]
 [[bone]]
 	name = "crest1R"
 	parent = "head"
-	offset = [-5.25, 0.3899994, -9.029999]
 	position = [-5.25, 0.3899994, -9.029999]
-	rotation = [44.08, 0.39, -23.23]
+	rotation = [44.08, 0.39, 23.23]
 [[bone]]
 	name = "crest2R"
 	parent = "crest1R"
-	offset = [0.01999998, -0.07999802, -0.010002136]
 	position = [0.01999998, -0.07999802, -0.010002136]
-	rotation = [-7.7, 3.95, -14.6]
+	rotation = [-7.7, 3.95, 14.6]
 [[bone]]
 	name = "crest1BR"
 	parent = "crest1R"
-	offset = [-0.96000004, 0.0, 0.0]
 	position = [-0.96000004, 0.0, 0.0]
-	rotation = [-0.0, 0.0, 1.0]
+	rotation = [-0.0, 0.0, -1.0]
 [[bone]]
 	name = "crest3R"
 	parent = "crest1R"
-	offset = [-0.94000006, -1.1011581, 1.3999977]
 	position = [-0.94000006, -1.1011581, 1.3999977]
-	rotation = [-71.46, -0.32, 2.63]
+	rotation = [-71.46, -0.32, -2.63]
 [[bone]]
 	name = "crest4R"
 	parent = "crest3R"
-	offset = [0.4598999, -0.05000305, -3.7799988]
 	position = [0.4598999, -0.05000305, -3.7799988]
-	rotation = [9.72, -4.08, 4.4]
+	rotation = [9.72, -4.08, -4.4]
 [[bone]]
 	name = "crest5R"
 	parent = "crest4R"
-	offset = [0.0, 0.0, -4.0]
 	position = [0.0, 0.0, -4.0]
-	rotation = [-10.3, 0.6, 0.0]
+	rotation = [-10.3, 0.6, -0.0]
 [[bone]]
 	name = "jawUpper1"
 	parent = "head"
-	offset = [0.0, -8.701332, -7.8062706]
 	position = [0.0, -8.701332, -7.8062706]
-	rotation = [-14.53756, 0.0, 0.0]
+	rotation = [-14.53756, 0.0, -0.0]
 [[bone]]
 	name = "jawUpper2"
 	parent = "jawUpper1"
-	offset = [0.0, 0.0, -10.0]
 	position = [0.0, 0.0, -10.0]
-	rotation = [27.78, 0.0, 0.0]
+	rotation = [27.78, 0.0, -0.0]
 [[bone]]
 	name = "teethUpperLeft3"
 	parent = "jawUpper2"
-	offset = [3.6, -0.34999847, -4.5]
 	position = [3.6, -0.34999847, -4.5]
-	rotation = [-14.70439, 0.0, 0.0]
+	rotation = [-14.70439, 0.0, -0.0]
 [[bone]]
 	name = "teethUpperRight3"
 	parent = "jawUpper2"
-	offset = [-3.6, -0.34999847, -4.5]
 	position = [-3.6, -0.34999847, -4.5]
-	rotation = [-14.70439, 0.0, 0.0]
+	rotation = [-14.70439, 0.0, -0.0]
 [[bone]]
 	name = "teethUpperFront"
 	parent = "jawUpper2"
-	offset = [0.0, -0.43730927, -4.760475]
 	position = [0.0, -0.43730927, -4.760475]
-	rotation = [-14.5, 0.0, 0.0]
+	rotation = [-14.5, 0.0, -0.0]
 [[bone]]
 	name = "teethUpperLeft2"
 	parent = "jawUpper1"
-	offset = [4.11, 0.0, -10.0]
 	position = [4.11, 0.0, -10.0]
-	rotation = [-5.08719, 0.89972, -0.03182]
+	rotation = [-5.08719, 0.89972, 0.03182]
 [[bone]]
 	name = "teethUpperRight2"
 	parent = "jawUpper1"
-	offset = [-4.11, 0.0, -10.0]
 	position = [-4.11, 0.0, -10.0]
-	rotation = [-5.08719, -0.9, 0.0]
+	rotation = [-5.08719, -0.9, -0.0]
 [[bone]]
 	name = "newcube"
 	parent = "head"
-	offset = [5.25, -4.8899994, -7.220001]
 	position = [5.25, -4.8899994, -7.220001]
-	rotation = [-0.0, 23.85, 0.0]
+	rotation = [-0.0, 23.85, -0.0]
 [[bone]]
 	name = "newcube0"
 	parent = "head"
-	offset = [0.0, 0.0, -7.200001]
 	position = [0.0, 0.0, -7.200001]
 [[bone]]
 	name = "newcube1"
 	parent = "newcube0"
-	offset = [5.25, 3.0900002, -2.1799965]
 	position = [5.25, 3.0900002, -2.1799965]
 [[bone]]
 	name = "newcube2"
 	parent = "newcube0"
-	offset = [5.25, 3.0900002, -2.1799965]
 	position = [5.25, 3.0900002, -2.1799965]
 [[bone]]
 	name = "newcube0"
 	parent = "head"
-	offset = [-5.25, -4.8899994, -7.220001]
 	position = [-5.25, -4.8899994, -7.220001]
-	rotation = [-0.0, -23.85, 0.0]
+	rotation = [-0.0, -23.85, -0.0]
 [[bone]]
 	name = "newcube5"
 	parent = "head"
-	offset = [0.0, -8.799999, -7.220001]
 	position = [0.0, -8.799999, -7.220001]
 [[bone]]
 	name = "throat1"
 	parent = "neck1"
-	offset = [0.0, -15.337032, 6.250061]
 	position = [0.0, -15.337032, 6.250061]
-	rotation = [27.72, 0.0, 0.0]
+	rotation = [27.72, 0.0, -0.0]
 [[bone]]
 	name = "throat2"
 	parent = "throat1"
-	offset = [0.0, 4.68869, -3.8575401]
 	position = [0.0, 4.68869, -3.8575401]
-	rotation = [-42.33, 0.0, 0.0]
+	rotation = [-42.33, 0.0, -0.0]
 [[bone]]
 	name = "throat3"
 	parent = "throat2"
-	offset = [0.0, -2.4500008, -8.511871]
 	position = [0.0, -2.4500008, -8.511871]
-	rotation = [16.42, 0.0, 0.0]
+	rotation = [16.42, 0.0, -0.0]
 [[bone]]
 	name = "throat4"
 	parent = "throat3"
-	offset = [0.0, 0.020000458, -4.0]
 	position = [0.0, 0.020000458, -4.0]
-	rotation = [3.59, 0.0, 0.0]
+	rotation = [3.59, 0.0, -0.0]
 [[bone]]
 	name = "bicepLeft"
 	parent = "shoulders"
-	offset = [6.45, -16.940002, -11.96]
 	position = [6.45, -16.940002, -11.96]
-	rotation = [8.27, -6.35, -8.09]
+	rotation = [8.27, -6.35, 8.09]
 [[bone]]
 	name = "forearmLeft"
 	parent = "bicepLeft"
-	offset = [0.01999998, -4.92, 0.23502922]
 	position = [0.01999998, -4.92, 0.23502922]
-	rotation = [37.77, -17.87, 21.7]
+	rotation = [37.77, -17.87, -21.7]
 [[bone]]
 	name = "leftMiddleFinger"
 	parent = "forearmLeft"
-	offset = [0.6600003, -5.6399994, -1.0699997]
 	position = [0.6600003, -5.6399994, -1.0699997]
-	rotation = [-70.67, 42.48, 58.25]
+	rotation = [-70.67, 42.48, -58.25]
 [[bone]]
 	name = "clawMiddleFingerL"
 	parent = "leftMiddleFinger"
-	offset = [0.010029793, -2.3944607, 0.05591011]
 	position = [0.010029793, -2.3944607, 0.05591011]
-	rotation = [-0.0, 0.0, 13.52]
+	rotation = [-0.0, 0.0, -13.52]
 [[bone]]
 	name = "leftIndexFinger"
 	parent = "leftMiddleFinger"
-	offset = [-0.19813013, -0.040000916, -0.9200001]
 	position = [-0.19813013, -0.040000916, -0.9200001]
-	rotation = [12.0, 12.0, 0.68]
+	rotation = [12.0, 12.0, -0.68]
 [[bone]]
 	name = "clawIndexFingerL"
 	parent = "leftIndexFinger"
-	offset = [-0.1613698, -1.92939, -0.083589554]
 	position = [-0.1613698, -1.92939, -0.083589554]
-	rotation = [-0.0, 0.0, 12.77]
+	rotation = [-0.0, 0.0, -12.77]
 [[bone]]
 	name = "bicepRight"
 	parent = "shoulders"
-	offset = [-6.45, -16.940002, -11.96]
 	position = [-6.45, -16.940002, -11.96]
-	rotation = [8.27, 6.35, 8.09]
+	rotation = [8.27, 6.35, -8.09]
 [[bone]]
 	name = "forearmRight"
 	parent = "bicepRight"
-	offset = [-0.01999998, -4.92, 0.23999977]
 	position = [-0.01999998, -4.92, 0.23999977]
-	rotation = [37.77, 17.87, -21.7]
+	rotation = [37.77, 17.87, 21.7]
 [[bone]]
 	name = "rightMiddleFinger"
 	parent = "forearmRight"
-	offset = [-0.6600003, -5.6399994, -1.0699997]
 	position = [-0.6600003, -5.6399994, -1.0699997]
-	rotation = [-70.67, -42.48, -58.25]
+	rotation = [-70.67, -42.48, 58.25]
 [[bone]]
 	name = "clawMiddleFingerR"
 	parent = "rightMiddleFinger"
-	offset = [0.010000229, -2.3899994, 0.059999466]
 	position = [0.010000229, -2.3899994, 0.059999466]
-	rotation = [-0.0, 0.0, -13.52]
+	rotation = [-0.0, 0.0, 13.52]
 [[bone]]
 	name = "rightIndexFinger"
 	parent = "rightMiddleFinger"
-	offset = [0.20000029, 0.040000916, -0.9200001]
 	position = [0.20000029, 0.040000916, -0.9200001]
-	rotation = [12.0, -12.0, -0.68]
+	rotation = [12.0, -12.0, 0.68]
 [[bone]]
 	name = "clawIndexFingerR"
 	parent = "rightIndexFinger"
-	offset = [0.16837978, -1.9320202, -0.0858593]
 	position = [0.16837978, -1.9320202, -0.0858593]
-	rotation = [-0.0, 0.0, -12.77]
+	rotation = [-0.0, 0.0, 12.77]
 [[bone]]
 	name = "belly2"
 	parent = "hips"
-	offset = [0.0, -21.205751, -11.25608]
 	position = [0.0, -21.205751, -11.25608]
-	rotation = [-3.77, 0.0, 0.0]
+	rotation = [-3.77, 0.0, -0.0]
 [[bone]]
 	name = "tailLower"
 	parent = "belly2"
-	offset = [0.0, 0.10000038, 16.0]
 	position = [0.0, 0.10000038, 16.0]
-	rotation = [-27.55, 0.0, 0.0]
+	rotation = [-27.55, 0.0, -0.0]
 [[bone]]
 	name = "tail1"
 	parent = "hips"
-	offset = [0.0, 2.6385689, 5.4615498]
 	position = [0.0, 2.6385689, 5.4615498]
-	rotation = [5.2, 0.0, 0.0]
+	rotation = [5.2, 0.0, -0.0]
 [[bone]]
 	name = "tail2"
 	parent = "tail1"
-	offset = [0.0, -0.14999771, 18.34748]
 	position = [0.0, -0.14999771, 18.34748]
-	rotation = [-10.92, 0.0, 0.0]
+	rotation = [-10.92, 0.0, -0.0]
 [[bone]]
 	name = "tail3"
 	parent = "tail2"
-	offset = [0.0, 0.62674713, 20.657988]
 	position = [0.0, 0.62674713, 20.657988]
-	rotation = [-3.06, 0.0, 0.0]
+	rotation = [-3.06, 0.0, -0.0]
 [[bone]]
 	name = "tail4"
 	parent = "tail3"
-	offset = [0.0, -0.40415955, 27.10009]
 	position = [0.0, -0.40415955, 27.10009]
-	rotation = [6.62, 0.0, 0.0]
+	rotation = [6.62, 0.0, -0.0]
 [[bone]]
 	name = "thighRight"
-	offset = [-6.5, 42.53, 7.71]
 	position = [-6.5, 42.53, 7.71]
-	rotation = [4.09, 0.0, 3.48]
+	rotation = [4.09, 0.0, -3.48]
 [[bone]]
 	name = "calfRight"
 	parent = "thighRight"
-	offset = [-0.3000002, -15.999998, -7.94]
 	position = [-0.3000002, -15.999998, -7.94]
-	rotation = [-43.72, 0.38, -3.46]
+	rotation = [-43.72, 0.38, 3.46]
 [[bone]]
 	name = "ankleRight"
 	parent = "calfRight"
-	offset = [0.0, -20.93, 7.53]
 	position = [0.0, -20.93, 7.53]
-	rotation = [63.46, 0.0, 0.0]
+	rotation = [63.46, 0.0, -0.0]
 [[bone]]
 	name = "footRight"
 	parent = "ankleRight"
-	offset = [3.0040741E-5, -15.68, -1.29]
 	position = [3.0040741E-5, -15.68, -1.29]
-	rotation = [-23.869, 3.46917, 1.53188]
+	rotation = [-23.869, 3.46917, -1.53188]
 [[bone]]
 	name = "thighLeft"
-	offset = [6.5, 42.53, 7.71]
 	position = [6.5, 42.53, 7.71]
-	rotation = [4.09, 0.0, -3.48]
+	rotation = [4.09, 0.0, 3.48]
 [[bone]]
 	name = "calfLeft"
 	parent = "thighLeft"
-	offset = [0.3000002, -15.999998, -7.94]
 	position = [0.3000002, -15.999998, -7.94]
-	rotation = [-43.72, -0.38, 3.46]
+	rotation = [-43.72, -0.38, -3.46]
 [[bone]]
 	name = "ankleLeft"
 	parent = "calfLeft"
-	offset = [0.0, -20.93, 7.53]
 	position = [0.0, -20.93, 7.53]
-	rotation = [63.46, 0.0, 0.0]
+	rotation = [63.46, 0.0, -0.0]
 [[bone]]
 	name = "footLeft"
 	parent = "ankleLeft"
-	offset = [0.0, -15.68, -1.29]
 	position = [0.0, -15.68, -1.29]
-	rotation = [-23.86902, -3.47, -1.53]
+	rotation = [-23.86902, -3.47, 1.53]
 
 [[cube]]
 	name = "hips_cube_0"
@@ -535,599 +447,599 @@
 	size = [17, 23, 27]
 	grow = [-0.14999962, -0.39999962, 0.0]
 	offset = [-8.5, -15.77846, -21.782051]
-	textures = {layer = "default", px_uv = [207, 233, 234, 255], nx_uv = [163, 233, 190, 255], py_uv = [207, 206, 190, 233], ny_uv = [224, 233, 207, 206], pz_uv = [234, 233, 251, 255], nz_uv = [190, 233, 207, 255]}
+	textures = {layer = "default", px_uv = [234, 233, 207, 255], nx_uv = [190, 233, 163, 255], py_uv = [190, 233, 207, 206], ny_uv = [207, 206, 224, 233], pz_uv = [234, 233, 251, 255], nz_uv = [190, 233, 207, 255]}
 [[cube]]
 	name = "shoulders_cube_0"
 	parent = "shoulders"
 	size = [16, 20, 14]
 	grow = [-0.4000001, 0.0, 0.0]
 	offset = [-8.0, -19.672974, -14.000001]
-	textures = {layer = "default", px_uv = [207, 185, 221, 205], nx_uv = [178, 185, 192, 205], py_uv = [207, 171, 192, 185], ny_uv = [222, 185, 207, 171], pz_uv = [221, 185, 236, 205], nz_uv = [192, 185, 207, 205]}
+	textures = {layer = "default", px_uv = [221, 185, 207, 205], nx_uv = [192, 185, 178, 205], py_uv = [192, 185, 207, 171], ny_uv = [207, 171, 222, 185], pz_uv = [221, 185, 236, 205], nz_uv = [192, 185, 207, 205]}
 [[cube]]
 	name = "shoulderUnder_cube_0"
 	parent = "shoulderUnder"
 	size = [15, 2, 10]
 	grow = [-0.010000229, 0.0, 0.0]
 	offset = [-7.5, 0.0, 0.0]
-	textures = {layer = "default", px_uv = [152, 202, 162, 204], nx_uv = [127, 202, 137, 204], py_uv = [152, 192, 137, 202], ny_uv = [167, 202, 152, 192], pz_uv = [162, 202, 177, 204], nz_uv = [137, 202, 152, 204]}
+	textures = {layer = "default", px_uv = [162, 202, 152, 204], nx_uv = [137, 202, 127, 204], py_uv = [137, 202, 152, 192], ny_uv = [152, 192, 167, 202], pz_uv = [162, 202, 177, 204], nz_uv = [137, 202, 152, 204]}
 [[cube]]
 	name = "chest_cube_0"
 	parent = "chest"
 	size = [11, 8, 4]
 	grow = [-0.099999905, 0.0, 0.0]
 	offset = [-5.5, 0.0, 0.0]
-	textures = {layer = "default", px_uv = [112, 155, 116, 163], nx_uv = [97, 155, 101, 163], py_uv = [112, 151, 101, 155], ny_uv = [123, 155, 112, 151], pz_uv = [116, 155, 127, 163], nz_uv = [101, 155, 112, 163]}
+	textures = {layer = "default", px_uv = [116, 155, 112, 163], nx_uv = [101, 155, 97, 163], py_uv = [101, 155, 112, 151], ny_uv = [112, 151, 123, 155], pz_uv = [116, 155, 127, 163], nz_uv = [101, 155, 112, 163]}
 [[cube]]
 	name = "belly1_cube_0"
 	parent = "belly1"
 	size = [14, 9, 18]
 	grow = [-0.19999981, 0.0, 0.0]
 	offset = [-7.0, 0.0, 0.0]
-	textures = {layer = "default", px_uv = [112, 182, 130, 191], nx_uv = [80, 182, 98, 191], py_uv = [112, 164, 98, 182], ny_uv = [126, 182, 112, 164], pz_uv = [130, 182, 144, 191], nz_uv = [98, 182, 112, 191]}
+	textures = {layer = "default", px_uv = [130, 182, 112, 191], nx_uv = [98, 182, 80, 191], py_uv = [98, 182, 112, 164], ny_uv = [112, 164, 126, 182], pz_uv = [130, 182, 144, 191], nz_uv = [98, 182, 112, 191]}
 [[cube]]
 	name = "neck1_cube_0"
 	parent = "neck1"
 	size = [10, 12, 14]
 	grow = [-0.4000001, -0.099999905, 0.0]
 	offset = [-5.0, -9.272631, -7.2222404]
-	textures = {layer = "default", px_uv = [207, 158, 221, 170], nx_uv = [184, 158, 198, 170], py_uv = [207, 144, 198, 158], ny_uv = [216, 158, 207, 144], pz_uv = [221, 158, 230, 170], nz_uv = [198, 158, 207, 170]}
+	textures = {layer = "default", px_uv = [221, 158, 207, 170], nx_uv = [198, 158, 184, 170], py_uv = [198, 158, 207, 144], ny_uv = [207, 144, 216, 158], pz_uv = [221, 158, 230, 170], nz_uv = [198, 158, 207, 170]}
 [[cube]]
 	name = "neck2_cube_0"
 	parent = "neck2"
 	size = [9, 12, 10]
 	grow = [-0.099999905, -0.4000001, -0.4000001]
 	offset = [-4.5, -0.4000001, -9.6]
-	textures = {layer = "default", px_uv = [207, 132, 216, 143], nx_uv = [189, 132, 198, 143], py_uv = [207, 123, 198, 132], ny_uv = [216, 132, 207, 123], pz_uv = [216, 132, 225, 143], nz_uv = [198, 132, 207, 143]}
+	textures = {layer = "default", px_uv = [216, 132, 207, 143], nx_uv = [198, 132, 189, 143], py_uv = [198, 132, 207, 123], ny_uv = [207, 123, 216, 132], pz_uv = [216, 132, 225, 143], nz_uv = [198, 132, 207, 143]}
 [[cube]]
 	name = "neck3_cube_0"
 	parent = "neck3"
 	size = [9, 12, 5]
 	grow = [-0.01999998, -0.3000002, -0.4000001]
 	offset = [-4.5, -11.700002, -4.600001]
-	textures = {layer = "default", px_uv = [207, 111, 211, 122], nx_uv = [194, 111, 198, 122], py_uv = [207, 107, 198, 111], ny_uv = [216, 111, 207, 107], pz_uv = [211, 111, 220, 122], nz_uv = [198, 111, 207, 122]}
+	textures = {layer = "default", px_uv = [211, 111, 207, 122], nx_uv = [198, 111, 194, 122], py_uv = [198, 111, 207, 107], ny_uv = [207, 107, 216, 111], pz_uv = [211, 111, 220, 122], nz_uv = [198, 111, 207, 122]}
 [[cube]]
 	name = "neck4_cube_0"
 	parent = "neck4"
 	size = [9, 11, 9]
 	grow = [-0.119999886, -0.19999981, 0.0]
 	offset = [-4.5, -10.799998, -9.0]
-	textures = {layer = "default", px_uv = [207, 95, 216, 106], nx_uv = [189, 95, 198, 106], py_uv = [207, 86, 198, 95], ny_uv = [216, 95, 207, 86], pz_uv = [216, 95, 225, 106], nz_uv = [198, 95, 207, 106]}
+	textures = {layer = "default", px_uv = [216, 95, 207, 106], nx_uv = [198, 95, 189, 106], py_uv = [198, 95, 207, 86], ny_uv = [207, 86, 216, 95], pz_uv = [216, 95, 225, 106], nz_uv = [198, 95, 207, 106]}
 [[cube]]
 	name = "head_cube_0"
 	parent = "head"
 	size = [11, 9, 8]
 	grow = [-0.25, -0.099999905, -0.3900001]
 	offset = [-5.5, -8.9, -7.6100016]
-	textures = {layer = "default", px_uv = [207, 76, 214, 85], nx_uv = [189, 76, 196, 85], py_uv = [207, 69, 196, 76], ny_uv = [218, 76, 207, 69], pz_uv = [214, 76, 225, 85], nz_uv = [196, 76, 207, 85]}
+	textures = {layer = "default", px_uv = [214, 76, 207, 85], nx_uv = [196, 76, 189, 85], py_uv = [196, 76, 207, 69], ny_uv = [207, 69, 218, 76], pz_uv = [214, 76, 225, 85], nz_uv = [196, 76, 207, 85]}
 [[cube]]
 	name = "snout1_cube_0"
 	parent = "snout1"
 	size = [6, 3, 7]
 	grow = [-0.45000005, 0.0, 0.0]
 	offset = [-3.0, -3.0, -7.000004]
-	textures = {layer = "default", px_uv = [240, 81, 247, 84], nx_uv = [228, 81, 235, 84], py_uv = [240, 74, 235, 81], ny_uv = [245, 81, 240, 74], pz_uv = [247, 81, 252, 84], nz_uv = [235, 81, 240, 84]}
+	textures = {layer = "default", px_uv = [247, 81, 240, 84], nx_uv = [235, 81, 228, 84], py_uv = [235, 81, 240, 74], ny_uv = [240, 74, 245, 81], pz_uv = [247, 81, 252, 84], nz_uv = [235, 81, 240, 84]}
 [[cube]]
 	name = "snout2_cube_0"
 	parent = "snout2"
 	size = [6, 5, 8]
 	grow = [-0.20000005, 0.0, 0.0]
 	offset = [-3.0, -5.0, -7.3383293]
-	textures = {layer = "default", px_uv = [240, 68, 248, 73], nx_uv = [226, 68, 234, 73], py_uv = [240, 60, 234, 68], ny_uv = [246, 68, 240, 60], pz_uv = [248, 68, 254, 73], nz_uv = [234, 68, 240, 73]}
+	textures = {layer = "default", px_uv = [248, 68, 240, 73], nx_uv = [234, 68, 226, 73], py_uv = [234, 68, 240, 60], ny_uv = [240, 60, 246, 68], pz_uv = [248, 68, 254, 73], nz_uv = [234, 68, 240, 73]}
 [[cube]]
 	name = "snout3_cube_0"
 	parent = "snout3"
 	size = [6, 5, 7]
 	grow = [-0.3499999, 0.0, -0.4000001]
 	offset = [-3.0, -5.0, -6.6000047]
-	textures = {layer = "default", px_uv = [240, 54, 246, 59], nx_uv = [229, 54, 235, 59], py_uv = [240, 48, 235, 54], ny_uv = [245, 54, 240, 48], pz_uv = [246, 54, 251, 59], nz_uv = [235, 54, 240, 59]}
+	textures = {layer = "default", px_uv = [246, 54, 240, 59], nx_uv = [235, 54, 229, 59], py_uv = [235, 54, 240, 48], ny_uv = [240, 48, 245, 54], pz_uv = [246, 54, 251, 59], nz_uv = [235, 54, 240, 59]}
 [[cube]]
 	name = "snout2B_cube_0"
 	parent = "snout2B"
 	size = [8, 4, 8]
 	grow = [-0.3599999, 0.0, 0.0]
 	offset = [-4.0, -3.0, -5.000004]
-	textures = {layer = "default", px_uv = [240, 43, 248, 47], nx_uv = [225, 43, 233, 47], py_uv = [240, 35, 233, 43], ny_uv = [247, 43, 240, 35], pz_uv = [248, 43, 255, 47], nz_uv = [233, 43, 240, 47]}
+	textures = {layer = "default", px_uv = [248, 43, 240, 47], nx_uv = [233, 43, 225, 47], py_uv = [233, 43, 240, 35], ny_uv = [240, 35, 247, 43], pz_uv = [248, 43, 255, 47], nz_uv = [233, 43, 240, 47]}
 [[cube]]
 	name = "snout3B_cube_0"
 	parent = "snout3B"
 	size = [7, 5, 7]
 	grow = [-0.099999905, 0.0, -0.45000005]
 	offset = [-3.5, -5.0, -6.5499983]
-	textures = {layer = "default", px_uv = [240, 29, 246, 34], nx_uv = [227, 29, 233, 34], py_uv = [240, 23, 233, 29], ny_uv = [247, 29, 240, 23], pz_uv = [246, 29, 253, 34], nz_uv = [233, 29, 240, 34]}
+	textures = {layer = "default", px_uv = [246, 29, 240, 34], nx_uv = [233, 29, 227, 34], py_uv = [233, 29, 240, 23], ny_uv = [240, 23, 247, 29], pz_uv = [246, 29, 253, 34], nz_uv = [233, 29, 240, 34]}
 [[cube]]
 	name = "head2_cube_0"
 	parent = "head2"
 	size = [11, 8, 3]
 	grow = [-0.36000013, -0.20000005, -0.100000024]
 	offset = [-5.5, -7.7999983, -1.8999993]
-	textures = {layer = "default", px_uv = [168, 73, 171, 81], nx_uv = [155, 73, 158, 81], py_uv = [168, 70, 158, 73], ny_uv = [178, 73, 168, 70], pz_uv = [171, 73, 181, 81], nz_uv = [158, 73, 168, 81]}
+	textures = {layer = "default", px_uv = [171, 73, 168, 81], nx_uv = [158, 73, 155, 81], py_uv = [158, 73, 168, 70], ny_uv = [168, 70, 178, 73], pz_uv = [171, 73, 181, 81], nz_uv = [158, 73, 168, 81]}
 [[cube]]
 	name = "jawLower1_cube_0"
 	parent = "jawLower1"
 	size = [11, 8, 5]
 	grow = [-0.4000001, -0.25, -0.01999998]
 	offset = [-5.5, -7.75, -4.979999]
-	textures = {layer = "default", px_uv = [168, 62, 173, 69], nx_uv = [153, 62, 158, 69], py_uv = [168, 57, 158, 62], ny_uv = [178, 62, 168, 57], pz_uv = [173, 62, 183, 69], nz_uv = [158, 62, 168, 69]}
+	textures = {layer = "default", px_uv = [173, 62, 168, 69], nx_uv = [158, 62, 153, 69], py_uv = [158, 62, 168, 57], ny_uv = [168, 57, 178, 62], pz_uv = [173, 62, 183, 69], nz_uv = [158, 62, 168, 69]}
 [[cube]]
 	name = "jawLower2_cube_0"
 	parent = "jawLower2"
 	size = [9, 3, 9]
 	grow = [-0.42000008, -0.100000024, -0.07999992]
 	offset = [-4.5, -2.8999991, -8.92]
-	textures = {layer = "default", px_uv = [168, 51, 177, 54], nx_uv = [151, 51, 160, 54], py_uv = [168, 42, 160, 51], ny_uv = [176, 51, 168, 42], pz_uv = [177, 51, 185, 54], nz_uv = [160, 51, 168, 54]}
+	textures = {layer = "default", px_uv = [177, 51, 168, 54], nx_uv = [160, 51, 151, 54], py_uv = [160, 51, 168, 42], ny_uv = [168, 42, 176, 51], pz_uv = [177, 51, 185, 54], nz_uv = [160, 51, 168, 54]}
 [[cube]]
 	name = "jawLower3_cube_0"
 	parent = "jawLower3"
 	size = [7, 3, 6]
 	grow = [0.0, -0.26, -0.25]
 	offset = [-3.5, -2.800001, -5.75]
-	textures = {layer = "default", px_uv = [168, 38, 173, 41], nx_uv = [156, 38, 161, 41], py_uv = [168, 33, 161, 38], ny_uv = [175, 38, 168, 33], pz_uv = [173, 38, 180, 41], nz_uv = [161, 38, 168, 41]}
+	textures = {layer = "default", px_uv = [173, 38, 168, 41], nx_uv = [161, 38, 156, 41], py_uv = [161, 38, 168, 33], ny_uv = [168, 33, 175, 38], pz_uv = [173, 38, 180, 41], nz_uv = [161, 38, 168, 41]}
 [[cube]]
 	name = "jawLower4_cube_0"
 	parent = "jawLower4"
 	size = [6, 2, 5]
 	offset = [-3.0, 0.0, 0.0]
-	textures = {layer = "default", px_uv = [168, 30, 173, 32], nx_uv = [157, 30, 162, 32], py_uv = [168, 25, 162, 30], ny_uv = [174, 30, 168, 25], pz_uv = [173, 30, 179, 32], nz_uv = [162, 30, 168, 32]}
+	textures = {layer = "default", px_uv = [173, 30, 168, 32], nx_uv = [162, 30, 157, 32], py_uv = [162, 30, 168, 25], ny_uv = [168, 25, 174, 30], pz_uv = [173, 30, 179, 32], nz_uv = [162, 30, 168, 32]}
 [[cube]]
 	name = "jawLower5_cube_0"
 	parent = "jawLower5"
 	size = [7, 4, 10]
 	grow = [-0.00999999, -0.100000024, 0.0]
 	offset = [-3.5, -0.100000024, 0.0]
-	textures = {layer = "default", px_uv = [168, 20, 178, 24], nx_uv = [151, 20, 161, 24], py_uv = [168, 10, 161, 20], ny_uv = [175, 20, 168, 10], pz_uv = [178, 20, 185, 24], nz_uv = [161, 20, 168, 24]}
+	textures = {layer = "default", px_uv = [178, 20, 168, 24], nx_uv = [161, 20, 151, 24], py_uv = [161, 20, 168, 10], ny_uv = [168, 10, 175, 20], pz_uv = [178, 20, 185, 24], nz_uv = [161, 20, 168, 24]}
 [[cube]]
 	name = "lowerJaw6B_cube_0"
 	parent = "lowerJaw6B"
 	size = [7, 1, 2]
 	grow = [-0.00999999, 0.0, 0.0]
 	offset = [-3.5, 0.0, 0.0]
-	textures = {layer = "default", px_uv = [207, 38, 209, 39], nx_uv = [198, 38, 200, 39], py_uv = [207, 36, 200, 38], ny_uv = [214, 38, 207, 36], pz_uv = [209, 38, 216, 39], nz_uv = [200, 38, 207, 39]}
+	textures = {layer = "default", px_uv = [209, 38, 207, 39], nx_uv = [200, 38, 198, 39], py_uv = [200, 38, 207, 36], ny_uv = [207, 36, 214, 38], pz_uv = [209, 38, 216, 39], nz_uv = [200, 38, 207, 39]}
 [[cube]]
 	name = "teethLowerLeft3_cube_0"
 	parent = "teethLowerLeft3"
 	size = [0, 3, 5]
-	textures = {layer = "default", px_uv = [95, 133, 100, 136], nx_uv = [90, 133, 95, 136], py_uv = [95, 128, 95, 133], ny_uv = [95, 133, 95, 128], pz_uv = [100, 133, 100, 136], nz_uv = [95, 133, 95, 136]}
+	textures = {layer = "default", px_uv = [100, 133, 95, 136], nx_uv = [95, 133, 90, 136], py_uv = [95, 133, 95, 128], ny_uv = [95, 128, 95, 133], pz_uv = [100, 133, 100, 136], nz_uv = [95, 133, 95, 136]}
 [[cube]]
 	name = "teethLowerRight3_cube_0"
 	parent = "teethLowerRight3"
 	size = [0, 3, 5]
-	textures = {layer = "default", px_uv = [76, 133, 81, 136], nx_uv = [71, 133, 76, 136], py_uv = [76, 128, 76, 133], ny_uv = [76, 133, 76, 128], pz_uv = [81, 133, 81, 136], nz_uv = [76, 133, 76, 136]}
+	textures = {layer = "default", px_uv = [81, 133, 76, 136], nx_uv = [76, 133, 71, 136], py_uv = [76, 133, 76, 128], ny_uv = [76, 128, 76, 133], pz_uv = [81, 133, 81, 136], nz_uv = [76, 133, 76, 136]}
 [[cube]]
 	name = "teethLowerFront_cube_0"
 	parent = "teethLowerFront"
 	size = [7, 3, 0]
 	grow = [-0.099999905, 0.0, 0.0]
 	offset = [-3.5, 0.0, 0.0]
-	textures = {layer = "default", px_uv = [114, 129, 114, 132], nx_uv = [107, 129, 107, 132], py_uv = [114, 129, 107, 129], ny_uv = [121, 129, 114, 129], pz_uv = [114, 129, 121, 132], nz_uv = [107, 129, 114, 132]}
+	textures = {layer = "default", px_uv = [114, 129, 114, 132], nx_uv = [107, 129, 107, 132], py_uv = [107, 129, 114, 129], ny_uv = [114, 129, 121, 129], pz_uv = [114, 129, 121, 132], nz_uv = [107, 129, 114, 132]}
 [[cube]]
 	name = "teethLowerLeft2_cube_0"
 	parent = "teethLowerLeft2"
 	size = [0, 3, 8]
-	textures = {layer = "default", px_uv = [98, 129, 106, 132], nx_uv = [90, 129, 98, 132], py_uv = [98, 121, 98, 129], ny_uv = [98, 129, 98, 121], pz_uv = [106, 129, 106, 132], nz_uv = [98, 129, 98, 132]}
+	textures = {layer = "default", px_uv = [106, 129, 98, 132], nx_uv = [98, 129, 90, 132], py_uv = [98, 129, 98, 121], ny_uv = [98, 121, 98, 129], pz_uv = [106, 129, 106, 132], nz_uv = [98, 129, 98, 132]}
 [[cube]]
 	name = "teethLowerRight2_cube_0"
 	parent = "teethLowerRight2"
 	size = [0, 3, 8]
-	textures = {layer = "default", px_uv = [79, 129, 87, 132], nx_uv = [71, 129, 79, 132], py_uv = [79, 121, 79, 129], ny_uv = [79, 129, 79, 121], pz_uv = [87, 129, 87, 132], nz_uv = [79, 129, 79, 132]}
+	textures = {layer = "default", px_uv = [87, 129, 79, 132], nx_uv = [79, 129, 71, 132], py_uv = [79, 129, 79, 121], ny_uv = [79, 121, 79, 129], pz_uv = [87, 129, 87, 132], nz_uv = [79, 129, 79, 132]}
 [[cube]]
 	name = "cheekLeft_cube_0"
 	parent = "cheekLeft"
 	size = [1, 6, 7]
 	grow = [-0.49, 0.0, 0.0]
 	offset = [-0.51, 0.0, 0.0]
-	textures = {layer = "default", px_uv = [98, 122, 105, 128], nx_uv = [90, 122, 97, 128], py_uv = [98, 115, 97, 122], ny_uv = [99, 122, 98, 115], pz_uv = [105, 122, 106, 128], nz_uv = [97, 122, 98, 128]}
+	textures = {layer = "default", px_uv = [105, 122, 98, 128], nx_uv = [97, 122, 90, 128], py_uv = [97, 122, 98, 115], ny_uv = [98, 115, 99, 122], pz_uv = [105, 122, 106, 128], nz_uv = [97, 122, 98, 128]}
 [[cube]]
 	name = "throat5_cube_0"
 	parent = "throat5"
 	size = [6, 4, 9]
 	grow = [-0.20000005, 0.0, 0.0]
 	offset = [-3.0, 0.0, -1.0]
-	textures = {layer = "default", px_uv = [168, 101, 177, 105], nx_uv = [153, 101, 162, 105], py_uv = [168, 92, 162, 101], ny_uv = [174, 101, 168, 92], pz_uv = [177, 101, 183, 105], nz_uv = [162, 101, 168, 105]}
+	textures = {layer = "default", px_uv = [177, 101, 168, 105], nx_uv = [162, 101, 153, 105], py_uv = [162, 101, 168, 92], ny_uv = [168, 92, 174, 101], pz_uv = [177, 101, 183, 105], nz_uv = [162, 101, 168, 105]}
 [[cube]]
 	name = "cheekRight_cube_0"
 	parent = "cheekRight"
 	size = [1, 6, 7]
 	grow = [-0.49, 0.0, 0.0]
 	offset = [-0.49, 0.0, 0.0]
-	textures = {layer = "default", px_uv = [79, 122, 86, 128], nx_uv = [71, 122, 78, 128], py_uv = [79, 115, 78, 122], ny_uv = [80, 122, 79, 115], pz_uv = [86, 122, 87, 128], nz_uv = [78, 122, 79, 128]}
+	textures = {layer = "default", px_uv = [86, 122, 79, 128], nx_uv = [78, 122, 71, 128], py_uv = [78, 122, 79, 115], ny_uv = [79, 115, 80, 122], pz_uv = [86, 122, 87, 128], nz_uv = [78, 122, 79, 128]}
 [[cube]]
 	name = "newcube3_cube_0"
 	parent = "newcube3"
 	size = [2, 8, 2]
 	grow = [0.0, -0.27999997, -0.01999998]
 	offset = [-2.0, -4.000001, -1.9799991]
-	textures = {layer = "default", px_uv = [143, 50, 145, 57], nx_uv = [139, 50, 141, 57], py_uv = [143, 48, 141, 50], ny_uv = [145, 50, 143, 48], pz_uv = [145, 50, 147, 57], nz_uv = [141, 50, 143, 57]}
+	textures = {layer = "default", px_uv = [145, 50, 143, 57], nx_uv = [141, 50, 139, 57], py_uv = [141, 50, 143, 48], ny_uv = [143, 48, 145, 50], pz_uv = [145, 50, 147, 57], nz_uv = [141, 50, 143, 57]}
 [[cube]]
 	name = "newcube30_cube_0"
 	parent = "newcube30"
 	size = [2, 8, 2]
 	grow = [0.0, -0.27999997, -0.01999998]
 	offset = [1.001358E-4, -4.000001, -1.9800029]
-	textures = {layer = "default", px_uv = [143, 62, 145, 69], nx_uv = [139, 62, 141, 69], py_uv = [143, 60, 141, 62], ny_uv = [145, 62, 143, 60], pz_uv = [145, 62, 147, 69], nz_uv = [141, 62, 143, 69]}
+	textures = {layer = "default", px_uv = [145, 62, 143, 69], nx_uv = [141, 62, 139, 69], py_uv = [141, 62, 143, 60], ny_uv = [143, 60, 145, 62], pz_uv = [145, 62, 147, 69], nz_uv = [141, 62, 143, 69]}
 [[cube]]
 	name = "newcube4_cube_0"
 	parent = "newcube4"
 	size = [9, 8, 2]
 	grow = [-0.23000002, -0.26, 0.0]
 	offset = [-4.5, -7.74, -2.0]
-	textures = {layer = "default", px_uv = [205, 17, 207, 24], nx_uv = [194, 17, 196, 24], py_uv = [205, 15, 196, 17], ny_uv = [214, 17, 205, 15], pz_uv = [207, 17, 216, 24], nz_uv = [196, 17, 205, 24]}
+	textures = {layer = "default", px_uv = [207, 17, 205, 24], nx_uv = [196, 17, 194, 24], py_uv = [196, 17, 205, 15], ny_uv = [205, 15, 214, 17], pz_uv = [207, 17, 216, 24], nz_uv = [196, 17, 205, 24]}
 [[cube]]
 	name = "crest1L_cube_0"
 	parent = "crest1L"
 	size = [1, 7, 4]
 	grow = [-0.02000001, -0.18000007, -0.100000024]
 	offset = [-0.02000001, -6.8199997, -0.100000024]
-	textures = {layer = "default", px_uv = [74, 101, 78, 108], nx_uv = [69, 101, 73, 108], py_uv = [74, 97, 73, 101], ny_uv = [75, 101, 74, 97], pz_uv = [78, 101, 79, 108], nz_uv = [73, 101, 74, 108]}
+	textures = {layer = "default", px_uv = [78, 101, 74, 108], nx_uv = [73, 101, 69, 108], py_uv = [73, 101, 74, 97], ny_uv = [74, 97, 75, 101], pz_uv = [78, 101, 79, 108], nz_uv = [73, 101, 74, 108]}
 [[cube]]
 	name = "crest2L_cube_0"
 	parent = "crest2L"
 	size = [1, 2, 6]
 	grow = [-0.00999999, -0.43, -0.4000001]
 	offset = [-0.00999999, -0.43, -0.4000001]
-	textures = {layer = "default", px_uv = [62, 105, 67, 106], nx_uv = [56, 105, 61, 106], py_uv = [62, 100, 61, 105], ny_uv = [63, 105, 62, 100], pz_uv = [67, 105, 68, 106], nz_uv = [61, 105, 62, 106]}
+	textures = {layer = "default", px_uv = [67, 105, 62, 106], nx_uv = [61, 105, 56, 106], py_uv = [61, 105, 62, 100], ny_uv = [62, 100, 63, 105], pz_uv = [67, 105, 68, 106], nz_uv = [61, 105, 62, 106]}
 [[cube]]
 	name = "crest1BL_cube_0"
 	parent = "crest1BL"
 	size = [1, 1, 4]
 	grow = [-0.19999999, -0.099999994, 0.0]
 	offset = [-0.7999999, -0.099999994, 0.0]
-	textures = {layer = "default", px_uv = [74, 113, 78, 114], nx_uv = [69, 113, 73, 114], py_uv = [74, 109, 73, 113], ny_uv = [75, 113, 74, 109], pz_uv = [78, 113, 79, 114], nz_uv = [73, 113, 74, 114]}
+	textures = {layer = "default", px_uv = [78, 113, 74, 114], nx_uv = [73, 113, 69, 114], py_uv = [73, 113, 74, 109], ny_uv = [74, 109, 75, 113], pz_uv = [78, 113, 79, 114], nz_uv = [73, 113, 74, 114]}
 [[cube]]
 	name = "crest3L_cube_0"
 	parent = "crest3L"
 	size = [1, 1, 4]
 	grow = [-0.050000012, 0.0, 0.0]
 	offset = [-0.9500001, -1.0, -4.0]
-	textures = {layer = "default", px_uv = [85, 105, 89, 106], nx_uv = [80, 105, 84, 106], py_uv = [85, 101, 84, 105], ny_uv = [86, 105, 85, 101], pz_uv = [89, 105, 90, 106], nz_uv = [84, 105, 85, 106]}
+	textures = {layer = "default", px_uv = [89, 105, 85, 106], nx_uv = [84, 105, 80, 106], py_uv = [84, 105, 85, 101], ny_uv = [85, 101, 86, 105], pz_uv = [89, 105, 90, 106], nz_uv = [84, 105, 85, 106]}
 [[cube]]
 	name = "crest4L_cube_0"
 	parent = "crest4L"
 	size = [1, 1, 4]
 	grow = [-0.030000001, 0.0, 0.0]
 	offset = [-0.4999998, -1.0, -3.9999962]
-	textures = {layer = "default", px_uv = [96, 105, 100, 106], nx_uv = [91, 105, 95, 106], py_uv = [96, 101, 95, 105], ny_uv = [97, 105, 96, 101], pz_uv = [100, 105, 101, 106], nz_uv = [95, 105, 96, 106]}
+	textures = {layer = "default", px_uv = [100, 105, 96, 106], nx_uv = [95, 105, 91, 106], py_uv = [95, 105, 96, 101], ny_uv = [96, 101, 97, 105], pz_uv = [100, 105, 101, 106], nz_uv = [95, 105, 96, 106]}
 [[cube]]
 	name = "crest5L_cube_0"
 	parent = "crest5L"
 	size = [1, 1, 5]
 	grow = [-0.03999999, 0.0, 0.0]
 	offset = [-0.5, -1.0, -5.0]
-	textures = {layer = "default", px_uv = [108, 105, 113, 106], nx_uv = [102, 105, 107, 106], py_uv = [108, 100, 107, 105], ny_uv = [109, 105, 108, 100], pz_uv = [113, 105, 114, 106], nz_uv = [107, 105, 108, 106]}
+	textures = {layer = "default", px_uv = [113, 105, 108, 106], nx_uv = [107, 105, 102, 106], py_uv = [107, 105, 108, 100], ny_uv = [108, 100, 109, 105], pz_uv = [113, 105, 114, 106], nz_uv = [107, 105, 108, 106]}
 [[cube]]
 	name = "crest1R_cube_0"
 	parent = "crest1R"
 	size = [1, 7, 4]
 	grow = [-0.02000001, 0.0, -0.100000024]
 	offset = [-0.98, -7.0, -0.100000024]
-	textures = {layer = "default", px_uv = [74, 81, 78, 88], nx_uv = [69, 81, 73, 88], py_uv = [74, 77, 73, 81], ny_uv = [75, 81, 74, 77], pz_uv = [78, 81, 79, 88], nz_uv = [73, 81, 74, 88]}
+	textures = {layer = "default", px_uv = [78, 81, 74, 88], nx_uv = [73, 81, 69, 88], py_uv = [73, 81, 74, 77], ny_uv = [74, 77, 75, 81], pz_uv = [78, 81, 79, 88], nz_uv = [73, 81, 74, 88]}
 [[cube]]
 	name = "crest2R_cube_0"
 	parent = "crest2R"
 	size = [1, 2, 6]
 	grow = [-0.00999999, -0.43, -0.4000001]
 	offset = [-0.99, -0.43, -0.4000001]
-	textures = {layer = "default", px_uv = [62, 85, 67, 86], nx_uv = [56, 85, 61, 86], py_uv = [62, 80, 61, 85], ny_uv = [63, 85, 62, 80], pz_uv = [67, 85, 68, 86], nz_uv = [61, 85, 62, 86]}
+	textures = {layer = "default", px_uv = [67, 85, 62, 86], nx_uv = [61, 85, 56, 86], py_uv = [61, 85, 62, 80], ny_uv = [62, 80, 63, 85], pz_uv = [67, 85, 68, 86], nz_uv = [61, 85, 62, 86]}
 [[cube]]
 	name = "crest1BR_cube_0"
 	parent = "crest1BR"
 	size = [1, 1, 4]
 	grow = [-0.19999999, -0.099999994, 0.0]
 	offset = [-0.19999999, -0.099999994, 0.0]
-	textures = {layer = "default", px_uv = [74, 93, 78, 94], nx_uv = [69, 93, 73, 94], py_uv = [74, 89, 73, 93], ny_uv = [75, 93, 74, 89], pz_uv = [78, 93, 79, 94], nz_uv = [73, 93, 74, 94]}
+	textures = {layer = "default", px_uv = [78, 93, 74, 94], nx_uv = [73, 93, 69, 94], py_uv = [73, 93, 74, 89], ny_uv = [74, 89, 75, 93], pz_uv = [78, 93, 79, 94], nz_uv = [73, 93, 74, 94]}
 [[cube]]
 	name = "crest3R_cube_0"
 	parent = "crest3R"
 	size = [1, 1, 4]
 	grow = [-0.050000012, 0.0, 0.0]
 	offset = [-0.050000012, -1.0, -4.0]
-	textures = {layer = "default", px_uv = [85, 85, 89, 86], nx_uv = [80, 85, 84, 86], py_uv = [85, 81, 84, 85], ny_uv = [86, 85, 85, 81], pz_uv = [89, 85, 90, 86], nz_uv = [84, 85, 85, 86]}
+	textures = {layer = "default", px_uv = [89, 85, 85, 86], nx_uv = [84, 85, 80, 86], py_uv = [84, 85, 85, 81], ny_uv = [85, 81, 86, 85], pz_uv = [89, 85, 90, 86], nz_uv = [84, 85, 85, 86]}
 [[cube]]
 	name = "crest4R_cube_0"
 	parent = "crest4R"
 	size = [1, 1, 4]
 	grow = [-0.030000001, 0.0, 0.0]
 	offset = [-0.49989966, -1.0, -4.0]
-	textures = {layer = "default", px_uv = [96, 85, 100, 86], nx_uv = [91, 85, 95, 86], py_uv = [96, 81, 95, 85], ny_uv = [97, 85, 96, 81], pz_uv = [100, 85, 101, 86], nz_uv = [95, 85, 96, 86]}
+	textures = {layer = "default", px_uv = [100, 85, 96, 86], nx_uv = [95, 85, 91, 86], py_uv = [95, 85, 96, 81], ny_uv = [96, 81, 97, 85], pz_uv = [100, 85, 101, 86], nz_uv = [95, 85, 96, 86]}
 [[cube]]
 	name = "crest5R_cube_0"
 	parent = "crest5R"
 	size = [1, 1, 5]
 	grow = [-0.03999999, 0.0, 0.0]
 	offset = [-0.5, -1.0, -5.0]
-	textures = {layer = "default", px_uv = [108, 85, 113, 86], nx_uv = [102, 85, 107, 86], py_uv = [108, 80, 107, 85], ny_uv = [109, 85, 108, 80], pz_uv = [113, 85, 114, 86], nz_uv = [107, 85, 108, 86]}
+	textures = {layer = "default", px_uv = [113, 85, 108, 86], nx_uv = [107, 85, 102, 86], py_uv = [107, 85, 108, 80], ny_uv = [108, 80, 109, 85], pz_uv = [113, 85, 114, 86], nz_uv = [107, 85, 108, 86]}
 [[cube]]
 	name = "jawUpper1_cube_0"
 	parent = "jawUpper1"
 	size = [9, 5, 12]
 	grow = [-0.1500001, -0.29999995, 0.0]
 	offset = [-4.5, -0.29999995, -10.0]
-	textures = {layer = "default", px_uv = [207, 62, 219, 66], nx_uv = [186, 62, 198, 66], py_uv = [207, 50, 198, 62], ny_uv = [216, 62, 207, 50], pz_uv = [219, 62, 228, 66], nz_uv = [198, 62, 207, 66]}
+	textures = {layer = "default", px_uv = [219, 62, 207, 66], nx_uv = [198, 62, 186, 66], py_uv = [198, 62, 207, 50], ny_uv = [207, 50, 216, 62], pz_uv = [219, 62, 228, 66], nz_uv = [198, 62, 207, 66]}
 [[cube]]
 	name = "jawUpper2_cube_0"
 	parent = "jawUpper2"
 	size = [8, 5, 6]
 	grow = [-0.099999905, -0.4000001, -0.45000005]
 	offset = [-4.0, -0.4000001, -5.5499983]
-	textures = {layer = "default", px_uv = [207, 45, 212, 49], nx_uv = [194, 45, 199, 49], py_uv = [207, 40, 199, 45], ny_uv = [215, 45, 207, 40], pz_uv = [212, 45, 220, 49], nz_uv = [199, 45, 207, 49]}
+	textures = {layer = "default", px_uv = [212, 45, 207, 49], nx_uv = [199, 45, 194, 49], py_uv = [199, 45, 207, 40], ny_uv = [207, 40, 215, 45], pz_uv = [212, 45, 220, 49], nz_uv = [199, 45, 207, 49]}
 [[cube]]
 	name = "teethUpperLeft3_cube_0"
 	parent = "teethUpperLeft3"
 	size = [0, 4, 7]
 	grow = [0.0, 0.0, -0.4000001]
 	offset = [0.0, -3.0, -0.59999704]
-	textures = {layer = "default", px_uv = [96, 141, 102, 145], nx_uv = [90, 141, 96, 145], py_uv = [96, 135, 96, 141], ny_uv = [96, 141, 96, 135], pz_uv = [102, 141, 102, 145], nz_uv = [96, 141, 96, 145]}
+	textures = {layer = "default", px_uv = [102, 141, 96, 145], nx_uv = [96, 141, 90, 145], py_uv = [96, 141, 96, 135], ny_uv = [96, 135, 96, 141], pz_uv = [102, 141, 102, 145], nz_uv = [96, 141, 96, 145]}
 [[cube]]
 	name = "teethUpperRight3_cube_0"
 	parent = "teethUpperRight3"
 	size = [0, 4, 7]
 	grow = [0.0, 0.0, -0.4000001]
 	offset = [0.0, -3.0, -0.59999704]
-	textures = {layer = "default", px_uv = [77, 141, 83, 145], nx_uv = [71, 141, 77, 145], py_uv = [77, 135, 77, 141], ny_uv = [77, 141, 77, 135], pz_uv = [83, 141, 83, 145], nz_uv = [77, 141, 77, 145]}
+	textures = {layer = "default", px_uv = [83, 141, 77, 145], nx_uv = [77, 141, 71, 145], py_uv = [77, 141, 77, 135], ny_uv = [77, 135, 77, 141], pz_uv = [83, 141, 83, 145], nz_uv = [77, 141, 77, 145]}
 [[cube]]
 	name = "teethUpperFront_cube_0"
 	parent = "teethUpperFront"
 	size = [8, 4, 0]
 	grow = [-0.29999995, 0.0, 0.0]
 	offset = [-4.0, -3.0, 0.0]
-	textures = {layer = "default", px_uv = [117, 136, 117, 140], nx_uv = [109, 136, 109, 140], py_uv = [117, 136, 109, 136], ny_uv = [125, 136, 117, 136], pz_uv = [117, 136, 125, 140], nz_uv = [109, 136, 117, 140]}
+	textures = {layer = "default", px_uv = [117, 136, 117, 140], nx_uv = [109, 136, 109, 140], py_uv = [109, 136, 117, 136], ny_uv = [117, 136, 125, 136], pz_uv = [117, 136, 125, 140], nz_uv = [109, 136, 117, 140]}
 [[cube]]
 	name = "teethUpperLeft2_cube_0"
 	parent = "teethUpperLeft2"
 	size = [0, 3, 9]
 	offset = [0.0, -3.0, 0.0]
-	textures = {layer = "default", px_uv = [99, 137, 108, 140], nx_uv = [90, 137, 99, 140], py_uv = [99, 128, 99, 137], ny_uv = [99, 137, 99, 128], pz_uv = [108, 137, 108, 140], nz_uv = [99, 137, 99, 140]}
+	textures = {layer = "default", px_uv = [108, 137, 99, 140], nx_uv = [99, 137, 90, 140], py_uv = [99, 137, 99, 128], ny_uv = [99, 128, 99, 137], pz_uv = [108, 137, 108, 140], nz_uv = [99, 137, 99, 140]}
 [[cube]]
 	name = "teethUpperRight2_cube_0"
 	parent = "teethUpperRight2"
 	size = [0, 3, 9]
 	offset = [0.0, -3.0, 0.0]
-	textures = {layer = "default", px_uv = [80, 137, 89, 140], nx_uv = [71, 137, 80, 140], py_uv = [80, 128, 80, 137], ny_uv = [80, 137, 80, 128], pz_uv = [89, 137, 89, 140], nz_uv = [80, 137, 80, 140]}
+	textures = {layer = "default", px_uv = [89, 137, 80, 140], nx_uv = [80, 137, 71, 140], py_uv = [80, 137, 80, 128], ny_uv = [80, 128, 80, 137], pz_uv = [89, 137, 89, 140], nz_uv = [80, 137, 80, 140]}
 [[cube]]
 	name = "newcube_cube_0"
 	parent = "newcube"
 	size = [4, 8, 3]
 	grow = [0.0, -0.109999895, -0.39]
 	offset = [-4.0, -3.9999993, -2.6099973]
-	textures = {layer = "default", px_uv = [233, 13, 235, 21], nx_uv = [227, 13, 229, 21], py_uv = [233, 11, 229, 13], ny_uv = [237, 13, 233, 11], pz_uv = [235, 13, 239, 21], nz_uv = [229, 13, 233, 21]}
+	textures = {layer = "default", px_uv = [235, 13, 233, 21], nx_uv = [229, 13, 227, 21], py_uv = [229, 13, 233, 11], ny_uv = [233, 11, 237, 13], pz_uv = [235, 13, 239, 21], nz_uv = [229, 13, 233, 21]}
 [[cube]]
 	name = "newcube0_cube_0"
 	parent = "newcube0"
 	size = [11, 2, 3]
 	grow = [-0.25, -0.100000024, -0.39999998]
 	offset = [-5.5, -1.8999993, -2.599997]
-	textures = {layer = "default", px_uv = [241, 87, 243, 89], nx_uv = [228, 87, 230, 89], py_uv = [241, 85, 230, 87], ny_uv = [252, 87, 241, 85], pz_uv = [243, 87, 254, 89], nz_uv = [230, 87, 241, 89]}
+	textures = {layer = "default", px_uv = [243, 87, 241, 89], nx_uv = [230, 87, 228, 89], py_uv = [230, 87, 241, 85], ny_uv = [241, 85, 252, 87], pz_uv = [243, 87, 254, 89], nz_uv = [230, 87, 241, 89]}
 [[cube]]
 	name = "newcube1_cube_0"
 	parent = "newcube1"
 	size = [5, 2, 2]
 	grow = [-0.25, -0.100000024, -0.39999998]
 	offset = [-0.25, -1.9000031, -0.39999998]
-	textures = {layer = "default", px_uv = [240, 95, 241, 97], nx_uv = [234, 95, 235, 97], py_uv = [240, 94, 235, 95], ny_uv = [245, 95, 240, 94], pz_uv = [241, 95, 246, 97], nz_uv = [235, 95, 240, 97]}
+	textures = {layer = "default", px_uv = [241, 95, 240, 97], nx_uv = [235, 95, 234, 97], py_uv = [235, 95, 240, 94], ny_uv = [240, 94, 245, 95], pz_uv = [241, 95, 246, 97], nz_uv = [235, 95, 240, 97]}
 [[cube]]
 	name = "newcube2_cube_0"
 	parent = "newcube2"
 	size = [5, 2, 2]
 	grow = [-0.25, -0.100000024, -0.39999998]
 	offset = [-4.75, -1.9000031, -0.39999998]
-	textures = {layer = "default", px_uv = [240, 91, 241, 93], nx_uv = [234, 91, 235, 93], py_uv = [240, 90, 235, 91], ny_uv = [245, 91, 240, 90], pz_uv = [241, 91, 246, 93], nz_uv = [235, 91, 240, 93]}
+	textures = {layer = "default", px_uv = [241, 91, 240, 93], nx_uv = [235, 91, 234, 93], py_uv = [235, 91, 240, 90], ny_uv = [240, 90, 245, 91], pz_uv = [241, 91, 246, 93], nz_uv = [235, 91, 240, 93]}
 [[cube]]
 	name = "newcube0_cube_0"
 	parent = "newcube0"
 	size = [4, 8, 3]
 	grow = [0.0, -0.109999895, -0.39]
 	offset = [0.0, -3.9999993, -2.6099973]
-	textures = {layer = "default", px_uv = [247, 13, 249, 21], nx_uv = [241, 13, 243, 21], py_uv = [247, 11, 243, 13], ny_uv = [251, 13, 247, 11], pz_uv = [249, 13, 253, 21], nz_uv = [243, 13, 247, 21]}
+	textures = {layer = "default", px_uv = [249, 13, 247, 21], nx_uv = [243, 13, 241, 21], py_uv = [243, 13, 247, 11], ny_uv = [247, 11, 251, 13], pz_uv = [249, 13, 253, 21], nz_uv = [243, 13, 247, 21]}
 [[cube]]
 	name = "newcube5_cube_0"
 	parent = "newcube5"
 	size = [5, 1, 2]
 	grow = [0.0, 0.0, -0.16000003]
 	offset = [-2.5, 0.0, -1.8399966]
-	textures = {layer = "default", px_uv = [205, 12, 207, 13], nx_uv = [198, 12, 200, 13], py_uv = [205, 10, 200, 12], ny_uv = [210, 12, 205, 10], pz_uv = [207, 12, 212, 13], nz_uv = [200, 12, 205, 13]}
+	textures = {layer = "default", px_uv = [207, 12, 205, 13], nx_uv = [200, 12, 198, 13], py_uv = [200, 12, 205, 10], ny_uv = [205, 10, 210, 12], pz_uv = [207, 12, 212, 13], nz_uv = [200, 12, 205, 13]}
 [[cube]]
 	name = "throat1_cube_0"
 	parent = "throat1"
 	size = [9, 7, 7]
 	grow = [-0.3000002, 0.0, 0.0]
 	offset = [-4.4, 0.0, -7.0]
-	textures = {layer = "default", px_uv = [168, 161, 175, 168], nx_uv = [153, 161, 160, 168], py_uv = [168, 154, 160, 161], ny_uv = [176, 161, 168, 154], pz_uv = [175, 161, 183, 168], nz_uv = [160, 161, 168, 168]}
+	textures = {layer = "default", px_uv = [175, 161, 168, 168], nx_uv = [160, 161, 153, 168], py_uv = [160, 161, 168, 154], ny_uv = [168, 154, 176, 161], pz_uv = [175, 161, 183, 168], nz_uv = [160, 161, 168, 168]}
 [[cube]]
 	name = "throat2_cube_0"
 	parent = "throat2"
 	size = [8, 7, 10]
 	offset = [-4.0, -2.4867592, -8.511871]
-	textures = {layer = "default", px_uv = [168, 146, 178, 153], nx_uv = [150, 146, 160, 153], py_uv = [168, 136, 160, 146], ny_uv = [176, 146, 168, 136], pz_uv = [178, 146, 186, 153], nz_uv = [160, 146, 168, 153]}
+	textures = {layer = "default", px_uv = [178, 146, 168, 153], nx_uv = [160, 146, 150, 153], py_uv = [160, 146, 168, 136], ny_uv = [168, 136, 176, 146], pz_uv = [178, 146, 186, 153], nz_uv = [160, 146, 168, 153]}
 [[cube]]
 	name = "throat3_cube_0"
 	parent = "throat3"
 	size = [8, 7, 4]
 	grow = [-0.099999905, 0.0, 0.0]
 	offset = [-4.0, 0.0, -4.0]
-	textures = {layer = "default", px_uv = [168, 128, 172, 135], nx_uv = [156, 128, 160, 135], py_uv = [168, 124, 160, 128], ny_uv = [176, 128, 168, 124], pz_uv = [172, 128, 180, 135], nz_uv = [160, 128, 168, 135]}
+	textures = {layer = "default", px_uv = [172, 128, 168, 135], nx_uv = [160, 128, 156, 135], py_uv = [160, 128, 168, 124], ny_uv = [168, 124, 176, 128], pz_uv = [172, 128, 180, 135], nz_uv = [160, 128, 168, 135]}
 [[cube]]
 	name = "throat4_cube_0"
 	parent = "throat4"
 	size = [8, 7, 10]
 	grow = [-0.20000005, 0.0, 0.0]
 	offset = [-4.0, 0.0, -10.0]
-	textures = {layer = "default", px_uv = [168, 116, 178, 123], nx_uv = [150, 116, 160, 123], py_uv = [168, 106, 160, 116], ny_uv = [176, 116, 168, 106], pz_uv = [178, 116, 186, 123], nz_uv = [160, 116, 168, 123]}
+	textures = {layer = "default", px_uv = [178, 116, 168, 123], nx_uv = [160, 116, 150, 123], py_uv = [160, 116, 168, 106], ny_uv = [168, 106, 176, 116], pz_uv = [178, 116, 186, 123], nz_uv = [160, 116, 168, 123]}
 [[cube]]
 	name = "bicepLeft_cube_0"
 	parent = "bicepLeft"
 	size = [3, 6, 3]
 	grow = [-0.16999996, -0.17000008, -0.16999996]
 	offset = [-1.4999999, -5.7299995, -1.4999999]
-	textures = {layer = "default", px_uv = [119, 81, 121, 86], nx_uv = [115, 81, 117, 86], py_uv = [119, 79, 117, 81], ny_uv = [121, 81, 119, 79], pz_uv = [121, 81, 123, 86], nz_uv = [117, 81, 119, 86]}
+	textures = {layer = "default", px_uv = [121, 81, 119, 86], nx_uv = [117, 81, 115, 86], py_uv = [117, 81, 119, 79], ny_uv = [119, 79, 121, 81], pz_uv = [121, 81, 123, 86], nz_uv = [117, 81, 119, 86]}
 [[cube]]
 	name = "forearmLeft_cube_0"
 	parent = "forearmLeft"
 	size = [2, 6, 2]
 	grow = [0.0, -0.29999995, -0.050000012]
 	offset = [-1.0, -5.8, -0.99999887]
-	textures = {layer = "default", px_uv = [128, 81, 130, 86], nx_uv = [124, 81, 126, 86], py_uv = [128, 79, 126, 81], ny_uv = [130, 81, 128, 79], pz_uv = [130, 81, 132, 86], nz_uv = [126, 81, 128, 86]}
+	textures = {layer = "default", px_uv = [130, 81, 128, 86], nx_uv = [126, 81, 124, 86], py_uv = [126, 81, 128, 79], ny_uv = [128, 79, 130, 81], pz_uv = [130, 81, 132, 86], nz_uv = [126, 81, 128, 86]}
 [[cube]]
 	name = "leftMiddleFinger_cube_0"
 	parent = "leftMiddleFinger"
 	size = [2, 4, 2]
 	grow = [-0.16000003, -0.20000005, -0.45]
 	offset = [-1.8400004, -3.8000004, -0.9999992]
-	textures = {layer = "default", px_uv = [146, 82, 148, 86], nx_uv = [142, 82, 144, 86], py_uv = [146, 80, 144, 82], ny_uv = [148, 82, 146, 80], pz_uv = [148, 82, 150, 86], nz_uv = [144, 82, 146, 86]}
+	textures = {layer = "default", px_uv = [148, 82, 146, 86], nx_uv = [144, 82, 142, 86], py_uv = [144, 82, 146, 80], ny_uv = [146, 80, 148, 82], pz_uv = [148, 82, 150, 86], nz_uv = [144, 82, 146, 86]}
 [[cube]]
 	name = "clawMiddleFingerL_cube_0"
 	parent = "clawMiddleFingerL"
 	size = [1, 3, 0]
 	grow = [-0.030000001, 0.0, 0.0]
 	offset = [-0.97, -3.0, 0.0]
-	textures = {layer = "default", px_uv = [149, 100, 149, 103], nx_uv = [148, 100, 148, 103], py_uv = [149, 100, 148, 100], ny_uv = [150, 100, 149, 100], pz_uv = [149, 100, 150, 103], nz_uv = [148, 100, 149, 103]}
+	textures = {layer = "default", px_uv = [149, 100, 149, 103], nx_uv = [148, 100, 148, 103], py_uv = [148, 100, 149, 100], ny_uv = [149, 100, 150, 100], pz_uv = [149, 100, 150, 103], nz_uv = [148, 100, 149, 103]}
 [[cube]]
 	name = "leftIndexFinger_cube_0"
 	parent = "leftIndexFinger"
 	size = [2, 4, 2]
 	grow = [-0.19999999, -0.39999998, -0.48000002]
 	offset = [-1.8, -3.4999986, -0.99999857]
-	textures = {layer = "default", px_uv = [137, 83, 139, 86], nx_uv = [133, 83, 135, 86], py_uv = [137, 81, 135, 83], ny_uv = [139, 83, 137, 81], pz_uv = [139, 83, 141, 86], nz_uv = [135, 83, 137, 86]}
+	textures = {layer = "default", px_uv = [139, 83, 137, 86], nx_uv = [135, 83, 133, 86], py_uv = [135, 83, 137, 81], ny_uv = [137, 81, 139, 83], pz_uv = [139, 83, 141, 86], nz_uv = [135, 83, 137, 86]}
 [[cube]]
 	name = "clawIndexFingerL_cube_0"
 	parent = "clawIndexFingerL"
 	size = [1, 3, 0]
 	grow = [-0.03999999, 0.0, 0.0]
 	offset = [-1.0, -3.0, 0.0]
-	textures = {layer = "default", px_uv = [143, 100, 143, 103], nx_uv = [142, 100, 142, 103], py_uv = [143, 100, 142, 100], ny_uv = [144, 100, 143, 100], pz_uv = [143, 100, 144, 103], nz_uv = [142, 100, 143, 103]}
+	textures = {layer = "default", px_uv = [143, 100, 143, 103], nx_uv = [142, 100, 142, 103], py_uv = [142, 100, 143, 100], ny_uv = [143, 100, 144, 100], pz_uv = [143, 100, 144, 103], nz_uv = [142, 100, 143, 103]}
 [[cube]]
 	name = "bicepRight_cube_0"
 	parent = "bicepRight"
 	size = [3, 6, 3]
 	grow = [-0.16999996, -0.17000008, -0.16999996]
 	offset = [-1.5000004, -5.7299995, -1.4999999]
-	textures = {layer = "default", px_uv = [119, 89, 121, 94], nx_uv = [115, 89, 117, 94], py_uv = [119, 87, 117, 89], ny_uv = [121, 89, 119, 87], pz_uv = [121, 89, 123, 94], nz_uv = [117, 89, 119, 94]}
+	textures = {layer = "default", px_uv = [121, 89, 119, 94], nx_uv = [117, 89, 115, 94], py_uv = [117, 89, 119, 87], ny_uv = [119, 87, 121, 89], pz_uv = [121, 89, 123, 94], nz_uv = [117, 89, 119, 94]}
 [[cube]]
 	name = "forearmRight_cube_0"
 	parent = "forearmRight"
 	size = [2, 6, 2]
 	grow = [0.0, -0.29999995, -0.050000012]
 	offset = [-1.0, -5.8, -0.99999887]
-	textures = {layer = "default", px_uv = [128, 89, 130, 94], nx_uv = [124, 89, 126, 94], py_uv = [128, 87, 126, 89], ny_uv = [130, 89, 128, 87], pz_uv = [130, 89, 132, 94], nz_uv = [126, 89, 128, 94]}
+	textures = {layer = "default", px_uv = [130, 89, 128, 94], nx_uv = [126, 89, 124, 94], py_uv = [126, 89, 128, 87], ny_uv = [128, 87, 130, 89], pz_uv = [130, 89, 132, 94], nz_uv = [126, 89, 128, 94]}
 [[cube]]
 	name = "rightMiddleFinger_cube_0"
 	parent = "rightMiddleFinger"
 	size = [2, 4, 2]
 	grow = [-0.16000003, -0.20000005, -0.45]
 	offset = [-0.16000003, -3.8000004, -0.9999992]
-	textures = {layer = "default", px_uv = [146, 90, 148, 94], nx_uv = [142, 90, 144, 94], py_uv = [146, 88, 144, 90], ny_uv = [148, 90, 146, 88], pz_uv = [148, 90, 150, 94], nz_uv = [144, 90, 146, 94]}
+	textures = {layer = "default", px_uv = [148, 90, 146, 94], nx_uv = [144, 90, 142, 94], py_uv = [144, 90, 146, 88], ny_uv = [146, 88, 148, 90], pz_uv = [148, 90, 150, 94], nz_uv = [144, 90, 146, 94]}
 [[cube]]
 	name = "clawMiddleFingerR_cube_0"
 	parent = "clawMiddleFingerR"
 	size = [1, 3, 0]
 	grow = [-0.030000001, 0.0, 0.0]
 	offset = [-0.029900342, -3.0, 0.0]
-	textures = {layer = "default", px_uv = [149, 95, 149, 98], nx_uv = [148, 95, 148, 98], py_uv = [149, 95, 148, 95], ny_uv = [150, 95, 149, 95], pz_uv = [149, 95, 150, 98], nz_uv = [148, 95, 149, 98]}
+	textures = {layer = "default", px_uv = [149, 95, 149, 98], nx_uv = [148, 95, 148, 98], py_uv = [148, 95, 149, 95], ny_uv = [149, 95, 150, 95], pz_uv = [149, 95, 150, 98], nz_uv = [148, 95, 149, 98]}
 [[cube]]
 	name = "rightIndexFinger_cube_0"
 	parent = "rightIndexFinger"
 	size = [2, 4, 2]
 	grow = [-0.19999999, -0.39999998, -0.48000002]
 	offset = [-0.19999999, -3.6000009, -1.0000005]
-	textures = {layer = "default", px_uv = [137, 91, 139, 94], nx_uv = [133, 91, 135, 94], py_uv = [137, 89, 135, 91], ny_uv = [139, 91, 137, 89], pz_uv = [139, 91, 141, 94], nz_uv = [135, 91, 137, 94]}
+	textures = {layer = "default", px_uv = [139, 91, 137, 94], nx_uv = [135, 91, 133, 94], py_uv = [135, 91, 137, 89], ny_uv = [137, 89, 139, 91], pz_uv = [139, 91, 141, 94], nz_uv = [135, 91, 137, 94]}
 [[cube]]
 	name = "clawIndexFingerR_cube_0"
 	parent = "clawIndexFingerR"
 	size = [1, 3, 0]
 	grow = [-0.03999999, 0.0, 0.0]
 	offset = [1.00106E-4, -3.0, 0.0]
-	textures = {layer = "default", px_uv = [143, 95, 143, 98], nx_uv = [142, 95, 142, 98], py_uv = [143, 95, 142, 95], ny_uv = [144, 95, 143, 95], pz_uv = [143, 95, 144, 98], nz_uv = [142, 95, 143, 98]}
+	textures = {layer = "default", px_uv = [143, 95, 143, 98], nx_uv = [142, 95, 142, 98], py_uv = [142, 95, 143, 95], ny_uv = [143, 95, 144, 95], pz_uv = [143, 95, 144, 98], nz_uv = [142, 95, 143, 98]}
 [[cube]]
 	name = "belly2_cube_0"
 	parent = "belly2"
 	size = [14, 13, 16]
 	grow = [-0.099999905, 0.0, 0.0]
 	offset = [-7.0, 0.0, 0.0]
-	textures = {layer = "default", px_uv = [112, 208, 128, 221], nx_uv = [82, 208, 98, 221], py_uv = [112, 192, 98, 208], ny_uv = [126, 208, 112, 192], pz_uv = [128, 208, 142, 221], nz_uv = [98, 208, 112, 221]}
+	textures = {layer = "default", px_uv = [128, 208, 112, 221], nx_uv = [98, 208, 82, 221], py_uv = [98, 208, 112, 192], ny_uv = [112, 192, 126, 208], pz_uv = [128, 208, 142, 221], nz_uv = [98, 208, 112, 221]}
 [[cube]]
 	name = "tailLower_cube_0"
 	parent = "tailLower"
 	size = [9, 12, 21]
 	grow = [-0.4000001, 0.0, 0.0]
 	offset = [-4.5, 0.0, 0.0]
-	textures = {layer = "default", px_uv = [112, 243, 133, 255], nx_uv = [83, 243, 104, 255], py_uv = [112, 222, 104, 243], ny_uv = [120, 243, 112, 222], pz_uv = [133, 243, 141, 255], nz_uv = [104, 243, 112, 255]}
+	textures = {layer = "default", px_uv = [133, 243, 112, 255], nx_uv = [104, 243, 83, 255], py_uv = [104, 243, 112, 222], ny_uv = [112, 222, 120, 243], pz_uv = [133, 243, 141, 255], nz_uv = [104, 243, 112, 255]}
 [[cube]]
 	name = "tail1_cube_0"
 	parent = "tail1"
 	size = [13, 15, 21]
 	grow = [-0.4000001, -0.099999905, 0.0]
 	offset = [-6.5, -11.14847, -1.7555094]
-	textures = {layer = "default", px_uv = [41, 240, 62, 255], nx_uv = [8, 240, 29, 255], py_uv = [41, 219, 29, 240], ny_uv = [53, 240, 41, 219], pz_uv = [62, 240, 74, 255], nz_uv = [29, 240, 41, 255]}
+	textures = {layer = "default", px_uv = [62, 240, 41, 255], nx_uv = [29, 240, 8, 255], py_uv = [29, 240, 41, 219], ny_uv = [41, 219, 53, 240], pz_uv = [62, 240, 74, 255], nz_uv = [29, 240, 41, 255]}
 [[cube]]
 	name = "tail2_cube_0"
 	parent = "tail2"
 	size = [10, 13, 28]
 	grow = [-0.4000001, -0.099999905, 0.0]
 	offset = [-5.0, -9.321642, -6.24506]
-	textures = {layer = "default", px_uv = [41, 205, 69, 218], nx_uv = [4, 205, 32, 218], py_uv = [41, 177, 32, 205], ny_uv = [50, 205, 41, 177], pz_uv = [69, 205, 78, 218], nz_uv = [32, 205, 41, 218]}
+	textures = {layer = "default", px_uv = [69, 205, 41, 218], nx_uv = [32, 205, 4, 218], py_uv = [32, 205, 41, 177], ny_uv = [41, 177, 50, 205], pz_uv = [69, 205, 78, 218], nz_uv = [32, 205, 41, 218]}
 [[cube]]
 	name = "tail3_cube_0"
 	parent = "tail3"
 	size = [8, 9, 33]
 	grow = [-0.3499999, -0.099999905, 0.0]
 	offset = [-4.0, -6.259378, -5.572239]
-	textures = {layer = "default", px_uv = [41, 167, 74, 176], nx_uv = [1, 167, 34, 176], py_uv = [41, 134, 34, 167], ny_uv = [48, 167, 41, 134], pz_uv = [74, 167, 81, 176], nz_uv = [34, 167, 41, 176]}
+	textures = {layer = "default", px_uv = [74, 167, 41, 176], nx_uv = [34, 167, 1, 176], py_uv = [34, 167, 41, 134], ny_uv = [41, 134, 48, 167], pz_uv = [74, 167, 81, 176], nz_uv = [34, 167, 41, 176]}
 [[cube]]
 	name = "tail4_cube_0"
 	parent = "tail4"
 	size = [5, 5, 24]
 	grow = [-0.20000005, -0.20000005, 0.0]
 	offset = [-2.5, -2.74179, -3.9495468]
-	textures = {layer = "default", px_uv = [41, 129, 65, 133], nx_uv = [12, 129, 36, 133], py_uv = [41, 105, 36, 129], ny_uv = [46, 129, 41, 105], pz_uv = [65, 129, 70, 133], nz_uv = [36, 129, 41, 133]}
+	textures = {layer = "default", px_uv = [65, 129, 41, 133], nx_uv = [36, 129, 12, 133], py_uv = [36, 129, 41, 105], ny_uv = [41, 105, 46, 129], pz_uv = [65, 129, 70, 133], nz_uv = [36, 129, 41, 133]}
 [[cube]]
 	name = "thighRight_cube_0"
 	parent = "thighRight"
 	size = [9, 22, 15]
 	offset = [-4.5, -16.128319, -8.08952]
-	textures = {layer = "default", px_uv = [25, 54, 40, 76], nx_uv = [1, 54, 16, 76], py_uv = [25, 39, 16, 54], ny_uv = [34, 54, 25, 39], pz_uv = [40, 54, 49, 76], nz_uv = [16, 54, 25, 76]}
+	textures = {layer = "default", px_uv = [40, 54, 25, 76], nx_uv = [16, 54, 1, 76], py_uv = [16, 54, 25, 39], ny_uv = [25, 39, 34, 54], pz_uv = [40, 54, 49, 76], nz_uv = [16, 54, 25, 76]}
 [[cube]]
 	name = "calfRight_cube_0"
 	parent = "calfRight"
 	size = [7, 21, 9]
 	grow = [-0.099999905, 0.0, -0.19999981]
 	offset = [-3.4998994, -21.0, -0.49999976]
-	textures = {layer = "default", px_uv = [65, 55, 73, 76], nx_uv = [50, 55, 58, 76], py_uv = [65, 47, 58, 55], ny_uv = [72, 55, 65, 47], pz_uv = [73, 55, 80, 76], nz_uv = [58, 55, 65, 76]}
+	textures = {layer = "default", px_uv = [73, 55, 65, 76], nx_uv = [58, 55, 50, 76], py_uv = [58, 55, 65, 47], ny_uv = [65, 47, 72, 55], pz_uv = [73, 55, 80, 76], nz_uv = [58, 55, 65, 76]}
 [[cube]]
 	name = "ankleRight_cube_0"
 	parent = "ankleRight"
 	size = [6, 17, 7]
 	grow = [-0.20000005, 0.0, -0.29999995]
 	offset = [-2.9999, -17.0, -6.5]
-	textures = {layer = "default", px_uv = [93, 59, 99, 76], nx_uv = [81, 59, 87, 76], py_uv = [93, 53, 87, 59], ny_uv = [99, 59, 93, 53], pz_uv = [99, 59, 105, 76], nz_uv = [87, 59, 93, 76]}
+	textures = {layer = "default", px_uv = [99, 59, 93, 76], nx_uv = [87, 59, 81, 76], py_uv = [87, 59, 93, 53], ny_uv = [93, 53, 99, 59], pz_uv = [99, 59, 105, 76], nz_uv = [87, 59, 93, 76]}
 [[cube]]
 	name = "footRight_cube_0"
 	parent = "footRight"
 	size = [8, 5, 14]
 	grow = [-0.099999905, -0.4000001, -0.099999905]
 	offset = [-3.9998999, -2.4699998, -11.96656]
-	textures = {layer = "default", px_uv = [128, 72, 142, 76], nx_uv = [106, 72, 120, 76], py_uv = [128, 58, 120, 72], ny_uv = [136, 72, 128, 58], pz_uv = [142, 72, 150, 76], nz_uv = [120, 72, 128, 76]}
+	textures = {layer = "default", px_uv = [142, 72, 128, 76], nx_uv = [120, 72, 106, 76], py_uv = [120, 72, 128, 58], ny_uv = [128, 58, 136, 72], pz_uv = [142, 72, 150, 76], nz_uv = [120, 72, 128, 76]}
 [[cube]]
 	name = "thighLeft_cube_0"
 	parent = "thighLeft"
 	size = [9, 22, 15]
 	offset = [-4.5, -16.128319, -8.08952]
-	textures = {layer = "default", px_uv = [25, 16, 40, 38], nx_uv = [1, 16, 16, 38], py_uv = [25, 1, 16, 16], ny_uv = [34, 16, 25, 1], pz_uv = [40, 16, 49, 38], nz_uv = [16, 16, 25, 38]}
+	textures = {layer = "default", px_uv = [40, 16, 25, 38], nx_uv = [16, 16, 1, 38], py_uv = [16, 16, 25, 1], ny_uv = [25, 1, 34, 16], pz_uv = [40, 16, 49, 38], nz_uv = [16, 16, 25, 38]}
 [[cube]]
 	name = "calfLeft_cube_0"
 	parent = "calfLeft"
 	size = [7, 21, 9]
 	grow = [-0.099999905, 0.0, -0.19999981]
 	offset = [-3.5, -21.0, -0.49999976]
-	textures = {layer = "default", px_uv = [65, 17, 73, 38], nx_uv = [50, 17, 58, 38], py_uv = [65, 9, 58, 17], ny_uv = [72, 17, 65, 9], pz_uv = [73, 17, 80, 38], nz_uv = [58, 17, 65, 38]}
+	textures = {layer = "default", px_uv = [73, 17, 65, 38], nx_uv = [58, 17, 50, 38], py_uv = [58, 17, 65, 9], ny_uv = [65, 9, 72, 17], pz_uv = [73, 17, 80, 38], nz_uv = [58, 17, 65, 38]}
 [[cube]]
 	name = "ankleLeft_cube_0"
 	parent = "ankleLeft"
 	size = [6, 17, 7]
 	grow = [-0.20000005, 0.0, -0.29999995]
 	offset = [-3.0000002, -17.0, -6.5]
-	textures = {layer = "default", px_uv = [93, 21, 99, 38], nx_uv = [81, 21, 87, 38], py_uv = [93, 15, 87, 21], ny_uv = [99, 21, 93, 15], pz_uv = [99, 21, 105, 38], nz_uv = [87, 21, 93, 38]}
+	textures = {layer = "default", px_uv = [99, 21, 93, 38], nx_uv = [87, 21, 81, 38], py_uv = [87, 21, 93, 15], ny_uv = [93, 15, 99, 21], pz_uv = [99, 21, 105, 38], nz_uv = [87, 21, 93, 38]}
 [[cube]]
 	name = "footLeft_cube_0"
 	parent = "footLeft"
 	size = [8, 5, 14]
 	grow = [-0.099999905, -0.4000001, -0.099999905]
 	offset = [-4.0, -2.4699998, -11.96656]
-	textures = {layer = "default", px_uv = [128, 34, 142, 38], nx_uv = [106, 34, 120, 38], py_uv = [128, 20, 120, 34], ny_uv = [136, 34, 128, 20], pz_uv = [142, 34, 150, 38], nz_uv = [120, 34, 128, 38]}
+	textures = {layer = "default", px_uv = [142, 34, 128, 38], nx_uv = [120, 34, 106, 38], py_uv = [120, 34, 128, 20], ny_uv = [128, 20, 136, 34], pz_uv = [142, 34, 150, 38], nz_uv = [120, 34, 128, 38]}
