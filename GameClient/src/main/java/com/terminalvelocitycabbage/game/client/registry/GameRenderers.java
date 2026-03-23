@@ -11,6 +11,7 @@ public class GameRenderers {
 
     //Render Node Identifiers
     public static Identifier DRAW_SCENE_RENDER_NODE;
+    public static Identifier DRAW_ANIMATED_SCENE_RENDER_NODE;
     public static Identifier DRAW_UI_RENDER_NODE;
 
     //Routine Node Identifiers
@@ -28,22 +29,18 @@ public class GameRenderers {
 
         //Render Nodes
         DRAW_SCENE_RENDER_NODE = event.registerNode(GameClient.ID, "drawScene");
+        DRAW_ANIMATED_SCENE_RENDER_NODE = event.registerNode(GameClient.ID, "drawAnimatedScene");
         DRAW_UI_RENDER_NODE = event.registerNode(GameClient.ID, "drawUI");
         //Routines
         UPDATE_ROTATIONS_ROUTINE_NODE = event.registerNode(GameClient.ID, "updateRotations");
         //Routes
         BOOLEAN_ROUTE = event.registerRoute(GameClient.ID, "booleanRoute");
 
-        var rotateSystemRoute = RenderGraph.RenderPath.builder().addRoutineNode(GameRoutines.DEFAULT_ROUTINE);
-
         DEFAULT_RENDER_GRAPH = event.registerGraph(GameClient.ID, "draw_scene",
                 new RenderGraph(RenderGraph.RenderPath.builder()
-//                        .route(
-//                                BOOLEAN_ROUTE,
-//                                (__, sh) -> (boolean) sh.getState(GameStates.ROTATE_ENTITIES).getValue(),
-//                                rotateSystemRoute)
+                        .addRoutineNode(GameRoutines.DEFAULT_ROUTINE)
                         .addRenderNode(DRAW_SCENE_RENDER_NODE, DrawSceneRenderNode.class, GameShaders.MESH_SHADER_PROGRAM_CONFIG)
-//                        .addRenderNode(DRAW_UI_RENDER_NODE, DrawTestTWUIRenderNode.class, ShaderProgramConfig.EMPTY)
+                        .addRenderNode(DRAW_ANIMATED_SCENE_RENDER_NODE, DrawSceneRenderNode.class, GameShaders.ANIMATED_MESH_SHADER_PROGRAM_CONFIG)
                         .configure(PRINT_ON_EXECUTE, false)
                 )
         );

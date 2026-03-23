@@ -11,4 +11,11 @@ public class MeshData {
             .addElement(VertexAttribute.UV)
             .build();
 
+    public static final VertexFormat ANIMATED_MESH_FORMAT = VertexFormat.builder()
+            .addElement(VertexAttribute.XYZ_POSITION)
+            .addElement(VertexAttribute.RGB_COLOR)
+            .addElement(VertexAttribute.UV)
+            .addElement(VertexAttribute.BONE_INDEX)
+            .build();
+
 }

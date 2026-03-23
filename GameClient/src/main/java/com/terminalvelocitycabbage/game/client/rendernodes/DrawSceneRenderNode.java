@@ -9,11 +9,15 @@ import com.terminalvelocitycabbage.engine.ecs.Entity;
 import com.terminalvelocitycabbage.engine.graph.RenderNode;
 import com.terminalvelocitycabbage.engine.registry.Identifier;
 import com.terminalvelocitycabbage.engine.util.HeterogeneousMap;
+import com.terminalvelocitycabbage.engine.client.renderer.model.formats.TVAnimation;
+import com.terminalvelocitycabbage.engine.client.renderer.model.formats.TVAnimationEvaluator;
+import com.terminalvelocitycabbage.engine.client.renderer.model.formats.TVModel;
 import com.terminalvelocitycabbage.game.client.GameClient;
 import com.terminalvelocitycabbage.game.client.registry.GameRenderers;
 import com.terminalvelocitycabbage.game.common.ecs.components.PitchYawRotationComponent;
 import com.terminalvelocitycabbage.game.common.ecs.components.PlayerCameraComponent;
 import com.terminalvelocitycabbage.game.common.ecs.components.PositionComponent;
+import com.terminalvelocitycabbage.templates.ecs.components.AnimationComponent;
 import com.terminalvelocitycabbage.templates.ecs.components.ModelComponent;
 import com.terminalvelocitycabbage.templates.ecs.components.TransformationComponent;
 
@@ -58,8 +62,26 @@ public class DrawSceneRenderNode extends RenderNode {
             //Update the transformation to that of this entity
             shaderProgram.getUniform("modelMatrix").setUniform(entity.getComponent(TransformationComponent.class).getTransformationMatrix());
 
-            //Early draw if this is the same model as the last entity (save on uploads)
+            //Handle animations
             var modelIdentifier = entity.getComponent(ModelComponent.class).getModel();
+            var tvModelName = modelIdentifier.name();
+            if (tvModelName.contains("_")) {
+                tvModelName = tvModelName.substring(0, tvModelName.lastIndexOf("_"));
+            }
+            var tvModel = client.getTvModelRegistry().get(new Identifier(modelIdentifier.namespace(), "tv_model", tvModelName));
+            if (tvModel != null && shaderProgram.getConfig().getUniform("boneMatrices") != null) {
+                TVAnimation animation = null;
+                float time = 0;
+                if (entity.hasComponent(AnimationComponent.class)) {
+                    var animComp = entity.getComponent(AnimationComponent.class);
+                    animation = client.getTvAnimationRegistry().get(animComp.getAnimation());
+                    time = animComp.getCurrentTime();
+                }
+                var matrices = TVAnimationEvaluator.evaluate(animation, time, tvModel);
+                shaderProgram.getUniform("boneMatrices").setUniform(matrices);
+            }
+
+            //Early draw if this is the same model as the last entity (save on uploads)
             if (modelIdentifier.equals(lastModelID)) {
                 client.getModelRegistry().get(modelIdentifier).draw();
                 continue;
@@ -78,8 +100,6 @@ public class DrawSceneRenderNode extends RenderNode {
 
                 model.bind();
                 model.draw();
-            } else {
-                Log.error("Model " + modelIdentifier + " has a different vertex format than the shader program!");
             }
         }
 

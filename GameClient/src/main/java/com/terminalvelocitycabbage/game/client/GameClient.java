@@ -36,6 +36,7 @@ public class GameClient extends ClientBase {
         getEventDispatcher().listenToEvent(LocalizedTextKeyRegistrationEvent.EVENT, event -> GameLocalizedTexts.registerLocalizedTextKeys((LocalizedTextKeyRegistrationEvent) event));
         getEventDispatcher().listenToEvent(MeshRegistrationEvent.EVENT, event -> GameMeshes.init((MeshRegistrationEvent) event));
         getEventDispatcher().listenToEvent(TVModelRegistrationEvent.EVENT, event -> GameModels.registerTVModels((TVModelRegistrationEvent) event));
+        getEventDispatcher().listenToEvent(TVAnimationRegistrationEvent.EVENT, event -> GameModels.registerTVAnimations((TVAnimationRegistrationEvent) event));
         getEventDispatcher().listenToEvent(CreateModelsFromTVModelsEvent.EVENT, event -> GameModels.createModelsFromTVModels((CreateModelsFromTVModelsEvent) event));
         getEventDispatcher().listenToEvent(ModelConfigRegistrationEvent.EVENT, event -> GameModels.init((ModelConfigRegistrationEvent) event));
         getEventDispatcher().listenToEvent(GameStateRegistrationEvent.EVENT, event -> GameStates.registerStates((GameStateRegistrationEvent) event));
