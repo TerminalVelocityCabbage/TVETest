@@ -34,7 +34,7 @@ public class GameModels {
     }
 
     public static void registerTVAnimations(TVAnimationRegistrationEvent event) {
-        event.registerTVAnimation(ID, ANIMATION.identifierOf(ID, "walk"));
+        event.registerTVAnimation(ID, "tyrannosaurus_adult_v2", "walk");
     }
 
     public static void createModelsFromTVModels(CreateModelsFromTVModelsEvent event) {
