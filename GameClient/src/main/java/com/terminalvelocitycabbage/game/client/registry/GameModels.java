@@ -1,7 +1,6 @@
 package com.terminalvelocitycabbage.game.client.registry;
 
 import com.terminalvelocitycabbage.engine.client.renderer.model.MeshTexturePair;
-import com.terminalvelocitycabbage.engine.debug.Log;
 import com.terminalvelocitycabbage.engine.filesystem.resources.ResourceCategory;
 import com.terminalvelocitycabbage.engine.registry.Identifier;
 import com.terminalvelocitycabbage.game.client.data.MeshData;
@@ -36,6 +35,10 @@ public class GameModels {
     public static void registerTVAnimations(TVAnimationRegistrationEvent event) {
         event.registerTVAnimation(ID, "tyrannosaurus_adult_v2", "walk");
         event.registerTVAnimation(ID, "tyrannosaurus_adult_v2", "run");
+        event.registerTVAnimation(ID, "tyrannosaurus_adult_v2", "turn_left");
+        event.registerTVAnimation(ID, "tyrannosaurus_adult_v2", "turn_right");
+        event.registerTVAnimation(ID, "tyrannosaurus_adult_v2", "scratch");
+        event.registerTVAnimation(ID, "tyrannosaurus_adult_v2", "call");
     }
 
     public static void registerTVAnimationControllers(TVAnimationControllerRegistrationEvent event) {
@@ -44,7 +47,6 @@ public class GameModels {
 
     public static void registerAnimationVariables(AnimationControllerVariableRegistrationEvent event) {
         event.registerVariable("velocity", Vector3f.class, entity -> {
-            Log.info("Velocity: " + entity.getComponent(VelocityComponent.class).getVelocity());
             return entity.getComponent(VelocityComponent.class).getVelocity();
         });
     }

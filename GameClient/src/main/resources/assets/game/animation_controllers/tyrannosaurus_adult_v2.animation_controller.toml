@@ -13,8 +13,16 @@ speed = "velocity.x"
 
 [[animations]]
 animation = "game:tyrannosaurus_adult_v2/turn_left"
-progress = "clamp(1 / velocity.y, 0, 1)"
+influence = "if(velocity.y > 0, velocity.y, 0)"
 
 [[animations]]
 animation = "game:tyrannosaurus_adult_v2/turn_right"
-progress = "clamp(1 / velocity.z, 0, 1)"
+influence = "if(velocity.y < 0, velocity.y * -1, 0)"
+
+[[animations]]
+animation = "game:tyrannosaurus_adult_v2/call"
+trigger = "call"
+
+[[animations]]
+animation = "game:tyrannosaurus_adult_v2/scratch"
+trigger = "scratch"

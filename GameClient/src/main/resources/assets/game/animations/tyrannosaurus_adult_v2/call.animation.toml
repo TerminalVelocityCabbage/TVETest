@@ -2,7 +2,7 @@
 	version = "1.0.0"
 	name = "call"
 	duration = 2.7083
-	looping = true
+	looping = false
 
 [layers]
 	default = 1.0
