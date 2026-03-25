@@ -33,16 +33,12 @@ public class GameModels {
     }
 
     public static void initAnimations(AnimationConfigurationEvent event) {
-        event.registerTVAnimation(ID, "tyrannosaurus_adult_v2", "walk");
-        event.registerTVAnimation(ID, "tyrannosaurus_adult_v2", "run");
-        event.registerTVAnimation(ID, "tyrannosaurus_adult_v2", "turn_left");
-        event.registerTVAnimation(ID, "tyrannosaurus_adult_v2", "turn_right");
-        event.registerTVAnimation(ID, "tyrannosaurus_adult_v2", "scratch");
-        event.registerTVAnimation(ID, "tyrannosaurus_adult_v2", "call");
 
-        event.registerTVAnimationController(ID, ResourceCategory.ANIMATION_CONTROLLER.identifierOf(ID, "tyrannosaurus_adult_v2"));
-
+        //Register allowable variable types in animation controller expressions
         event.registerVariable("velocity", Vector3f.class, entity -> entity.getComponent(VelocityComponent.class).getVelocity());
+
+        //Register animation controllers
+        event.registerTVAnimationController(ID, ResourceCategory.ANIMATION_CONTROLLER.identifierOf(ID, "tyrannosaurus_adult_v2"));
     }
 
 }
