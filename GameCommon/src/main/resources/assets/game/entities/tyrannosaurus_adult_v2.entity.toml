@@ -7,5 +7,8 @@ model = "game:model_variant:tyrannosaurus_adult_v2_default"
 position = [1.25, 0, -30]
 scale = [1, 1, 1]
 
-[component.animation]
-animation = "game:tyrannosaurus_adult_v2/walk"
+[component.animation_controller]
+controller = "game:tyrannosaurus_adult_v2"
+
+[component.velocity]
+velocity = [1.0, 0.0, 0.0]

@@ -9,17 +9,15 @@ import com.terminalvelocitycabbage.engine.ecs.Entity;
 import com.terminalvelocitycabbage.engine.graph.RenderNode;
 import com.terminalvelocitycabbage.engine.registry.Identifier;
 import com.terminalvelocitycabbage.engine.util.HeterogeneousMap;
-import com.terminalvelocitycabbage.engine.client.renderer.model.formats.TVAnimation;
-import com.terminalvelocitycabbage.engine.client.renderer.model.formats.TVAnimationEvaluator;
-import com.terminalvelocitycabbage.engine.client.renderer.model.formats.TVModel;
 import com.terminalvelocitycabbage.game.client.GameClient;
 import com.terminalvelocitycabbage.game.client.registry.GameRenderers;
 import com.terminalvelocitycabbage.game.common.ecs.components.PitchYawRotationComponent;
 import com.terminalvelocitycabbage.game.common.ecs.components.PlayerCameraComponent;
 import com.terminalvelocitycabbage.game.common.ecs.components.PositionComponent;
-import com.terminalvelocitycabbage.templates.ecs.components.AnimationComponent;
+import com.terminalvelocitycabbage.templates.ecs.components.AnimationControllerComponent;
 import com.terminalvelocitycabbage.templates.ecs.components.ModelComponent;
 import com.terminalvelocitycabbage.templates.ecs.components.TransformationComponent;
+import org.joml.Matrix4f;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -70,27 +68,26 @@ public class DrawSceneRenderNode extends RenderNode {
             }
             var tvModel = client.getTvModelRegistry().get(new Identifier(modelIdentifier.namespace(), "tv_model", tvModelName));
             if (tvModel != null && shaderProgram.getConfig().getUniform("boneMatrices") != null) {
-                TVAnimation animation = null;
-                float time = 0;
-                if (entity.hasComponent(AnimationComponent.class)) {
-                    var animComp = entity.getComponent(AnimationComponent.class);
-                    animation = client.getTvAnimationRegistry().get(animComp.getAnimation());
-                    time = animComp.getCurrentTime();
+                Matrix4f[] matrices;
+                if (entity.hasComponent(AnimationControllerComponent.class)) {
+                    var animComp = entity.getComponent(AnimationControllerComponent.class);
+                    matrices = animComp.getBoneMatrices(tvModel);
+                } else {
+                    matrices = tvModel.getBindPoseMatrices();
                 }
-                var matrices = TVAnimationEvaluator.evaluate(animation, time, tvModel);
                 shaderProgram.getUniform("boneMatrices").setUniform(matrices);
             }
 
             //Early draw if this is the same model as the last entity (save on uploads)
-            if (modelIdentifier.equals(lastModelID)) {
-                client.getModelRegistry().get(modelIdentifier).draw();
-                continue;
-            } else {
-                lastModelID = modelIdentifier;
-                model = client.getModelRegistry().get(modelIdentifier);
-            }
-
+            model = client.getModelRegistry().get(modelIdentifier);
             if (model.compiledMesh().getFormat().equals(shaderProgram.getConfig().getVertexFormat())) {
+                if (modelIdentifier.equals(lastModelID)) {
+                    model.draw();
+                    continue;
+                }
+
+                lastModelID = modelIdentifier;
+
                 //Optimization: only bind texture and mesh if they've changed since the last entity
                 var textureIdentifier = model.textureIdentifier();
                 if (!textureIdentifier.equals(lastTextureID)) {

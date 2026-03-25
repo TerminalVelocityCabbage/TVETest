@@ -1,9 +1,11 @@
 package com.terminalvelocitycabbage.game.client.registry;
 
 import com.terminalvelocitycabbage.engine.client.renderer.RenderGraph;
+import com.terminalvelocitycabbage.engine.client.renderer.shader.ShaderProgramConfig;
 import com.terminalvelocitycabbage.engine.registry.Identifier;
 import com.terminalvelocitycabbage.engine.util.HeterogeneousMap;
 import com.terminalvelocitycabbage.game.client.GameClient;
+import com.terminalvelocitycabbage.game.client.rendernodes.AnimationControllerTestUIRenderNode;
 import com.terminalvelocitycabbage.game.client.rendernodes.DrawSceneRenderNode;
 import com.terminalvelocitycabbage.templates.events.RendererRegistrationEvent;
 
@@ -13,6 +15,7 @@ public class GameRenderers {
     public static Identifier DRAW_SCENE_RENDER_NODE;
     public static Identifier DRAW_ANIMATED_SCENE_RENDER_NODE;
     public static Identifier DRAW_UI_RENDER_NODE;
+    public static Identifier DRAW_ANIMATION_CONTROLLER_UI;
 
     //Routine Node Identifiers
     public static Identifier UPDATE_ROTATIONS_ROUTINE_NODE;
@@ -31,6 +34,7 @@ public class GameRenderers {
         DRAW_SCENE_RENDER_NODE = event.registerNode(GameClient.ID, "drawScene");
         DRAW_ANIMATED_SCENE_RENDER_NODE = event.registerNode(GameClient.ID, "drawAnimatedScene");
         DRAW_UI_RENDER_NODE = event.registerNode(GameClient.ID, "drawUI");
+        DRAW_ANIMATION_CONTROLLER_UI = event.registerNode(GameClient.ID, "drawAnimationControllerUI");
         //Routines
         UPDATE_ROTATIONS_ROUTINE_NODE = event.registerNode(GameClient.ID, "updateRotations");
         //Routes
@@ -41,6 +45,8 @@ public class GameRenderers {
                         .addRoutineNode(GameRoutines.DEFAULT_ROUTINE)
                         .addRenderNode(DRAW_SCENE_RENDER_NODE, DrawSceneRenderNode.class, GameShaders.MESH_SHADER_PROGRAM_CONFIG)
                         .addRenderNode(DRAW_ANIMATED_SCENE_RENDER_NODE, DrawSceneRenderNode.class, GameShaders.ANIMATED_MESH_SHADER_PROGRAM_CONFIG)
+                        .addRenderNode(DRAW_ANIMATION_CONTROLLER_UI, AnimationControllerTestUIRenderNode.class, ShaderProgramConfig.EMPTY)
+                        //.addRenderNode(DRAW_UI_RENDER_NODE, DrawTestTWUIRenderNode.class, ShaderProgramConfig.EMPTY)
                         .configure(PRINT_ON_EXECUTE, false)
                 )
         );

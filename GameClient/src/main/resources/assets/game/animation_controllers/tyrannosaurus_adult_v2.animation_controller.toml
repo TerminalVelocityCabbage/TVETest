@@ -1,0 +1,20 @@
+[variables]
+velocity = "vector3"
+
+[[animations]]
+animation = "game:tyrannosaurus_adult_v2/walk"
+influence = "if(velocity.x > 0, clamp((1.15 - velocity.x) / 0.3, 0.0, 1.0), 0.0)"
+speed = "velocity.x"
+
+[[animations]]
+animation = "game:tyrannosaurus_adult_v2/run"
+influence = "clamp((velocity.x - 0.85) / 0.3, 0.0, 1.0)"
+speed = "velocity.x"
+
+[[animations]]
+animation = "game:tyrannosaurus_adult_v2/turn_left"
+progress = "clamp(1 / velocity.y, 0, 1)"
+
+[[animations]]
+animation = "game:tyrannosaurus_adult_v2/turn_right"
+progress = "clamp(1 / velocity.z, 0, 1)"

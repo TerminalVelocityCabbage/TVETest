@@ -1,16 +1,16 @@
 package com.terminalvelocitycabbage.game.client.registry;
 
 import com.terminalvelocitycabbage.engine.client.renderer.model.MeshTexturePair;
+import com.terminalvelocitycabbage.engine.debug.Log;
+import com.terminalvelocitycabbage.engine.filesystem.resources.ResourceCategory;
 import com.terminalvelocitycabbage.engine.registry.Identifier;
 import com.terminalvelocitycabbage.game.client.data.MeshData;
-import com.terminalvelocitycabbage.templates.events.CreateModelsFromTVModelsEvent;
-import com.terminalvelocitycabbage.templates.events.ModelConfigRegistrationEvent;
-import com.terminalvelocitycabbage.templates.events.TVAnimationRegistrationEvent;
-import com.terminalvelocitycabbage.templates.events.TVModelRegistrationEvent;
+import com.terminalvelocitycabbage.templates.ecs.components.VelocityComponent;
+import com.terminalvelocitycabbage.templates.events.*;
+import org.joml.Vector3f;
 
 import java.util.List;
 
-import static com.terminalvelocitycabbage.engine.filesystem.resources.ResourceCategory.ANIMATION;
 import static com.terminalvelocitycabbage.engine.filesystem.resources.ResourceCategory.MODEL;
 import static com.terminalvelocitycabbage.game.client.GameClient.ID;
 
@@ -35,6 +35,18 @@ public class GameModels {
 
     public static void registerTVAnimations(TVAnimationRegistrationEvent event) {
         event.registerTVAnimation(ID, "tyrannosaurus_adult_v2", "walk");
+        event.registerTVAnimation(ID, "tyrannosaurus_adult_v2", "run");
+    }
+
+    public static void registerTVAnimationControllers(TVAnimationControllerRegistrationEvent event) {
+        event.registerTVAnimationController(ID, ResourceCategory.ANIMATION_CONTROLLER.identifierOf(ID, "tyrannosaurus_adult_v2"));
+    }
+
+    public static void registerAnimationVariables(AnimationControllerVariableRegistrationEvent event) {
+        event.registerVariable("velocity", Vector3f.class, entity -> {
+            Log.info("Velocity: " + entity.getComponent(VelocityComponent.class).getVelocity());
+            return entity.getComponent(VelocityComponent.class).getVelocity();
+        });
     }
 
     public static void createModelsFromTVModels(CreateModelsFromTVModelsEvent event) {

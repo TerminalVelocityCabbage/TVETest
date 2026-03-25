@@ -3,7 +3,6 @@ package com.terminalvelocitycabbage.game.client;
 import com.terminalvelocitycabbage.engine.client.ClientBase;
 import com.terminalvelocitycabbage.engine.client.window.WindowProperties;
 import com.terminalvelocitycabbage.engine.event.EventDispatcher;
-import com.terminalvelocitycabbage.engine.filesystem.resources.ResourceCategory;
 import com.terminalvelocitycabbage.game.client.registry.*;
 import com.terminalvelocitycabbage.game.common.GameCommon;
 import com.terminalvelocitycabbage.templates.events.*;
@@ -27,6 +26,7 @@ public class GameClient extends ClientBase {
         getEventDispatcher().listenToEvent(ResourceSourceRegistrationEvent.EVENT, event -> GameResources.registerResourceSources((ResourceSourceRegistrationEvent) event, this));
         getEventDispatcher().listenToEvent(InputHandlerRegistrationEvent.EVENT, event -> GameInput.init((InputHandlerRegistrationEvent) event));
         getEventDispatcher().listenToEvent(EntityComponentRegistrationEvent.EVENT, event -> GameEntities.registerComponents((EntityComponentRegistrationEvent) event));
+        getEventDispatcher().listenToEvent(AnimationControllerVariableRegistrationEvent.EVENT, event -> GameModels.registerAnimationVariables((AnimationControllerVariableRegistrationEvent) event));
         getEventDispatcher().listenToEvent(EntitySystemRegistrationEvent.EVENT, event -> GameEntities.createSystems((EntitySystemRegistrationEvent) event));
         getEventDispatcher().listenToEvent(EntityTemplateRegistrationEvent.EVENT, event -> GameEntities.createEntityTemplates((EntityTemplateRegistrationEvent) event));
         getEventDispatcher().listenToEvent(RoutineRegistrationEvent.EVENT, event -> GameRoutines.init((RoutineRegistrationEvent) event));
@@ -37,6 +37,7 @@ public class GameClient extends ClientBase {
         getEventDispatcher().listenToEvent(MeshRegistrationEvent.EVENT, event -> GameMeshes.init((MeshRegistrationEvent) event));
         getEventDispatcher().listenToEvent(TVModelRegistrationEvent.EVENT, event -> GameModels.registerTVModels((TVModelRegistrationEvent) event));
         getEventDispatcher().listenToEvent(TVAnimationRegistrationEvent.EVENT, event -> GameModels.registerTVAnimations((TVAnimationRegistrationEvent) event));
+        getEventDispatcher().listenToEvent(TVAnimationControllerRegistrationEvent.EVENT, event -> GameModels.registerTVAnimationControllers((TVAnimationControllerRegistrationEvent) event));
         getEventDispatcher().listenToEvent(CreateModelsFromTVModelsEvent.EVENT, event -> GameModels.createModelsFromTVModels((CreateModelsFromTVModelsEvent) event));
         getEventDispatcher().listenToEvent(ModelConfigRegistrationEvent.EVENT, event -> GameModels.init((ModelConfigRegistrationEvent) event));
         getEventDispatcher().listenToEvent(GameStateRegistrationEvent.EVENT, event -> GameStates.registerStates((GameStateRegistrationEvent) event));
