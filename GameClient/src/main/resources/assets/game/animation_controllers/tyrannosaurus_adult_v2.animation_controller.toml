@@ -9,7 +9,7 @@ speed = "velocity.x"
 [[animations]]
 animation = "game:tyrannosaurus_adult_v2/run"
 influence = "clamp((velocity.x - 0.85) / 0.3, 0.0, 1.0)"
-speed = "velocity.x"
+speed = "(1.66/2.04) * velocity.x"
 
 [[animations]]
 animation = "game:tyrannosaurus_adult_v2/turn_left"

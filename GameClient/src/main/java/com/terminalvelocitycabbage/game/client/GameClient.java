@@ -26,7 +26,6 @@ public class GameClient extends ClientBase {
         getEventDispatcher().listenToEvent(ResourceSourceRegistrationEvent.EVENT, event -> GameResources.registerResourceSources((ResourceSourceRegistrationEvent) event, this));
         getEventDispatcher().listenToEvent(InputHandlerRegistrationEvent.EVENT, event -> GameInput.init((InputHandlerRegistrationEvent) event));
         getEventDispatcher().listenToEvent(EntityComponentRegistrationEvent.EVENT, event -> GameEntities.registerComponents((EntityComponentRegistrationEvent) event));
-        getEventDispatcher().listenToEvent(AnimationControllerVariableRegistrationEvent.EVENT, event -> GameModels.registerAnimationVariables((AnimationControllerVariableRegistrationEvent) event));
         getEventDispatcher().listenToEvent(EntitySystemRegistrationEvent.EVENT, event -> GameEntities.createSystems((EntitySystemRegistrationEvent) event));
         getEventDispatcher().listenToEvent(EntityTemplateRegistrationEvent.EVENT, event -> GameEntities.createEntityTemplates((EntityTemplateRegistrationEvent) event));
         getEventDispatcher().listenToEvent(RoutineRegistrationEvent.EVENT, event -> GameRoutines.init((RoutineRegistrationEvent) event));
@@ -35,10 +34,7 @@ public class GameClient extends ClientBase {
         getEventDispatcher().listenToEvent(SceneRegistrationEvent.EVENT, event -> GameScenes.init((SceneRegistrationEvent) event));
         getEventDispatcher().listenToEvent(LocalizedTextKeyRegistrationEvent.EVENT, event -> GameLocalizedTexts.registerLocalizedTextKeys((LocalizedTextKeyRegistrationEvent) event));
         getEventDispatcher().listenToEvent(MeshRegistrationEvent.EVENT, event -> GameMeshes.init((MeshRegistrationEvent) event));
-        getEventDispatcher().listenToEvent(TVModelRegistrationEvent.EVENT, event -> GameModels.registerTVModels((TVModelRegistrationEvent) event));
-        getEventDispatcher().listenToEvent(TVAnimationRegistrationEvent.EVENT, event -> GameModels.registerTVAnimations((TVAnimationRegistrationEvent) event));
-        getEventDispatcher().listenToEvent(TVAnimationControllerRegistrationEvent.EVENT, event -> GameModels.registerTVAnimationControllers((TVAnimationControllerRegistrationEvent) event));
-        getEventDispatcher().listenToEvent(CreateModelsFromTVModelsEvent.EVENT, event -> GameModels.createModelsFromTVModels((CreateModelsFromTVModelsEvent) event));
+        getEventDispatcher().listenToEvent(AnimationConfigurationEvent.EVENT, event -> GameModels.initAnimations((AnimationConfigurationEvent) event));
         getEventDispatcher().listenToEvent(ModelConfigRegistrationEvent.EVENT, event -> GameModels.init((ModelConfigRegistrationEvent) event));
         getEventDispatcher().listenToEvent(GameStateRegistrationEvent.EVENT, event -> GameStates.registerStates((GameStateRegistrationEvent) event));
         getEventDispatcher().listenToEvent(ConfigureTexturesEvent.EVENT, event -> GameTextures.cacheTextures((ConfigureTexturesEvent) event));
