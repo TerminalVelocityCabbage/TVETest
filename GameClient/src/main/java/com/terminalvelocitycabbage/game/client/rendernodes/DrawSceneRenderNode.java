@@ -62,18 +62,14 @@ public class DrawSceneRenderNode extends RenderNode {
 
             //Handle animations
             var modelIdentifier = entity.getComponent(ModelComponent.class).getModel();
-            var tvModelName = modelIdentifier.name();
-            if (tvModelName.contains("_")) {
-                tvModelName = tvModelName.substring(0, tvModelName.lastIndexOf("_"));
-            }
-            var tvModel = client.getTvModelRegistry().get(new Identifier(modelIdentifier.namespace(), "tv_model", tvModelName));
-            if (tvModel != null && shaderProgram.getConfig().getUniform("boneMatrices") != null) {
+            model = client.getModelRegistry().get(modelIdentifier);
+            if (model.skeleton() != null && shaderProgram.getConfig().getUniform("boneMatrices") != null) {
                 Matrix4f[] matrices;
                 if (entity.hasComponent(AnimationControllerComponent.class)) {
                     var animComp = entity.getComponent(AnimationControllerComponent.class);
-                    matrices = animComp.getBoneMatrices(tvModel);
+                    matrices = animComp.getBoneMatrices(model);
                 } else {
-                    matrices = tvModel.getBindPoseMatrices();
+                    matrices = model.skeleton().bindPoseMatrices();
                 }
                 shaderProgram.getUniform("boneMatrices").setUniform(matrices);
             }
