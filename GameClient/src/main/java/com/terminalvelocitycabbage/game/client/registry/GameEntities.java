@@ -7,6 +7,7 @@ import com.terminalvelocitycabbage.game.common.ecs.components.PitchYawRotationCo
 import com.terminalvelocitycabbage.game.common.ecs.components.PlayerCameraComponent;
 import com.terminalvelocitycabbage.game.common.ecs.components.PositionComponent;
 import com.terminalvelocitycabbage.templates.ecs.components.AnimationControllerComponent;
+import com.terminalvelocitycabbage.templates.ecs.components.DirectionalLightComponent;
 import com.terminalvelocitycabbage.templates.ecs.components.ModelComponent;
 import com.terminalvelocitycabbage.templates.ecs.components.TransformationComponent;
 import com.terminalvelocitycabbage.templates.ecs.components.VelocityComponent;
@@ -22,6 +23,7 @@ public class GameEntities {
     public static Identifier SAD_SQUARE_ENTITY;
     public static Identifier PIG_ENTITY;
     public static Identifier TYRANNOSAURUS_ENTITY;
+    public static Identifier SUN_ENTITY;
 
     public static void registerComponents(EntityComponentRegistrationEvent event) {
         event.registerComponent(ModelComponent.class);
@@ -31,6 +33,7 @@ public class GameEntities {
         event.registerComponent(PitchYawRotationComponent.class);
         event.registerComponent(PlayerCameraComponent.class);
         event.registerComponent(VelocityComponent.class);
+        event.registerComponent(DirectionalLightComponent.class);
     }
 
     public static void createSystems(EntitySystemRegistrationEvent event) {
@@ -44,5 +47,6 @@ public class GameEntities {
         SAD_SQUARE_ENTITY = event.createEntityTemplateFromFile(GameCommon.ID, "sad_square");
         PIG_ENTITY = event.createEntityTemplateFromFile(GameCommon.ID, "pig_test");
         TYRANNOSAURUS_ENTITY = event.createEntityTemplateFromFile(GameCommon.ID, "tyrannosaurus_adult_v2");
+        SUN_ENTITY = event.createEntityTemplateFromFile(GameCommon.ID, "sun");
     }
 }

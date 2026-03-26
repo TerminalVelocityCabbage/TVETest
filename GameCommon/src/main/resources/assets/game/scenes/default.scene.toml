@@ -17,6 +17,9 @@ routines = [ "game:default" ]
 render_graph = "game:draw_scene"
 
 [[entities]]
+template = "game:entity_template:sun"
+
+[[entities]]
 template = "game:entity_template:player"
 
 [[entities]]

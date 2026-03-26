@@ -23,6 +23,7 @@ public class GameShaders {
             .addUniform(new Uniform("projectionMatrix"))
             .addUniform(new Uniform("viewMatrix"))
             .addUniform(new Uniform("modelMatrix"))
+            .addUniform(new Uniform("directionalLight"))
             .build();
 
     public static final ShaderProgramConfig ANIMATED_MESH_SHADER_PROGRAM_CONFIG = ShaderProgramConfig.builder()
@@ -34,6 +35,7 @@ public class GameShaders {
             .addUniform(new Uniform("viewMatrix"))
             .addUniform(new Uniform("modelMatrix"))
             .addUniform(new Uniform("boneMatrices"))
+            .addUniform(new Uniform("directionalLight"))
             .build();
 
 }

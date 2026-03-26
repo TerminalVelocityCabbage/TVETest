@@ -15,6 +15,7 @@ import com.terminalvelocitycabbage.game.common.ecs.components.PitchYawRotationCo
 import com.terminalvelocitycabbage.game.common.ecs.components.PlayerCameraComponent;
 import com.terminalvelocitycabbage.game.common.ecs.components.PositionComponent;
 import com.terminalvelocitycabbage.templates.ecs.components.AnimationControllerComponent;
+import com.terminalvelocitycabbage.templates.ecs.components.DirectionalLightComponent;
 import com.terminalvelocitycabbage.templates.ecs.components.ModelComponent;
 import com.terminalvelocitycabbage.templates.ecs.components.TransformationComponent;
 import org.joml.Matrix4f;
@@ -43,6 +44,10 @@ public class DrawSceneRenderNode extends RenderNode {
         shaderProgram.getUniform("textureSampler").setUniform(0);
         shaderProgram.getUniform("projectionMatrix").setUniform(camera.getProjectionMatrix());
         shaderProgram.getUniform("viewMatrix").setUniform(camera.getViewMatrix(player));
+        var lightEntity = client.getManager().getFirstEntityWith(DirectionalLightComponent.class);
+        if (lightEntity != null && shaderProgram.getConfig().getUniform("directionalLight") != null) {
+            shaderProgram.getUniform("directionalLight").setUniform(lightEntity.getComponent(DirectionalLightComponent.class).getLight());
+        }
 
         //Sort entities for efficient rendering (by texture then by model)
         List<Entity> entities = new ArrayList<>(client.getManager().getEntitiesWith(ModelComponent.class, TransformationComponent.class));
