@@ -35,6 +35,7 @@ public class AnimationControllerTestUIRenderNode extends UIRenderNode {
             speedVariable("Facing Direction", 1);
             trigger("call", 4000);
             trigger("scratch", 8000);
+            trigger("dead", 8000);
         });
     }
 

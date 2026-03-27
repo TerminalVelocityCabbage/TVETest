@@ -29,7 +29,18 @@ influence = "if(velocity.y < 0, velocity.y * -1, 0)"
 [[animations]]
 animation = "game:tyrannosaurus_adult_v2/call"
 trigger = "call"
+fade_out = 0.5
+blend = "sin"
 
 [[animations]]
 animation = "game:tyrannosaurus_adult_v2/scratch"
 trigger = "scratch"
+fade_out = 0.5
+blend = "sin"
+
+[[animations]]
+animation = "game:tyrannosaurus_adult_v2/dead"
+trigger = ["dead", "hold"]
+priority = 10
+blend = "override"
+
