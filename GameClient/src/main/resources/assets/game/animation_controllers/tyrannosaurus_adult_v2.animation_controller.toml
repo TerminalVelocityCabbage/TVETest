@@ -2,9 +2,16 @@
 velocity = "vector3"
 
 [[animations]]
+animation = "game:tyrannosaurus_adult_v2/idle"
+influence = "clamp((0.5 - velocity.x) / 0.5, 0.0, 1.0)"
+
+[[animations]]
 animation = "game:tyrannosaurus_adult_v2/walk"
 influence = "if(velocity.x > 0, clamp((1.15 - velocity.x) / 0.3, 0.0, 1.0), 0.0)"
 speed = "velocity.x"
+fade_in = 0.5
+fade_out = 0.5
+ease = "sin"
 
 [[animations]]
 animation = "game:tyrannosaurus_adult_v2/run"
