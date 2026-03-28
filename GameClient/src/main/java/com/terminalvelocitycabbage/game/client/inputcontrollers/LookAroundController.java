@@ -10,13 +10,18 @@ import com.terminalvelocitycabbage.game.common.ecs.components.PositionComponent;
 
 public class LookAroundController extends GroupedController4f {
 
-    public LookAroundController(ControlGroup forward, ControlGroup backward, ControlGroup left, ControlGroup right) {
+    private final ControlGroup modifier;
+
+    public LookAroundController(ControlGroup modifier, ControlGroup forward, ControlGroup backward, ControlGroup left, ControlGroup right) {
         super(forward, backward, left, right);
+        this.modifier = modifier;
     }
 
     @Override
     public void act() {
-        getPlayer().getComponent(PitchYawRotationComponent.class).rotate(getRightAmount() - getLeftAmount(), getUpwardAmount() - getDownwardAmount());
+        if (modifier.isPressed()) {
+            getPlayer().getComponent(PitchYawRotationComponent.class).rotate(getRightAmount() - getLeftAmount(), getUpwardAmount() - getDownwardAmount());
+        }
     }
 
     private Entity getPlayer() {

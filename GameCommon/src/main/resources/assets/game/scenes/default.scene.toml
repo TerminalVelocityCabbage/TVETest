@@ -17,6 +17,9 @@ routines = [ "game:default" ]
 render_graph = "game:draw_scene"
 
 [[entities]]
+template = "game:entity_template:sun"
+
+[[entities]]
 template = "game:entity_template:player"
 
 [[entities]]
@@ -24,6 +27,12 @@ template = "game:entity_template:smile_square"
 
 [[entities]]
 template = "game:entity_template:sad_square"
+
+[[entities]]
+template = "game:entity_template:pig_test"
+
+[[entities]]
+template = "game:entity_template:tyrannosaurus_adult_v2"
 
 [[entities]]
 [entities.component.transformation]

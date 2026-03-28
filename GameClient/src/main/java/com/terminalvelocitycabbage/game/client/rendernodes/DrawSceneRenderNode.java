@@ -14,8 +14,11 @@ import com.terminalvelocitycabbage.game.client.registry.GameRenderers;
 import com.terminalvelocitycabbage.game.common.ecs.components.PitchYawRotationComponent;
 import com.terminalvelocitycabbage.game.common.ecs.components.PlayerCameraComponent;
 import com.terminalvelocitycabbage.game.common.ecs.components.PositionComponent;
+import com.terminalvelocitycabbage.templates.ecs.components.AnimationControllerComponent;
+import com.terminalvelocitycabbage.templates.ecs.components.DirectionalLightComponent;
 import com.terminalvelocitycabbage.templates.ecs.components.ModelComponent;
 import com.terminalvelocitycabbage.templates.ecs.components.TransformationComponent;
+import org.joml.Matrix4f;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -41,6 +44,10 @@ public class DrawSceneRenderNode extends RenderNode {
         shaderProgram.getUniform("textureSampler").setUniform(0);
         shaderProgram.getUniform("projectionMatrix").setUniform(camera.getProjectionMatrix());
         shaderProgram.getUniform("viewMatrix").setUniform(camera.getViewMatrix(player));
+        var lightEntity = client.getManager().getFirstEntityWith(DirectionalLightComponent.class);
+        if (lightEntity != null && shaderProgram.getConfig().getUniform("directionalLight") != null) {
+            shaderProgram.getUniform("directionalLight").setUniform(lightEntity.getComponent(DirectionalLightComponent.class).getLight());
+        }
 
         //Sort entities for efficient rendering (by texture then by model)
         List<Entity> entities = new ArrayList<>(client.getManager().getEntitiesWith(ModelComponent.class, TransformationComponent.class));
@@ -58,17 +65,30 @@ public class DrawSceneRenderNode extends RenderNode {
             //Update the transformation to that of this entity
             shaderProgram.getUniform("modelMatrix").setUniform(entity.getComponent(TransformationComponent.class).getTransformationMatrix());
 
-            //Early draw if this is the same model as the last entity (save on uploads)
+            //Handle animations
             var modelIdentifier = entity.getComponent(ModelComponent.class).getModel();
-            if (modelIdentifier.equals(lastModelID)) {
-                client.getModelRegistry().get(modelIdentifier).draw();
-                continue;
-            } else {
-                lastModelID = modelIdentifier;
-                model = client.getModelRegistry().get(modelIdentifier);
+            model = client.getModelRegistry().get(modelIdentifier);
+            if (model.skeleton() != null && shaderProgram.getConfig().getUniform("boneMatrices") != null) {
+                Matrix4f[] matrices;
+                if (entity.hasComponent(AnimationControllerComponent.class)) {
+                    var animComp = entity.getComponent(AnimationControllerComponent.class);
+                    matrices = animComp.getBoneMatrices(model);
+                } else {
+                    matrices = model.skeleton().bindPoseMatrices();
+                }
+                shaderProgram.getUniform("boneMatrices").setUniform(matrices);
             }
 
+            //Early draw if this is the same model as the last entity (save on uploads)
+            model = client.getModelRegistry().get(modelIdentifier);
             if (model.compiledMesh().getFormat().equals(shaderProgram.getConfig().getVertexFormat())) {
+                if (modelIdentifier.equals(lastModelID)) {
+                    model.draw();
+                    continue;
+                }
+
+                lastModelID = modelIdentifier;
+
                 //Optimization: only bind texture and mesh if they've changed since the last entity
                 var textureIdentifier = model.textureIdentifier();
                 if (!textureIdentifier.equals(lastTextureID)) {
@@ -78,8 +98,6 @@ public class DrawSceneRenderNode extends RenderNode {
 
                 model.bind();
                 model.draw();
-            } else {
-                Log.error("Model " + modelIdentifier + " has a different vertex format than the shader program!");
             }
         }
 
