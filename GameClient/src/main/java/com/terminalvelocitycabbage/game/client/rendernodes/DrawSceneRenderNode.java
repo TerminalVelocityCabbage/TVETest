@@ -1,21 +1,25 @@
 package com.terminalvelocitycabbage.game.client.rendernodes;
 
-import com.terminalvelocitycabbage.engine.client.renderer.materials.Texture;
-import com.terminalvelocitycabbage.engine.client.renderer.model.Mesh;
+import com.terminalvelocitycabbage.engine.client.renderer.model.Model;
 import com.terminalvelocitycabbage.engine.client.renderer.shader.ShaderProgramConfig;
 import com.terminalvelocitycabbage.engine.client.scene.Scene;
 import com.terminalvelocitycabbage.engine.client.window.WindowProperties;
 import com.terminalvelocitycabbage.engine.debug.Log;
 import com.terminalvelocitycabbage.engine.ecs.Entity;
 import com.terminalvelocitycabbage.engine.graph.RenderNode;
+import com.terminalvelocitycabbage.engine.registry.Identifier;
 import com.terminalvelocitycabbage.engine.util.HeterogeneousMap;
 import com.terminalvelocitycabbage.game.client.GameClient;
 import com.terminalvelocitycabbage.game.client.registry.GameRenderers;
 import com.terminalvelocitycabbage.templates.ecs.components.PitchYawRotationComponent;
 import com.terminalvelocitycabbage.game.common.ecs.components.PlayerCameraComponent;
+import com.terminalvelocitycabbage.game.common.ecs.components.PositionComponent;
+import com.terminalvelocitycabbage.templates.ecs.components.AnimationControllerComponent;
+import com.terminalvelocitycabbage.templates.ecs.components.DirectionalLightComponent;
 import com.terminalvelocitycabbage.templates.ecs.components.ModelComponent;
 import com.terminalvelocitycabbage.templates.ecs.components.PositionComponent;
 import com.terminalvelocitycabbage.templates.ecs.components.TransformationComponent;
+import org.joml.Matrix4f;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -41,30 +45,61 @@ public class DrawSceneRenderNode extends RenderNode {
         shaderProgram.getUniform("textureSampler").setUniform(0);
         shaderProgram.getUniform("projectionMatrix").setUniform(camera.getProjectionMatrix());
         shaderProgram.getUniform("viewMatrix").setUniform(camera.getViewMatrix(player));
+        var lightEntity = client.getManager().getFirstEntityWith(DirectionalLightComponent.class);
+        if (lightEntity != null && shaderProgram.getConfig().getUniform("directionalLight") != null) {
+            shaderProgram.getUniform("directionalLight").setUniform(lightEntity.getComponent(DirectionalLightComponent.class).getLight());
+        }
 
-        //Sort entities for efficient rendering (by texture then by mesh)
+        //Sort entities for efficient rendering (by texture then by model)
         List<Entity> entities = new ArrayList<>(client.getManager().getEntitiesWith(ModelComponent.class, TransformationComponent.class));
         entities.sort(Comparator
-                        .comparingInt((Entity entity) -> client.getTextureCache().getTexture(client.getModelRegistry().get(entity.getComponent(ModelComponent.class).getModel()).getTextureIdentifier()).getTextureID())
-                        .thenComparing(entity -> client.getModelRegistry().get(entity.getComponent(ModelComponent.class).getModel()).getMeshIdentifier().hashCode())
+                        .comparingInt((Entity entity) -> client.getTextureCache().getTexture(client.getModelRegistry().get(entity.getComponent(ModelComponent.class).getModel()).textureIdentifier()).getTextureID())
+                        .thenComparing(entity -> entity.getComponent(ModelComponent.class).getModel().hashCode())
         );
 
         //Render entities
-        Texture lastTexture = null;
-        Mesh lastMesh = null;
+        Identifier lastTextureID = null;
+        Identifier lastModelID = null;
+        Model model;
         for (Entity entity : entities) {
+
+            //Update the transformation to that of this entity
+            shaderProgram.getUniform("modelMatrix").setUniform(entity.getComponent(TransformationComponent.class).getTransformationMatrix());
+
+            //Handle animations
             var modelIdentifier = entity.getComponent(ModelComponent.class).getModel();
-            var model = client.getModelRegistry().get(modelIdentifier);
-            var mesh = scene.getMeshCache().getMesh(modelIdentifier);
-            var texture = client.getTextureCache().getTexture(model.getTextureIdentifier());
-            var transformationComponent = entity.getComponent(TransformationComponent.class);
+            model = client.getModelRegistry().get(modelIdentifier);
+            if (model.skeleton() != null && shaderProgram.getConfig().getUniform("boneMatrices") != null) {
+                Matrix4f[] matrices;
+                if (entity.hasComponent(AnimationControllerComponent.class)) {
+                    var animComp = entity.getComponent(AnimationControllerComponent.class);
+                    matrices = animComp.getBoneMatrices(model);
+                } else {
+                    matrices = model.skeleton().bindPoseMatrices();
+                }
+                shaderProgram.getUniform("boneMatrices").setUniform(matrices);
+            }
 
-            if (lastTexture != texture) lastTexture = texture;
-            if (lastMesh != mesh) lastMesh = mesh;
+            //Early draw if this is the same model as the last entity (save on uploads)
+            model = client.getModelRegistry().get(modelIdentifier);
+            if (model.compiledMesh().getFormat().equals(shaderProgram.getConfig().getVertexFormat())) {
+                if (modelIdentifier.equals(lastModelID)) {
+                    model.draw();
+                    continue;
+                }
 
-            lastTexture.bind();
-            shaderProgram.getUniform("modelMatrix").setUniform(transformationComponent.getTransformationMatrix());
-            if (mesh.getFormat().equals(shaderProgram.getConfig().getVertexFormat())) mesh.render();
+                lastModelID = modelIdentifier;
+
+                //Optimization: only bind texture and mesh if they've changed since the last entity
+                var textureIdentifier = model.textureIdentifier();
+                if (!textureIdentifier.equals(lastTextureID)) {
+                    model.bindTexture(client.getTextureCache());
+                    lastTextureID = textureIdentifier;
+                }
+
+                model.bind();
+                model.draw();
+            }
         }
 
         //Reset

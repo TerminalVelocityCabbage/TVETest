@@ -1,0 +1,6 @@
+name = "sun"
+
+[component.directional_light]
+direction = [-1.0, -1.0, -1.0]
+color = [1.0, 1.0, 1.0, 1.0]
+intensity = 1.0

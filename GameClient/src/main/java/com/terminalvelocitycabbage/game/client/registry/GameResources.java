@@ -1,5 +1,6 @@
 package com.terminalvelocitycabbage.game.client.registry;
 
+import com.terminalvelocitycabbage.engine.TerminalVelocityEngine;
 import com.terminalvelocitycabbage.engine.filesystem.resources.ResourceCategory;
 import com.terminalvelocitycabbage.engine.filesystem.resources.ResourceSource;
 import com.terminalvelocitycabbage.engine.filesystem.sources.MainSource;
@@ -12,6 +13,7 @@ import com.terminalvelocitycabbage.templates.events.ResourceSourceRegistrationEv
 public class GameResources {
 
     public static Identifier CLIENT_RESOURCE_SOURCE;
+    public static Identifier ENGINE_RESOURCE_SOURCE;
 
     public static void registerResourceCategories(ResourceCategoryRegistrationEvent event) {
         ResourceCategory.registerEngineDefaults(event.getRegistry());
@@ -25,6 +27,11 @@ public class GameResources {
         clientSource.registerDefaultSources(GameCommon.ID);
         //register this source
         CLIENT_RESOURCE_SOURCE = event.registerResourceSource(GameClient.ID, "client_main", clientSource);
+
+        //Register engine resource source
+        ResourceSource engineSource = new MainSource(gameCLient, TerminalVelocityEngine.ID);
+        engineSource.registerDefaultSources(TerminalVelocityEngine.ID);
+        ENGINE_RESOURCE_SOURCE = event.registerResourceSource(TerminalVelocityEngine.ID, "engine_main", engineSource);
     }
     
 }

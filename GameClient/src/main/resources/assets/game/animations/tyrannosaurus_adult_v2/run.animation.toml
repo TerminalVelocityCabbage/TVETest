@@ -1,0 +1,1771 @@
+[metadata]
+	version = "1.0.0"
+	name = "run"
+	duration = 1.66
+	looping = true
+
+[layers]
+	default = 1.0
+
+[default.shoulders.position]
+	"0.0000" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "linear"]}
+[default.shoulders.rotation]
+	"0.0000" = {to = [-7.894, 10.182, 2.814], interpolation = ["both", "catmulrom"]}
+	"0.1900" = {to = [-9.35112, 6.72388, 1.96726], interpolation = ["both", "catmulrom"]}
+	"0.4100" = {to = [0.057, -0.215, 0.2], interpolation = ["both", "catmulrom"]}
+	"0.8300" = {to = [-7.945, -10.139, -2.689], interpolation = ["both", "catmulrom"]}
+	"1.0300" = {to = [-9.2326, -6.738, -1.67442], interpolation = ["both", "catmulrom"]}
+	"1.2500" = {to = [0.057, -0.215, 0.2], interpolation = ["both", "catmulrom"]}
+	"1.6600" = {to = [-7.894, 10.182, 2.814], interpolation = ["both", "linear"]}
+
+[default.snout2.position]
+	"0.0000" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "linear"]}
+[default.snout2.rotation]
+	"0.0000" = {to = [-0.0, 0.0, -0.0], interpolation = ["both", "linear"]}
+
+[default.snout1.position]
+	"0.0000" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "linear"]}
+[default.snout1.rotation]
+	"0.0000" = {to = [-0.0, 0.0, -0.0], interpolation = ["both", "linear"]}
+
+[default.teethUpperFront.position]
+	"0.0000" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "linear"]}
+[default.teethUpperFront.rotation]
+	"0.0000" = {to = [-0.0, 0.0, -0.0], interpolation = ["both", "linear"]}
+
+[default.rightIndexFinger.position]
+	"0.0000" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "linear"]}
+[default.rightIndexFinger.rotation]
+	"0.0000" = {to = [-0.0, 0.0, -0.0], interpolation = ["both", "linear"]}
+
+[default.crest2L.position]
+	"0.0000" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "linear"]}
+[default.crest2L.rotation]
+	"0.0000" = {to = [-0.0, 0.0, -0.0], interpolation = ["both", "linear"]}
+
+[default.neck4.position]
+	"0.0000" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "linear"]}
+[default.neck4.rotation]
+	"0.0000" = {to = [-0.0, 0.0, -0.0], interpolation = ["both", "linear"]}
+
+[default.jawUpper2.position]
+	"0.0000" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "linear"]}
+[default.jawUpper2.rotation]
+	"0.0000" = {to = [-0.0, 0.0, -0.0], interpolation = ["both", "linear"]}
+
+[default.calfRight.position]
+	"0.0000" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "catmulrom"]}
+	"0.0400" = {to = [0.088, 0.005, 0.027], interpolation = ["both", "catmulrom"]}
+	"0.0800" = {to = [0.327, 0.019, 0.1], interpolation = ["both", "catmulrom"]}
+	"0.1200" = {to = [0.68, 0.039, 0.208], interpolation = ["both", "catmulrom"]}
+	"0.1600" = {to = [1.107, 0.063, 0.339], interpolation = ["both", "catmulrom"]}
+	"0.2100" = {to = [1.573, 0.089, 0.481], interpolation = ["both", "catmulrom"]}
+	"0.2500" = {to = [2.039, 0.116, 0.623], interpolation = ["both", "catmulrom"]}
+	"0.2900" = {to = [2.466, 0.14, 0.754], interpolation = ["both", "catmulrom"]}
+	"0.3300" = {to = [2.819, 0.16, 0.862], interpolation = ["both", "catmulrom"]}
+	"0.3700" = {to = [3.058, 0.173, 0.935], interpolation = ["both", "catmulrom"]}
+	"0.4100" = {to = [3.146, 0.178, 0.962], interpolation = ["both", "catmulrom"]}
+	"0.4500" = {to = [3.058, 0.173, 0.935], interpolation = ["both", "catmulrom"]}
+	"0.5000" = {to = [2.819, 0.16, 0.862], interpolation = ["both", "catmulrom"]}
+	"0.5400" = {to = [2.466, 0.14, 0.754], interpolation = ["both", "catmulrom"]}
+	"0.5800" = {to = [2.039, 0.116, 0.623], interpolation = ["both", "catmulrom"]}
+	"0.6200" = {to = [1.573, 0.089, 0.481], interpolation = ["both", "catmulrom"]}
+	"0.6600" = {to = [1.107, 0.063, 0.339], interpolation = ["both", "catmulrom"]}
+	"0.7100" = {to = [0.68, 0.039, 0.208], interpolation = ["both", "catmulrom"]}
+	"0.7500" = {to = [0.327, 0.019, 0.1], interpolation = ["both", "catmulrom"]}
+	"0.7900" = {to = [0.088, 0.005, 0.027], interpolation = ["both", "catmulrom"]}
+	"0.8300" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "catmulrom"]}
+	"1.6600" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "linear"]}
+[default.calfRight.rotation]
+	"0.0000" = {to = [4.917, 0.0, 0.011], interpolation = ["both", "catmulrom"]}
+	"0.0400" = {to = [3.918, -0.418, -0.131], interpolation = ["both", "catmulrom"]}
+	"0.0800" = {to = [1.195, -1.57, -0.482], interpolation = ["both", "catmulrom"]}
+	"0.1200" = {to = [-2.843, -3.312, -0.903], interpolation = ["both", "catmulrom"]}
+	"0.1600" = {to = [-7.781, -5.478, -1.25], interpolation = ["both", "catmulrom"]}
+	"0.2100" = {to = [-13.191, -7.871, -1.414], interpolation = ["both", "catmulrom"]}
+	"0.2500" = {to = [-18.629, -10.268, -1.349], interpolation = ["both", "catmulrom"]}
+	"0.2900" = {to = [-23.641, -12.446, -1.087], interpolation = ["both", "catmulrom"]}
+	"0.3300" = {to = [-27.775, -14.203, -0.726], interpolation = ["both", "catmulrom"]}
+	"0.3700" = {to = [-30.58, -15.368, -0.409], interpolation = ["both", "catmulrom"]}
+	"0.4100" = {to = [-31.614, -15.791, -0.277], interpolation = ["both", "catmulrom"]}
+	"0.4500" = {to = [-30.268, -15.382, -0.451], interpolation = ["both", "catmulrom"]}
+	"0.5000" = {to = [-26.601, -14.241, -0.873], interpolation = ["both", "catmulrom"]}
+	"0.5400" = {to = [-21.171, -12.495, -1.359], interpolation = ["both", "catmulrom"]}
+	"0.5800" = {to = [-14.554, -10.298, -1.72], interpolation = ["both", "catmulrom"]}
+	"0.6200" = {to = [-7.357, -7.86, -1.817], interpolation = ["both", "catmulrom"]}
+	"0.6600" = {to = [-0.195, -5.43, -1.606], interpolation = ["both", "catmulrom"]}
+	"0.7100" = {to = [6.326, -3.252, -1.151], interpolation = ["both", "catmulrom"]}
+	"0.7500" = {to = [11.632, -1.528, -0.601], interpolation = ["both", "catmulrom"]}
+	"0.7900" = {to = [15.188, -0.405, -0.145], interpolation = ["both", "catmulrom"]}
+	"0.8300" = {to = [16.479, -0.002, 0.038], interpolation = ["both", "catmulrom"]}
+	"0.8700" = {to = [16.464, -0.001, 0.037], interpolation = ["both", "catmulrom"]}
+	"0.9100" = {to = [16.443, -0.001, 0.037], interpolation = ["both", "catmulrom"]}
+	"0.9500" = {to = [16.409, -0.001, 0.037], interpolation = ["both", "catmulrom"]}
+	"1.0000" = {to = [16.356, -0.001, 0.037], interpolation = ["both", "catmulrom"]}
+	"1.0400" = {to = [16.277, 0.0, 0.036], interpolation = ["both", "catmulrom"]}
+	"1.0800" = {to = [16.17, 0.0, 0.035], interpolation = ["both", "catmulrom"]}
+	"1.1200" = {to = [16.045, 0.001, 0.035], interpolation = ["both", "catmulrom"]}
+	"1.1600" = {to = [15.919, 0.002, 0.034], interpolation = ["both", "catmulrom"]}
+	"1.2100" = {to = [15.807, 0.003, 0.033], interpolation = ["both", "catmulrom"]}
+	"1.2500" = {to = [15.722, 0.004, 0.032], interpolation = ["both", "catmulrom"]}
+	"1.2900" = {to = [15.665, 0.005, 0.031], interpolation = ["both", "catmulrom"]}
+	"1.3300" = {to = [15.616, 0.006, 0.03], interpolation = ["both", "catmulrom"]}
+	"1.3700" = {to = [15.543, 0.007, 0.029], interpolation = ["both", "catmulrom"]}
+	"1.4100" = {to = [15.22, 0.007, 0.028], interpolation = ["both", "catmulrom"]}
+	"1.4500" = {to = [14.249, 0.007, 0.026], interpolation = ["both", "catmulrom"]}
+	"1.5000" = {to = [12.362, 0.007, 0.023], interpolation = ["both", "catmulrom"]}
+	"1.5400" = {to = [9.936, 0.005, 0.019], interpolation = ["both", "catmulrom"]}
+	"1.5800" = {to = [7.517, 0.003, 0.015], interpolation = ["both", "catmulrom"]}
+	"1.6200" = {to = [5.659, 0.001, 0.012], interpolation = ["both", "catmulrom"]}
+	"1.6600" = {to = [4.917, 0.0, 0.011], interpolation = ["both", "linear"]}
+
+[default.neck3.position]
+	"0.0000" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "linear"]}
+[default.neck3.rotation]
+	"0.0000" = {to = [-8.858, 0.0, -0.0], interpolation = ["both", "catmulrom"]}
+	"0.0400" = {to = [-9.074, 0.001, -0.0], interpolation = ["both", "catmulrom"]}
+	"0.0800" = {to = [-9.659, 0.003, -0.0], interpolation = ["both", "catmulrom"]}
+	"0.1200" = {to = [-10.523, 0.006, -0.0], interpolation = ["both", "catmulrom"]}
+	"0.1600" = {to = [-11.572, 0.009, -0.001], interpolation = ["both", "catmulrom"]}
+	"0.2100" = {to = [-12.713, 0.013, -0.001], interpolation = ["both", "catmulrom"]}
+	"0.2500" = {to = [-13.854, 0.017, -0.001], interpolation = ["both", "catmulrom"]}
+	"0.2900" = {to = [-14.903, 0.02, -0.002], interpolation = ["both", "catmulrom"]}
+	"0.3300" = {to = [-15.766, 0.023, -0.002], interpolation = ["both", "catmulrom"]}
+	"0.3700" = {to = [-16.352, 0.025, -0.003], interpolation = ["both", "catmulrom"]}
+	"0.4100" = {to = [-16.568, 0.026, -0.003], interpolation = ["both", "catmulrom"]}
+	"0.4500" = {to = [-16.352, 0.025, -0.003], interpolation = ["both", "catmulrom"]}
+	"0.5000" = {to = [-15.766, 0.023, -0.002], interpolation = ["both", "catmulrom"]}
+	"0.5400" = {to = [-14.903, 0.02, -0.002], interpolation = ["both", "catmulrom"]}
+	"0.5800" = {to = [-13.854, 0.017, -0.001], interpolation = ["both", "catmulrom"]}
+	"0.6200" = {to = [-12.713, 0.013, -0.001], interpolation = ["both", "catmulrom"]}
+	"0.6600" = {to = [-11.572, 0.009, -0.001], interpolation = ["both", "catmulrom"]}
+	"0.7100" = {to = [-10.523, 0.006, -0.0], interpolation = ["both", "catmulrom"]}
+	"0.7500" = {to = [-9.659, 0.003, -0.0], interpolation = ["both", "catmulrom"]}
+	"0.7900" = {to = [-9.074, 0.001, -0.0], interpolation = ["both", "catmulrom"]}
+	"0.8300" = {to = [-8.858, 0.0, -0.0], interpolation = ["both", "catmulrom"]}
+	"0.8700" = {to = [-9.074, 0.001, -0.0], interpolation = ["both", "catmulrom"]}
+	"0.9100" = {to = [-9.659, 0.003, -0.0], interpolation = ["both", "catmulrom"]}
+	"0.9500" = {to = [-10.523, 0.006, -0.0], interpolation = ["both", "catmulrom"]}
+	"1.0000" = {to = [-11.572, 0.009, -0.001], interpolation = ["both", "catmulrom"]}
+	"1.0400" = {to = [-12.713, 0.013, -0.001], interpolation = ["both", "catmulrom"]}
+	"1.0800" = {to = [-13.854, 0.017, -0.001], interpolation = ["both", "catmulrom"]}
+	"1.1200" = {to = [-14.903, 0.02, -0.002], interpolation = ["both", "catmulrom"]}
+	"1.1600" = {to = [-15.766, 0.023, -0.002], interpolation = ["both", "catmulrom"]}
+	"1.2100" = {to = [-16.352, 0.025, -0.003], interpolation = ["both", "catmulrom"]}
+	"1.2500" = {to = [-16.568, 0.026, -0.003], interpolation = ["both", "catmulrom"]}
+	"1.2900" = {to = [-16.352, 0.025, -0.003], interpolation = ["both", "catmulrom"]}
+	"1.3300" = {to = [-15.766, 0.023, -0.002], interpolation = ["both", "catmulrom"]}
+	"1.3700" = {to = [-14.903, 0.02, -0.002], interpolation = ["both", "catmulrom"]}
+	"1.4100" = {to = [-13.854, 0.017, -0.001], interpolation = ["both", "catmulrom"]}
+	"1.4500" = {to = [-12.713, 0.013, -0.001], interpolation = ["both", "catmulrom"]}
+	"1.5000" = {to = [-11.572, 0.009, -0.001], interpolation = ["both", "catmulrom"]}
+	"1.5400" = {to = [-10.523, 0.006, -0.0], interpolation = ["both", "catmulrom"]}
+	"1.5800" = {to = [-9.659, 0.003, -0.0], interpolation = ["both", "catmulrom"]}
+	"1.6200" = {to = [-9.074, 0.001, -0.0], interpolation = ["both", "catmulrom"]}
+	"1.6600" = {to = [-8.858, 0.0, -0.0], interpolation = ["both", "linear"]}
+
+[default.ankleRight.position]
+	"0.0000" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "linear"]}
+[default.ankleRight.rotation]
+	"0.0000" = {to = [-30.853, 0.028, -0.065], interpolation = ["both", "catmulrom"]}
+	"0.0400" = {to = [-29.846, 0.028, -0.062], interpolation = ["both", "catmulrom"]}
+	"0.0800" = {to = [-27.048, 0.027, -0.056], interpolation = ["both", "catmulrom"]}
+	"0.1200" = {to = [-22.783, 0.024, -0.046], interpolation = ["both", "catmulrom"]}
+	"0.1600" = {to = [-17.385, 0.02, -0.035], interpolation = ["both", "catmulrom"]}
+	"0.2100" = {to = [-11.216, 0.014, -0.022], interpolation = ["both", "catmulrom"]}
+	"0.2500" = {to = [-4.67, 0.006, -0.009], interpolation = ["both", "catmulrom"]}
+	"0.2900" = {to = [1.839, -0.003, 0.003], interpolation = ["both", "catmulrom"]}
+	"0.3300" = {to = [7.904, -0.012, 0.013], interpolation = ["both", "catmulrom"]}
+	"0.3700" = {to = [13.14, -0.022, 0.021], interpolation = ["both", "catmulrom"]}
+	"0.4100" = {to = [17.197, -0.029, 0.027], interpolation = ["both", "catmulrom"]}
+	"0.4500" = {to = [19.931, -0.035, 0.03], interpolation = ["both", "catmulrom"]}
+	"0.5000" = {to = [21.6, -0.038, 0.032], interpolation = ["both", "catmulrom"]}
+	"0.5400" = {to = [22.483, -0.04, 0.033], interpolation = ["both", "catmulrom"]}
+	"0.5800" = {to = [22.831, -0.04, 0.033], interpolation = ["both", "catmulrom"]}
+	"0.6200" = {to = [22.892, -0.04, 0.034], interpolation = ["both", "catmulrom"]}
+	"0.6600" = {to = [20.46, -0.036, 0.031], interpolation = ["both", "catmulrom"]}
+	"0.7100" = {to = [14.486, -0.024, 0.023], interpolation = ["both", "catmulrom"]}
+	"0.7500" = {to = [6.998, -0.011, 0.012], interpolation = ["both", "catmulrom"]}
+	"0.7900" = {to = [0.065, 0.0, -0.0], interpolation = ["both", "catmulrom"]}
+	"0.8300" = {to = [-4.31, 0.006, -0.008], interpolation = ["both", "catmulrom"]}
+	"0.8700" = {to = [-6.174, 0.008, -0.012], interpolation = ["both", "catmulrom"]}
+	"0.9100" = {to = [-7.004, 0.009, -0.013], interpolation = ["both", "catmulrom"]}
+	"0.9500" = {to = [-7.432, 0.01, -0.014], interpolation = ["both", "catmulrom"]}
+	"1.0000" = {to = [-7.796, 0.01, -0.015], interpolation = ["both", "catmulrom"]}
+	"1.0400" = {to = [-8.436, 0.011, -0.016], interpolation = ["both", "catmulrom"]}
+	"1.0800" = {to = [-9.611, 0.012, -0.018], interpolation = ["both", "catmulrom"]}
+	"1.1200" = {to = [-11.259, 0.014, -0.022], interpolation = ["both", "catmulrom"]}
+	"1.1600" = {to = [-13.235, 0.016, -0.026], interpolation = ["both", "catmulrom"]}
+	"1.2100" = {to = [-15.391, 0.018, -0.03], interpolation = ["both", "catmulrom"]}
+	"1.2500" = {to = [-17.581, 0.02, -0.035], interpolation = ["both", "catmulrom"]}
+	"1.2900" = {to = [-19.682, 0.022, -0.04], interpolation = ["both", "catmulrom"]}
+	"1.3300" = {to = [-21.658, 0.023, -0.044], interpolation = ["both", "catmulrom"]}
+	"1.3700" = {to = [-23.499, 0.025, -0.048], interpolation = ["both", "catmulrom"]}
+	"1.4100" = {to = [-25.192, 0.026, -0.052], interpolation = ["both", "catmulrom"]}
+	"1.4500" = {to = [-26.727, 0.026, -0.055], interpolation = ["both", "catmulrom"]}
+	"1.5000" = {to = [-28.085, 0.027, -0.058], interpolation = ["both", "catmulrom"]}
+	"1.5400" = {to = [-29.224, 0.027, -0.061], interpolation = ["both", "catmulrom"]}
+	"1.5800" = {to = [-30.097, 0.028, -0.063], interpolation = ["both", "catmulrom"]}
+	"1.6200" = {to = [-30.656, 0.028, -0.064], interpolation = ["both", "catmulrom"]}
+	"1.6600" = {to = [-30.853, 0.028, -0.065], interpolation = ["both", "linear"]}
+
+[default.neck2.position]
+	"0.0000" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "linear"]}
+[default.neck2.rotation]
+	"0.0000" = {to = [18.58, 0.0, -0.0], interpolation = ["both", "catmulrom"]}
+	"0.0400" = {to = [18.894, -0.001, -0.001], interpolation = ["both", "catmulrom"]}
+	"0.0800" = {to = [19.745, -0.003, -0.002], interpolation = ["both", "catmulrom"]}
+	"0.1200" = {to = [21.001, -0.007, -0.005], interpolation = ["both", "catmulrom"]}
+	"0.1600" = {to = [22.527, -0.011, -0.008], interpolation = ["both", "catmulrom"]}
+	"0.2100" = {to = [24.188, -0.015, -0.011], interpolation = ["both", "catmulrom"]}
+	"0.2500" = {to = [25.849, -0.019, -0.015], interpolation = ["both", "catmulrom"]}
+	"0.2900" = {to = [27.375, -0.023, -0.019], interpolation = ["both", "catmulrom"]}
+	"0.3300" = {to = [28.63, -0.026, -0.021], interpolation = ["both", "catmulrom"]}
+	"0.3700" = {to = [29.482, -0.028, -0.024], interpolation = ["both", "catmulrom"]}
+	"0.4100" = {to = [29.795, -0.029, -0.024], interpolation = ["both", "catmulrom"]}
+	"0.4500" = {to = [29.482, -0.028, -0.024], interpolation = ["both", "catmulrom"]}
+	"0.5000" = {to = [28.63, -0.026, -0.021], interpolation = ["both", "catmulrom"]}
+	"0.5400" = {to = [27.375, -0.023, -0.019], interpolation = ["both", "catmulrom"]}
+	"0.5800" = {to = [25.849, -0.019, -0.015], interpolation = ["both", "catmulrom"]}
+	"0.6200" = {to = [24.188, -0.015, -0.011], interpolation = ["both", "catmulrom"]}
+	"0.6600" = {to = [22.527, -0.011, -0.008], interpolation = ["both", "catmulrom"]}
+	"0.7100" = {to = [21.001, -0.007, -0.005], interpolation = ["both", "catmulrom"]}
+	"0.7500" = {to = [19.745, -0.003, -0.002], interpolation = ["both", "catmulrom"]}
+	"0.7900" = {to = [18.894, -0.001, -0.001], interpolation = ["both", "catmulrom"]}
+	"0.8300" = {to = [18.58, 0.0, -0.0], interpolation = ["both", "catmulrom"]}
+	"0.8700" = {to = [18.894, -0.001, -0.001], interpolation = ["both", "catmulrom"]}
+	"0.9100" = {to = [19.745, -0.003, -0.002], interpolation = ["both", "catmulrom"]}
+	"0.9500" = {to = [21.001, -0.007, -0.005], interpolation = ["both", "catmulrom"]}
+	"1.0000" = {to = [22.527, -0.011, -0.008], interpolation = ["both", "catmulrom"]}
+	"1.0400" = {to = [24.188, -0.015, -0.011], interpolation = ["both", "catmulrom"]}
+	"1.0800" = {to = [25.849, -0.019, -0.015], interpolation = ["both", "catmulrom"]}
+	"1.1200" = {to = [27.375, -0.023, -0.019], interpolation = ["both", "catmulrom"]}
+	"1.1600" = {to = [28.63, -0.026, -0.021], interpolation = ["both", "catmulrom"]}
+	"1.2100" = {to = [29.482, -0.028, -0.024], interpolation = ["both", "catmulrom"]}
+	"1.2500" = {to = [29.795, -0.029, -0.024], interpolation = ["both", "catmulrom"]}
+	"1.2900" = {to = [29.482, -0.028, -0.024], interpolation = ["both", "catmulrom"]}
+	"1.3300" = {to = [28.63, -0.026, -0.021], interpolation = ["both", "catmulrom"]}
+	"1.3700" = {to = [27.375, -0.023, -0.019], interpolation = ["both", "catmulrom"]}
+	"1.4100" = {to = [25.849, -0.019, -0.015], interpolation = ["both", "catmulrom"]}
+	"1.4500" = {to = [24.188, -0.015, -0.011], interpolation = ["both", "catmulrom"]}
+	"1.5000" = {to = [22.527, -0.011, -0.008], interpolation = ["both", "catmulrom"]}
+	"1.5400" = {to = [21.001, -0.007, -0.005], interpolation = ["both", "catmulrom"]}
+	"1.5800" = {to = [19.745, -0.003, -0.002], interpolation = ["both", "catmulrom"]}
+	"1.6200" = {to = [18.894, -0.001, -0.001], interpolation = ["both", "catmulrom"]}
+	"1.6600" = {to = [18.58, 0.0, -0.0], interpolation = ["both", "linear"]}
+
+[default.neck1.position]
+	"0.0000" = {to = [0.0, 0.502, -0.105], interpolation = ["both", "catmulrom"]}
+	"0.0400" = {to = [0.0, 0.509, -0.142], interpolation = ["both", "catmulrom"]}
+	"0.0800" = {to = [0.0, 0.53, -0.243], interpolation = ["both", "catmulrom"]}
+	"0.1200" = {to = [-0.001, 0.56, -0.391], interpolation = ["both", "catmulrom"]}
+	"0.1600" = {to = [-0.001, 0.596, -0.571], interpolation = ["both", "catmulrom"]}
+	"0.2100" = {to = [-0.002, 0.635, -0.767], interpolation = ["both", "catmulrom"]}
+	"0.2500" = {to = [-0.003, 0.675, -0.962], interpolation = ["both", "catmulrom"]}
+	"0.2900" = {to = [-0.003, 0.711, -1.142], interpolation = ["both", "catmulrom"]}
+	"0.3300" = {to = [-0.004, 0.741, -1.291], interpolation = ["both", "catmulrom"]}
+	"0.3700" = {to = [-0.004, 0.761, -1.391], interpolation = ["both", "catmulrom"]}
+	"0.4100" = {to = [-0.004, 0.769, -1.428], interpolation = ["both", "catmulrom"]}
+	"0.4500" = {to = [-0.004, 0.761, -1.391], interpolation = ["both", "catmulrom"]}
+	"0.5000" = {to = [-0.004, 0.741, -1.291], interpolation = ["both", "catmulrom"]}
+	"0.5400" = {to = [-0.003, 0.711, -1.142], interpolation = ["both", "catmulrom"]}
+	"0.5800" = {to = [-0.003, 0.675, -0.962], interpolation = ["both", "catmulrom"]}
+	"0.6200" = {to = [-0.002, 0.635, -0.767], interpolation = ["both", "catmulrom"]}
+	"0.6600" = {to = [-0.001, 0.596, -0.571], interpolation = ["both", "catmulrom"]}
+	"0.7100" = {to = [-0.001, 0.56, -0.391], interpolation = ["both", "catmulrom"]}
+	"0.7500" = {to = [0.0, 0.53, -0.243], interpolation = ["both", "catmulrom"]}
+	"0.7900" = {to = [0.0, 0.509, -0.142], interpolation = ["both", "catmulrom"]}
+	"0.8300" = {to = [0.0, 0.502, -0.105], interpolation = ["both", "catmulrom"]}
+	"0.8700" = {to = [0.0, 0.509, -0.142], interpolation = ["both", "catmulrom"]}
+	"0.9100" = {to = [0.0, 0.53, -0.243], interpolation = ["both", "catmulrom"]}
+	"0.9500" = {to = [-0.001, 0.56, -0.391], interpolation = ["both", "catmulrom"]}
+	"1.0000" = {to = [-0.001, 0.596, -0.571], interpolation = ["both", "catmulrom"]}
+	"1.0400" = {to = [-0.002, 0.635, -0.767], interpolation = ["both", "catmulrom"]}
+	"1.0800" = {to = [-0.003, 0.675, -0.962], interpolation = ["both", "catmulrom"]}
+	"1.1200" = {to = [-0.003, 0.711, -1.142], interpolation = ["both", "catmulrom"]}
+	"1.1600" = {to = [-0.004, 0.741, -1.291], interpolation = ["both", "catmulrom"]}
+	"1.2100" = {to = [-0.004, 0.761, -1.391], interpolation = ["both", "catmulrom"]}
+	"1.2500" = {to = [-0.004, 0.769, -1.428], interpolation = ["both", "catmulrom"]}
+	"1.2900" = {to = [-0.004, 0.761, -1.391], interpolation = ["both", "catmulrom"]}
+	"1.3300" = {to = [-0.004, 0.741, -1.291], interpolation = ["both", "catmulrom"]}
+	"1.3700" = {to = [-0.003, 0.711, -1.142], interpolation = ["both", "catmulrom"]}
+	"1.4100" = {to = [-0.003, 0.675, -0.962], interpolation = ["both", "catmulrom"]}
+	"1.4500" = {to = [-0.002, 0.635, -0.767], interpolation = ["both", "catmulrom"]}
+	"1.5000" = {to = [-0.001, 0.596, -0.571], interpolation = ["both", "catmulrom"]}
+	"1.5400" = {to = [-0.001, 0.56, -0.391], interpolation = ["both", "catmulrom"]}
+	"1.5800" = {to = [0.0, 0.53, -0.243], interpolation = ["both", "catmulrom"]}
+	"1.6200" = {to = [0.0, 0.509, -0.142], interpolation = ["both", "catmulrom"]}
+	"1.6600" = {to = [0.0, 0.502, -0.105], interpolation = ["both", "linear"]}
+[default.neck1.rotation]
+	"0.0000" = {to = [0.397, -7.034, -4.611], interpolation = ["both", "catmulrom"]}
+	"0.1900" = {to = [-0.95698, -4.69325, -3.06846], interpolation = ["both", "catmulrom"]}
+	"0.4100" = {to = [-8.264, 0.009, 0.026], interpolation = ["both", "catmulrom"]}
+	"0.8300" = {to = [0.361, 6.763, 4.448], interpolation = ["both", "catmulrom"]}
+	"1.0300" = {to = [-1.14584, 4.44642, 2.93281], interpolation = ["both", "catmulrom"]}
+	"1.2500" = {to = [-8.264, 0.009, 0.026], interpolation = ["both", "catmulrom"]}
+	"1.6600" = {to = [0.397, -7.034, -4.611], interpolation = ["both", "linear"]}
+
+[default.ankleLeft.position]
+	"0.0000" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "linear"]}
+[default.ankleLeft.rotation]
+	"0.0000" = {to = [-4.31, -0.006, 0.008], interpolation = ["both", "catmulrom"]}
+	"0.0400" = {to = [-4.5, -0.006, 0.008], interpolation = ["both", "catmulrom"]}
+	"0.0800" = {to = [-5.047, -0.007, 0.009], interpolation = ["both", "catmulrom"]}
+	"0.1200" = {to = [-5.91, -0.008, 0.011], interpolation = ["both", "catmulrom"]}
+	"0.1600" = {to = [-7.053, -0.009, 0.013], interpolation = ["both", "catmulrom"]}
+	"0.2100" = {to = [-8.436, -0.011, 0.016], interpolation = ["both", "catmulrom"]}
+	"0.2500" = {to = [-10.02, -0.013, 0.019], interpolation = ["both", "catmulrom"]}
+	"0.2900" = {to = [-11.767, -0.015, 0.023], interpolation = ["both", "catmulrom"]}
+	"0.3300" = {to = [-13.637, -0.017, 0.027], interpolation = ["both", "catmulrom"]}
+	"0.3700" = {to = [-15.588, -0.019, 0.031], interpolation = ["both", "catmulrom"]}
+	"0.4100" = {to = [-17.581, -0.02, 0.035], interpolation = ["both", "catmulrom"]}
+	"0.4500" = {to = [-19.574, -0.022, 0.039], interpolation = ["both", "catmulrom"]}
+	"0.5000" = {to = [-21.526, -0.023, 0.044], interpolation = ["both", "catmulrom"]}
+	"0.5400" = {to = [-23.395, -0.025, 0.048], interpolation = ["both", "catmulrom"]}
+	"0.5800" = {to = [-25.142, -0.026, 0.052], interpolation = ["both", "catmulrom"]}
+	"0.6200" = {to = [-26.727, -0.026, 0.055], interpolation = ["both", "catmulrom"]}
+	"0.6600" = {to = [-28.11, -0.027, 0.058], interpolation = ["both", "catmulrom"]}
+	"0.7100" = {to = [-29.252, -0.027, 0.061], interpolation = ["both", "catmulrom"]}
+	"0.7500" = {to = [-30.116, -0.028, 0.063], interpolation = ["both", "catmulrom"]}
+	"0.7900" = {to = [-30.662, -0.028, 0.064], interpolation = ["both", "catmulrom"]}
+	"0.8300" = {to = [-30.853, -0.028, 0.065], interpolation = ["both", "catmulrom"]}
+	"0.8700" = {to = [-29.846, -0.028, 0.062], interpolation = ["both", "catmulrom"]}
+	"0.9100" = {to = [-27.048, -0.027, 0.056], interpolation = ["both", "catmulrom"]}
+	"0.9500" = {to = [-22.783, -0.024, 0.046], interpolation = ["both", "catmulrom"]}
+	"1.0000" = {to = [-17.385, -0.02, 0.035], interpolation = ["both", "catmulrom"]}
+	"1.0400" = {to = [-11.216, -0.014, 0.022], interpolation = ["both", "catmulrom"]}
+	"1.0800" = {to = [-4.67, -0.006, 0.009], interpolation = ["both", "catmulrom"]}
+	"1.1200" = {to = [1.839, 0.003, -0.003], interpolation = ["both", "catmulrom"]}
+	"1.1600" = {to = [7.904, 0.012, -0.013], interpolation = ["both", "catmulrom"]}
+	"1.2100" = {to = [13.14, 0.022, -0.021], interpolation = ["both", "catmulrom"]}
+	"1.2500" = {to = [17.197, 0.029, -0.027], interpolation = ["both", "catmulrom"]}
+	"1.2900" = {to = [19.931, 0.035, -0.03], interpolation = ["both", "catmulrom"]}
+	"1.3300" = {to = [21.6, 0.038, -0.032], interpolation = ["both", "catmulrom"]}
+	"1.3700" = {to = [22.483, 0.04, -0.033], interpolation = ["both", "catmulrom"]}
+	"1.4100" = {to = [22.831, 0.04, -0.033], interpolation = ["both", "catmulrom"]}
+	"1.4500" = {to = [22.892, 0.04, -0.034], interpolation = ["both", "catmulrom"]}
+	"1.5000" = {to = [20.071, 0.035, -0.03], interpolation = ["both", "catmulrom"]}
+	"1.5400" = {to = [13.307, 0.022, -0.021], interpolation = ["both", "catmulrom"]}
+	"1.5800" = {to = [5.22, 0.008, -0.009], interpolation = ["both", "catmulrom"]}
+	"1.6200" = {to = [-1.511, -0.002, 0.003], interpolation = ["both", "catmulrom"]}
+	"1.6600" = {to = [-4.31, -0.006, 0.008], interpolation = ["both", "linear"]}
+
+[default.jawUpper1.position]
+	"0.0000" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "linear"]}
+[default.jawUpper1.rotation]
+	"0.0000" = {to = [-0.0, 0.0, -0.0], interpolation = ["both", "linear"]}
+
+[default.thighRight.position]
+	"0.0000" = {to = [-0.152, 0.009, 1.106], interpolation = ["both", "catmulrom"]}
+	"0.0400" = {to = [-0.15, 0.152, 1.098], interpolation = ["both", "catmulrom"]}
+	"0.0800" = {to = [-0.142, 0.541, 1.073], interpolation = ["both", "catmulrom"]}
+	"0.1200" = {to = [-0.131, 1.113, 1.034], interpolation = ["both", "catmulrom"]}
+	"0.1600" = {to = [-0.118, 1.809, 0.983], interpolation = ["both", "catmulrom"]}
+	"0.2100" = {to = [-0.104, 2.566, 0.923], interpolation = ["both", "catmulrom"]}
+	"0.2500" = {to = [-0.09, 3.324, 0.855], interpolation = ["both", "catmulrom"]}
+	"0.2900" = {to = [-0.077, 4.021, 0.781], interpolation = ["both", "catmulrom"]}
+	"0.3300" = {to = [-0.066, 4.597, 0.705], interpolation = ["both", "catmulrom"]}
+	"0.3700" = {to = [-0.058, 4.989, 0.627], interpolation = ["both", "catmulrom"]}
+	"0.4100" = {to = [-0.055, 5.137, 0.551], interpolation = ["both", "catmulrom"]}
+	"0.4500" = {to = [-0.053, 4.997, 0.477], interpolation = ["both", "catmulrom"]}
+	"0.5000" = {to = [-0.049, 4.609, 0.406], interpolation = ["both", "catmulrom"]}
+	"0.5400" = {to = [-0.043, 4.034, 0.338], interpolation = ["both", "catmulrom"]}
+	"0.5800" = {to = [-0.035, 3.335, 0.271], interpolation = ["both", "catmulrom"]}
+	"0.6200" = {to = [-0.027, 2.573, 0.207], interpolation = ["both", "catmulrom"]}
+	"0.6600" = {to = [-0.019, 1.812, 0.144], interpolation = ["both", "catmulrom"]}
+	"0.7100" = {to = [-0.012, 1.112, 0.088], interpolation = ["both", "catmulrom"]}
+	"0.7500" = {to = [-0.006, 0.535, 0.042], interpolation = ["both", "catmulrom"]}
+	"0.7900" = {to = [-0.002, 0.144, 0.011], interpolation = ["both", "catmulrom"]}
+	"0.8300" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "catmulrom"]}
+	"0.8700" = {to = [0.001, 0.084, 0.01], interpolation = ["both", "catmulrom"]}
+	"0.9100" = {to = [0.005, 0.32, 0.039], interpolation = ["both", "catmulrom"]}
+	"0.9500" = {to = [0.01, 0.683, 0.084], interpolation = ["both", "catmulrom"]}
+	"1.0000" = {to = [0.015, 1.149, 0.141], interpolation = ["both", "catmulrom"]}
+	"1.0400" = {to = [0.019, 1.693, 0.206], interpolation = ["both", "catmulrom"]}
+	"1.0800" = {to = [0.022, 2.29, 0.277], interpolation = ["both", "catmulrom"]}
+	"1.1200" = {to = [0.022, 2.916, 0.351], interpolation = ["both", "catmulrom"]}
+	"1.1600" = {to = [0.019, 3.546, 0.424], interpolation = ["both", "catmulrom"]}
+	"1.2100" = {to = [0.012, 4.156, 0.492], interpolation = ["both", "catmulrom"]}
+	"1.2500" = {to = [0.0, 4.72, 0.553], interpolation = ["both", "catmulrom"]}
+	"1.2900" = {to = [-0.018, 5.217, 0.606], interpolation = ["both", "catmulrom"]}
+	"1.3300" = {to = [-0.038, 5.628, 0.658], interpolation = ["both", "catmulrom"]}
+	"1.3700" = {to = [-0.056, 5.938, 0.719], interpolation = ["both", "catmulrom"]}
+	"1.4100" = {to = [-0.071, 6.132, 0.8], interpolation = ["both", "catmulrom"]}
+	"1.4500" = {to = [-0.076, 6.194, 0.91], interpolation = ["both", "catmulrom"]}
+	"1.5000" = {to = [-0.085, 5.545, 1.013], interpolation = ["both", "catmulrom"]}
+	"1.5400" = {to = [-0.104, 4.011, 1.072], interpolation = ["both", "catmulrom"]}
+	"1.5800" = {to = [-0.126, 2.182, 1.099], interpolation = ["both", "catmulrom"]}
+	"1.6200" = {to = [-0.144, 0.651, 1.107], interpolation = ["both", "catmulrom"]}
+	"1.6600" = {to = [-0.152, 0.009, 1.106], interpolation = ["both", "linear"]}
+[default.thighRight.rotation]
+	"0.0000" = {to = [-37.362, -2.113, 0.715], interpolation = ["both", "catmulrom"]}
+	"0.0400" = {to = [-36.905, -1.604, 0.557], interpolation = ["both", "catmulrom"]}
+	"0.0800" = {to = [-35.607, -0.214, 0.148], interpolation = ["both", "catmulrom"]}
+	"0.1200" = {to = [-33.576, 1.853, -0.396], interpolation = ["both", "catmulrom"]}
+	"0.1600" = {to = [-30.913, 4.392, -0.951], interpolation = ["both", "catmulrom"]}
+	"0.2100" = {to = [-27.707, 7.188, -1.402], interpolation = ["both", "catmulrom"]}
+	"0.2500" = {to = [-24.028, 10.017, -1.657], interpolation = ["both", "catmulrom"]}
+	"0.2900" = {to = [-19.939, 12.642, -1.654], interpolation = ["both", "catmulrom"]}
+	"0.3300" = {to = [-15.501, 14.824, -1.372], interpolation = ["both", "catmulrom"]}
+	"0.3700" = {to = [-10.785, 16.322, -0.841], interpolation = ["both", "catmulrom"]}
+	"0.4100" = {to = [-5.879, 16.901, -0.144], interpolation = ["both", "catmulrom"]}
+	"0.4500" = {to = [-0.892, 16.486, 0.58], interpolation = ["both", "catmulrom"]}
+	"0.5000" = {to = [4.038, 15.289, 1.196], interpolation = ["both", "catmulrom"]}
+	"0.5400" = {to = [8.776, 13.52, 1.615], interpolation = ["both", "catmulrom"]}
+	"0.5800" = {to = [13.203, 11.402, 1.799], interpolation = ["both", "catmulrom"]}
+	"0.6200" = {to = [17.217, 9.159, 1.758], interpolation = ["both", "catmulrom"]}
+	"0.6600" = {to = [20.72, 6.999, 1.543], interpolation = ["both", "catmulrom"]}
+	"0.7100" = {to = [23.62, 5.058, 1.223], interpolation = ["both", "catmulrom"]}
+	"0.7500" = {to = [25.822, 3.449, 0.874], interpolation = ["both", "catmulrom"]}
+	"0.7900" = {to = [27.229, 2.271, 0.576], interpolation = ["both", "catmulrom"]}
+	"0.8300" = {to = [27.738, 1.621, 0.4], interpolation = ["both", "catmulrom"]}
+	"0.8700" = {to = [27.307, 1.357, 0.324], interpolation = ["both", "catmulrom"]}
+	"0.9100" = {to = [26.024, 1.243, 0.282], interpolation = ["both", "catmulrom"]}
+	"0.9500" = {to = [23.972, 1.192, 0.249], interpolation = ["both", "catmulrom"]}
+	"1.0000" = {to = [21.233, 1.151, 0.214], interpolation = ["both", "catmulrom"]}
+	"1.0400" = {to = [17.886, 1.07, 0.168], interpolation = ["both", "catmulrom"]}
+	"1.0800" = {to = [14.017, 0.906, 0.112], interpolation = ["both", "catmulrom"]}
+	"1.1200" = {to = [9.712, 0.666, 0.058], interpolation = ["both", "catmulrom"]}
+	"1.1600" = {to = [5.068, 0.37, 0.017], interpolation = ["both", "catmulrom"]}
+	"1.2100" = {to = [0.19, 0.042, 0.001], interpolation = ["both", "catmulrom"]}
+	"1.2500" = {to = [-4.806, -0.292, 0.012], interpolation = ["both", "catmulrom"]}
+	"1.2900" = {to = [-9.804, -0.61, 0.052], interpolation = ["both", "catmulrom"]}
+	"1.3300" = {to = [-14.683, -0.904, 0.116], interpolation = ["both", "catmulrom"]}
+	"1.3700" = {to = [-19.33, -1.169, 0.199], interpolation = ["both", "catmulrom"]}
+	"1.4100" = {to = [-23.636, -1.404, 0.294], interpolation = ["both", "catmulrom"]}
+	"1.4500" = {to = [-27.504, -1.609, 0.394], interpolation = ["both", "catmulrom"]}
+	"1.5000" = {to = [-30.845, -1.782, 0.492], interpolation = ["both", "catmulrom"]}
+	"1.5400" = {to = [-33.578, -1.922, 0.58], interpolation = ["both", "catmulrom"]}
+	"1.5800" = {to = [-35.626, -2.026, 0.651], interpolation = ["both", "catmulrom"]}
+	"1.6200" = {to = [-36.914, -2.091, 0.698], interpolation = ["both", "catmulrom"]}
+	"1.6600" = {to = [-37.362, -2.113, 0.715], interpolation = ["both", "linear"]}
+
+[default.lowerJaw6B.position]
+	"0.0000" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "linear"]}
+[default.lowerJaw6B.rotation]
+	"0.0000" = {to = [-0.0, 0.0, -0.0], interpolation = ["both", "linear"]}
+
+[default.jawLower2.position]
+	"0.0000" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "linear"]}
+[default.jawLower2.rotation]
+	"0.0000" = {to = [-0.0, 0.0, -0.0], interpolation = ["both", "linear"]}
+
+[default.newcube30.position]
+	"0.0000" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "linear"]}
+[default.newcube30.rotation]
+	"0.0000" = {to = [-0.0, 0.0, -0.0], interpolation = ["both", "linear"]}
+
+[default.jawLower1.position]
+	"0.0000" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "linear"]}
+[default.jawLower1.rotation]
+	"0.0000" = {to = [-0.0, 0.0, -0.0], interpolation = ["both", "linear"]}
+
+[default.calfLeft.position]
+	"0.8299" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "catmulrom"]}
+	"0.8300" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "catmulrom"]}
+	"0.8700" = {to = [-0.088, 0.005, 0.027], interpolation = ["both", "catmulrom"]}
+	"0.9100" = {to = [-0.327, 0.019, 0.1], interpolation = ["both", "catmulrom"]}
+	"0.9500" = {to = [-0.68, 0.039, 0.208], interpolation = ["both", "catmulrom"]}
+	"1.0000" = {to = [-1.107, 0.063, 0.339], interpolation = ["both", "catmulrom"]}
+	"1.0400" = {to = [-1.573, 0.089, 0.481], interpolation = ["both", "catmulrom"]}
+	"1.0800" = {to = [-2.039, 0.116, 0.623], interpolation = ["both", "catmulrom"]}
+	"1.1200" = {to = [-2.466, 0.14, 0.754], interpolation = ["both", "catmulrom"]}
+	"1.1600" = {to = [-2.819, 0.16, 0.862], interpolation = ["both", "catmulrom"]}
+	"1.2100" = {to = [-3.058, 0.173, 0.935], interpolation = ["both", "catmulrom"]}
+	"1.2500" = {to = [-3.146, 0.178, 0.962], interpolation = ["both", "catmulrom"]}
+	"1.2900" = {to = [-3.058, 0.173, 0.935], interpolation = ["both", "catmulrom"]}
+	"1.3300" = {to = [-2.819, 0.16, 0.862], interpolation = ["both", "catmulrom"]}
+	"1.3700" = {to = [-2.466, 0.14, 0.754], interpolation = ["both", "catmulrom"]}
+	"1.4100" = {to = [-2.039, 0.116, 0.623], interpolation = ["both", "catmulrom"]}
+	"1.4500" = {to = [-1.573, 0.089, 0.481], interpolation = ["both", "catmulrom"]}
+	"1.5000" = {to = [-1.107, 0.063, 0.339], interpolation = ["both", "catmulrom"]}
+	"1.5400" = {to = [-0.68, 0.039, 0.208], interpolation = ["both", "catmulrom"]}
+	"1.5800" = {to = [-0.327, 0.019, 0.1], interpolation = ["both", "catmulrom"]}
+	"1.6200" = {to = [-0.088, 0.005, 0.027], interpolation = ["both", "catmulrom"]}
+	"1.6600" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "linear"]}
+[default.calfLeft.rotation]
+	"0.0000" = {to = [16.479, 0.002, -0.038], interpolation = ["both", "catmulrom"]}
+	"0.0400" = {to = [16.472, 0.002, -0.038], interpolation = ["both", "catmulrom"]}
+	"0.0800" = {to = [16.451, 0.002, -0.038], interpolation = ["both", "catmulrom"]}
+	"0.1200" = {to = [16.413, 0.001, -0.037], interpolation = ["both", "catmulrom"]}
+	"0.1600" = {to = [16.355, 0.001, -0.037], interpolation = ["both", "catmulrom"]}
+	"0.2100" = {to = [16.277, 0.0, -0.036], interpolation = ["both", "catmulrom"]}
+	"0.2500" = {to = [16.177, -0.001, -0.035], interpolation = ["both", "catmulrom"]}
+	"0.2900" = {to = [16.063, -0.001, -0.035], interpolation = ["both", "catmulrom"]}
+	"0.3300" = {to = [15.944, -0.002, -0.034], interpolation = ["both", "catmulrom"]}
+	"0.3700" = {to = [15.827, -0.003, -0.033], interpolation = ["both", "catmulrom"]}
+	"0.4100" = {to = [15.722, -0.004, -0.032], interpolation = ["both", "catmulrom"]}
+	"0.4500" = {to = [15.627, -0.005, -0.031], interpolation = ["both", "catmulrom"]}
+	"0.5000" = {to = [15.492, -0.005, -0.03], interpolation = ["both", "catmulrom"]}
+	"0.5400" = {to = [15.258, -0.006, -0.028], interpolation = ["both", "catmulrom"]}
+	"0.5800" = {to = [14.863, -0.007, -0.027], interpolation = ["both", "catmulrom"]}
+	"0.6200" = {to = [14.249, -0.007, -0.026], interpolation = ["both", "catmulrom"]}
+	"0.6600" = {to = [13.347, -0.008, -0.025], interpolation = ["both", "catmulrom"]}
+	"0.7100" = {to = [12.065, -0.009, -0.025], interpolation = ["both", "catmulrom"]}
+	"0.7500" = {to = [10.301, -0.009, -0.024], interpolation = ["both", "catmulrom"]}
+	"0.7900" = {to = [7.953, -0.009, -0.022], interpolation = ["both", "catmulrom"]}
+	"0.8300" = {to = [4.917, 0.0, -0.011], interpolation = ["both", "catmulrom"]}
+	"0.8700" = {to = [1.146, 0.443, 0.145], interpolation = ["both", "catmulrom"]}
+	"0.9100" = {to = [-3.2, 1.622, 0.457], interpolation = ["both", "catmulrom"]}
+	"0.9500" = {to = [-7.905, 3.382, 0.793], interpolation = ["both", "catmulrom"]}
+	"1.0000" = {to = [-12.746, 5.545, 1.044], interpolation = ["both", "catmulrom"]}
+	"1.0400" = {to = [-17.496, 7.913, 1.141], interpolation = ["both", "catmulrom"]}
+	"1.0800" = {to = [-21.922, 10.277, 1.07], interpolation = ["both", "catmulrom"]}
+	"1.1200" = {to = [-25.791, 12.432, 0.863], interpolation = ["both", "catmulrom"]}
+	"1.1600" = {to = [-28.86, 14.185, 0.597], interpolation = ["both", "catmulrom"]}
+	"1.2100" = {to = [-30.884, 15.361, 0.369], interpolation = ["both", "catmulrom"]}
+	"1.2500" = {to = [-31.614, 15.791, 0.277], interpolation = ["both", "catmulrom"]}
+	"1.2900" = {to = [-30.267, 15.382, 0.451], interpolation = ["both", "catmulrom"]}
+	"1.3300" = {to = [-26.598, 14.241, 0.873], interpolation = ["both", "catmulrom"]}
+	"1.3700" = {to = [-21.164, 12.494, 1.359], interpolation = ["both", "catmulrom"]}
+	"1.4100" = {to = [-14.542, 10.295, 1.72], interpolation = ["both", "catmulrom"]}
+	"1.4500" = {to = [-7.341, 7.855, 1.816], interpolation = ["both", "catmulrom"]}
+	"1.5000" = {to = [-0.181, 5.423, 1.605], interpolation = ["both", "catmulrom"]}
+	"1.5400" = {to = [6.333, 3.246, 1.15], interpolation = ["both", "catmulrom"]}
+	"1.5800" = {to = [11.629, 1.524, 0.6], interpolation = ["both", "catmulrom"]}
+	"1.6200" = {to = [15.18, 0.404, 0.145], interpolation = ["both", "catmulrom"]}
+	"1.6600" = {to = [16.479, 0.002, -0.038], interpolation = ["both", "linear"]}
+
+[default.chest.position]
+	"0.0000" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "linear"]}
+[default.chest.rotation]
+	"0.0000" = {to = [-0.0, 0.0, -0.0], interpolation = ["both", "linear"]}
+
+[default.jawLower4.position]
+	"0.0000" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "linear"]}
+[default.jawLower4.rotation]
+	"0.0000" = {to = [-0.0, 0.0, -0.0], interpolation = ["both", "linear"]}
+
+[default.leftIndexFinger.position]
+	"0.0000" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "linear"]}
+[default.leftIndexFinger.rotation]
+	"0.0000" = {to = [3.556, 0.874, 0.191], interpolation = ["both", "linear"]}
+	"0.0400" = {to = [2.794, 1.33, 0.291], interpolation = ["both", "linear"]}
+	"0.0800" = {to = [2.889, 1.276, 0.279], interpolation = ["both", "linear"]}
+	"0.1200" = {to = [2.651, 1.35, 0.295], interpolation = ["both", "linear"]}
+	"0.1600" = {to = [2.044, 1.718, 0.376], interpolation = ["both", "linear"]}
+	"0.2100" = {to = [1.38, 2.281, 0.5], interpolation = ["both", "linear"]}
+	"0.2500" = {to = [0.896, 2.886, 0.635], interpolation = ["both", "linear"]}
+	"0.2900" = {to = [0.67, 3.422, 0.754], interpolation = ["both", "linear"]}
+	"0.3300" = {to = [0.672, 3.848, 0.85], interpolation = ["both", "linear"]}
+	"0.3700" = {to = [0.831, 4.184, 0.926], interpolation = ["both", "linear"]}
+	"0.4100" = {to = [1.075, 4.475, 0.991], interpolation = ["both", "linear"]}
+	"0.4500" = {to = [1.446, 4.671, 1.036], interpolation = ["both", "linear"]}
+	"0.5000" = {to = [2.276, 4.363, 0.966], interpolation = ["both", "linear"]}
+	"0.5400" = {to = [3.329, 3.573, 0.788], interpolation = ["both", "linear"]}
+	"0.5800" = {to = [4.19, 2.609, 0.573], interpolation = ["both", "linear"]}
+	"0.6200" = {to = [4.657, 1.75, 0.383], interpolation = ["both", "linear"]}
+	"0.6600" = {to = [4.775, 1.112, 0.243], interpolation = ["both", "linear"]}
+	"0.7100" = {to = [4.705, 0.665, 0.145], interpolation = ["both", "linear"]}
+	"0.7500" = {to = [4.605, 0.314, 0.068], interpolation = ["both", "linear"]}
+	"0.7900" = {to = [4.558, -0.031, -0.007], interpolation = ["both", "linear"]}
+	"0.8300" = {to = [4.552, -0.406, -0.088], interpolation = ["both", "linear"]}
+	"0.8700" = {to = [4.459, -0.711, -0.154], interpolation = ["both", "linear"]}
+	"0.9100" = {to = [3.999, -0.564, -0.122], interpolation = ["both", "linear"]}
+	"0.9500" = {to = [3.27, 0.055, 0.012], interpolation = ["both", "linear"]}
+	"1.0000" = {to = [2.519, 0.9, 0.196], interpolation = ["both", "linear"]}
+	"1.0400" = {to = [1.91, 1.722, 0.377], interpolation = ["both", "linear"]}
+	"1.0800" = {to = [1.489, 2.396, 0.526], interpolation = ["both", "linear"]}
+	"1.1200" = {to = [1.233, 2.912, 0.64], interpolation = ["both", "linear"]}
+	"1.1600" = {to = [1.103, 3.33, 0.734], interpolation = ["both", "linear"]}
+	"1.2100" = {to = [1.066, 3.715, 0.82], interpolation = ["both", "linear"]}
+	"1.2500" = {to = [1.098, 4.116, 0.91], interpolation = ["both", "linear"]}
+	"1.2900" = {to = [1.294, 4.444, 0.984], interpolation = ["both", "linear"]}
+	"1.3300" = {to = [2.058, 4.265, 0.944], interpolation = ["both", "linear"]}
+	"1.3700" = {to = [3.198, 3.591, 0.792], interpolation = ["both", "linear"]}
+	"1.4100" = {to = [4.245, 2.742, 0.603], interpolation = ["both", "linear"]}
+	"1.4500" = {to = [4.907, 1.999, 0.438], interpolation = ["both", "linear"]}
+	"1.5000" = {to = [5.149, 1.482, 0.324], interpolation = ["both", "linear"]}
+	"1.5400" = {to = [5.102, 1.163, 0.254], interpolation = ["both", "linear"]}
+	"1.5800" = {to = [4.926, 0.947, 0.206], interpolation = ["both", "linear"]}
+	"1.6200" = {to = [4.724, 0.747, 0.163], interpolation = ["both", "linear"]}
+	"1.6600" = {to = [4.516, 0.521, 0.113], interpolation = ["both", "linear"]}
+
+[default.clawIndexFingerR.position]
+	"0.0000" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "linear"]}
+[default.clawIndexFingerR.rotation]
+	"0.0000" = {to = [-0.0, 0.0, -0.0], interpolation = ["both", "linear"]}
+
+[default.jawLower3.position]
+	"0.0000" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "linear"]}
+[default.jawLower3.rotation]
+	"0.0000" = {to = [-0.0, 0.0, -0.0], interpolation = ["both", "linear"]}
+
+[default.clawIndexFingerL.position]
+	"0.0000" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "linear"]}
+[default.clawIndexFingerL.rotation]
+	"0.0000" = {to = [-0.0, 0.0, -0.0], interpolation = ["both", "linear"]}
+
+[default.jawLower5.position]
+	"0.0000" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "linear"]}
+[default.jawLower5.rotation]
+	"0.0000" = {to = [-0.0, 0.0, -0.0], interpolation = ["both", "linear"]}
+
+[default.crest3L.position]
+	"0.0000" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "linear"]}
+[default.crest3L.rotation]
+	"0.0000" = {to = [-0.0, 0.0, -0.0], interpolation = ["both", "linear"]}
+
+[default.teethUpperLeft2.position]
+	"0.0000" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "linear"]}
+[default.teethUpperLeft2.rotation]
+	"0.0000" = {to = [-0.0, 0.0, -0.0], interpolation = ["both", "linear"]}
+
+[default.teethUpperLeft3.position]
+	"0.0000" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "linear"]}
+[default.teethUpperLeft3.rotation]
+	"0.0000" = {to = [-0.0, 0.0, -0.0], interpolation = ["both", "linear"]}
+
+[default.newcube0.position]
+	"0.0000" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "linear"]}
+[default.newcube0.rotation]
+	"0.0000" = {to = [-0.0, 0.0, -0.0], interpolation = ["both", "linear"]}
+
+[default.newcube2.position]
+	"0.0000" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "linear"]}
+[default.newcube2.rotation]
+	"0.0000" = {to = [-0.0, 0.0, -0.0], interpolation = ["both", "linear"]}
+
+[default.newcube1.position]
+	"0.0000" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "linear"]}
+[default.newcube1.rotation]
+	"0.0000" = {to = [-0.0, 0.0, -0.0], interpolation = ["both", "linear"]}
+
+[default.neck3_cube.position]
+	"0.0000" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "linear"]}
+[default.neck3_cube.rotation]
+	"0.0000" = {to = [-0.0, 0.0, -0.0], interpolation = ["both", "linear"]}
+
+[default.newcube4.position]
+	"0.0000" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "linear"]}
+[default.newcube4.rotation]
+	"0.0000" = {to = [-0.0, 0.0, -0.0], interpolation = ["both", "linear"]}
+
+[default.footRight.position]
+	"0.8299" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "catmulrom"]}
+	"0.8300" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "catmulrom"]}
+	"0.8700" = {to = [0.0, -0.066, 0.072], interpolation = ["both", "catmulrom"]}
+	"0.9100" = {to = [0.0, -0.222, 0.243], interpolation = ["both", "catmulrom"]}
+	"0.9500" = {to = [-0.001, -0.409, 0.447], interpolation = ["both", "catmulrom"]}
+	"1.0000" = {to = [-0.001, -0.565, 0.618], interpolation = ["both", "catmulrom"]}
+	"1.0400" = {to = [-0.001, -0.631, 0.69], interpolation = ["both", "catmulrom"]}
+	"1.0800" = {to = [-0.001, -0.591, 0.627], interpolation = ["both", "catmulrom"]}
+	"1.1200" = {to = [-0.001, -0.492, 0.476], interpolation = ["both", "catmulrom"]}
+	"1.1600" = {to = [0.0, -0.364, 0.292], interpolation = ["both", "catmulrom"]}
+	"1.2100" = {to = [0.0, -0.237, 0.129], interpolation = ["both", "catmulrom"]}
+	"1.2500" = {to = [0.0, -0.142, 0.042], interpolation = ["both", "catmulrom"]}
+	"1.2900" = {to = [0.0, -0.085, 0.017], interpolation = ["both", "catmulrom"]}
+	"1.3300" = {to = [0.0, -0.053, 0.005], interpolation = ["both", "catmulrom"]}
+	"1.3700" = {to = [0.0, -0.035, -0.001], interpolation = ["both", "catmulrom"]}
+	"1.4100" = {to = [0.0, -0.026, -0.002], interpolation = ["both", "catmulrom"]}
+	"1.4500" = {to = [0.0, -0.021, -0.001], interpolation = ["both", "catmulrom"]}
+	"1.5000" = {to = [0.0, -0.015, -0.001], interpolation = ["both", "catmulrom"]}
+	"1.5400" = {to = [0.0, -0.01, 0.0], interpolation = ["both", "catmulrom"]}
+	"1.5800" = {to = [0.0, -0.005, 0.0], interpolation = ["both", "catmulrom"]}
+	"1.6200" = {to = [0.0, -0.001, 0.0], interpolation = ["both", "catmulrom"]}
+	"1.6600" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "linear"]}
+[default.footRight.rotation]
+	"0.0000" = {to = [-96.048, -5.549, -1.814], interpolation = ["both", "catmulrom"]}
+	"0.0400" = {to = [-96.129, -5.554, -1.811], interpolation = ["both", "catmulrom"]}
+	"0.0800" = {to = [-96.347, -5.567, -1.804], interpolation = ["both", "catmulrom"]}
+	"0.1200" = {to = [-96.669, -5.586, -1.792], interpolation = ["both", "catmulrom"]}
+	"0.1600" = {to = [-97.061, -5.609, -1.779], interpolation = ["both", "catmulrom"]}
+	"0.2100" = {to = [-97.49, -5.634, -1.763], interpolation = ["both", "catmulrom"]}
+	"0.2500" = {to = [-97.921, -5.66, -1.748], interpolation = ["both", "catmulrom"]}
+	"0.2900" = {to = [-98.318, -5.683, -1.734], interpolation = ["both", "catmulrom"]}
+	"0.3300" = {to = [-98.647, -5.702, -1.721], interpolation = ["both", "catmulrom"]}
+	"0.3700" = {to = [-98.871, -5.715, -1.713], interpolation = ["both", "catmulrom"]}
+	"0.4100" = {to = [-98.953, -5.719, -1.71], interpolation = ["both", "catmulrom"]}
+	"0.4500" = {to = [-97.615, -5.642, -1.759], interpolation = ["both", "catmulrom"]}
+	"0.5000" = {to = [-94.087, -5.432, -1.879], interpolation = ["both", "catmulrom"]}
+	"0.5400" = {to = [-89.1, -5.123, -2.026], interpolation = ["both", "catmulrom"]}
+	"0.5800" = {to = [-83.425, -4.758, -2.16], interpolation = ["both", "catmulrom"]}
+	"0.6200" = {to = [-77.866, -4.389, -2.255], interpolation = ["both", "catmulrom"]}
+	"0.6600" = {to = [-73.052, -4.064, -2.309], interpolation = ["both", "catmulrom"]}
+	"0.7100" = {to = [-68.875, -3.778, -2.333], interpolation = ["both", "catmulrom"]}
+	"0.7500" = {to = [-65.03, -3.514, -2.337], interpolation = ["both", "catmulrom"]}
+	"0.7900" = {to = [-61.21, -3.253, -2.323], interpolation = ["both", "catmulrom"]}
+	"0.8300" = {to = [-57.103, -2.973, -2.289], interpolation = ["both", "catmulrom"]}
+	"0.8700" = {to = [-52.442, -2.66, -2.226], interpolation = ["both", "catmulrom"]}
+	"0.9100" = {to = [-47.114, -2.309, -2.123], interpolation = ["both", "catmulrom"]}
+	"0.9500" = {to = [-41.021, -1.922, -1.966], interpolation = ["both", "catmulrom"]}
+	"1.0000" = {to = [-34.039, -1.502, -1.738], interpolation = ["both", "catmulrom"]}
+	"1.0400" = {to = [-26.013, -1.058, -1.414], interpolation = ["both", "catmulrom"]}
+	"1.0800" = {to = [-16.976, -0.618, -0.979], interpolation = ["both", "catmulrom"]}
+	"1.1200" = {to = [-7.847, -0.249, -0.475], interpolation = ["both", "catmulrom"]}
+	"1.1600" = {to = [0.156, 0.005, 0.01], interpolation = ["both", "catmulrom"]}
+	"1.2100" = {to = [5.816, 0.142, 0.372], interpolation = ["both", "catmulrom"]}
+	"1.2500" = {to = [7.961, 0.185, 0.512], interpolation = ["both", "catmulrom"]}
+	"1.2900" = {to = [5.419, 0.134, 0.346], interpolation = ["both", "catmulrom"]}
+	"1.3300" = {to = [-1.725, -0.049, -0.107], interpolation = ["both", "catmulrom"]}
+	"1.3700" = {to = [-12.851, -0.442, -0.758], interpolation = ["both", "catmulrom"]}
+	"1.4100" = {to = [-27.151, -1.119, -1.463], interpolation = ["both", "catmulrom"]}
+	"1.4500" = {to = [-43.344, -2.068, -2.031], interpolation = ["both", "catmulrom"]}
+	"1.5000" = {to = [-59.704, -3.15, -2.313], interpolation = ["both", "catmulrom"]}
+	"1.5400" = {to = [-74.386, -4.154, -2.297], interpolation = ["both", "catmulrom"]}
+	"1.5800" = {to = [-85.926, -4.921, -2.105], interpolation = ["both", "catmulrom"]}
+	"1.6200" = {to = [-93.383, -5.389, -1.901], interpolation = ["both", "catmulrom"]}
+	"1.6600" = {to = [-96.048, -5.549, -1.814], interpolation = ["both", "linear"]}
+
+[default.newcube3.position]
+	"0.0000" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "linear"]}
+[default.newcube3.rotation]
+	"0.0000" = {to = [-0.0, 0.0, -0.0], interpolation = ["both", "linear"]}
+
+[default.thighLeft.position]
+	"0.0000" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "catmulrom"]}
+	"0.0400" = {to = [-0.001, 0.084, 0.01], interpolation = ["both", "catmulrom"]}
+	"0.0800" = {to = [-0.005, 0.32, 0.039], interpolation = ["both", "catmulrom"]}
+	"0.1200" = {to = [-0.01, 0.683, 0.084], interpolation = ["both", "catmulrom"]}
+	"0.1600" = {to = [-0.015, 1.149, 0.141], interpolation = ["both", "catmulrom"]}
+	"0.2100" = {to = [-0.019, 1.693, 0.206], interpolation = ["both", "catmulrom"]}
+	"0.2500" = {to = [-0.022, 2.29, 0.277], interpolation = ["both", "catmulrom"]}
+	"0.2900" = {to = [-0.022, 2.916, 0.351], interpolation = ["both", "catmulrom"]}
+	"0.3300" = {to = [-0.019, 3.546, 0.424], interpolation = ["both", "catmulrom"]}
+	"0.3700" = {to = [-0.012, 4.156, 0.492], interpolation = ["both", "catmulrom"]}
+	"0.4100" = {to = [0.0, 4.72, 0.553], interpolation = ["both", "catmulrom"]}
+	"0.4500" = {to = [0.018, 5.217, 0.606], interpolation = ["both", "catmulrom"]}
+	"0.5000" = {to = [0.038, 5.628, 0.658], interpolation = ["both", "catmulrom"]}
+	"0.5400" = {to = [0.056, 5.938, 0.719], interpolation = ["both", "catmulrom"]}
+	"0.5800" = {to = [0.071, 6.132, 0.8], interpolation = ["both", "catmulrom"]}
+	"0.6200" = {to = [0.076, 6.194, 0.91], interpolation = ["both", "catmulrom"]}
+	"0.6600" = {to = [0.085, 5.545, 1.013], interpolation = ["both", "catmulrom"]}
+	"0.7100" = {to = [0.104, 4.011, 1.072], interpolation = ["both", "catmulrom"]}
+	"0.7500" = {to = [0.126, 2.182, 1.099], interpolation = ["both", "catmulrom"]}
+	"0.7900" = {to = [0.144, 0.651, 1.107], interpolation = ["both", "catmulrom"]}
+	"0.8300" = {to = [0.152, 0.009, 1.106], interpolation = ["both", "catmulrom"]}
+	"0.8700" = {to = [0.15, 0.152, 1.098], interpolation = ["both", "catmulrom"]}
+	"0.9100" = {to = [0.142, 0.541, 1.073], interpolation = ["both", "catmulrom"]}
+	"0.9500" = {to = [0.131, 1.113, 1.034], interpolation = ["both", "catmulrom"]}
+	"1.0000" = {to = [0.118, 1.809, 0.983], interpolation = ["both", "catmulrom"]}
+	"1.0400" = {to = [0.104, 2.566, 0.923], interpolation = ["both", "catmulrom"]}
+	"1.0800" = {to = [0.09, 3.324, 0.855], interpolation = ["both", "catmulrom"]}
+	"1.1200" = {to = [0.077, 4.021, 0.781], interpolation = ["both", "catmulrom"]}
+	"1.1600" = {to = [0.066, 4.597, 0.705], interpolation = ["both", "catmulrom"]}
+	"1.2100" = {to = [0.058, 4.989, 0.627], interpolation = ["both", "catmulrom"]}
+	"1.2500" = {to = [0.055, 5.137, 0.551], interpolation = ["both", "catmulrom"]}
+	"1.2900" = {to = [0.053, 4.997, 0.477], interpolation = ["both", "catmulrom"]}
+	"1.3300" = {to = [0.049, 4.609, 0.406], interpolation = ["both", "catmulrom"]}
+	"1.3700" = {to = [0.043, 4.034, 0.338], interpolation = ["both", "catmulrom"]}
+	"1.4100" = {to = [0.035, 3.335, 0.271], interpolation = ["both", "catmulrom"]}
+	"1.4500" = {to = [0.027, 2.573, 0.207], interpolation = ["both", "catmulrom"]}
+	"1.5000" = {to = [0.019, 1.812, 0.144], interpolation = ["both", "catmulrom"]}
+	"1.5400" = {to = [0.012, 1.112, 0.088], interpolation = ["both", "catmulrom"]}
+	"1.5800" = {to = [0.006, 0.535, 0.042], interpolation = ["both", "catmulrom"]}
+	"1.6200" = {to = [0.002, 0.144, 0.011], interpolation = ["both", "catmulrom"]}
+	"1.6600" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "linear"]}
+[default.thighLeft.rotation]
+	"0.0000" = {to = [27.738, -1.621, -0.4], interpolation = ["both", "catmulrom"]}
+	"0.0400" = {to = [27.291, -1.597, -0.388], interpolation = ["both", "catmulrom"]}
+	"0.0800" = {to = [26.004, -1.527, -0.353], interpolation = ["both", "catmulrom"]}
+	"0.1200" = {to = [23.957, -1.415, -0.3], interpolation = ["both", "catmulrom"]}
+	"0.1600" = {to = [21.226, -1.261, -0.236], interpolation = ["both", "catmulrom"]}
+	"0.2100" = {to = [17.886, -1.07, -0.168], interpolation = ["both", "catmulrom"]}
+	"0.2500" = {to = [14.019, -0.844, -0.104], interpolation = ["both", "catmulrom"]}
+	"0.2900" = {to = [9.714, -0.588, -0.05], interpolation = ["both", "catmulrom"]}
+	"0.3300" = {to = [5.068, -0.308, -0.014], interpolation = ["both", "catmulrom"]}
+	"0.3700" = {to = [0.19, -0.012, -0.0], interpolation = ["both", "catmulrom"]}
+	"0.4100" = {to = [-4.806, 0.292, -0.012], interpolation = ["both", "catmulrom"]}
+	"0.4500" = {to = [-9.804, 0.593, -0.051], interpolation = ["both", "catmulrom"]}
+	"0.5000" = {to = [-14.682, 0.883, -0.114], interpolation = ["both", "catmulrom"]}
+	"0.5400" = {to = [-19.329, 1.153, -0.196], interpolation = ["both", "catmulrom"]}
+	"0.5800" = {to = [-23.636, 1.397, -0.292], interpolation = ["both", "catmulrom"]}
+	"0.6200" = {to = [-27.504, 1.609, -0.394], interpolation = ["both", "catmulrom"]}
+	"0.6600" = {to = [-30.846, 1.786, -0.493], interpolation = ["both", "catmulrom"]}
+	"0.7100" = {to = [-33.579, 1.926, -0.581], interpolation = ["both", "catmulrom"]}
+	"0.7500" = {to = [-35.626, 2.029, -0.652], interpolation = ["both", "catmulrom"]}
+	"0.7900" = {to = [-36.914, 2.092, -0.698], interpolation = ["both", "catmulrom"]}
+	"0.8300" = {to = [-37.362, 2.113, -0.715], interpolation = ["both", "catmulrom"]}
+	"0.8700" = {to = [-36.94, 1.624, -0.563], interpolation = ["both", "catmulrom"]}
+	"0.9100" = {to = [-35.733, 0.283, -0.167], interpolation = ["both", "catmulrom"]}
+	"0.9500" = {to = [-33.82, -1.725, 0.367], interpolation = ["both", "catmulrom"]}
+	"1.0000" = {to = [-31.274, -4.215, 0.923], interpolation = ["both", "catmulrom"]}
+	"1.0400" = {to = [-28.157, -6.991, 1.39], interpolation = ["both", "catmulrom"]}
+	"1.0800" = {to = [-24.518, -9.835, 1.669], interpolation = ["both", "catmulrom"]}
+	"1.1200" = {to = [-20.404, -12.508, 1.687], interpolation = ["both", "catmulrom"]}
+	"1.1600" = {to = [-15.87, -14.755, 1.413], interpolation = ["both", "catmulrom"]}
+	"1.2100" = {to = [-10.991, -16.308, 0.87], interpolation = ["both", "catmulrom"]}
+	"1.2500" = {to = [-5.879, -16.901, 0.144], interpolation = ["both", "catmulrom"]}
+	"1.2900" = {to = [-0.689, -16.47, -0.609], interpolation = ["both", "catmulrom"]}
+	"1.3300" = {to = [4.403, -15.253, -1.241], interpolation = ["both", "catmulrom"]}
+	"1.3700" = {to = [9.24, -13.456, -1.661], interpolation = ["both", "catmulrom"]}
+	"1.4100" = {to = [13.696, -11.298, -1.83], interpolation = ["both", "catmulrom"]}
+	"1.4500" = {to = [17.674, -8.992, -1.761], interpolation = ["both", "catmulrom"]}
+	"1.5000" = {to = [21.093, -6.739, -1.509], interpolation = ["both", "catmulrom"]}
+	"1.5400" = {to = [23.88, -4.72, -1.153], interpolation = ["both", "catmulrom"]}
+	"1.5800" = {to = [25.968, -3.097, -0.789], interpolation = ["both", "catmulrom"]}
+	"1.6200" = {to = [27.281, -2.016, -0.509], interpolation = ["both", "catmulrom"]}
+	"1.6600" = {to = [27.738, -1.621, -0.4], interpolation = ["both", "linear"]}
+
+[default.snout3B.position]
+	"0.0000" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "linear"]}
+[default.snout3B.rotation]
+	"0.0000" = {to = [-0.0, 0.0, -0.0], interpolation = ["both", "linear"]}
+
+[default.rightMiddleFinger.position]
+	"0.0000" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "linear"]}
+[default.rightMiddleFinger.rotation]
+	"0.0000" = {to = [2.405, 0.501, -4.427], interpolation = ["both", "linear"]}
+	"0.0400" = {to = [5.92, 0.715, -5.945], interpolation = ["both", "linear"]}
+	"0.0800" = {to = [9.324, 1.055, -8.094], interpolation = ["both", "linear"]}
+	"0.1200" = {to = [12.301, 1.348, -9.754], interpolation = ["both", "linear"]}
+	"0.1600" = {to = [14.502, 1.541, -10.771], interpolation = ["both", "linear"]}
+	"0.2100" = {to = [15.816, 1.635, -11.247], interpolation = ["both", "linear"]}
+	"0.2500" = {to = [16.281, 1.634, -11.244], interpolation = ["both", "linear"]}
+	"0.2900" = {to = [15.933, 1.532, -10.728], interpolation = ["both", "linear"]}
+	"0.3300" = {to = [14.736, 1.316, -9.583], interpolation = ["both", "linear"]}
+	"0.3700" = {to = [12.577, 0.979, -7.64], interpolation = ["both", "linear"]}
+	"0.4100" = {to = [9.264, 0.537, -4.697], interpolation = ["both", "linear"]}
+	"0.4500" = {to = [4.654, 0.077, -0.8], interpolation = ["both", "linear"]}
+	"0.5000" = {to = [-0.629, -0.227, 2.832], interpolation = ["both", "linear"]}
+	"0.5400" = {to = [-5.392, -0.365, 5.249], interpolation = ["both", "linear"]}
+	"0.5800" = {to = [-8.731, -0.405, 6.197], interpolation = ["both", "linear"]}
+	"0.6200" = {to = [-10.281, -0.389, 5.802], interpolation = ["both", "linear"]}
+	"0.6600" = {to = [-10.055, -0.319, 4.345], interpolation = ["both", "linear"]}
+	"0.7100" = {to = [-8.274, -0.18, 2.166], interpolation = ["both", "linear"]}
+	"0.7500" = {to = [-5.279, 0.038, -0.401], interpolation = ["both", "linear"]}
+	"0.7900" = {to = [-1.451, 0.329, -3.075], interpolation = ["both", "linear"]}
+	"0.8300" = {to = [2.827, 0.67, -5.642], interpolation = ["both", "linear"]}
+	"0.8700" = {to = [7.054, 1.006, -7.803], interpolation = ["both", "linear"]}
+	"0.9100" = {to = [10.339, 1.198, -8.925], interpolation = ["both", "linear"]}
+	"0.9500" = {to = [12.275, 1.215, -9.019], interpolation = ["both", "linear"]}
+	"1.0000" = {to = [12.937, 1.097, -8.346], interpolation = ["both", "linear"]}
+	"1.0400" = {to = [12.575, 0.893, -7.105], interpolation = ["both", "linear"]}
+	"1.0800" = {to = [11.378, 0.629, -5.355], interpolation = ["both", "linear"]}
+	"1.1200" = {to = [9.397, 0.324, -3.037], interpolation = ["both", "linear"]}
+	"1.1600" = {to = [6.553, 0.0, -0.005], interpolation = ["both", "linear"]}
+	"1.2100" = {to = [2.671, -0.296, 3.925], interpolation = ["both", "linear"]}
+	"1.2500" = {to = [-2.496, -0.476, 8.939], interpolation = ["both", "linear"]}
+	"1.2900" = {to = [-9.042, -0.407, 14.806], interpolation = ["both", "linear"]}
+	"1.3300" = {to = [-16.105, -0.107, 19.842], interpolation = ["both", "linear"]}
+	"1.3700" = {to = [-22.293, 0.184, 22.888], interpolation = ["both", "linear"]}
+	"1.4100" = {to = [-26.532, 0.267, 23.626], interpolation = ["both", "linear"]}
+	"1.4500" = {to = [-28.198, 0.107, 22.162], interpolation = ["both", "linear"]}
+	"1.5000" = {to = [-27.073, -0.183, 18.861], interpolation = ["both", "linear"]}
+	"1.5400" = {to = [-23.342, -0.426, 14.27], interpolation = ["both", "linear"]}
+	"1.5800" = {to = [-17.559, -0.477, 9.001], interpolation = ["both", "linear"]}
+	"1.6200" = {to = [-10.487, -0.275, 3.571], interpolation = ["both", "linear"]}
+	"1.6600" = {to = [-2.918, 0.169, -1.676], interpolation = ["both", "linear"]}
+
+[default.head2.position]
+	"0.0000" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "linear"]}
+[default.head2.rotation]
+	"0.0000" = {to = [-0.0, 0.0, -0.0], interpolation = ["both", "linear"]}
+
+[default.crest5L2.position]
+	"0.0000" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "linear"]}
+[default.crest5L2.rotation]
+	"0.0000" = {to = [-0.0, 0.0, -0.0], interpolation = ["both", "linear"]}
+
+[default.crest3L2.position]
+	"0.0000" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "linear"]}
+[default.crest3L2.rotation]
+	"0.0000" = {to = [-0.0, 0.0, -0.0], interpolation = ["both", "linear"]}
+
+[default.crest1L2.position]
+	"0.0000" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "linear"]}
+[default.crest1L2.rotation]
+	"0.0000" = {to = [-0.0, 0.0, -0.0], interpolation = ["both", "linear"]}
+
+[default.clawMiddleFingerR.position]
+	"0.0000" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "linear"]}
+[default.clawMiddleFingerR.rotation]
+	"0.0000" = {to = [-0.0, 0.0, -0.0], interpolation = ["both", "linear"]}
+
+[default.crest1BL2.position]
+	"0.0000" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "linear"]}
+[default.crest1BL2.rotation]
+	"0.0000" = {to = [-0.0, 0.0, -0.0], interpolation = ["both", "linear"]}
+
+[default.leftMiddleFinger.position]
+	"0.0000" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "linear"]}
+[default.leftMiddleFinger.rotation]
+	"0.0000" = {to = [5.946, -0.839, 6.767], interpolation = ["both", "linear"]}
+	"0.0400" = {to = [7.789, -0.875, 6.994], interpolation = ["both", "linear"]}
+	"0.0800" = {to = [9.879, -0.969, 7.581], interpolation = ["both", "linear"]}
+	"0.1200" = {to = [11.411, -1.016, 7.864], interpolation = ["both", "linear"]}
+	"0.1600" = {to = [12.113, -0.966, 7.563], interpolation = ["both", "linear"]}
+	"0.2100" = {to = [11.942, -0.82, 6.641], interpolation = ["both", "linear"]}
+	"0.2500" = {to = [10.915, -0.593, 5.098], interpolation = ["both", "linear"]}
+	"0.2900" = {to = [9.016, -0.307, 2.891], interpolation = ["both", "linear"]}
+	"0.3300" = {to = [6.174, 0.006, -0.069], interpolation = ["both", "linear"]}
+	"0.3700" = {to = [2.258, 0.294, -3.897], interpolation = ["both", "linear"]}
+	"0.4100" = {to = [-2.901, 0.472, -8.706], interpolation = ["both", "linear"]}
+	"0.4500" = {to = [-9.314, 0.424, -14.315], interpolation = ["both", "linear"]}
+	"0.5000" = {to = [-16.113, 0.151, -19.299], interpolation = ["both", "linear"]}
+	"0.5400" = {to = [-22.033, -0.134, -22.42], interpolation = ["both", "linear"]}
+	"0.5800" = {to = [-26.049, -0.221, -23.218], interpolation = ["both", "linear"]}
+	"0.6200" = {to = [-27.609, -0.076, -21.855], interpolation = ["both", "linear"]}
+	"0.6600" = {to = [-26.593, 0.19, -18.777], interpolation = ["both", "linear"]}
+	"0.7100" = {to = [-23.218, 0.417, -14.525], interpolation = ["both", "linear"]}
+	"0.7500" = {to = [-17.942, 0.483, -9.617], interpolation = ["both", "linear"]}
+	"0.7900" = {to = [-11.37, 0.327, -4.485], interpolation = ["both", "linear"]}
+	"0.8300" = {to = [-4.154, -0.052, 0.548], interpolation = ["both", "linear"]}
+	"0.8700" = {to = [2.903, -0.591, 5.084], interpolation = ["both", "linear"]}
+	"0.9100" = {to = [8.626, -1.109, 8.411], interpolation = ["both", "linear"]}
+	"0.9500" = {to = [12.634, -1.478, 10.447], interpolation = ["both", "linear"]}
+	"1.0000" = {to = [15.128, -1.686, 11.502], interpolation = ["both", "linear"]}
+	"1.0400" = {to = [16.443, -1.766, 11.893], interpolation = ["both", "linear"]}
+	"1.0800" = {to = [16.825, -1.743, 11.783], interpolation = ["both", "linear"]}
+	"1.1200" = {to = [16.375, -1.622, 11.182], interpolation = ["both", "linear"]}
+	"1.1600" = {to = [15.068, -1.39, 9.981], interpolation = ["both", "linear"]}
+	"1.2100" = {to = [12.78, -1.04, 8.007], interpolation = ["both", "linear"]}
+	"1.2500" = {to = [9.301, -0.586, 5.046], interpolation = ["both", "linear"]}
+	"1.2900" = {to = [4.545, -0.111, 1.131], interpolation = ["both", "linear"]}
+	"1.3300" = {to = [-0.763, 0.216, -2.667], interpolation = ["both", "linear"]}
+	"1.3700" = {to = [-5.568, 0.37, -5.358], interpolation = ["both", "linear"]}
+	"1.4100" = {to = [-9.028, 0.417, -6.526], interpolation = ["both", "linear"]}
+	"1.4500" = {to = [-10.705, 0.406, -6.242], interpolation = ["both", "linear"]}
+	"1.5000" = {to = [-10.549, 0.344, -4.824], interpolation = ["both", "linear"]}
+	"1.5400" = {to = [-8.753, 0.214, -2.642], interpolation = ["both", "linear"]}
+	"1.5800" = {to = [-5.647, 0.003, -0.029], interpolation = ["both", "linear"]}
+	"1.6200" = {to = [-1.619, -0.29, 2.751], interpolation = ["both", "linear"]}
+	"1.6600" = {to = [2.942, -0.652, 5.516], interpolation = ["both", "linear"]}
+
+[default.teethUpperRight2.position]
+	"0.0000" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "linear"]}
+[default.teethUpperRight2.rotation]
+	"0.0000" = {to = [-0.0, 0.0, -0.0], interpolation = ["both", "linear"]}
+
+[default.throat1.position]
+	"0.0000" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "linear"]}
+[default.throat1.rotation]
+	"0.0000" = {to = [-0.0, 0.0, -0.0], interpolation = ["both", "linear"]}
+
+[default.teethLowerFront.position]
+	"0.0000" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "linear"]}
+[default.teethLowerFront.rotation]
+	"0.0000" = {to = [-0.0, 0.0, -0.0], interpolation = ["both", "linear"]}
+
+[default.teethUpperRight3.position]
+	"0.0000" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "linear"]}
+[default.teethUpperRight3.rotation]
+	"0.0000" = {to = [-0.0, 0.0, -0.0], interpolation = ["both", "linear"]}
+
+[default.cheekLeft.position]
+	"0.0000" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "linear"]}
+[default.cheekLeft.rotation]
+	"0.0000" = {to = [-0.0, 0.0, -0.0], interpolation = ["both", "linear"]}
+
+[default.throat3.position]
+	"0.0000" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "linear"]}
+[default.throat3.rotation]
+	"0.0000" = {to = [-0.0, 0.0, -0.0], interpolation = ["both", "linear"]}
+
+[default.throat2.position]
+	"0.0000" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "linear"]}
+[default.throat2.rotation]
+	"0.0000" = {to = [-0.0, 0.0, -0.0], interpolation = ["both", "linear"]}
+
+[default.shoulderUnder.position]
+	"0.0000" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "linear"]}
+[default.shoulderUnder.rotation]
+	"0.0000" = {to = [-0.0, 0.0, -0.0], interpolation = ["both", "linear"]}
+
+[default.teethLowerRight2.position]
+	"0.0000" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "linear"]}
+[default.teethLowerRight2.rotation]
+	"0.0000" = {to = [-0.0, 0.0, -0.0], interpolation = ["both", "linear"]}
+
+[default.head.position]
+	"0.0000" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "linear"]}
+[default.head.rotation]
+	"0.0000" = {to = [9.537, 0.0, -0.0], interpolation = ["both", "catmulrom"]}
+	"0.2200" = {to = [13.56037, -0.00166, -0.00505], interpolation = ["both", "catmulrom"]}
+	"0.4100" = {to = [12.275, -0.003, -0.009], interpolation = ["both", "catmulrom"]}
+	"0.8300" = {to = [9.537, 0.0, -0.0], interpolation = ["both", "catmulrom"]}
+	"1.0800" = {to = [13.54021, 0.02065, 0.02439], interpolation = ["both", "catmulrom"]}
+	"1.2900" = {to = [12.199, -0.003, -0.008], interpolation = ["both", "catmulrom"]}
+	"1.6600" = {to = [9.537, 0.0, -0.0], interpolation = ["both", "linear"]}
+
+[default.newcube6.position]
+	"0.0000" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "linear"]}
+[default.newcube6.rotation]
+	"0.0000" = {to = [-0.0, 0.0, -0.0], interpolation = ["both", "linear"]}
+
+[default.newcube5.position]
+	"0.0000" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "linear"]}
+[default.newcube5.rotation]
+	"0.0000" = {to = [-0.0, 0.0, -0.0], interpolation = ["both", "linear"]}
+
+[default.teethLowerRight3.position]
+	"0.0000" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "linear"]}
+[default.teethLowerRight3.rotation]
+	"0.0000" = {to = [-0.0, 0.0, -0.0], interpolation = ["both", "linear"]}
+
+[default.teethLowerLeft3.position]
+	"0.0000" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "linear"]}
+[default.teethLowerLeft3.rotation]
+	"0.0000" = {to = [-0.0, 0.0, -0.0], interpolation = ["both", "linear"]}
+
+[default.throat5.position]
+	"0.0000" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "linear"]}
+[default.throat5.rotation]
+	"0.0000" = {to = [-0.0, 0.0, -0.0], interpolation = ["both", "linear"]}
+
+[default.teethLowerLeft2.position]
+	"0.0000" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "linear"]}
+[default.teethLowerLeft2.rotation]
+	"0.0000" = {to = [-0.0, 0.0, -0.0], interpolation = ["both", "linear"]}
+
+[default.throat4.position]
+	"0.0000" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "linear"]}
+[default.throat4.rotation]
+	"0.0000" = {to = [-0.0, 0.0, -0.0], interpolation = ["both", "catmulrom"]}
+	"0.0400" = {to = [0.394, -0.001, -0.001], interpolation = ["both", "catmulrom"]}
+	"0.0800" = {to = [1.463, -0.004, -0.003], interpolation = ["both", "catmulrom"]}
+	"0.1200" = {to = [3.04, -0.008, -0.006], interpolation = ["both", "catmulrom"]}
+	"0.1600" = {to = [4.957, -0.014, -0.01], interpolation = ["both", "catmulrom"]}
+	"0.2100" = {to = [7.045, -0.019, -0.014], interpolation = ["both", "catmulrom"]}
+	"0.2500" = {to = [9.132, -0.024, -0.019], interpolation = ["both", "catmulrom"]}
+	"0.2900" = {to = [11.05, -0.029, -0.023], interpolation = ["both", "catmulrom"]}
+	"0.3300" = {to = [12.627, -0.033, -0.027], interpolation = ["both", "catmulrom"]}
+	"0.3700" = {to = [13.696, -0.036, -0.029], interpolation = ["both", "catmulrom"]}
+	"0.4100" = {to = [14.09, -0.036, -0.03], interpolation = ["both", "catmulrom"]}
+	"0.4500" = {to = [13.696, -0.036, -0.029], interpolation = ["both", "catmulrom"]}
+	"0.5000" = {to = [12.627, -0.033, -0.027], interpolation = ["both", "catmulrom"]}
+	"0.5400" = {to = [11.05, -0.029, -0.023], interpolation = ["both", "catmulrom"]}
+	"0.5800" = {to = [9.132, -0.024, -0.019], interpolation = ["both", "catmulrom"]}
+	"0.6200" = {to = [7.045, -0.019, -0.014], interpolation = ["both", "catmulrom"]}
+	"0.6600" = {to = [4.957, -0.014, -0.01], interpolation = ["both", "catmulrom"]}
+	"0.7100" = {to = [3.04, -0.008, -0.006], interpolation = ["both", "catmulrom"]}
+	"0.7500" = {to = [1.463, -0.004, -0.003], interpolation = ["both", "catmulrom"]}
+	"0.7900" = {to = [0.394, -0.001, -0.001], interpolation = ["both", "catmulrom"]}
+	"0.8300" = {to = [-0.0, 0.0, -0.0], interpolation = ["both", "catmulrom"]}
+	"0.8700" = {to = [0.394, -0.001, -0.001], interpolation = ["both", "catmulrom"]}
+	"0.9100" = {to = [1.463, -0.004, -0.003], interpolation = ["both", "catmulrom"]}
+	"0.9500" = {to = [3.04, -0.008, -0.006], interpolation = ["both", "catmulrom"]}
+	"1.0000" = {to = [4.957, -0.014, -0.01], interpolation = ["both", "catmulrom"]}
+	"1.0400" = {to = [7.045, -0.019, -0.014], interpolation = ["both", "catmulrom"]}
+	"1.0800" = {to = [9.132, -0.024, -0.019], interpolation = ["both", "catmulrom"]}
+	"1.1200" = {to = [11.05, -0.029, -0.023], interpolation = ["both", "catmulrom"]}
+	"1.1600" = {to = [12.627, -0.033, -0.027], interpolation = ["both", "catmulrom"]}
+	"1.2100" = {to = [13.696, -0.036, -0.029], interpolation = ["both", "catmulrom"]}
+	"1.2500" = {to = [14.09, -0.036, -0.03], interpolation = ["both", "catmulrom"]}
+	"1.2900" = {to = [13.696, -0.036, -0.029], interpolation = ["both", "catmulrom"]}
+	"1.3300" = {to = [12.627, -0.033, -0.027], interpolation = ["both", "catmulrom"]}
+	"1.3700" = {to = [11.05, -0.029, -0.023], interpolation = ["both", "catmulrom"]}
+	"1.4100" = {to = [9.132, -0.024, -0.019], interpolation = ["both", "catmulrom"]}
+	"1.4500" = {to = [7.045, -0.019, -0.014], interpolation = ["both", "catmulrom"]}
+	"1.5000" = {to = [4.957, -0.014, -0.01], interpolation = ["both", "catmulrom"]}
+	"1.5400" = {to = [3.04, -0.008, -0.006], interpolation = ["both", "catmulrom"]}
+	"1.5800" = {to = [1.463, -0.004, -0.003], interpolation = ["both", "catmulrom"]}
+	"1.6200" = {to = [0.394, -0.001, -0.001], interpolation = ["both", "catmulrom"]}
+	"1.6600" = {to = [-0.0, 0.0, -0.0], interpolation = ["both", "linear"]}
+
+[default.root.position]
+	"0.0000" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "linear"]}
+[default.root.rotation]
+	"0.0000" = {to = [-0.0, 0.0, -0.0], interpolation = ["both", "linear"]}
+
+[default.snout2B.position]
+	"0.0000" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "linear"]}
+[default.snout2B.rotation]
+	"0.0000" = {to = [-0.0, 0.0, -0.0], interpolation = ["both", "linear"]}
+
+[default.newcube.position]
+	"0.0000" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "linear"]}
+[default.newcube.rotation]
+	"0.0000" = {to = [-0.0, 0.0, -0.0], interpolation = ["both", "linear"]}
+
+[default.clawMiddleFingerL.position]
+	"0.0000" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "linear"]}
+[default.clawMiddleFingerL.rotation]
+	"0.0000" = {to = [-0.0, 0.0, -0.0], interpolation = ["both", "linear"]}
+
+[default.crest4L.position]
+	"0.0000" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "linear"]}
+[default.crest4L.rotation]
+	"0.0000" = {to = [-0.0, 0.0, -0.0], interpolation = ["both", "linear"]}
+
+[default.bicepRight.position]
+	"0.0000" = {to = [0.0, -0.026, 0.009], interpolation = ["both", "linear"]}
+	"0.0400" = {to = [0.0, -0.026, 0.009], interpolation = ["both", "linear"]}
+	"0.0800" = {to = [0.0, -0.027, 0.01], interpolation = ["both", "linear"]}
+	"0.1200" = {to = [0.0, -0.028, 0.01], interpolation = ["both", "linear"]}
+	"0.1600" = {to = [0.0, -0.029, 0.012], interpolation = ["both", "linear"]}
+	"0.2100" = {to = [0.0, -0.03, 0.013], interpolation = ["both", "linear"]}
+	"0.2500" = {to = [0.0, -0.032, 0.014], interpolation = ["both", "linear"]}
+	"0.2900" = {to = [0.0, -0.033, 0.015], interpolation = ["both", "linear"]}
+	"0.3300" = {to = [0.0, -0.034, 0.016], interpolation = ["both", "linear"]}
+	"0.3700" = {to = [0.0, -0.034, 0.017], interpolation = ["both", "linear"]}
+	"0.4100" = {to = [0.0, -0.035, 0.017], interpolation = ["both", "linear"]}
+	"0.4500" = {to = [0.0, -0.034, 0.017], interpolation = ["both", "linear"]}
+	"0.5000" = {to = [0.0, -0.034, 0.016], interpolation = ["both", "linear"]}
+	"0.5400" = {to = [0.0, -0.033, 0.015], interpolation = ["both", "linear"]}
+	"0.5800" = {to = [0.0, -0.032, 0.014], interpolation = ["both", "linear"]}
+	"0.6200" = {to = [0.0, -0.03, 0.013], interpolation = ["both", "linear"]}
+	"0.6600" = {to = [0.0, -0.029, 0.012], interpolation = ["both", "linear"]}
+	"0.7100" = {to = [0.0, -0.028, 0.01], interpolation = ["both", "linear"]}
+	"0.7500" = {to = [0.0, -0.027, 0.01], interpolation = ["both", "linear"]}
+	"0.7900" = {to = [0.0, -0.026, 0.009], interpolation = ["both", "linear"]}
+	"0.8700" = {to = [0.0, -0.026, 0.009], interpolation = ["both", "linear"]}
+	"0.9100" = {to = [0.0, -0.027, 0.01], interpolation = ["both", "linear"]}
+	"0.9500" = {to = [0.0, -0.028, 0.01], interpolation = ["both", "linear"]}
+	"1.0000" = {to = [0.0, -0.029, 0.012], interpolation = ["both", "linear"]}
+	"1.0400" = {to = [0.0, -0.03, 0.013], interpolation = ["both", "linear"]}
+	"1.0800" = {to = [0.0, -0.032, 0.014], interpolation = ["both", "linear"]}
+	"1.1200" = {to = [0.0, -0.033, 0.015], interpolation = ["both", "linear"]}
+	"1.1600" = {to = [0.0, -0.034, 0.016], interpolation = ["both", "linear"]}
+	"1.2100" = {to = [0.0, -0.034, 0.017], interpolation = ["both", "linear"]}
+	"1.2500" = {to = [0.0, -0.035, 0.017], interpolation = ["both", "linear"]}
+	"1.2900" = {to = [0.0, -0.034, 0.017], interpolation = ["both", "linear"]}
+	"1.3300" = {to = [0.0, -0.034, 0.016], interpolation = ["both", "linear"]}
+	"1.3700" = {to = [0.0, -0.033, 0.015], interpolation = ["both", "linear"]}
+	"1.4100" = {to = [0.0, -0.032, 0.014], interpolation = ["both", "linear"]}
+	"1.4500" = {to = [0.0, -0.03, 0.013], interpolation = ["both", "linear"]}
+	"1.5000" = {to = [0.0, -0.029, 0.012], interpolation = ["both", "linear"]}
+	"1.5400" = {to = [0.0, -0.028, 0.01], interpolation = ["both", "linear"]}
+	"1.5800" = {to = [0.0, -0.027, 0.01], interpolation = ["both", "linear"]}
+	"1.6200" = {to = [0.0, -0.026, 0.009], interpolation = ["both", "linear"]}
+	"1.6600" = {to = [0.0, -0.026, 0.009], interpolation = ["both", "linear"]}
+[default.bicepRight.rotation]
+	"0.0000" = {to = [-38.048, -6.479, -1.817], interpolation = ["both", "linear"]}
+	"0.0400" = {to = [-37.046, -6.243, -1.993], interpolation = ["both", "linear"]}
+	"0.0800" = {to = [-36.17, -6.152, -2.172], interpolation = ["both", "linear"]}
+	"0.1200" = {to = [-36.199, -6.116, -2.396], interpolation = ["both", "linear"]}
+	"0.1600" = {to = [-37.121, -6.161, -2.636], interpolation = ["both", "linear"]}
+	"0.2100" = {to = [-38.722, -6.306, -2.855], interpolation = ["both", "linear"]}
+	"0.2500" = {to = [-40.808, -6.54, -3.02], interpolation = ["both", "linear"]}
+	"0.2900" = {to = [-43.226, -6.836, -3.11], interpolation = ["both", "linear"]}
+	"0.3300" = {to = [-45.848, -7.156, -3.112], interpolation = ["both", "linear"]}
+	"0.3700" = {to = [-48.552, -7.459, -3.022], interpolation = ["both", "linear"]}
+	"0.4100" = {to = [-51.209, -7.711, -2.843], interpolation = ["both", "linear"]}
+	"0.4500" = {to = [-53.554, -7.894, -2.586], interpolation = ["both", "linear"]}
+	"0.5000" = {to = [-54.927, -7.985, -2.314], interpolation = ["both", "linear"]}
+	"0.5400" = {to = [-55.15, -7.959, -2.096], interpolation = ["both", "linear"]}
+	"0.5800" = {to = [-54.356, -7.802, -1.964], interpolation = ["both", "linear"]}
+	"0.6200" = {to = [-52.733, -7.545, -1.903], interpolation = ["both", "linear"]}
+	"0.6600" = {to = [-50.469, -7.23, -1.884], interpolation = ["both", "linear"]}
+	"0.7100" = {to = [-47.761, -6.9, -1.888], interpolation = ["both", "linear"]}
+	"0.7500" = {to = [-44.826, -6.591, -1.907], interpolation = ["both", "linear"]}
+	"0.7900" = {to = [-41.907, -6.336, -1.94], interpolation = ["both", "linear"]}
+	"0.8300" = {to = [-39.271, -6.178, -1.987], interpolation = ["both", "linear"]}
+	"0.8700" = {to = [-37.259, -6.154, -2.045], interpolation = ["both", "linear"]}
+	"0.9100" = {to = [-36.333, -6.273, -2.099], interpolation = ["both", "linear"]}
+	"0.9500" = {to = [-36.498, -6.553, -2.112], interpolation = ["both", "linear"]}
+	"1.0000" = {to = [-37.552, -6.978, -2.061], interpolation = ["both", "linear"]}
+	"1.0400" = {to = [-39.294, -7.495, -1.941], interpolation = ["both", "linear"]}
+	"1.0800" = {to = [-41.561, -8.047, -1.76], interpolation = ["both", "linear"]}
+	"1.1200" = {to = [-44.216, -8.584, -1.53], interpolation = ["both", "linear"]}
+	"1.1600" = {to = [-47.132, -9.066, -1.272], interpolation = ["both", "linear"]}
+	"1.2100" = {to = [-50.18, -9.462, -1.008], interpolation = ["both", "linear"]}
+	"1.2500" = {to = [-53.214, -9.749, -0.76], interpolation = ["both", "linear"]}
+	"1.2900" = {to = [-55.917, -9.917, -0.549], interpolation = ["both", "linear"]}
+	"1.3300" = {to = [-57.551, -9.967, -0.402], interpolation = ["both", "linear"]}
+	"1.3700" = {to = [-57.896, -9.881, -0.355], interpolation = ["both", "linear"]}
+	"1.4100" = {to = [-57.067, -9.655, -0.411], interpolation = ["both", "linear"]}
+	"1.4500" = {to = [-55.251, -9.313, -0.543], interpolation = ["both", "linear"]}
+	"1.5000" = {to = [-52.66, -8.884, -0.718], interpolation = ["both", "linear"]}
+	"1.5400" = {to = [-49.532, -8.395, -0.918], interpolation = ["both", "linear"]}
+	"1.5800" = {to = [-46.141, -7.872, -1.132], interpolation = ["both", "linear"]}
+	"1.6200" = {to = [-42.787, -7.349, -1.357], interpolation = ["both", "linear"]}
+	"1.6600" = {to = [-39.776, -6.876, -1.593], interpolation = ["both", "linear"]}
+
+[default.crest1BL.position]
+	"0.0000" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "linear"]}
+[default.crest1BL.rotation]
+	"0.0000" = {to = [-0.0, 0.0, -0.0], interpolation = ["both", "linear"]}
+
+[default.cheekRight.position]
+	"0.0000" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "linear"]}
+[default.cheekRight.rotation]
+	"0.0000" = {to = [-0.0, 0.0, -0.0], interpolation = ["both", "linear"]}
+
+[default.belly2.position]
+	"0.0000" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "linear"]}
+[default.belly2.rotation]
+	"0.0000" = {to = [-0.0, 0.0, -0.0], interpolation = ["both", "linear"]}
+
+[default.tailLower.position]
+	"0.0000" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "linear"]}
+[default.tailLower.rotation]
+	"0.0000" = {to = [-0.0, 0.0, -0.0], interpolation = ["both", "linear"]}
+
+[default.crest1L.position]
+	"0.0000" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "linear"]}
+[default.crest1L.rotation]
+	"0.0000" = {to = [-0.0, 0.0, -0.0], interpolation = ["both", "linear"]}
+
+[default.belly1.position]
+	"0.0000" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "linear"]}
+[default.belly1.rotation]
+	"0.0000" = {to = [-0.0, 0.0, -0.0], interpolation = ["both", "linear"]}
+
+[default.footLeft.position]
+	"0.0000" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "catmulrom"]}
+	"0.0400" = {to = [0.0, -0.066, 0.072], interpolation = ["both", "catmulrom"]}
+	"0.0800" = {to = [0.0, -0.222, 0.243], interpolation = ["both", "catmulrom"]}
+	"0.1200" = {to = [0.001, -0.409, 0.447], interpolation = ["both", "catmulrom"]}
+	"0.1600" = {to = [0.001, -0.565, 0.618], interpolation = ["both", "catmulrom"]}
+	"0.2100" = {to = [0.001, -0.631, 0.69], interpolation = ["both", "catmulrom"]}
+	"0.2500" = {to = [0.001, -0.591, 0.627], interpolation = ["both", "catmulrom"]}
+	"0.2900" = {to = [0.001, -0.492, 0.476], interpolation = ["both", "catmulrom"]}
+	"0.3300" = {to = [0.0, -0.364, 0.292], interpolation = ["both", "catmulrom"]}
+	"0.3700" = {to = [0.0, -0.237, 0.129], interpolation = ["both", "catmulrom"]}
+	"0.4100" = {to = [0.0, -0.142, 0.042], interpolation = ["both", "catmulrom"]}
+	"0.4500" = {to = [0.0, -0.085, 0.017], interpolation = ["both", "catmulrom"]}
+	"0.5000" = {to = [0.0, -0.053, 0.005], interpolation = ["both", "catmulrom"]}
+	"0.5400" = {to = [0.0, -0.035, -0.001], interpolation = ["both", "catmulrom"]}
+	"0.5800" = {to = [0.0, -0.026, -0.002], interpolation = ["both", "catmulrom"]}
+	"0.6200" = {to = [0.0, -0.021, -0.001], interpolation = ["both", "catmulrom"]}
+	"0.6600" = {to = [0.0, -0.015, -0.001], interpolation = ["both", "catmulrom"]}
+	"0.7100" = {to = [0.0, -0.01, 0.0], interpolation = ["both", "catmulrom"]}
+	"0.7500" = {to = [0.0, -0.005, 0.0], interpolation = ["both", "catmulrom"]}
+	"0.7900" = {to = [0.0, -0.001, 0.0], interpolation = ["both", "catmulrom"]}
+	"0.8300" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "catmulrom"]}
+	"1.6600" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "linear"]}
+[default.footLeft.rotation]
+	"0.0000" = {to = [-57.103, 2.972, 2.29], interpolation = ["both", "catmulrom"]}
+	"0.0400" = {to = [-55.354, 2.854, 2.27], interpolation = ["both", "catmulrom"]}
+	"0.0800" = {to = [-50.632, 2.539, 2.196], interpolation = ["both", "catmulrom"]}
+	"0.1200" = {to = [-43.705, 2.09, 2.041], interpolation = ["both", "catmulrom"]}
+	"0.1600" = {to = [-35.289, 1.575, 1.783], interpolation = ["both", "catmulrom"]}
+	"0.2100" = {to = [-26.013, 1.058, 1.414], interpolation = ["both", "catmulrom"]}
+	"0.2500" = {to = [-16.385, 0.592, 0.948], interpolation = ["both", "catmulrom"]}
+	"0.2900" = {to = [-7.187, 0.226, 0.436], interpolation = ["both", "catmulrom"]}
+	"0.3300" = {to = [0.593, -0.016, -0.037], interpolation = ["both", "catmulrom"]}
+	"0.3700" = {to = [5.961, -0.145, -0.381], interpolation = ["both", "catmulrom"]}
+	"0.4100" = {to = [7.961, -0.185, -0.512], interpolation = ["both", "catmulrom"]}
+	"0.4500" = {to = [5.413, -0.133, -0.346], interpolation = ["both", "catmulrom"]}
+	"0.5000" = {to = [-1.751, 0.05, 0.109], interpolation = ["both", "catmulrom"]}
+	"0.5400" = {to = [-12.909, 0.444, 0.762], interpolation = ["both", "catmulrom"]}
+	"0.5800" = {to = [-27.225, 1.122, 1.467], interpolation = ["both", "catmulrom"]}
+	"0.6200" = {to = [-43.344, 2.067, 2.032], interpolation = ["both", "catmulrom"]}
+	"0.6600" = {to = [-59.476, 3.133, 2.313], interpolation = ["both", "catmulrom"]}
+	"0.7100" = {to = [-73.863, 4.117, 2.304], interpolation = ["both", "catmulrom"]}
+	"0.7500" = {to = [-85.225, 4.874, 2.124], interpolation = ["both", "catmulrom"]}
+	"0.7900" = {to = [-92.804, 5.353, 1.922], interpolation = ["both", "catmulrom"]}
+	"0.8300" = {to = [-96.049, 5.548, 1.817], interpolation = ["both", "catmulrom"]}
+	"0.8700" = {to = [-96.827, 5.595, 1.79], interpolation = ["both", "catmulrom"]}
+	"0.9100" = {to = [-97.307, 5.623, 1.773], interpolation = ["both", "catmulrom"]}
+	"0.9500" = {to = [-97.72, 5.647, 1.758], interpolation = ["both", "catmulrom"]}
+	"1.0000" = {to = [-98.068, 5.667, 1.746], interpolation = ["both", "catmulrom"]}
+	"1.0400" = {to = [-98.353, 5.684, 1.735], interpolation = ["both", "catmulrom"]}
+	"1.0800" = {to = [-98.579, 5.697, 1.727], interpolation = ["both", "catmulrom"]}
+	"1.1200" = {to = [-98.748, 5.707, 1.721], interpolation = ["both", "catmulrom"]}
+	"1.1600" = {to = [-98.865, 5.713, 1.716], interpolation = ["both", "catmulrom"]}
+	"1.2100" = {to = [-98.932, 5.717, 1.714], interpolation = ["both", "catmulrom"]}
+	"1.2500" = {to = [-98.953, 5.718, 1.713], interpolation = ["both", "catmulrom"]}
+	"1.2900" = {to = [-97.788, 5.651, 1.756], interpolation = ["both", "catmulrom"]}
+	"1.3300" = {to = [-94.609, 5.462, 1.865], interpolation = ["both", "catmulrom"]}
+	"1.3700" = {to = [-89.894, 5.172, 2.007], interpolation = ["both", "catmulrom"]}
+	"1.4100" = {to = [-84.137, 4.804, 2.147], interpolation = ["both", "catmulrom"]}
+	"1.4500" = {to = [-77.867, 4.388, 2.258], interpolation = ["both", "catmulrom"]}
+	"1.5000" = {to = [-71.625, 3.965, 2.321], interpolation = ["both", "catmulrom"]}
+	"1.5400" = {to = [-65.946, 3.576, 2.339], interpolation = ["both", "catmulrom"]}
+	"1.5800" = {to = [-61.329, 3.26, 2.325], interpolation = ["both", "catmulrom"]}
+	"1.6200" = {to = [-58.234, 3.049, 2.302], interpolation = ["both", "catmulrom"]}
+	"1.6600" = {to = [-57.103, 2.972, 2.29], interpolation = ["both", "linear"]}
+
+[default.bone.position]
+	"0.0000" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "linear"]}
+[default.bone.rotation]
+	"0.0000" = {to = [-0.0, 0.0, -0.0], interpolation = ["both", "linear"]}
+
+[default.forearmRight.position]
+	"0.0000" = {to = [-0.006, 0.033, 0.009], interpolation = ["both", "linear"]}
+	"0.0400" = {to = [-0.006, 0.033, 0.009], interpolation = ["both", "linear"]}
+	"0.0800" = {to = [-0.006, 0.034, 0.009], interpolation = ["both", "linear"]}
+	"0.1200" = {to = [-0.006, 0.034, 0.01], interpolation = ["both", "linear"]}
+	"0.1600" = {to = [-0.006, 0.035, 0.011], interpolation = ["both", "linear"]}
+	"0.2100" = {to = [-0.007, 0.036, 0.012], interpolation = ["both", "linear"]}
+	"0.2500" = {to = [-0.007, 0.038, 0.013], interpolation = ["both", "linear"]}
+	"0.2900" = {to = [-0.007, 0.039, 0.014], interpolation = ["both", "linear"]}
+	"0.3300" = {to = [-0.008, 0.04, 0.015], interpolation = ["both", "linear"]}
+	"0.3700" = {to = [-0.008, 0.041, 0.016], interpolation = ["both", "linear"]}
+	"0.4100" = {to = [-0.008, 0.041, 0.017], interpolation = ["both", "linear"]}
+	"0.4500" = {to = [-0.008, 0.042, 0.017], interpolation = ["both", "linear"]}
+	"0.5000" = {to = [-0.008, 0.041, 0.017], interpolation = ["both", "linear"]}
+	"0.5400" = {to = [-0.008, 0.041, 0.016], interpolation = ["both", "linear"]}
+	"0.5800" = {to = [-0.008, 0.04, 0.015], interpolation = ["both", "linear"]}
+	"0.6200" = {to = [-0.007, 0.039, 0.014], interpolation = ["both", "linear"]}
+	"0.6600" = {to = [-0.007, 0.038, 0.013], interpolation = ["both", "linear"]}
+	"0.7100" = {to = [-0.007, 0.036, 0.012], interpolation = ["both", "linear"]}
+	"0.7500" = {to = [-0.006, 0.035, 0.011], interpolation = ["both", "linear"]}
+	"0.7900" = {to = [-0.006, 0.034, 0.01], interpolation = ["both", "linear"]}
+	"0.8300" = {to = [-0.006, 0.034, 0.009], interpolation = ["both", "linear"]}
+	"0.8700" = {to = [-0.006, 0.033, 0.009], interpolation = ["both", "linear"]}
+	"0.9100" = {to = [-0.006, 0.034, 0.009], interpolation = ["both", "linear"]}
+	"0.9500" = {to = [-0.006, 0.034, 0.01], interpolation = ["both", "linear"]}
+	"1.0000" = {to = [-0.006, 0.035, 0.011], interpolation = ["both", "linear"]}
+	"1.0400" = {to = [-0.007, 0.036, 0.012], interpolation = ["both", "linear"]}
+	"1.0800" = {to = [-0.007, 0.038, 0.013], interpolation = ["both", "linear"]}
+	"1.1200" = {to = [-0.007, 0.039, 0.014], interpolation = ["both", "linear"]}
+	"1.1600" = {to = [-0.008, 0.04, 0.015], interpolation = ["both", "linear"]}
+	"1.2100" = {to = [-0.008, 0.041, 0.016], interpolation = ["both", "linear"]}
+	"1.2500" = {to = [-0.008, 0.041, 0.017], interpolation = ["both", "linear"]}
+	"1.2900" = {to = [-0.008, 0.042, 0.017], interpolation = ["both", "linear"]}
+	"1.3300" = {to = [-0.008, 0.041, 0.017], interpolation = ["both", "linear"]}
+	"1.3700" = {to = [-0.008, 0.041, 0.016], interpolation = ["both", "linear"]}
+	"1.4100" = {to = [-0.007, 0.04, 0.015], interpolation = ["both", "linear"]}
+	"1.4500" = {to = [-0.007, 0.038, 0.014], interpolation = ["both", "linear"]}
+	"1.5000" = {to = [-0.007, 0.037, 0.012], interpolation = ["both", "linear"]}
+	"1.5400" = {to = [-0.006, 0.036, 0.011], interpolation = ["both", "linear"]}
+	"1.5800" = {to = [-0.006, 0.035, 0.01], interpolation = ["both", "linear"]}
+	"1.6200" = {to = [-0.006, 0.034, 0.009], interpolation = ["both", "linear"]}
+	"1.6600" = {to = [-0.006, 0.033, 0.009], interpolation = ["both", "linear"]}
+[default.forearmRight.rotation]
+	"0.0000" = {to = [39.377, -15.816, 11.183], interpolation = ["both", "linear"]}
+	"0.0400" = {to = [40.045, -15.814, 11.198], interpolation = ["both", "linear"]}
+	"0.0800" = {to = [39.964, -16.014, 11.048], interpolation = ["both", "linear"]}
+	"0.1200" = {to = [40.781, -16.492, 11.111], interpolation = ["both", "linear"]}
+	"0.1600" = {to = [42.519, -17.175, 11.416], interpolation = ["both", "linear"]}
+	"0.2100" = {to = [44.865, -18.015, 11.891], interpolation = ["both", "linear"]}
+	"0.2500" = {to = [47.6, -18.955, 12.47], interpolation = ["both", "linear"]}
+	"0.2900" = {to = [50.588, -19.932, 13.122], interpolation = ["both", "linear"]}
+	"0.3300" = {to = [53.696, -20.873, 13.849], interpolation = ["both", "linear"]}
+	"0.3700" = {to = [56.77, -21.698, 14.684], interpolation = ["both", "linear"]}
+	"0.4100" = {to = [59.61, -22.321, 15.68], interpolation = ["both", "linear"]}
+	"0.4500" = {to = [61.765, -22.633, 16.826], interpolation = ["both", "linear"]}
+	"0.5000" = {to = [62.185, -22.51, 17.834], interpolation = ["both", "linear"]}
+	"0.5400" = {to = [60.876, -21.968, 18.529], interpolation = ["both", "linear"]}
+	"0.5800" = {to = [58.373, -21.095, 18.853], interpolation = ["both", "linear"]}
+	"0.6200" = {to = [55.198, -20.005, 18.789], interpolation = ["both", "linear"]}
+	"0.6600" = {to = [51.769, -18.827, 18.351], interpolation = ["both", "linear"]}
+	"0.7100" = {to = [48.407, -17.692, 17.578], interpolation = ["both", "linear"]}
+	"0.7500" = {to = [45.358, -16.719, 16.526], interpolation = ["both", "linear"]}
+	"0.7900" = {to = [42.795, -16.008, 15.263], interpolation = ["both", "linear"]}
+	"0.8300" = {to = [40.84, -15.633, 13.866], interpolation = ["both", "linear"]}
+	"0.8700" = {to = [39.713, -15.634, 12.456], interpolation = ["both", "linear"]}
+	"0.9100" = {to = [39.955, -15.984, 11.273], interpolation = ["both", "linear"]}
+	"0.9500" = {to = [41.414, -16.58, 10.36], interpolation = ["both", "linear"]}
+	"1.0000" = {to = [43.71, -17.333, 9.66], interpolation = ["both", "linear"]}
+	"1.0400" = {to = [46.573, -18.171, 9.118], interpolation = ["both", "linear"]}
+	"1.0800" = {to = [49.838, -19.031, 8.723], interpolation = ["both", "linear"]}
+	"1.1200" = {to = [53.364, -19.858, 8.495], interpolation = ["both", "linear"]}
+	"1.1600" = {to = [56.998, -20.61, 8.484], interpolation = ["both", "linear"]}
+	"1.2100" = {to = [60.55, -21.249, 8.755], interpolation = ["both", "linear"]}
+	"1.2500" = {to = [63.786, -21.734, 9.384], interpolation = ["both", "linear"]}
+	"1.2900" = {to = [66.165, -21.996, 10.368], interpolation = ["both", "linear"]}
+	"1.3300" = {to = [66.489, -21.888, 11.391], interpolation = ["both", "linear"]}
+	"1.3700" = {to = [64.685, -21.374, 12.222], interpolation = ["both", "linear"]}
+	"1.4100" = {to = [61.301, -20.538, 12.76], interpolation = ["both", "linear"]}
+	"1.4500" = {to = [56.966, -19.498, 12.977], interpolation = ["both", "linear"]}
+	"1.5000" = {to = [52.292, -18.393, 12.903], interpolation = ["both", "linear"]}
+	"1.5400" = {to = [47.824, -17.357, 12.603], interpolation = ["both", "linear"]}
+	"1.5800" = {to = [43.998, -16.515, 12.165], interpolation = ["both", "linear"]}
+	"1.6200" = {to = [41.093, -15.969, 11.682], interpolation = ["both", "linear"]}
+	"1.6600" = {to = [39.223, -15.807, 11.244], interpolation = ["both", "linear"]}
+
+[default.bicepLeft.position]
+	"0.0000" = {to = [0.0, 0.026, -0.009], interpolation = ["both", "linear"]}
+	"0.0400" = {to = [0.0, 0.026, -0.009], interpolation = ["both", "linear"]}
+	"0.0800" = {to = [0.0, 0.027, -0.01], interpolation = ["both", "linear"]}
+	"0.1200" = {to = [0.0, 0.028, -0.01], interpolation = ["both", "linear"]}
+	"0.1600" = {to = [0.0, 0.029, -0.012], interpolation = ["both", "linear"]}
+	"0.2100" = {to = [0.0, 0.03, -0.013], interpolation = ["both", "linear"]}
+	"0.2500" = {to = [0.0, 0.032, -0.014], interpolation = ["both", "linear"]}
+	"0.2900" = {to = [0.0, 0.033, -0.015], interpolation = ["both", "linear"]}
+	"0.3300" = {to = [0.0, 0.034, -0.016], interpolation = ["both", "linear"]}
+	"0.3700" = {to = [0.0, 0.034, -0.017], interpolation = ["both", "linear"]}
+	"0.4100" = {to = [0.0, 0.035, -0.017], interpolation = ["both", "linear"]}
+	"0.4500" = {to = [0.0, 0.034, -0.017], interpolation = ["both", "linear"]}
+	"0.5000" = {to = [0.0, 0.034, -0.016], interpolation = ["both", "linear"]}
+	"0.5400" = {to = [0.0, 0.033, -0.015], interpolation = ["both", "linear"]}
+	"0.5800" = {to = [0.0, 0.032, -0.014], interpolation = ["both", "linear"]}
+	"0.6200" = {to = [0.0, 0.03, -0.013], interpolation = ["both", "linear"]}
+	"0.6600" = {to = [0.0, 0.029, -0.012], interpolation = ["both", "linear"]}
+	"0.7100" = {to = [0.0, 0.028, -0.01], interpolation = ["both", "linear"]}
+	"0.7500" = {to = [0.0, 0.027, -0.009], interpolation = ["both", "linear"]}
+	"0.7900" = {to = [0.0, 0.026, -0.009], interpolation = ["both", "linear"]}
+	"0.8700" = {to = [0.0, 0.026, -0.009], interpolation = ["both", "linear"]}
+	"0.9100" = {to = [0.0, 0.027, -0.01], interpolation = ["both", "linear"]}
+	"0.9500" = {to = [0.0, 0.028, -0.01], interpolation = ["both", "linear"]}
+	"1.0000" = {to = [0.0, 0.029, -0.012], interpolation = ["both", "linear"]}
+	"1.0400" = {to = [0.0, 0.03, -0.013], interpolation = ["both", "linear"]}
+	"1.0800" = {to = [0.0, 0.032, -0.014], interpolation = ["both", "linear"]}
+	"1.1200" = {to = [0.0, 0.033, -0.015], interpolation = ["both", "linear"]}
+	"1.1600" = {to = [0.0, 0.034, -0.016], interpolation = ["both", "linear"]}
+	"1.2100" = {to = [0.0, 0.034, -0.017], interpolation = ["both", "linear"]}
+	"1.2500" = {to = [0.0, 0.035, -0.017], interpolation = ["both", "linear"]}
+	"1.2900" = {to = [0.0, 0.034, -0.017], interpolation = ["both", "linear"]}
+	"1.3300" = {to = [0.0, 0.034, -0.016], interpolation = ["both", "linear"]}
+	"1.3700" = {to = [0.0, 0.033, -0.015], interpolation = ["both", "linear"]}
+	"1.4100" = {to = [0.0, 0.032, -0.014], interpolation = ["both", "linear"]}
+	"1.4500" = {to = [0.0, 0.03, -0.013], interpolation = ["both", "linear"]}
+	"1.5000" = {to = [0.0, 0.029, -0.012], interpolation = ["both", "linear"]}
+	"1.5400" = {to = [0.0, 0.028, -0.01], interpolation = ["both", "linear"]}
+	"1.5800" = {to = [0.0, 0.027, -0.009], interpolation = ["both", "linear"]}
+	"1.6200" = {to = [0.0, 0.026, -0.009], interpolation = ["both", "linear"]}
+	"1.6600" = {to = [0.0, 0.026, -0.009], interpolation = ["both", "linear"]}
+[default.bicepLeft.rotation]
+	"0.0000" = {to = [-37.906, 5.936, 2.674], interpolation = ["both", "linear"]}
+	"0.0400" = {to = [-37.06, 6.018, 2.682], interpolation = ["both", "linear"]}
+	"0.0800" = {to = [-36.453, 6.036, 2.824], interpolation = ["both", "linear"]}
+	"0.1200" = {to = [-36.634, 6.323, 2.88], interpolation = ["both", "linear"]}
+	"0.1600" = {to = [-37.638, 6.837, 2.823], interpolation = ["both", "linear"]}
+	"0.2100" = {to = [-39.324, 7.473, 2.674], interpolation = ["both", "linear"]}
+	"0.2500" = {to = [-41.543, 8.151, 2.445], interpolation = ["both", "linear"]}
+	"0.2900" = {to = [-44.158, 8.818, 2.148], interpolation = ["both", "linear"]}
+	"0.3300" = {to = [-47.035, 9.435, 1.794], interpolation = ["both", "linear"]}
+	"0.3700" = {to = [-50.037, 9.973, 1.407], interpolation = ["both", "linear"]}
+	"0.4100" = {to = [-53.005, 10.408, 1.013], interpolation = ["both", "linear"]}
+	"0.4500" = {to = [-55.651, 10.694, 0.679], interpolation = ["both", "linear"]}
+	"0.5000" = {to = [-57.293, 10.737, 0.537], interpolation = ["both", "linear"]}
+	"0.5400" = {to = [-57.689, 10.563, 0.567], interpolation = ["both", "linear"]}
+	"0.5800" = {to = [-56.915, 10.242, 0.693], interpolation = ["both", "linear"]}
+	"0.6200" = {to = [-55.157, 9.809, 0.879], interpolation = ["both", "linear"]}
+	"0.6600" = {to = [-52.635, 9.275, 1.108], interpolation = ["both", "linear"]}
+	"0.7100" = {to = [-49.588, 8.656, 1.368], interpolation = ["both", "linear"]}
+	"0.7500" = {to = [-46.278, 7.983, 1.648], interpolation = ["both", "linear"]}
+	"0.7900" = {to = [-42.991, 7.3, 1.945], interpolation = ["both", "linear"]}
+	"0.8300" = {to = [-40.027, 6.663, 2.264], interpolation = ["both", "linear"]}
+	"0.8700" = {to = [-37.737, 6.154, 2.604], interpolation = ["both", "linear"]}
+	"0.9100" = {to = [-36.528, 5.902, 2.905], interpolation = ["both", "linear"]}
+	"0.9500" = {to = [-36.433, 5.88, 3.166], interpolation = ["both", "linear"]}
+	"1.0000" = {to = [-37.259, 6.021, 3.397], interpolation = ["both", "linear"]}
+	"1.0400" = {to = [-38.779, 6.286, 3.584], interpolation = ["both", "linear"]}
+	"1.0800" = {to = [-40.792, 6.644, 3.704], interpolation = ["both", "linear"]}
+	"1.1200" = {to = [-43.137, 7.065, 3.73], interpolation = ["both", "linear"]}
+	"1.1600" = {to = [-45.68, 7.513, 3.644], interpolation = ["both", "linear"]}
+	"1.2100" = {to = [-48.302, 7.951, 3.437], interpolation = ["both", "linear"]}
+	"1.2500" = {to = [-50.882, 8.349, 3.115], interpolation = ["both", "linear"]}
+	"1.2900" = {to = [-53.174, 8.651, 2.736], interpolation = ["both", "linear"]}
+	"1.3300" = {to = [-54.569, 8.738, 2.465], interpolation = ["both", "linear"]}
+	"1.3700" = {to = [-54.848, 8.628, 2.319], interpolation = ["both", "linear"]}
+	"1.4100" = {to = [-54.104, 8.38, 2.253], interpolation = ["both", "linear"]}
+	"1.4500" = {to = [-52.52, 8.034, 2.244], interpolation = ["both", "linear"]}
+	"1.5000" = {to = [-50.3, 7.614, 2.278], interpolation = ["both", "linear"]}
+	"1.5400" = {to = [-47.652, 7.151, 2.344], interpolation = ["both", "linear"]}
+	"1.5800" = {to = [-44.795, 6.685, 2.433], interpolation = ["both", "linear"]}
+	"1.6200" = {to = [-41.969, 6.261, 2.543], interpolation = ["both", "linear"]}
+	"1.6600" = {to = [-39.432, 5.927, 2.679], interpolation = ["both", "linear"]}
+
+[default.tail1.position]
+	"0.0000" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "linear"]}
+[default.tail1.rotation]
+	"0.0000" = {to = [9.139, 0.004, 0.001], interpolation = ["both", "linear"]}
+	"0.0400" = {to = [9.246, -0.001, -0.0], interpolation = ["both", "linear"]}
+	"0.0800" = {to = [9.348, 0.015, 0.004], interpolation = ["both", "linear"]}
+	"0.1200" = {to = [9.485, -0.008, -0.002], interpolation = ["both", "linear"]}
+	"0.1600" = {to = [9.602, -0.035, -0.009], interpolation = ["both", "linear"]}
+	"0.2100" = {to = [9.678, -0.058, -0.015], interpolation = ["both", "linear"]}
+	"0.2500" = {to = [9.717, -0.077, -0.02], interpolation = ["both", "linear"]}
+	"0.2900" = {to = [9.721, -0.094, -0.024], interpolation = ["both", "linear"]}
+	"0.3300" = {to = [9.688, -0.111, -0.028], interpolation = ["both", "linear"]}
+	"0.3700" = {to = [9.615, -0.126, -0.032], interpolation = ["both", "linear"]}
+	"0.4100" = {to = [9.501, -0.141, -0.036], interpolation = ["both", "linear"]}
+	"0.4500" = {to = [9.347, -0.146, -0.038], interpolation = ["both", "linear"]}
+	"0.5000" = {to = [9.164, -0.133, -0.034], interpolation = ["both", "linear"]}
+	"0.5400" = {to = [8.996, -0.113, -0.029], interpolation = ["both", "linear"]}
+	"0.5800" = {to = [8.865, -0.096, -0.025], interpolation = ["both", "linear"]}
+	"0.6200" = {to = [8.778, -0.079, -0.02], interpolation = ["both", "linear"]}
+	"0.6600" = {to = [8.737, -0.058, -0.015], interpolation = ["both", "linear"]}
+	"0.7100" = {to = [8.742, -0.034, -0.009], interpolation = ["both", "linear"]}
+	"0.7500" = {to = [8.793, -0.009, -0.002], interpolation = ["both", "linear"]}
+	"0.7900" = {to = [8.885, 0.015, 0.004], interpolation = ["both", "linear"]}
+	"0.8300" = {to = [9.016, 0.039, 0.01], interpolation = ["both", "linear"]}
+	"0.8700" = {to = [9.181, 0.057, 0.015], interpolation = ["both", "linear"]}
+	"0.9100" = {to = [9.348, 0.053, 0.014], interpolation = ["both", "linear"]}
+	"0.9500" = {to = [9.491, 0.049, 0.013], interpolation = ["both", "linear"]}
+	"1.0000" = {to = [9.6, 0.052, 0.013], interpolation = ["both", "linear"]}
+	"1.0400" = {to = [9.672, 0.057, 0.015], interpolation = ["both", "linear"]}
+	"1.0800" = {to = [9.71, 0.062, 0.016], interpolation = ["both", "linear"]}
+	"1.1200" = {to = [9.711, 0.066, 0.017], interpolation = ["both", "linear"]}
+	"1.1600" = {to = [9.676, 0.067, 0.017], interpolation = ["both", "linear"]}
+	"1.2100" = {to = [9.603, 0.067, 0.017], interpolation = ["both", "linear"]}
+	"1.2500" = {to = [9.492, 0.066, 0.017], interpolation = ["both", "linear"]}
+	"1.2900" = {to = [9.343, 0.067, 0.017], interpolation = ["both", "linear"]}
+	"1.3300" = {to = [9.164, 0.082, 0.021], interpolation = ["both", "linear"]}
+	"1.3700" = {to = [8.998, 0.089, 0.023], interpolation = ["both", "linear"]}
+	"1.4100" = {to = [8.867, 0.086, 0.022], interpolation = ["both", "linear"]}
+	"1.4500" = {to = [8.779, 0.079, 0.02], interpolation = ["both", "linear"]}
+	"1.5000" = {to = [8.735, 0.071, 0.018], interpolation = ["both", "linear"]}
+	"1.5400" = {to = [8.735, 0.063, 0.016], interpolation = ["both", "linear"]}
+	"1.5800" = {to = [8.778, 0.054, 0.014], interpolation = ["both", "linear"]}
+	"1.6200" = {to = [8.863, 0.046, 0.012], interpolation = ["both", "linear"]}
+	"1.6600" = {to = [8.987, 0.038, 0.01], interpolation = ["both", "linear"]}
+
+[default.tail2.position]
+	"0.0000" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "linear"]}
+[default.tail2.rotation]
+	"0.0000" = {to = [-0.651, 0.064, -0.012], interpolation = ["both", "linear"]}
+	"0.0400" = {to = [-0.041, -0.017, 0.003], interpolation = ["both", "linear"]}
+	"0.0800" = {to = [0.423, -0.001, -0.0], interpolation = ["both", "linear"]}
+	"0.1200" = {to = [1.058, -0.078, 0.015], interpolation = ["both", "linear"]}
+	"0.1600" = {to = [1.678, -0.22, 0.042], interpolation = ["both", "linear"]}
+	"0.2100" = {to = [2.136, -0.353, 0.068], interpolation = ["both", "linear"]}
+	"0.2500" = {to = [2.402, -0.461, 0.089], interpolation = ["both", "linear"]}
+	"0.2900" = {to = [2.491, -0.553, 0.107], interpolation = ["both", "linear"]}
+	"0.3300" = {to = [2.403, -0.638, 0.123], interpolation = ["both", "linear"]}
+	"0.3700" = {to = [2.131, -0.718, 0.139], interpolation = ["both", "linear"]}
+	"0.4100" = {to = [1.668, -0.791, 0.153], interpolation = ["both", "linear"]}
+	"0.4500" = {to = [1.01, -0.836, 0.161], interpolation = ["both", "linear"]}
+	"0.5000" = {to = [0.165, -0.795, 0.153], interpolation = ["both", "linear"]}
+	"0.5400" = {to = [-0.695, -0.706, 0.136], interpolation = ["both", "linear"]}
+	"0.5800" = {to = [-1.417, -0.614, 0.118], interpolation = ["both", "linear"]}
+	"0.6200" = {to = [-1.936, -0.522, 0.101], interpolation = ["both", "linear"]}
+	"0.6600" = {to = [-2.236, -0.414, 0.08], interpolation = ["both", "linear"]}
+	"0.7100" = {to = [-2.31, -0.285, 0.055], interpolation = ["both", "linear"]}
+	"0.7500" = {to = [-2.161, -0.143, 0.028], interpolation = ["both", "linear"]}
+	"0.7900" = {to = [-1.801, 0.006, -0.001], interpolation = ["both", "linear"]}
+	"0.8300" = {to = [-1.238, 0.156, -0.03], interpolation = ["both", "linear"]}
+	"0.8700" = {to = [-0.5, 0.288, -0.055], interpolation = ["both", "linear"]}
+	"0.9100" = {to = [0.326, 0.327, -0.063], interpolation = ["both", "linear"]}
+	"0.9500" = {to = [1.081, 0.324, -0.062], interpolation = ["both", "linear"]}
+	"1.0000" = {to = [1.685, 0.339, -0.065], interpolation = ["both", "linear"]}
+	"1.0400" = {to = [2.113, 0.371, -0.072], interpolation = ["both", "linear"]}
+	"1.0800" = {to = [2.364, 0.403, -0.078], interpolation = ["both", "linear"]}
+	"1.1200" = {to = [2.44, 0.426, -0.082], interpolation = ["both", "linear"]}
+	"1.1600" = {to = [2.34, 0.438, -0.085], interpolation = ["both", "linear"]}
+	"1.2100" = {to = [2.065, 0.441, -0.085], interpolation = ["both", "linear"]}
+	"1.2500" = {to = [1.613, 0.435, -0.084], interpolation = ["both", "linear"]}
+	"1.2900" = {to = [0.979, 0.439, -0.085], interpolation = ["both", "linear"]}
+	"1.3300" = {to = [0.161, 0.488, -0.094], interpolation = ["both", "linear"]}
+	"1.3700" = {to = [-0.687, 0.54, -0.104], interpolation = ["both", "linear"]}
+	"1.4100" = {to = [-1.403, 0.54, -0.104], interpolation = ["both", "linear"]}
+	"1.4500" = {to = [-1.926, 0.506, -0.098], interpolation = ["both", "linear"]}
+	"1.5000" = {to = [-2.237, 0.457, -0.088], interpolation = ["both", "linear"]}
+	"1.5400" = {to = [-2.336, 0.403, -0.078], interpolation = ["both", "linear"]}
+	"1.5800" = {to = [-2.226, 0.344, -0.066], interpolation = ["both", "linear"]}
+	"1.6200" = {to = [-1.908, 0.278, -0.054], interpolation = ["both", "linear"]}
+	"1.6600" = {to = [-1.387, 0.209, -0.04], interpolation = ["both", "linear"]}
+
+[default.tail3.position]
+	"0.0000" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "linear"]}
+[default.tail3.rotation]
+	"0.0000" = {to = [-2.584, 0.335, -0.018], interpolation = ["both", "linear"]}
+	"0.0400" = {to = [-1.358, 0.034, -0.002], interpolation = ["both", "linear"]}
+	"0.0800" = {to = [-0.512, -0.17, 0.009], interpolation = ["both", "linear"]}
+	"0.1200" = {to = [0.185, -0.174, 0.009], interpolation = ["both", "linear"]}
+	"0.1600" = {to = [1.214, -0.345, 0.018], interpolation = ["both", "linear"]}
+	"0.2100" = {to = [2.261, -0.623, 0.033], interpolation = ["both", "linear"]}
+	"0.2500" = {to = [3.051, -0.871, 0.047], interpolation = ["both", "linear"]}
+	"0.2900" = {to = [3.549, -1.062, 0.057], interpolation = ["both", "linear"]}
+	"0.3300" = {to = [3.791, -1.218, 0.065], interpolation = ["both", "linear"]}
+	"0.3700" = {to = [3.79, -1.36, 0.073], interpolation = ["both", "linear"]}
+	"0.4100" = {to = [3.538, -1.497, 0.08], interpolation = ["both", "linear"]}
+	"0.4500" = {to = [2.985, -1.631, 0.087], interpolation = ["both", "linear"]}
+	"0.5000" = {to = [1.996, -1.711, 0.092], interpolation = ["both", "linear"]}
+	"0.5400" = {to = [0.587, -1.633, 0.087], interpolation = ["both", "linear"]}
+	"0.5800" = {to = [-0.904, -1.454, 0.078], interpolation = ["both", "linear"]}
+	"0.6200" = {to = [-2.183, -1.27, 0.068], interpolation = ["both", "linear"]}
+	"0.6600" = {to = [-3.122, -1.084, 0.058], interpolation = ["both", "linear"]}
+	"0.7100" = {to = [-3.697, -0.862, 0.046], interpolation = ["both", "linear"]}
+	"0.7500" = {to = [-3.908, -0.593, 0.032], interpolation = ["both", "linear"]}
+	"0.7900" = {to = [-3.762, -0.288, 0.015], interpolation = ["both", "linear"]}
+	"0.8300" = {to = [-3.285, 0.036, -0.002], interpolation = ["both", "linear"]}
+	"0.8700" = {to = [-2.479, 0.364, -0.019], interpolation = ["both", "linear"]}
+	"0.9100" = {to = [-1.31, 0.644, -0.034], interpolation = ["both", "linear"]}
+	"0.9500" = {to = [0.043, 0.741, -0.04], interpolation = ["both", "linear"]}
+	"1.0000" = {to = [1.289, 0.756, -0.04], interpolation = ["both", "linear"]}
+	"1.0400" = {to = [2.287, 0.798, -0.043], interpolation = ["both", "linear"]}
+	"1.0800" = {to = [3.009, 0.867, -0.046], interpolation = ["both", "linear"]}
+	"1.1200" = {to = [3.472, 0.929, -0.05], interpolation = ["both", "linear"]}
+	"1.1600" = {to = [3.694, 0.971, -0.052], interpolation = ["both", "linear"]}
+	"1.2100" = {to = [3.676, 0.992, -0.053], interpolation = ["both", "linear"]}
+	"1.2500" = {to = [3.421, 0.995, -0.053], interpolation = ["both", "linear"]}
+	"1.2900" = {to = [2.892, 0.984, -0.053], interpolation = ["both", "linear"]}
+	"1.3300" = {to = [1.95, 0.989, -0.053], interpolation = ["both", "linear"]}
+	"1.3700" = {to = [0.588, 1.083, -0.058], interpolation = ["both", "linear"]}
+	"1.4100" = {to = [-0.885, 1.168, -0.062], interpolation = ["both", "linear"]}
+	"1.4500" = {to = [-2.157, 1.157, -0.062], interpolation = ["both", "linear"]}
+	"1.5000" = {to = [-3.104, 1.071, -0.057], interpolation = ["both", "linear"]}
+	"1.5400" = {to = [-3.706, 0.952, -0.051], interpolation = ["both", "linear"]}
+	"1.5800" = {to = [-3.966, 0.818, -0.044], interpolation = ["both", "linear"]}
+	"1.6200" = {to = [-3.894, 0.663, -0.035], interpolation = ["both", "linear"]}
+	"1.6600" = {to = [-3.497, 0.484, -0.026], interpolation = ["both", "linear"]}
+
+[default.hips.position]
+	"0.0000" = {to = [0.0, 0.725, 0.0], interpolation = ["both", "catmulrom"]}
+	"0.2200" = {to = [0.0, -0.95, -0.72], interpolation = ["both", "catmulrom"]}
+	"0.4100" = {to = [0.0, 3.201, -1.334], interpolation = ["both", "catmulrom"]}
+	"0.6400" = {to = [0.0, 3.04, -0.58], interpolation = ["both", "catmulrom"]}
+	"0.8300" = {to = [0.0, 0.725, 0.0], interpolation = ["both", "catmulrom"]}
+	"1.0400" = {to = [0.0, -1.04, -0.67], interpolation = ["both", "catmulrom"]}
+	"1.2500" = {to = [0.0, 3.201, -1.334], interpolation = ["both", "catmulrom"]}
+	"1.4700" = {to = [0.0, 3.08, -0.6], interpolation = ["both", "catmulrom"]}
+	"1.6600" = {to = [0.0, 0.725, 0.0], interpolation = ["both", "catmulrom"]}
+[default.hips.rotation]
+	"0.0000" = {to = [-15.738, -2.902, -2.172], interpolation = ["both", "linear"]}
+	"0.0400" = {to = [-15.546, -2.882, -2.136], interpolation = ["both", "linear"]}
+	"0.0800" = {to = [-15.453, -2.848, -2.029], interpolation = ["both", "linear"]}
+	"0.1200" = {to = [-15.596, -2.732, -1.871], interpolation = ["both", "linear"]}
+	"0.1600" = {to = [-15.968, -2.532, -1.671], interpolation = ["both", "linear"]}
+	"0.2100" = {to = [-16.517, -2.262, -1.438], interpolation = ["both", "linear"]}
+	"0.2500" = {to = [-17.191, -1.933, -1.181], interpolation = ["both", "linear"]}
+	"0.2900" = {to = [-17.939, -1.553, -0.907], interpolation = ["both", "linear"]}
+	"0.3300" = {to = [-18.708, -1.128, -0.625], interpolation = ["both", "linear"]}
+	"0.3700" = {to = [-19.443, -0.663, -0.342], interpolation = ["both", "linear"]}
+	"0.4100" = {to = [-20.085, -0.161, -0.062], interpolation = ["both", "linear"]}
+	"0.4500" = {to = [-20.568, 0.362, 0.212], interpolation = ["both", "linear"]}
+	"0.5000" = {to = [-20.781, 0.863, 0.486], interpolation = ["both", "linear"]}
+	"0.5400" = {to = [-20.697, 1.326, 0.758], interpolation = ["both", "linear"]}
+	"0.5800" = {to = [-20.349, 1.749, 1.021], interpolation = ["both", "linear"]}
+	"0.6200" = {to = [-19.79, 2.123, 1.268], interpolation = ["both", "linear"]}
+	"0.6600" = {to = [-19.084, 2.433, 1.493], interpolation = ["both", "linear"]}
+	"0.7100" = {to = [-18.303, 2.664, 1.688], interpolation = ["both", "linear"]}
+	"0.7500" = {to = [-17.52, 2.805, 1.843], interpolation = ["both", "linear"]}
+	"0.7900" = {to = [-16.802, 2.848, 1.949], interpolation = ["both", "linear"]}
+	"0.8300" = {to = [-16.219, 2.787, 1.996], interpolation = ["both", "linear"]}
+	"0.8700" = {to = [-15.837, 2.633, 1.978], interpolation = ["both", "linear"]}
+	"0.9100" = {to = [-15.714, 2.44, 1.896], interpolation = ["both", "linear"]}
+	"0.9500" = {to = [-15.848, 2.223, 1.756], interpolation = ["both", "linear"]}
+	"1.0000" = {to = [-16.204, 1.976, 1.569], interpolation = ["both", "linear"]}
+	"1.0400" = {to = [-16.732, 1.7, 1.343], interpolation = ["both", "linear"]}
+	"1.0800" = {to = [-17.382, 1.402, 1.087], interpolation = ["both", "linear"]}
+	"1.1200" = {to = [-18.101, 1.088, 0.806], interpolation = ["both", "linear"]}
+	"1.1600" = {to = [-18.835, 0.764, 0.507], interpolation = ["both", "linear"]}
+	"1.2100" = {to = [-19.535, 0.435, 0.196], interpolation = ["both", "linear"]}
+	"1.2500" = {to = [-20.15, 0.105, -0.121], interpolation = ["both", "linear"]}
+	"1.2900" = {to = [-20.618, -0.231, -0.436], interpolation = ["both", "linear"]}
+	"1.3300" = {to = [-20.829, -0.6, -0.737], interpolation = ["both", "linear"]}
+	"1.3700" = {to = [-20.75, -0.989, -1.022], interpolation = ["both", "linear"]}
+	"1.4100" = {to = [-20.409, -1.372, -1.288], interpolation = ["both", "linear"]}
+	"1.4500" = {to = [-19.856, -1.732, -1.532], interpolation = ["both", "linear"]}
+	"1.5000" = {to = [-19.151, -2.06, -1.749], interpolation = ["both", "linear"]}
+	"1.5400" = {to = [-18.357, -2.348, -1.93], interpolation = ["both", "linear"]}
+	"1.5800" = {to = [-17.542, -2.586, -2.067], interpolation = ["both", "linear"]}
+	"1.6200" = {to = [-16.773, -2.767, -2.152], interpolation = ["both", "linear"]}
+	"1.6600" = {to = [-16.117, -2.884, -2.175], interpolation = ["both", "linear"]}
+
+[default.tail4.position]
+	"0.0000" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "linear"]}
+[default.tail4.rotation]
+	"0.0000" = {to = [-5.943, 0.893, 0.104], interpolation = ["both", "linear"]}
+	"0.0400" = {to = [-4.766, 0.695, 0.081], interpolation = ["both", "linear"]}
+	"0.0800" = {to = [-2.798, 0.098, 0.011], interpolation = ["both", "linear"]}
+	"0.1200" = {to = [-2.21, -0.076, -0.009], interpolation = ["both", "linear"]}
+	"0.1600" = {to = [-1.798, 0.191, 0.022], interpolation = ["both", "linear"]}
+	"0.2100" = {to = [-0.399, 0.046, 0.005], interpolation = ["both", "linear"]}
+	"0.2500" = {to = [1.321, -0.378, -0.044], interpolation = ["both", "linear"]}
+	"0.2900" = {to = [2.714, -0.744, -0.086], interpolation = ["both", "linear"]}
+	"0.3300" = {to = [3.746, -0.985, -0.114], interpolation = ["both", "linear"]}
+	"0.3700" = {to = [4.536, -1.16, -0.135], interpolation = ["both", "linear"]}
+	"0.4100" = {to = [5.126, -1.323, -0.154], interpolation = ["both", "linear"]}
+	"0.4500" = {to = [5.494, -1.533, -0.178], interpolation = ["both", "linear"]}
+	"0.5000" = {to = [5.575, -1.88, -0.218], interpolation = ["both", "linear"]}
+	"0.5400" = {to = [4.762, -2.142, -0.249], interpolation = ["both", "linear"]}
+	"0.5800" = {to = [2.886, -2.078, -0.241], interpolation = ["both", "linear"]}
+	"0.6200" = {to = [0.587, -1.825, -0.212], interpolation = ["both", "linear"]}
+	"0.6600" = {to = [-1.526, -1.624, -0.188], interpolation = ["both", "linear"]}
+	"0.7100" = {to = [-3.221, -1.481, -0.172], interpolation = ["both", "linear"]}
+	"0.7500" = {to = [-4.465, -1.298, -0.151], interpolation = ["both", "linear"]}
+	"0.7900" = {to = [-5.268, -1.034, -0.12], interpolation = ["both", "linear"]}
+	"0.8300" = {to = [-5.663, -0.711, -0.082], interpolation = ["both", "linear"]}
+	"0.8700" = {to = [-5.659, -0.318, -0.037], interpolation = ["both", "linear"]}
+	"0.9100" = {to = [-5.149, 0.253, 0.029], interpolation = ["both", "linear"]}
+	"0.9500" = {to = [-3.799, 0.747, 0.087], interpolation = ["both", "linear"]}
+	"1.0000" = {to = [-1.908, 0.829, 0.096], interpolation = ["both", "linear"]}
+	"1.0400" = {to = [-0.059, 0.748, 0.087], interpolation = ["both", "linear"]}
+	"1.0800" = {to = [1.486, 0.765, 0.089], interpolation = ["both", "linear"]}
+	"1.1200" = {to = [2.715, 0.87, 0.101], interpolation = ["both", "linear"]}
+	"1.1600" = {to = [3.693, 0.975, 0.113], interpolation = ["both", "linear"]}
+	"1.2100" = {to = [4.453, 1.045, 0.121], interpolation = ["both", "linear"]}
+	"1.2500" = {to = [4.993, 1.085, 0.126], interpolation = ["both", "linear"]}
+	"1.2900" = {to = [5.32, 1.067, 0.124], interpolation = ["both", "linear"]}
+	"1.3300" = {to = [5.412, 0.944, 0.11], interpolation = ["both", "linear"]}
+	"1.3700" = {to = [4.686, 0.882, 0.102], interpolation = ["both", "linear"]}
+	"1.4100" = {to = [2.892, 1.103, 0.128], interpolation = ["both", "linear"]}
+	"1.4500" = {to = [0.63, 1.344, 0.156], interpolation = ["both", "linear"]}
+	"1.5000" = {to = [-1.463, 1.402, 0.163], interpolation = ["both", "linear"]}
+	"1.5400" = {to = [-3.129, 1.321, 0.153], interpolation = ["both", "linear"]}
+	"1.5800" = {to = [-4.368, 1.209, 0.14], interpolation = ["both", "linear"]}
+	"1.6200" = {to = [-5.216, 1.1, 0.128], interpolation = ["both", "linear"]}
+	"1.6600" = {to = [-5.688, 0.968, 0.112], interpolation = ["both", "linear"]}
+
+[default.forearmLeft.position]
+	"0.0000" = {to = [-0.006, -0.033, -0.009], interpolation = ["both", "linear"]}
+	"0.0400" = {to = [-0.006, -0.033, -0.009], interpolation = ["both", "linear"]}
+	"0.0800" = {to = [-0.006, -0.034, -0.009], interpolation = ["both", "linear"]}
+	"0.1200" = {to = [-0.006, -0.034, -0.01], interpolation = ["both", "linear"]}
+	"0.1600" = {to = [-0.007, -0.035, -0.011], interpolation = ["both", "linear"]}
+	"0.2100" = {to = [-0.007, -0.036, -0.012], interpolation = ["both", "linear"]}
+	"0.2500" = {to = [-0.007, -0.038, -0.013], interpolation = ["both", "linear"]}
+	"0.2900" = {to = [-0.008, -0.039, -0.014], interpolation = ["both", "linear"]}
+	"0.3300" = {to = [-0.008, -0.04, -0.015], interpolation = ["both", "linear"]}
+	"0.3700" = {to = [-0.008, -0.041, -0.016], interpolation = ["both", "linear"]}
+	"0.4100" = {to = [-0.008, -0.041, -0.017], interpolation = ["both", "linear"]}
+	"0.4500" = {to = [-0.008, -0.042, -0.017], interpolation = ["both", "linear"]}
+	"0.5000" = {to = [-0.008, -0.041, -0.017], interpolation = ["both", "linear"]}
+	"0.5400" = {to = [-0.008, -0.041, -0.016], interpolation = ["both", "linear"]}
+	"0.5800" = {to = [-0.008, -0.04, -0.015], interpolation = ["both", "linear"]}
+	"0.6200" = {to = [-0.008, -0.039, -0.014], interpolation = ["both", "linear"]}
+	"0.6600" = {to = [-0.007, -0.038, -0.013], interpolation = ["both", "linear"]}
+	"0.7100" = {to = [-0.007, -0.036, -0.012], interpolation = ["both", "linear"]}
+	"0.7500" = {to = [-0.007, -0.035, -0.011], interpolation = ["both", "linear"]}
+	"0.7900" = {to = [-0.006, -0.034, -0.01], interpolation = ["both", "linear"]}
+	"0.8300" = {to = [-0.006, -0.034, -0.009], interpolation = ["both", "linear"]}
+	"0.8700" = {to = [-0.006, -0.033, -0.009], interpolation = ["both", "linear"]}
+	"0.9100" = {to = [-0.006, -0.034, -0.009], interpolation = ["both", "linear"]}
+	"0.9500" = {to = [-0.006, -0.034, -0.01], interpolation = ["both", "linear"]}
+	"1.0000" = {to = [-0.007, -0.035, -0.011], interpolation = ["both", "linear"]}
+	"1.0400" = {to = [-0.007, -0.036, -0.012], interpolation = ["both", "linear"]}
+	"1.0800" = {to = [-0.007, -0.038, -0.013], interpolation = ["both", "linear"]}
+	"1.1200" = {to = [-0.008, -0.039, -0.014], interpolation = ["both", "linear"]}
+	"1.1600" = {to = [-0.008, -0.04, -0.015], interpolation = ["both", "linear"]}
+	"1.2100" = {to = [-0.008, -0.041, -0.016], interpolation = ["both", "linear"]}
+	"1.2500" = {to = [-0.008, -0.041, -0.017], interpolation = ["both", "linear"]}
+	"1.2900" = {to = [-0.008, -0.042, -0.017], interpolation = ["both", "linear"]}
+	"1.3300" = {to = [-0.008, -0.041, -0.017], interpolation = ["both", "linear"]}
+	"1.3700" = {to = [-0.008, -0.041, -0.016], interpolation = ["both", "linear"]}
+	"1.4100" = {to = [-0.008, -0.039, -0.015], interpolation = ["both", "linear"]}
+	"1.4500" = {to = [-0.007, -0.038, -0.014], interpolation = ["both", "linear"]}
+	"1.5000" = {to = [-0.007, -0.037, -0.012], interpolation = ["both", "linear"]}
+	"1.5400" = {to = [-0.007, -0.036, -0.011], interpolation = ["both", "linear"]}
+	"1.5800" = {to = [-0.006, -0.034, -0.01], interpolation = ["both", "linear"]}
+	"1.6200" = {to = [-0.006, -0.034, -0.009], interpolation = ["both", "linear"]}
+	"1.6600" = {to = [-0.006, -0.033, -0.009], interpolation = ["both", "linear"]}
+[default.forearmLeft.rotation]
+	"0.0000" = {to = [40.127, 15.665, -13.6], interpolation = ["both", "linear"]}
+	"0.0400" = {to = [40.767, 15.769, -12.878], interpolation = ["both", "linear"]}
+	"0.0800" = {to = [41.022, 16.074, -12.058], interpolation = ["both", "linear"]}
+	"0.1200" = {to = [42.129, 16.665, -11.32], interpolation = ["both", "linear"]}
+	"0.1600" = {to = [44.144, 17.44, -10.671], interpolation = ["both", "linear"]}
+	"0.2100" = {to = [46.826, 18.311, -10.111], interpolation = ["both", "linear"]}
+	"0.2500" = {to = [49.968, 19.206, -9.654], interpolation = ["both", "linear"]}
+	"0.2900" = {to = [53.402, 20.062, -9.33], interpolation = ["both", "linear"]}
+	"0.3300" = {to = [56.953, 20.831, -9.188], interpolation = ["both", "linear"]}
+	"0.3700" = {to = [60.423, 21.471, -9.29], interpolation = ["both", "linear"]}
+	"0.4100" = {to = [63.572, 21.942, -9.717], interpolation = ["both", "linear"]}
+	"0.4500" = {to = [65.916, 22.184, -10.52], interpolation = ["both", "linear"]}
+	"0.5000" = {to = [66.318, 22.108, -11.495], interpolation = ["both", "linear"]}
+	"0.5400" = {to = [64.69, 21.7, -12.358], interpolation = ["both", "linear"]}
+	"0.5800" = {to = [61.554, 21.008, -12.952], interpolation = ["both", "linear"]}
+	"0.6200" = {to = [57.516, 20.115, -13.25], interpolation = ["both", "linear"]}
+	"0.6600" = {to = [53.129, 19.124, -13.283], interpolation = ["both", "linear"]}
+	"0.7100" = {to = [48.872, 18.135, -13.11], interpolation = ["both", "linear"]}
+	"0.7500" = {to = [45.122, 17.244, -12.794], interpolation = ["both", "linear"]}
+	"0.7900" = {to = [42.128, 16.535, -12.408], interpolation = ["both", "linear"]}
+	"0.8300" = {to = [39.997, 16.078, -12.029], interpolation = ["both", "linear"]}
+	"0.8700" = {to = [38.829, 15.931, -11.762], interpolation = ["both", "linear"]}
+	"0.9100" = {to = [38.948, 16.116, -11.749], interpolation = ["both", "linear"]}
+	"0.9500" = {to = [40.162, 16.587, -11.972], interpolation = ["both", "linear"]}
+	"1.0000" = {to = [42.114, 17.284, -12.355], interpolation = ["both", "linear"]}
+	"1.0400" = {to = [44.544, 18.151, -12.833], interpolation = ["both", "linear"]}
+	"1.0800" = {to = [47.298, 19.122, -13.359], interpolation = ["both", "linear"]}
+	"1.1200" = {to = [50.264, 20.123, -13.911], interpolation = ["both", "linear"]}
+	"1.1600" = {to = [53.334, 21.076, -14.498], interpolation = ["both", "linear"]}
+	"1.2100" = {to = [56.374, 21.9, -15.159], interpolation = ["both", "linear"]}
+	"1.2500" = {to = [59.205, 22.508, -15.96], interpolation = ["both", "linear"]}
+	"1.2900" = {to = [61.384, 22.802, -16.942], interpolation = ["both", "linear"]}
+	"1.3300" = {to = [61.844, 22.626, -17.927], interpolation = ["both", "linear"]}
+	"1.3700" = {to = [60.495, 21.96, -18.668], interpolation = ["both", "linear"]}
+	"1.4100" = {to = [57.835, 20.918, -19.024], interpolation = ["both", "linear"]}
+	"1.4500" = {to = [54.419, 19.652, -18.961], interpolation = ["both", "linear"]}
+	"1.5000" = {to = [50.729, 18.335, -18.507], interpolation = ["both", "linear"]}
+	"1.5400" = {to = [47.164, 17.134, -17.73], interpolation = ["both", "linear"]}
+	"1.5800" = {to = [44.043, 16.196, -16.723], interpolation = ["both", "linear"]}
+	"1.6200" = {to = [41.61, 15.637, -15.592], interpolation = ["both", "linear"]}
+	"1.6600" = {to = [40.03, 15.545, -14.437], interpolation = ["both", "linear"]}
+
+[default.crest5L.position]
+	"0.0000" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "linear"]}
+[default.crest5L.rotation]
+	"0.0000" = {to = [-0.0, 0.0, -0.0], interpolation = ["both", "linear"]}
+
+[default.crest4L2.position]
+	"0.0000" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "linear"]}
+[default.crest4L2.rotation]
+	"0.0000" = {to = [-0.0, 0.0, -0.0], interpolation = ["both", "linear"]}
+
+[default.snout3.position]
+	"0.0000" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "linear"]}
+[default.snout3.rotation]
+	"0.0000" = {to = [-0.0, 0.0, -0.0], interpolation = ["both", "linear"]}
+
+[default.crest2L2.position]
+	"0.0000" = {to = [0.0, 0.0, 0.0], interpolation = ["both", "linear"]}
+[default.crest2L2.rotation]
+	"0.0000" = {to = [-0.0, 0.0, -0.0], interpolation = ["both", "linear"]}

@@ -2,6 +2,10 @@
 name = "default"
 
 [[steps]]
-id = "game:update_rotations"
-system = "rotate_entities"
+id = "game:update_animations"
+system = "animation"
+
+#[[steps]]
+#id = "game:update_rotations"
+#system = "rotate_entities"
 
