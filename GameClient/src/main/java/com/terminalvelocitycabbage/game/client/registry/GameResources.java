@@ -16,7 +16,7 @@ public class GameResources {
     public static Identifier ENGINE_RESOURCE_SOURCE;
 
     public static void registerResourceCategories(ResourceCategoryRegistrationEvent event) {
-        ResourceCategory.registerEngineDefaults(event.getRegistry());
+        ResourceCategory.registerEngineDefaults(event.getRegistry(), GameClient.ID);
     }
 
     public static void registerResourceSources(ResourceSourceRegistrationEvent event, GameClient gameClient) {
@@ -29,7 +29,7 @@ public class GameResources {
         CLIENT_RESOURCE_SOURCE = event.registerResourceSource(GameClient.ID, "client_main", clientSource);
 
         //Register engine resource source
-        ResourceSource engineSource = new MainSource(gameCLient, TerminalVelocityEngine.ID);
+        ResourceSource engineSource = new MainSource(gameClient, TerminalVelocityEngine.ID);
         engineSource.registerDefaultSources(TerminalVelocityEngine.ID);
         ENGINE_RESOURCE_SOURCE = event.registerResourceSource(TerminalVelocityEngine.ID, "engine_main", engineSource);
     }

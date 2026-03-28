@@ -13,7 +13,6 @@ import com.terminalvelocitycabbage.game.client.GameClient;
 import com.terminalvelocitycabbage.game.client.registry.GameRenderers;
 import com.terminalvelocitycabbage.templates.ecs.components.PitchYawRotationComponent;
 import com.terminalvelocitycabbage.game.common.ecs.components.PlayerCameraComponent;
-import com.terminalvelocitycabbage.game.common.ecs.components.PositionComponent;
 import com.terminalvelocitycabbage.templates.ecs.components.AnimationControllerComponent;
 import com.terminalvelocitycabbage.templates.ecs.components.DirectionalLightComponent;
 import com.terminalvelocitycabbage.templates.ecs.components.ModelComponent;
