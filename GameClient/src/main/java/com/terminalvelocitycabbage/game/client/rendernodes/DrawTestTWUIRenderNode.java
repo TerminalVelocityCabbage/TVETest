@@ -5,6 +5,7 @@ import com.terminalvelocitycabbage.engine.client.renderer.shader.ShaderProgramCo
 import com.terminalvelocitycabbage.engine.client.ui.UIElement;
 import com.terminalvelocitycabbage.engine.client.ui.UIRenderNode;
 import com.terminalvelocitycabbage.engine.client.ui.data.ElementDeclaration;
+import com.terminalvelocitycabbage.engine.event.Event;
 import com.terminalvelocitycabbage.engine.registry.Identifier;
 import com.terminalvelocitycabbage.game.client.registry.GameFonts;
 import com.terminalvelocitycabbage.game.client.registry.GameTextures;
@@ -19,8 +20,8 @@ public class DrawTestTWUIRenderNode extends UIRenderNode {
     }
 
     @Override
-    protected Identifier[] getInterestedEvents() {
-        return new Identifier[] { UIClickEvent.EVENT, UIScrollEvent.EVENT, UICharInputEvent.EVENT };
+    protected Class<? extends Event>[] getInterestedEvents() {
+        return new Class[] { UIClickEvent.class, UIScrollEvent.class, UICharInputEvent.class };
     }
 
     @Override

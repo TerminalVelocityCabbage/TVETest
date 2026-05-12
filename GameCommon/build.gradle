@@ -9,4 +9,5 @@ apply from: file('../TerminalVelocityEngine2/gradleScripts/dependenciesCommon.gr
 
 dependencies {
     api project(':TerminalVelocityEngine2')
+    api project(':TVEvents')
 }
