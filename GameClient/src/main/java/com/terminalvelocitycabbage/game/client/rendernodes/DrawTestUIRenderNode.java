@@ -7,6 +7,7 @@ import com.terminalvelocitycabbage.engine.client.ui.UIElement;
 import com.terminalvelocitycabbage.engine.client.ui.UIRenderNode;
 import com.terminalvelocitycabbage.engine.client.ui.data.*;
 import com.terminalvelocitycabbage.engine.client.ui.data.configs.*;
+import com.terminalvelocitycabbage.engine.event.Event;
 import com.terminalvelocitycabbage.engine.registry.Identifier;
 import com.terminalvelocitycabbage.engine.util.Color;
 import com.terminalvelocitycabbage.game.client.registry.GameFonts;
@@ -22,8 +23,8 @@ public class DrawTestUIRenderNode extends UIRenderNode {
     }
 
     @Override
-    protected Identifier[] getInterestedEvents() {
-        return new Identifier[] { UIClickEvent.EVENT, UIScrollEvent.EVENT };
+    protected Class<? extends Event>[] getInterestedEvents() {
+        return new Class[] { UIClickEvent.class, UIScrollEvent.class };
     }
 
     @Override

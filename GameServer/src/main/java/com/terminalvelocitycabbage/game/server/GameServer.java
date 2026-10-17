@@ -1,7 +1,7 @@
 package com.terminalvelocitycabbage.game.server;
 
 import com.terminalvelocitycabbage.engine.debug.Log;
-import com.terminalvelocitycabbage.engine.event.EventDispatcher;
+import com.terminalvelocitycabbage.tvevents.EventBus;
 import com.terminalvelocitycabbage.engine.filesystem.resources.ResourceCategory;
 import com.terminalvelocitycabbage.engine.filesystem.resources.ResourceSource;
 import com.terminalvelocitycabbage.engine.filesystem.sources.MainSource;
@@ -39,10 +39,12 @@ public class GameServer extends ServerBase {
     }
 
     @Override
-    public void registerEventListeners(EventDispatcher dispatcher) {
-        getEventDispatcher().listenToEvent(ServerLifecycleEvent.PRE_BIND, (event -> onPreBind((ServerLifecycleEvent) event)));
-        getEventDispatcher().listenToEvent(ResourceSourceRegistrationEvent.EVENT, (event -> registerResourceSources((ResourceSourceRegistrationEvent) event)));
-        getEventDispatcher().listenToEvent(PacketRegistryEvent.EVENT, event -> registerPackets((PacketRegistryEvent) event));
+    public void registerEventListeners(EventBus bus) {
+        bus.subscribe(ServerLifecycleEvent.class).handle(event -> {
+            if (event.getIdentifier().equals(ServerLifecycleEvent.PRE_BIND)) onPreBind(event);
+        });
+        bus.subscribe(ResourceSourceRegistrationEvent.class).handle(this::registerResourceSources);
+        bus.subscribe(PacketRegistryEvent.class).handle(this::registerPackets);
     }
 
     @Override

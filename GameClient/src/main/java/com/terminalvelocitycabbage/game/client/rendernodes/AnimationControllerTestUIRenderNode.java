@@ -5,6 +5,7 @@ import com.terminalvelocitycabbage.engine.client.renderer.shader.ShaderProgramCo
 import com.terminalvelocitycabbage.engine.client.ui.UI;
 import com.terminalvelocitycabbage.engine.client.ui.UIRenderNode;
 import com.terminalvelocitycabbage.engine.debug.Log;
+import com.terminalvelocitycabbage.engine.event.Event;
 import com.terminalvelocitycabbage.engine.registry.Identifier;
 import com.terminalvelocitycabbage.engine.util.Color;
 import com.terminalvelocitycabbage.game.client.GameClient;
@@ -24,8 +25,8 @@ public class AnimationControllerTestUIRenderNode extends UIRenderNode {
     }
 
     @Override
-    protected Identifier[] getInterestedEvents() {
-        return new Identifier[] { UIClickEvent.EVENT, UIScrollEvent.EVENT, UICharInputEvent.EVENT };
+    protected Class<? extends Event>[] getInterestedEvents() {
+        return new Class[] { UIClickEvent.class, UIScrollEvent.class, UICharInputEvent.class };
     }
 
     @Override

@@ -2,7 +2,7 @@ package com.terminalvelocitycabbage.game.client;
 
 import com.terminalvelocitycabbage.engine.client.ClientBase;
 import com.terminalvelocitycabbage.engine.client.window.WindowProperties;
-import com.terminalvelocitycabbage.engine.event.EventDispatcher;
+import com.terminalvelocitycabbage.tvevents.EventBus;
 import com.terminalvelocitycabbage.game.client.registry.*;
 import com.terminalvelocitycabbage.game.common.GameCommon;
 import com.terminalvelocitycabbage.templates.events.*;
@@ -21,23 +21,23 @@ public class GameClient extends ClientBase {
     }
 
     @Override
-    public void registerEventListeners(EventDispatcher dispatcher) {
-        getEventDispatcher().listenToEvent(ResourceCategoryRegistrationEvent.EVENT, event -> GameResources.registerResourceCategories((ResourceCategoryRegistrationEvent) event));
-        getEventDispatcher().listenToEvent(ResourceSourceRegistrationEvent.EVENT, event -> GameResources.registerResourceSources((ResourceSourceRegistrationEvent) event, this));
-        getEventDispatcher().listenToEvent(InputHandlerRegistrationEvent.EVENT, event -> GameInput.init((InputHandlerRegistrationEvent) event));
-        getEventDispatcher().listenToEvent(EntityComponentRegistrationEvent.EVENT, event -> GameEntities.registerComponents((EntityComponentRegistrationEvent) event));
-        getEventDispatcher().listenToEvent(EntitySystemRegistrationEvent.EVENT, event -> GameEntities.createSystems((EntitySystemRegistrationEvent) event));
-        getEventDispatcher().listenToEvent(EntityTemplateRegistrationEvent.EVENT, event -> GameEntities.createEntityTemplates((EntityTemplateRegistrationEvent) event));
-        getEventDispatcher().listenToEvent(RoutineRegistrationEvent.EVENT, event -> GameRoutines.init((RoutineRegistrationEvent) event));
-        getEventDispatcher().listenToEvent(RendererRegistrationEvent.EVENT, event -> GameRenderers.init((RendererRegistrationEvent) event));
-        getEventDispatcher().listenToEvent(FontRegistrationEvent.EVENT, event -> GameFonts.registerFonts((FontRegistrationEvent) event));
-        getEventDispatcher().listenToEvent(SceneRegistrationEvent.EVENT, event -> GameScenes.init((SceneRegistrationEvent) event));
-        getEventDispatcher().listenToEvent(LocalizedTextKeyRegistrationEvent.EVENT, event -> GameLocalizedTexts.registerLocalizedTextKeys((LocalizedTextKeyRegistrationEvent) event));
-        getEventDispatcher().listenToEvent(MeshRegistrationEvent.EVENT, event -> GameMeshes.init((MeshRegistrationEvent) event));
-        getEventDispatcher().listenToEvent(AnimationConfigurationEvent.EVENT, event -> GameModels.initAnimations((AnimationConfigurationEvent) event));
-        getEventDispatcher().listenToEvent(ModelConfigRegistrationEvent.EVENT, event -> GameModels.init((ModelConfigRegistrationEvent) event));
-        getEventDispatcher().listenToEvent(GameStateRegistrationEvent.EVENT, event -> GameStates.registerStates((GameStateRegistrationEvent) event));
-        getEventDispatcher().listenToEvent(ConfigureTexturesEvent.EVENT, event -> GameTextures.cacheTextures((ConfigureTexturesEvent) event));
+    public void registerEventListeners(EventBus bus) {
+        bus.subscribe(ResourceCategoryRegistrationEvent.class).handle(GameResources::registerResourceCategories);
+        bus.subscribe(ResourceSourceRegistrationEvent.class).handle(event -> GameResources.registerResourceSources(event, this));
+        bus.subscribe(InputHandlerRegistrationEvent.class).handle(GameInput::init);
+        bus.subscribe(EntityComponentRegistrationEvent.class).handle(GameEntities::registerComponents);
+        bus.subscribe(EntitySystemRegistrationEvent.class).handle(GameEntities::createSystems);
+        bus.subscribe(EntityTemplateRegistrationEvent.class).handle(GameEntities::createEntityTemplates);
+        bus.subscribe(RoutineRegistrationEvent.class).handle(GameRoutines::init);
+        bus.subscribe(RendererRegistrationEvent.class).handle(GameRenderers::init);
+        bus.subscribe(FontRegistrationEvent.class).handle(GameFonts::registerFonts);
+        bus.subscribe(SceneRegistrationEvent.class).handle(GameScenes::init);
+        bus.subscribe(LocalizedTextKeyRegistrationEvent.class).handle(GameLocalizedTexts::registerLocalizedTextKeys);
+        bus.subscribe(MeshRegistrationEvent.class).handle(GameMeshes::init);
+        bus.subscribe(AnimationConfigurationEvent.class).handle(GameModels::initAnimations);
+        bus.subscribe(ModelConfigRegistrationEvent.class).handle(GameModels::init);
+        bus.subscribe(GameStateRegistrationEvent.class).handle(GameStates::registerStates);
+        bus.subscribe(ConfigureTexturesEvent.class).handle(GameTextures::cacheTextures);
     }
 
     @Override
