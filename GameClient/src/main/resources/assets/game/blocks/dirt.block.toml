@@ -1,0 +1,6 @@
+[metadata]
+    parent = "solid"
+    lang = "blocks.dirt_block"
+
+[textures]
+    all = "dirt"

@@ -1,0 +1,11 @@
+[[cube]]
+from = [0, 0, 0]
+to = [16, 16, 16]
+faces = {
+    up = { texture = "#up", cull = "up"},
+    down = { texture = "#down", cull = "down"},
+    north = { texture = "#north", cull = "north"},
+    south = { texture = "#south", cull = "south"},
+    east = { texture = "#east", cull = "east"},
+    west = { texture = "#west", cull = "west"},
+}

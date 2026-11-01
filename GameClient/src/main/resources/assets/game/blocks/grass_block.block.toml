@@ -1,0 +1,8 @@
+[metadata]
+    parent = "vegitated_block"
+    lang = "blocks.grass_block"
+
+[textures]
+    top = "grass_top"
+    sides = "grass_sides"
+    bottom = "dirt"

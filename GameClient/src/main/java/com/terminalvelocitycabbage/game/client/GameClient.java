@@ -2,14 +2,19 @@ package com.terminalvelocitycabbage.game.client;
 
 import com.terminalvelocitycabbage.engine.client.ClientBase;
 import com.terminalvelocitycabbage.engine.client.window.WindowProperties;
-import com.terminalvelocitycabbage.tvevents.EventBus;
+import com.terminalvelocitycabbage.engine.registry.Registry;
+import com.terminalvelocitycabbage.game.client.data.BlockConfig;
+import com.terminalvelocitycabbage.game.client.events.BlockConfigRegistrationEvent;
 import com.terminalvelocitycabbage.game.client.registry.*;
 import com.terminalvelocitycabbage.game.common.GameCommon;
 import com.terminalvelocitycabbage.templates.events.*;
+import com.terminalvelocitycabbage.tvevents.EventBus;
 
 public class GameClient extends ClientBase {
 
     public static final String ID = GameCommon.ID;
+
+    public static final Registry<BlockConfig> BLOCK_CONFIGS = new Registry<>();
 
     public GameClient() {
         super(ID, 50);
@@ -36,6 +41,8 @@ public class GameClient extends ClientBase {
         bus.subscribe(MeshRegistrationEvent.class).handle(GameMeshes::init);
         bus.subscribe(AnimationConfigurationEvent.class).handle(GameModels::initAnimations);
         bus.subscribe(ModelConfigRegistrationEvent.class).handle(GameModels::init);
+        bus.subscribe(ModelConfigRegistrationEvent.class).handle((event) -> bus.publish(new BlockConfigRegistrationEvent(BlockConfigRegistrationEvent.EVENT, BLOCK_CONFIGS)).now());
+        bus.subscribe(BlockConfigRegistrationEvent.class).handle(GameBlocks::init);
         bus.subscribe(GameStateRegistrationEvent.class).handle(GameStates::registerStates);
         bus.subscribe(ConfigureTexturesEvent.class).handle(GameTextures::cacheTextures);
     }

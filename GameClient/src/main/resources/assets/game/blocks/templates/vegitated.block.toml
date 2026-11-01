@@ -1,0 +1,11 @@
+[metadata]
+    parent = "cube"
+
+[textures]
+    particle = "#top"
+    up = "#top"
+    down = "#bottom"
+    north = "#sides"
+    east = "#sides"
+    south = "#sides"
+    west = "#sides"
